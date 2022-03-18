@@ -33,9 +33,8 @@ class ComingSoon {
             'template_msg_invalid' => __('There was an error with your submission and you were not subscribed. Please try again with a valid email address.', 'newfold-module-coming-soon'),
         );
         $this->args = wp_parse_args( $container->has('comingsoon') ? $container['comingsoon'] : [], $defaults );
-        // var_dump($this->args);
         
-        //actions
+        // set up all actions
         \add_action( 'admin_notices', array( $this, 'notice_display' ) );
         \add_action( 'admin_bar_menu', array( $this, 'add_tool_bar_item' ), 100 );
         \add_action( 'template_redirect', array( $this, 'maybe_load_template' ) );
@@ -76,7 +75,7 @@ class ComingSoon {
                 $cs_args = array(
                     'id'    => $this->args['admin_screen_id'] . '-coming_soon',
                     'href'  => esc_url( $this->args['admin_app_url'] ),
-                    'title' => '<div class="' . $this->args['admin_screen_id'] . '-coming_soon-highlight">' . $this->args['admin_bar_text'] . '</div>',
+                    'title' => '<div class="coming_soon-highlight">' . $this->args['admin_bar_text'] . '</div>',
                     'meta'  => array(
                         'title' => esc_attr__( 'Launch Your Site', 'newfold-module-coming-soon' ),
                     ),
