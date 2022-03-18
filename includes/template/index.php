@@ -26,7 +26,7 @@
 				<div class="subscription_widget">
 					<h1><?php echo wp_kses_post( $args['template_h1'] ); ?></h1>
 					<h2><?php echo wp_kses_post( $args['template_h2'] ); ?></h2>
-					<?php if ( true || class_exists( 'Jetpack' ) && Jetpack::is_module_active( 'subscriptions' ) ) : ?>
+					<?php if ( class_exists( 'Jetpack' ) && Jetpack::is_module_active( 'subscriptions' ) ) : ?>
 						<div id="subscribe-text">
 							<p><?php esc_html_e( $args['template_p'] ); ?></p>
 						</div>
