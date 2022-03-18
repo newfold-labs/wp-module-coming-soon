@@ -22,14 +22,24 @@ Coming Soon functionality for WordPress.
  ```bash
  composer require newfold-labs/wp-module-coming-soon
  ```
-### 3. Set strings and other defaults via container.
+### 3. Set strings and other options via the `comingsoon` index in a [container](https://github.com/newfold-labs/wp-module-loader#container-container-).
 
  ```php
- $container = new Container();
- // Set a value
- $container->set('comingsoon', [
- 	'option_name' => 'mm_coming_soon',
+ use NewfoldLabs\WP\ModuleLoader\Container;
+ use function NewfoldLabs\WP\ModuleLoader\container as setContainer;
+ 
+ $nfd_module_container = new Container();
+ 
+ // Set a value - scoped to comingsoon index
+ $nfd_module_container->set('comingsoon', [
+    'option_name'     => 'mm_coming_soon',
+    'admin_screen_id' => 'app',
+    'admin_app_url'   => admin_url( 'admin.php?page=app#/home' ),
+    'template_h1'     => __('Coming Soon!', 'text-domain'),
+    ...
  ]);
+ // assign container
+ setContainer( $nfd_module_container );
  ```
 
 [More on NewFold WordPress Modules](https://github.com/newfold-labs/wp-module-loader)
