@@ -21,6 +21,7 @@ class ComingSoon {
             'admin_app_url'        => \admin_url( 'admin.php?page=newfold' ),
             'admin_notice_text'    => __('Your site has `Coming Soon` mode active.', 'newfold-module-coming-soon'),
             'admin_bar_text'       => __('Coming Soon Active', 'newfold-module-coming-soon'),
+            'template_content'     => false,
             'template_page_title'  => __('Coming Soon!', 'newfold-module-coming-soon'),
             'template_h1'          => __('Coming Soon!', 'newfold-module-coming-soon'),
             'template_h2'          => __('A New WordPress Site!', 'newfold-module-coming-soon'),

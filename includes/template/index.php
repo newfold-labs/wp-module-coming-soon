@@ -23,6 +23,9 @@
 	<body>
 		<div id="wrap">
 			<main class="content">
+				<?php if ( isset( $args['template_content'] ) && is_readable( $args['template_content'] ) ) : // check for custom template_constant ?>
+					<?php load_template( $args['template_content'], true, $args ); ?>
+				<?php else : // no template provided use default ?>
 				<div class="subscription_widget">
 					<h1><?php echo wp_kses_post( $args['template_h1'] ); ?></h1>
 					<h2><?php echo wp_kses_post( $args['template_h2'] ); ?></h2>
@@ -65,8 +68,9 @@
 							};
 							<?php include 'script.js'; ?>
 						</script>
-						<?php endif; ?>
-					</div>
+					<?php endif; // end subscribe form ?>
+				</div>
+				<?php endif; // end template ?>
 			</main>
 		</div>
 		<footer>
