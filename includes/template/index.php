@@ -14,7 +14,7 @@
 		<title><?php esc_html_e( $args['template_page_title'] ); ?></title>
 		<script src="<?php echo esc_url( includes_url( 'js/jquery/jquery.js' ) ); //phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedScript ?>"></script>
 		<style type="text/css">
-			<?php include 'default.css'; ?>
+			<?php echo file_get_contents( 'default.css', true ); ?>
 		</style>
 		<?php if ( isset( $args['template_styles'] ) ) : ?>
 			<link rel="stylesheet" href="<?php echo esc_url( $args['template_styles'] ); //phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedScript  ?>" />
@@ -66,7 +66,7 @@
 							var ajaxscript = { 
 								ajax_url: '<?php echo esc_url( admin_url() ); ?>admin-ajax.php'
 							};
-							<?php include 'script.js'; ?>
+							<?php echo file_get_contents( 'script.js', true ); ?>
 						</script>
 					<?php endif; // end subscribe form ?>
 				</div>
