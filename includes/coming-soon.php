@@ -21,17 +21,19 @@ class ComingSoon {
             'admin_app_url'        => \admin_url( 'admin.php?page=newfold' ),
             'admin_notice_text'    => __('Your site has `Coming Soon` mode active.', 'newfold-module-coming-soon'),
             'admin_bar_text'       => __('Coming Soon Active', 'newfold-module-coming-soon'),
-            'template_content'     => false,
             'template_page_title'  => __('Coming Soon!', 'newfold-module-coming-soon'),
+            'template_styles'      => false,
+            'template_content'     => false,
             'template_h1'          => __('Coming Soon!', 'newfold-module-coming-soon'),
             'template_h2'          => __('A New WordPress Site!', 'newfold-module-coming-soon'),
             'template_p'           => __('Be the first to know when we launch, enter your email address and we will let you know when we go live and any future website updates we have.', 'newfold-module-coming-soon'),
-            'template_email_label' => __('Email', 'newfold-module-coming-soon'),
-            'template_email_ph'    => __('Enter your email address', 'newfold-module-coming-soon'),
-            'template_subscribe'   => __('Subscribe', 'newfold-module-coming-soon'),
             'template_msg_success' => __('Thank you, please check your email to confirm your subscription.', 'newfold-module-coming-soon'),
             'template_msg_active'  => __('Your email address is already subscribed to this website. Stay tuned to your inbox for our updates or try a different email address.', 'newfold-module-coming-soon'),
             'template_msg_invalid' => __('There was an error with your submission and you were not subscribed. Please try again with a valid email address.', 'newfold-module-coming-soon'),
+            'template_email_label' => __('Email', 'newfold-module-coming-soon'),
+            'template_email_ph'    => __('Enter your email address', 'newfold-module-coming-soon'),
+            'template_subscribe'   => __('Subscribe', 'newfold-module-coming-soon'),
+            'template_footer_t'    => __('Is this your website? Log in to WordPress to launch your site.', 'newfold-module-coming-soon'),
         );
         $this->args = wp_parse_args( $container->has('comingsoon') ? $container['comingsoon'] : [], $defaults );
         
