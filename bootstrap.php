@@ -11,16 +11,16 @@ if ( function_exists( 'add_action' ) ) {
 		function () {
 
 			register(
-				[
+				array(
 					'name'     => 'coming-soon',
 					'label'    => __( 'Coming Soon', 'newfold' ),
 					'callback' => function ( Container $container ) {
-						require __DIR__ . '/includes/coming-soon.php';
-						$comingSoon = new ComingSoon($container);
+						include __DIR__ . '/includes/coming-soon.php';
+						$coming_soon = new ComingSoon( $container );
 					},
 					'isActive' => true,
 					'isHidden' => true,
-				]
+				)
 			);
 
 		}
