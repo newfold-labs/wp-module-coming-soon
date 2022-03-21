@@ -133,6 +133,13 @@ class ComingSoon {
 
                 // Initialize JetPack_Subscriptions
                 $jetpack = \Jetpack_Subscriptions::init();
+
+                // ensure jetpack subscribe is callable, bail if not.
+                if ( ! is_callable( array('Jetpack_Subscriptions', 'subscribe') ) ) {
+                    $a_response['message'] = __( 'Jetpack encountered an error with the subscription', 'newfold-module-coming-soon' );
+                    $a_response['status'] = 'jetpack-error';
+                }
+                
                 // Get JetPack response and subscribe email if response is true
                 $response = $jetpack->subscribe(
                     $email,
