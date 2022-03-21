@@ -120,7 +120,6 @@ class ComingSoon {
      */
     public static function coming_soon_content($args) {
         $coming_soon_template = __DIR__ . '/template/index.php';
-        // require $coming_soon_template;
         load_template( $coming_soon_template, true, $args );
     }
 

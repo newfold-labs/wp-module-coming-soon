@@ -32,7 +32,8 @@
       "NewFoldLabs\\WP\\Module\\ComingSoon\\": "includes"
     },
     "files": [
-      "bootstrap.php"
+      "bootstrap.php",
+      "includes/coming-soon.php"
     ]
   }
 }
