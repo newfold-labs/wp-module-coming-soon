@@ -50,6 +50,16 @@ class ComingSoon {
      */
     public function notice_display() {
         $screen = get_current_screen();
+        $allowed_notice_html = array(
+            // formatting
+            'strong' => array(),
+            'em'     => array(),
+            // and links
+            'a'      => array(
+                'href'  => array(),
+                'title' => array()
+            )
+        );
         if (
                 'true' === get_option( esc_attr( $this->args['option_name'] ), 'false' ) && //coming soon is active
                 false === strpos( $screen->id, $this->args['admin_screen_id'] ) && // not on our app screen
@@ -57,7 +67,7 @@ class ComingSoon {
             ) {
             ?>
             <div class='notice notice-warning'>
-                <p><?php echo $this->args['admin_notice_text']; ?></p>
+                <p><?php echo wp_kses( $this->args['admin_notice_text'], $allowed_notice_html ); ?></p>
             </div>
             <?php
         }
@@ -76,7 +86,7 @@ class ComingSoon {
                 $cs_args = array(
                     'id'    => $this->args['admin_screen_id'] . '-coming_soon',
                     'href'  => esc_url( $this->args['admin_app_url'] ),
-                    'title' => '<div class="coming_soon-highlight">' . $this->args['admin_bar_text'] . '</div>',
+                    'title' => '<div class="coming_soon-highlight">' . esc_html( $this->args['admin_bar_text'] ) . '</div>',
                     'meta'  => array(
                         'title' => esc_attr__( 'Launch Your Site', 'newfold-module-coming-soon' ),
                     ),
@@ -139,7 +149,7 @@ class ComingSoon {
                     $a_response['message'] = __( 'Jetpack encountered an error with the subscription', 'newfold-module-coming-soon' );
                     $a_response['status'] = 'jetpack-error';
                 }
-                
+
                 // Get JetPack response and subscribe email if response is true
                 $response = $jetpack->subscribe(
                     $email,
