@@ -1,7 +1,7 @@
 <?php
 namespace NewfoldLabs\WP\Module;
 use NewfoldLabs\WP\ModuleLoader\Container;
-
+use function NewfoldLabs\WP\ModuleLoader\container;
 /**
  * This class adds a coming soon page functionality.
  *
@@ -37,6 +37,10 @@ class ComingSoon {
         );
         $this->args = wp_parse_args( $container->has('comingsoon') ? $container['comingsoon'] : [], $defaults );
         
+        if ( false !== $this->args['template_styles'] && isset( $container['plugin'] ) ) {
+            // add plugin version to plugin styles file for cache busting
+            $this->args['template_styles'] = $this->args['template_styles'] . '?v=' . container()->plugin()->version;
+        }
         // set up all actions
         \add_action( 'admin_notices', array( $this, 'notice_display' ) );
         \add_action( 'admin_bar_menu', array( $this, 'add_tool_bar_item' ), 100 );
