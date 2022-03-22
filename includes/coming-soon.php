@@ -107,7 +107,7 @@ class ComingSoon {
 	 * Load the coming soon page, if necessary.
 	 */
 	public function maybe_load_template() {
-		if ( ! is_user_logged_in() || 'coming_soon' === $_GET['preview'] ) {
+		if ( ! is_user_logged_in() || 'preview=coming_soon' === $_SERVER['QUERY_STRING'] ) {
 			$coming_soon = get_option( esc_attr( $this->args['option_name'] ), 'false' );
 			if ( 'true' === $coming_soon ) {
 				$this->coming_soon_content( $this->args );
