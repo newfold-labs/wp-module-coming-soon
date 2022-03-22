@@ -156,6 +156,8 @@ class ComingSoon {
 				if ( ! is_callable( array( $jetpack, 'subscribe' ) ) ) {
 					$a_response['message'] = __( 'Jetpack encountered an error with the subscription', 'newfold-module-coming-soon' );
 					$a_response['status']  = 'jetpack-error';
+					wp_send_json( $a_response );
+					wp_die();
 				}
 
 				// Get JetPack response and subscribe email if response is true
