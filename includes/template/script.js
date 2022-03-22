@@ -13,7 +13,7 @@ jQuery(document).ready(function ($) {
             type: 'POST',
             url: window.ajaxscript.ajax_url,
             data: {
-                'action': 'nfd_coming_soon_subscribe',
+                'action': 'newfold_coming_soon_subscribe',
                 'email': email,
                 'nonce': nonce
             },
