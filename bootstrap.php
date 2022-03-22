@@ -15,7 +15,6 @@ if ( function_exists( 'add_action' ) ) {
 					'name'     => 'coming-soon',
 					'label'    => __( 'Coming Soon', 'newfold' ),
 					'callback' => function ( Container $container ) {
-						include __DIR__ . '/includes/coming-soon.php';
 						$coming_soon = new ComingSoon( $container );
 					},
 					'isActive' => true,
