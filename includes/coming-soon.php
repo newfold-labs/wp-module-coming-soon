@@ -21,7 +21,7 @@ class ComingSoon {
 			'admin_screen_id'      => 'newfold',
 			'admin_app_url'        => \admin_url( 'admin.php?page=newfold' ),
 			'admin_notice_text'    => __( 'Your site has `Coming Soon` mode active.', 'newfold-module-coming-soon' ),
-			'admin_bar_text'       => __( 'Coming Soon Active', 'newfold-module-coming-soon' ),
+			'admin_bar_text'       => '<div>' . __( 'Coming Soon Active', 'newfold-module-coming-soon' ) . '</div>',
 			'template_page_title'  => __( 'Coming Soon!', 'newfold-module-coming-soon' ),
 			'template_styles'      => false,
 			'template_content'     => false,
@@ -89,11 +89,17 @@ class ComingSoon {
 	 */
 	public function add_tool_bar_item( \WP_Admin_Bar $admin_bar ) {
 		if ( current_user_can( 'manage_options' ) ) {
+			$allowed_adminbar_html = array(
+				// div with inline styles
+				'div'      => array(
+					'style'  => array()
+				),
+			);
 			if ( 'true' === get_option( esc_attr( $this->args['option_name'] ), 'false' ) ) {
 				$cs_args = array(
 					'id'    => $this->args['admin_screen_id'] . '-coming_soon',
 					'href'  => esc_url( $this->args['admin_app_url'] ),
-					'title' => '<div class="coming_soon-highlight">' . esc_html( $this->args['admin_bar_text'] ) . '</div>',
+					'title' => wp_kses( $this->args['admin_bar_text'], $allowed_adminbar_html ),
 					'meta'  => array(
 						'title' => esc_attr__( 'Launch Your Site', 'newfold-module-coming-soon' ),
 					),
