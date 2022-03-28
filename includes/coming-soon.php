@@ -18,9 +18,9 @@ class ComingSoon {
 		// setup args
 		$defaults   = array(
 			'option_name'          => 'mm_coming_soon',
-			'admin_screen_id'      => 'newfold',
+			'admin_screen_id'      => container()->plugin()->id,
 			'admin_app_url'        => \admin_url( 'admin.php?page=newfold' ),
-			'admin_notice_text'    => __( 'Your site has `Coming Soon` mode active.', 'newfold-module-coming-soon' ),
+			'admin_notice_text'    => __( 'Your site has Coming Soon mode active.', 'newfold-module-coming-soon' ),
 			'admin_bar_text'       => '<div>' . __( 'Coming Soon Active', 'newfold-module-coming-soon' ) . '</div>',
 			'template_page_title'  => __( 'Coming Soon!', 'newfold-module-coming-soon' ),
 			'template_styles'      => false,

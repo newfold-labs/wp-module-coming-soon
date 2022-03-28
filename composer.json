@@ -29,11 +29,26 @@
   ],
   "autoload": {
     "psr-4": {
-      "NewFoldLabs\\WP\\Module\\ComingSoon\\": "includes"
+      "NewfoldLabs\\WP\\Module\\ComingSoon\\": "includes"
     },
     "files": [
       "bootstrap.php",
       "includes/coming-soon.php"
     ]
+  },
+  "require-dev": {
+    "bluehost/wp-php-standards": "^1.1"
+  },
+  "scripts": {
+    "fix": [
+      "vendor/bin/phpcbf . --standard=Bluehost"
+    ],
+    "lint": [
+      "vendor/bin/phpcs . --standard=Bluehost -s"
+    ]
+  },
+  "scripts-descriptions": {
+    "fix": "Automatically fix coding standards issues where possible.",
+    "lint": "Check files against coding standards."
   }
 }
