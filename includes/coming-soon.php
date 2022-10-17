@@ -27,6 +27,7 @@ class ComingSoon {
 			'template_content'     => false,
 			'template_h1'          => __( 'Coming Soon!', 'newfold-module-coming-soon' ),
 			'template_h2'          => __( 'A New WordPress Site!', 'newfold-module-coming-soon' ),
+			'template_login_btn'   => false,
 			'template_p'           => __( 'Be the first to know when we launch, enter your email address and we will let you know when we go live and any future website updates we have.', 'newfold-module-coming-soon' ),
 			'template_msg_success' => __( 'Thank you, please check your email to confirm your subscription.', 'newfold-module-coming-soon' ),
 			'template_msg_active'  => __( 'Your email address is already subscribed to this website. Stay tuned to your inbox for our updates or try a different email address.', 'newfold-module-coming-soon' ),

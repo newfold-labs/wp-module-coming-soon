@@ -27,6 +27,11 @@
 				<div class="subscription_widget">
 					<h1><?php echo wp_kses_post( $args['template_h1'] ); ?></h1>
 					<h2><?php echo wp_kses_post( $args['template_h2'] ); ?></h2>
+					<?php if ( isset( $args['template_login_btn'] ) && true === $args['template_login_btn'] )  : // admin login button ?>
+						<a class="btn" href="<?php echo esc_url( wp_login_url() ); ?>">
+							<?php esc_html_e( 'Admin Login', 'bluehost-wordpress-plugin' ); ?>
+						</a>
+					<?php endif; // end admin login button ?>
 					<?php if ( class_exists( 'Jetpack' ) && Jetpack::is_module_active( 'subscriptions' ) ) : ?>
 						<div id="subscribe-text">
 							<p><?php echo esc_html( $args['template_p'] ); ?></p>
