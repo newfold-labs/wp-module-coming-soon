@@ -6,6 +6,7 @@ use function NewfoldLabs\WP\ModuleLoader\container;
 /**
  * This class adds a coming soon page functionality.
  **/
+#[AllowDynamicProperties]
 class ComingSoon {
 
 	/**
