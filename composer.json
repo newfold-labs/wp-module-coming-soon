@@ -22,8 +22,7 @@
       "NewfoldLabs\\WP\\Module\\ComingSoon\\": "includes"
     },
     "files": [
-      "bootstrap.php",
-      "includes/coming-soon.php"
+      "bootstrap.php"
     ]
   },
   "require-dev": {

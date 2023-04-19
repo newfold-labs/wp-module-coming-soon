@@ -15,7 +15,7 @@ if ( function_exists( 'add_action' ) ) {
 					'name'     => 'coming-soon',
 					'label'    => __( 'Coming Soon', 'newfold-module-coming-soon' ),
 					'callback' => function ( Container $container ) {
-						$coming_soon = new ComingSoon( $container );
+						return new ComingSoon( $container );
 					},
 					'isActive' => true,
 					'isHidden' => true,
