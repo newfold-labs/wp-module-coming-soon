@@ -1,12 +1,14 @@
 <?php
+
 namespace NewfoldLabs\WP\Module;
 
 use NewfoldLabs\WP\ModuleLoader\Container;
 use function NewfoldLabs\WP\ModuleLoader\container;
+
 /**
  * This class adds a coming soon page functionality.
  **/
-#[AllowDynamicProperties]
+#[\AllowDynamicProperties]
 class ComingSoon {
 
 	/**
@@ -58,7 +60,8 @@ class ComingSoon {
 	 * Display coming soon notice.
 	 */
 	public function notice_display() {
-		$screen              = get_current_screen();
+		$screen = get_current_screen();
+
 		$allowed_notice_html = array(
 			// formatting
 			'strong' => array(),
@@ -69,11 +72,12 @@ class ComingSoon {
 				'title' => array(),
 			),
 		);
+
 		if (
-				'true' === get_option( esc_attr( $this->args['option_name'] ), 'false' ) && // coming soon is active
-				false === strpos( $screen->id, $this->args['admin_screen_id'] ) && // not on our app screen
-				current_user_can( 'manage_options' ) // current user can manage options
-			) {
+			'true' === get_option( esc_attr( $this->args['option_name'] ), 'false' ) && // coming soon is active
+			false === strpos( $screen->id, $this->args['admin_screen_id'] ) && // not on our app screen
+			current_user_can( 'manage_options' ) // current user can manage options
+		) {
 			?>
 			<div class='notice notice-warning'>
 				<p><?php echo wp_kses( $this->args['admin_notice_text'], $allowed_notice_html ); ?></p>
@@ -81,7 +85,6 @@ class ComingSoon {
 			<?php
 		}
 	}
-
 
 
 	/**
@@ -93,8 +96,8 @@ class ComingSoon {
 		if ( current_user_can( 'manage_options' ) ) {
 			$allowed_adminbar_html = array(
 				// div with inline styles
-				'div'      => array(
-					'style'  => array()
+				'div' => array(
+					'style' => array()
 				),
 			);
 			if ( 'true' === get_option( esc_attr( $this->args['option_name'] ), 'false' ) ) {
@@ -118,7 +121,7 @@ class ComingSoon {
 		if ( ! is_user_logged_in() || 'preview=coming_soon' === $_SERVER['QUERY_STRING'] ) {
 			$coming_soon = get_option( esc_attr( $this->args['option_name'] ), 'false' );
 			if ( 'true' === $coming_soon ) {
-				$this->coming_soon_content( $this->args );
+				self::coming_soon_content( $this->args );
 				die();
 			}
 		}
@@ -127,7 +130,7 @@ class ComingSoon {
 	/**
 	 * Render the coming soon page.
 	 *
-	 * @param Array $args the args from container and defaults to pass to the template
+	 * @param array $args the args from container and defaults to pass to the template
 	 */
 	public static function coming_soon_content( $args ) {
 		$coming_soon_template = __DIR__ . '/template/index.php';
@@ -165,7 +168,7 @@ class ComingSoon {
 					$a_response['message'] = __( 'Jetpack encountered an error with the subscription', 'newfold-module-coming-soon' );
 					$a_response['status']  = 'jetpack-error';
 					wp_send_json( $a_response );
-					wp_die();
+					exit;
 				}
 
 				// Get JetPack response and subscribe email if response is true
@@ -196,6 +199,7 @@ class ComingSoon {
 			}
 
 			wp_send_json( $a_response );
+			exit;
 
 		}
 
@@ -219,9 +223,9 @@ class ComingSoon {
 	/**
 	 * Prevent emails from being sent.
 	 *
+	 * @return string[]
 	 * @see coming_soon_prevent_emails
 	 *
-	 * @return string[]
 	 */
 	public function coming_soon_prevent_emails_return_array() {
 
