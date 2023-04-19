@@ -1,8 +1,6 @@
 <?php
 /**
  * This template renders a coming soon page when the coming soon feature is active.
- *
- * @package WPPluginWeb
  */
 
 ?>

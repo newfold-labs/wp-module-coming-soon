@@ -1,6 +1,6 @@
 <?php
 
-namespace NewfoldLabs\WP\Module;
+namespace NewfoldLabs\WP\Module\ComingSoon;
 
 use NewfoldLabs\WP\ModuleLoader\Container;
 use function NewfoldLabs\WP\ModuleLoader\container;
