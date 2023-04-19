@@ -1,7 +1,7 @@
 <?php
 
 use NewfoldLabs\WP\ModuleLoader\Container;
-use NewfoldLabs\WP\Module\ComingSoon;
+use NewfoldLabs\WP\Module\ComingSoon\ComingSoon;
 use function NewfoldLabs\WP\ModuleLoader\register;
 
 if ( function_exists( 'add_action' ) ) {
