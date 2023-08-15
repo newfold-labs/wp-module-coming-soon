@@ -4,6 +4,9 @@ describe('Coming Soon', function () {
 	let appClass = '.' + Cypress.env('appId');
 
 	before(() => {
+		// Set coming soon to true
+		cy.exec(`npx wp-env run cli wp option update nfd_coming_soon true`);
+
 		cy.visit('/wp-admin/admin.php?page=' + Cypress.env('pluginId') + '#/settings');
 		cy.injectAxe();
 	});
