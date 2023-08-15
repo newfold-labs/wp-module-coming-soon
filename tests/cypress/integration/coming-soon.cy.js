@@ -1,6 +1,7 @@
 // <reference types="Cypress" />
 
 describe('Coming Soon', function () {
+	let appClass = '.' + Cypress.env('appId');
 
 	before(() => {
 		cy.visit('/wp-admin/admin.php?page=' + Cypress.env('pluginId') + '#/settings');
@@ -10,14 +11,14 @@ describe('Coming Soon', function () {
 	it('Coming Soon Toggle Exists', () => {
 
 		cy.get('#wp-toolbar #wp-admin-bar-site-status')
-			.contains('span', 'Live')
+			.contains('div', 'Site Status')
 			.should('be.visible');
 
-		cy.get('.wppbh-app-settings-coming-soon').contains('h3', 'Maintenance Mode')
+		cy.get( appClass + '-app-settings-coming-soon').contains('h3', 'Maintenance Mode')
 			.scrollIntoView()
 			.should('be.visible');
 		
-		cy.get('.wppbh-app-settings-coming-soon').contains('label', 'Coming soon')
+		cy.get( appClass + '-app-settings-coming-soon').contains('label', 'Coming soon')
 			.scrollIntoView()
 			.should('be.visible');
 
@@ -46,16 +47,16 @@ describe('Coming Soon', function () {
 
 	it('Has Coming Soon Section on Home', () => {
 		cy.visit('/wp-admin/admin.php?page=' + Cypress.env('pluginId') + '#/home');
-		cy.get('.wppbh-home .wppb-app-section-content').first()
+		cy.get( appClass + '-home .wppb-app-section-content').first()
 			.scrollIntoView()
 			.contains('h1', 'Ready to go live?')
 			.should('be.visible');
 
-		cy.get('.wppbh-home .wppb-app-section-content')
+		cy.get( appClass + '-home .wppb-app-section-content')
 			.contains('a.yst-button', 'Preview your').first()
 			.should('exist');
 
-		cy.get('.wppbh-home .wppb-app-section-content').first()
+		cy.get( appClass + '-home .wppb-app-section-content').first()
 			.contains('button', 'Launch your')
 			.should('exist');
 		
@@ -83,12 +84,12 @@ describe('Coming Soon', function () {
 		
 		cy.visit('/wp-admin/admin.php?page=' + Cypress.env('pluginId') + '#/home');
 
-		cy.get('.wppbh-home .wppb-app-section-content').first()
+		cy.get( appClass + '-home .wppb-app-section-content').first()
 			.contains('button', 'Launch your')
 			.click();
 		cy.wait(100);
 		
-		cy.get('.wppbh-home .wppb-app-section-content').first()
+		cy.get( appClass + '-home .wppb-app-section-content').first()
 			.contains('button', 'Launch your')
 			.should('not.exist');
 
