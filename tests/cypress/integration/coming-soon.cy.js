@@ -8,25 +8,42 @@ describe('Coming Soon', function () {
 		cy.injectAxe();
 	});
 
-	it('Coming Soon Toggle Exists', () => {
+	it('Coming Soon Toggle Functions', () => {
 
+		// Initial Coming Soon State
 		cy.get('#wp-toolbar #wp-admin-bar-site-status')
-			.contains('div', 'Site Status')
+			.contains('span', 'Coming Soon')
 			.should('be.visible');
 
 		cy.get( appClass + '-app-settings-coming-soon').contains('h3', 'Maintenance Mode')
 			.scrollIntoView()
 			.should('be.visible');
-		
+
 		cy.get( appClass + '-app-settings-coming-soon').contains('label', 'Coming soon')
 			.scrollIntoView()
 			.should('be.visible');
 
-		cy.get('[data-id="coming-soon-toggle"]').should('have.attr', 'aria-checked').and('include', 'false');
-		cy.get('[data-id="coming-soon-toggle"]').click();
-		cy.wait(100);
 		cy.get('[data-id="coming-soon-toggle"]').should('have.attr', 'aria-checked').and('include', 'true');
-		cy.get('.yst-notifications').contains('.yst-notification', 'Coming soon').should('be.visible');
+
+		// Deactivate coming soon - Launch Site
+		cy.get('[data-id="coming-soon-toggle"]').click();
+		cy.wait(500);
+
+		cy.get('[data-id="coming-soon-toggle"]').should('have.attr', 'aria-checked').and('include', 'false');
+		cy.get('#wp-toolbar #wp-admin-bar-site-status')
+			.contains('span', 'Live')
+			.should('be.visible');
+		cy.get('.yst-notifications').contains('.yst-notification', 'Coming soon deactivated').should('be.visible');
+
+		// Activate Coming Soon - Unlaunch Site
+		cy.get('[data-id="coming-soon-toggle"]').click();
+		cy.wait(500);
+		
+		cy.get('[data-id="coming-soon-toggle"]').should('have.attr', 'aria-checked').and('include', 'true');
+		cy.get('#wp-toolbar #wp-admin-bar-site-status')
+			.contains('span', 'Coming Soon')
+			.should('be.visible');
+		cy.get('.yst-notifications').contains('.yst-notification', 'Coming soon activated').should('be.visible');
 		
 		// Protip was removed in redesign, should reimplement
 		// cy
@@ -40,6 +57,11 @@ describe('Coming Soon', function () {
 	});
 
 	it('Displays Coming Soon in Site Status Admin Toolbar', () => {
+		// Admin bar contains label
+		cy.get('#wp-toolbar #wp-admin-bar-site-status')
+			.contains('div', 'Site Status')
+			.should('be.visible');
+		// Admin bar contains status
 		cy.get('#wp-toolbar #wp-admin-bar-site-status')
 			.contains('span', 'Coming Soon')
 			.should('be.visible');
@@ -100,6 +122,14 @@ describe('Coming Soon', function () {
 			.should('not.exist');
 
 		cy.login(Cypress.env('wpUsername'), Cypress.env('wpPassword'));
+
 		cy.visit('/wp-admin/admin.php?page=' + Cypress.env('pluginId') + '#/settings');
+	
+		cy.get('[data-id="coming-soon-toggle"]').should('have.attr', 'aria-checked').and('include', 'false');
+		// Re-Activate Coming Soon
+		cy.get('[data-id="coming-soon-toggle"]').click();
+		cy.wait(500);
+		cy.get('[data-id="coming-soon-toggle"]').should('have.attr', 'aria-checked').and('include', 'true');
+
 	})
 });
