@@ -36,7 +36,7 @@ describe('Coming Soon', function () {
 		cy.get('#wp-toolbar #wp-admin-bar-site-status')
 			.contains('span', 'Live')
 			.should('be.visible');
-		cy.get('.yst-notifications').contains('.yst-notification', 'Coming soon deactivated').should('be.visible');
+		cy.get('.nfd-notifications').contains('.nfd-notification', 'Coming soon deactivated').should('be.visible');
 
 		// Activate Coming Soon - Unlaunch Site
 		cy.get('[data-id="coming-soon-toggle"]').click();
@@ -46,7 +46,7 @@ describe('Coming Soon', function () {
 		cy.get('#wp-toolbar #wp-admin-bar-site-status')
 			.contains('span', 'Coming Soon')
 			.should('be.visible');
-		cy.get('.yst-notifications').contains('.yst-notification', 'Coming soon activated').should('be.visible');
+		cy.get('.nfd-notifications').contains('.nfd-notification', 'Coming soon activated').should('be.visible');
 		
 		// Protip was removed in redesign, should reimplement
 		// cy
@@ -78,7 +78,7 @@ describe('Coming Soon', function () {
 			.should('be.visible');
 
 		cy.get( appClass + '-home .wppb-app-section-content')
-			.contains('a.yst-button', 'Preview your').first()
+			.contains('a.nfd-button', 'Preview your').first()
 			.should('exist');
 
 		cy.get( appClass + '-home .wppb-app-section-content').first()
