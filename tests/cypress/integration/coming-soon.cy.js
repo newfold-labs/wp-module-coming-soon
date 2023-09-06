@@ -48,15 +48,6 @@ describe('Coming Soon', function () {
 			.should('be.visible');
 		cy.get('.nfd-notifications').contains('.nfd-notification', 'Coming soon activated').should('be.visible');
 		
-		// Protip was removed in redesign, should reimplement
-		// cy
-		// 	.get('.coming-soon-protip .accordion-summary')
-		// 	.contains('p', 'Pro Tip')
-		// 	.should('be.visible');
-		// cy.get('.coming-soon-protip').should('not.have.attr', 'open');
-		// cy.get('.coming-soon-protip summary').click();
-		// cy.wait(100);
-		// cy.get('.coming-soon-protip').should('have.attr', 'open');
 	});
 
 	it('Displays Coming Soon in Site Status Admin Toolbar', () => {
@@ -72,16 +63,16 @@ describe('Coming Soon', function () {
 
 	it('Has Coming Soon Section on Home', () => {
 		cy.visit('/wp-admin/admin.php?page=' + Cypress.env('pluginId') + '#/home');
-		cy.get( appClass + '-home .wppb-app-section-content').first()
+		cy.get( appClass + '-home .nfd-app-section-content').first()
 			.scrollIntoView()
 			.contains('h1', 'Ready to go live?')
 			.should('be.visible');
 
-		cy.get( appClass + '-home .wppb-app-section-content')
+		cy.get( appClass + '-home .nfd-app-section-content')
 			.contains('a.nfd-button', 'Preview your').first()
 			.should('exist');
 
-		cy.get( appClass + '-home .wppb-app-section-content').first()
+		cy.get( appClass + '-home .nfd-app-section-content').first()
 			.contains('button', 'Launch your')
 			.should('exist');
 		
@@ -97,9 +88,8 @@ describe('Coming Soon', function () {
 	it('Displays Coming Soon on Frontend', () => {
 		cy.logout();
 		cy.visit('/');
-		cy.get('body')
-			.contains('h1', 'Coming')
-			.should('be.visible');
+		cy.title().should('include', 'Coming Soon');
+		cy.get('#wrap').contains('Coming Soon').should('exist');
 	});
 
 	it('Launching launches site', () => {
@@ -109,20 +99,19 @@ describe('Coming Soon', function () {
 		
 		cy.visit('/wp-admin/admin.php?page=' + Cypress.env('pluginId') + '#/home');
 
-		cy.get( appClass + '-home .wppb-app-section-content').first()
+		cy.get( appClass + '-home .nfd-app-section-content').first()
 			.contains('button', 'Launch your')
 			.click();
 		cy.wait(100);
 		
-		cy.get( appClass + '-home .wppb-app-section-content').first()
+		cy.get( appClass + '-home .nfd-app-section-content').first()
 			.contains('button', 'Launch your')
 			.should('not.exist');
 
 		cy.logout();
 		cy.visit('/');
-		cy.get('body')
-			.contains('h1', 'Coming soon')
-			.should('not.exist');
+		cy.title().should('not.include', 'Coming Soon');
+		cy.get('body').contains('Coming Soon').should('not.exist');
 
 		cy.login(Cypress.env('wpUsername'), Cypress.env('wpPassword'));
 
