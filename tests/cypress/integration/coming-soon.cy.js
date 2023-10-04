@@ -18,7 +18,7 @@ describe('Coming Soon', function () {
 			.contains('span', 'Coming Soon')
 			.should('be.visible');
 
-		cy.get( appClass + '-app-settings-coming-soon').contains('h3', 'Maintenance Mode')
+		cy.get( appClass + '-app-settings-coming-soon').contains('h3', 'Site Status')
 			.scrollIntoView()
 			.should('be.visible');
 
