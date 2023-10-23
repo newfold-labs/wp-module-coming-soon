@@ -1,4 +1,5 @@
 <?php
+header('Cache-Control: no-store, no-cache, must-revalidate');
 /**
  * This template renders a coming soon page when the coming soon feature is active.
  */
