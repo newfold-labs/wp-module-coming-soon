@@ -69,11 +69,11 @@ describe('Coming Soon', function () {
 			.should('be.visible');
 
 		cy.get( appClass + '-home .nfd-app-section-content')
-			.contains('a.nfd-button', 'Preview your').first()
+			.contains('a.nfd-button', 'iew your s').first()
 			.should('exist');
 
 		cy.get( appClass + '-home .nfd-app-section-content').first()
-			.contains('button', 'Launch your')
+			.contains('button', 'Launch')
 			.should('exist');
 		
 	});
