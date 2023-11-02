@@ -68,7 +68,7 @@ describe('Coming Soon', function () {
 			.contains('h1', 'Ready to go live?')
 			.should('be.visible');
 
-			cy.get( appClass + '-home .nfd-app-section-content')
+		cy.get( appClass + '-home .nfd-app-section-content')
 			.contains('a.nfd-button', 'iew your s').first()
 			.should('exist');
 
