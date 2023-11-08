@@ -52,10 +52,8 @@ const Modal = () => {
 	const handlePublishAndLaunch = () => {
 		setComingSoon(false);
 		setIsComingSoonActive(false);
-		console.log(isComingSoonActive);
 		setIsModalOpen(false);
 	};
-	console.log(isComingSoonActive);
 
 	if (!isModalOpen || !isComingSoonActive) {
 		return null;
