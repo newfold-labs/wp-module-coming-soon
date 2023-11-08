@@ -54,6 +54,7 @@ class ComingSoon {
 		\add_action( 'wp_ajax_nopriv_newfold_coming_soon_subscribe', array( $this, 'coming_soon_subscribe' ) );
 		\add_action( 'plugins_loaded', array( $this, 'coming_soon_prevent_emails' ) );
 
+		new PrePublishModal();
 	}
 
 	/**
