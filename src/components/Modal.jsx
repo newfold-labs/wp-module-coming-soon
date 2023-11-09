@@ -10,7 +10,7 @@ import { Modal as WP2Modal, Button, Icon } from '@wordpress/components';
 import { useDispatch, useSelect } from '@wordpress/data';
 import { useEffect } from '@wordpress/element';
 import { store as editPostStore } from '@wordpress/edit-post';
-
+import { __ } from '@wordpress/i18n';
 /**
  * Internal dependencies
  */
@@ -59,22 +59,26 @@ const Modal = () => {
 		return null;
 	}
 
-	//setComingSoon
+	const title = __('Ready to launch your Site?', 'nfd-coming-soon');
+	const heading = __('Pages you publish will not be visible to the public until you launch your site.', 'nfd-coming-soon');
+	const launchButtonText = __('Publish & Launch Site', 'nfd-coming-soon');
+	const withoutLaunchButtonText = __('Publish without launching', 'nfd-coming-soon');
+
 	return (
 		<WP2Modal
-			title="Ready to launch your Site?"
+			title={title}
 			onRequestClose={() => setIsModalOpen(false)}
 		>
 			<div>
-				<p>Pages you publish will not be visible to the public until you launch your site.</p>
+				<p>{heading}</p>
 				<div className="modal-buttons">
 					<Button
 						icon={<Icon icon={launch} />}
 						variant="primary" onClick={handlePublishAndLaunch}>
-						Publish & Launch Site
+						{launchButtonText}
 					</Button>
 					<Button variant="secondary" onClick={() => setIsModalOpen(false)}>
-						Publish without launching
+						{withoutLaunchButtonText}
 					</Button>
 				</div>
 			</div>
