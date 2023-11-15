@@ -41,26 +41,41 @@ const renderModal = (elementId) => {
 };
 
 /**
- * Add click event to Publish Button.
+ * Displays the coming soon warning when the post/page is published and the "coming soon" feature is active.
+ * 
+ * @param {string} postStatus The status of the post/page.
  */
-const registerCallback2 = () => {
-	window.requestAnimationFrame(() => {
-
-		// Exit early if the toolbar doesn't exist.
-		if (
-			!document.querySelector('.edit-post-header-toolbar') &&
-			!document.querySelector('.edit-site-header_start')
-		) {
-			return;
-		}
-
-		const buttonElement = document.querySelector('button.components-button.editor-post-publish-button.editor-post-publish-button__button.is-primary');
-		buttonElement?.addEventListener('click', function () {
-			if (buttonElement?.textContent.trim() === 'Publish')
-				dispatch(nfdComingSoonStore).setIsModalOpen(true);
+const showComingSoonWarningOnPublish = (postStatus) => {
+	if ('publish' !== postStatus) {
+		const unssubscribe = subscribe(() => {
+			const currentPostStatus = window.wp.data.select('core/editor').getEditedPostAttribute('status');
+			if ('publish' === currentPostStatus) {
+				unssubscribe();
+				const checkElementAvailability = () => {
+					const publishPanel = document.querySelector('.components-snackbar-list__notice-container');
+					if (publishPanel) {
+						dispatch(nfdComingSoonStore).setIsModalOpen(true);
+					} else {
+						setTimeout(checkElementAvailability, 50);
+					}
+				};
+				checkElementAvailability();
+			}
 		});
-		unsubscribe();
-	});
-};
+	}
+}
 
-const unsubscribe = subscribe(registerCallback2);
+/**
+ * Listens to changes in the post status and triggers the display of the coming soon modal when needed.
+ */
+const listenToPostStatus = () => {
+	const initialPostStatus = window.wp.data.select('core/editor').getEditedPostAttribute('status');
+	if (typeof initialPostStatus !== 'undefined') {
+		showComingSoonWarningOnPublish(initialPostStatus);
+	} else {
+		setTimeout(listenToPostStatus, 50);
+	}
+}
+
+// Start listening to post status changes
+listenToPostStatus();

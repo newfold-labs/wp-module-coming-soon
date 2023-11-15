@@ -23,31 +23,11 @@ const Modal = () => {
 	const { setIsModalOpen } = useDispatch(nfdComingSoonStore);
 	const [isComingSoonActive, setIsComingSoonActive] = useState(true); 
 
-	const { isEditorSidebarOpened } = useSelect(
-		(select) => ({
-			isEditorSidebarOpened: select(editPostStore).isPublishSidebarOpened()
-		})
-	);
-
 	const { isModalOpen } = useSelect(
 		(select) => ({
 			isModalOpen: select(nfdComingSoonStore).isModalOpen(),
 		})
 	);
-
-	useEffect(() => {
-		if (isEditorSidebarOpened) {
-			const checkElementAvailability = () => {
-				const publishPanel = document.querySelector('.editor-post-publish-panel');
-				if (publishPanel) {
-					setIsModalOpen(true);
-				} else {
-					setTimeout(checkElementAvailability, 50);
-				}
-			};
-			checkElementAvailability();
-		}
-	}, [isEditorSidebarOpened]);
 
 	const handlePublishAndLaunch = () => {
 		setComingSoon(false);
