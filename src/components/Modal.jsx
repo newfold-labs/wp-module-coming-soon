@@ -40,7 +40,7 @@ const Modal = () => {
 	}
 
 	const title = __('Ready to launch your Site?', 'nfd-coming-soon');
-	const heading = __('Pages you publish will not be visible to the public until you launch your site.', 'nfd-coming-soon');
+	const heading = __('Pages and posts you publish will not be visible to the public until you launch your site.', 'nfd-coming-soon');
 	const launchButtonText = __('Publish & Launch Site', 'nfd-coming-soon');
 	const withoutLaunchButtonText = __('Publish without launching', 'nfd-coming-soon');
 
