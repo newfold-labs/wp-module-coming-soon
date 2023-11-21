@@ -5,8 +5,8 @@
 	"license": "GPL-2.0-or-later",
 	"private": true,
 	"author": {
-		"name": "Hristina",
-		"email": "hristina.conjic@newfold.com"
+		"name": "Vara",
+		"email": "varaprasad.maruboina@newfold.com"
 	},
 	"scripts": {
 		"build": "concurrently \"wp-scripts build ./src/coming-soon.js\"",
