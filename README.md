@@ -42,11 +42,12 @@ Coming Soon functionality for WordPress.
  setContainer( $nfd_module_container );
  ```
 
- ### 4. Interface
-The module offers the ability to check the status of the coming soon, enable the coming soon and disable the coming soon.
-You can interact with its interface either via its service provider through the container (for PHP) or its window API (for JavaScript):
+### 4. API
+The module offers the ability to check the status of the coming soon, enable the coming soon or disable the coming soon.
 
-#### Container (PHP)
+For PHP applications, you can use its container service provider to interact with the API.
+
+#### Container Service Provider
 ```php
 use NewfoldLabs\WP\ModuleLoader\Container;
 
@@ -72,11 +73,13 @@ public function disable_coming_soon() {
 }
 ```
 
+For JavaScript applications, you can use `NewfoldRuntime.comingSoon` window object to interact with the API.
+
 #### Window API (JavaScript)
 ```JavaScript
-NewfoldRuntime.comingSoon.isEnabled();
-NewfoldRuntime.comingSoon.enable();
-NewfoldRuntime.comingSoon.disable();
+NewfoldRuntime.comingSoon.isEnabled(); // coming soon current status
+NewfoldRuntime.comingSoon.enable(); // enable coming soon
+NewfoldRuntime.comingSoon.disable(); // disable coming soon
 ```
 
 [More on Newfold WordPress Modules](https://github.com/newfold-labs/wp-module-loader)
