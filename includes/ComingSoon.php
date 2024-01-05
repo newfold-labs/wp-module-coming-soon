@@ -20,25 +20,28 @@ class ComingSoon {
 		$this->container = $container;
 		// setup args
 		$defaults   = array(
-			'option_name'          => 'nfd_coming_soon',
-			'admin_screen_id'      => container()->plugin()->id,
-			'admin_app_url'        => \admin_url( 'admin.php?page=newfold' ),
-			'admin_notice_text'    => __( 'Your site has Coming Soon mode active.', 'newfold-module-coming-soon' ),
-			'admin_bar_text'       => '<div>' . __( 'Coming Soon Active', 'newfold-module-coming-soon' ) . '</div>',
-			'template_page_title'  => __( 'Coming Soon!', 'newfold-module-coming-soon' ),
-			'template_styles'      => false,
-			'template_content'     => false,
-			'template_h1'          => __( 'Coming Soon!', 'newfold-module-coming-soon' ),
-			'template_h2'          => __( 'A New WordPress Site!', 'newfold-module-coming-soon' ),
-			'template_login_btn'   => false,
-			'template_p'           => __( 'Be the first to know when we launch, enter your email address and we will let you know when we go live and any future website updates we have.', 'newfold-module-coming-soon' ),
-			'template_msg_success' => __( 'Thank you, please check your email to confirm your subscription.', 'newfold-module-coming-soon' ),
-			'template_msg_active'  => __( 'Your email address is already subscribed to this website. Stay tuned to your inbox for our updates or try a different email address.', 'newfold-module-coming-soon' ),
-			'template_msg_invalid' => __( 'There was an error with your submission and you were not subscribed. Please try again with a valid email address.', 'newfold-module-coming-soon' ),
-			'template_email_label' => __( 'Email', 'newfold-module-coming-soon' ),
-			'template_email_ph'    => __( 'Enter your email address', 'newfold-module-coming-soon' ),
-			'template_subscribe'   => __( 'Subscribe', 'newfold-module-coming-soon' ),
-			'template_footer_t'    => __( 'Is this your website? Log in to WordPress to launch your site.', 'newfold-module-coming-soon' ),
+			'option_name'           => 'nfd_coming_soon',
+			'admin_screen_id'       => container()->plugin()->id,
+			'admin_app_url'         => \admin_url( 'admin.php?page=newfold' ),
+			'admin_notice_text'     => __( 'Your site has Coming Soon mode active.', 'newfold-module-coming-soon' ),
+			'admin_bar_text'        => '<div>' . __( 'Coming Soon Active', 'newfold-module-coming-soon' ) . '</div>',
+			'admin_bar_label'       => __( 'Site Status: ', 'newfold-module-coming-soon' ),
+			'admin_bar_cs_active'   => __( 'Coming Soon', 'newfold-module-coming-soon' ),
+			'admin_bar_cs_inactive' => __( 'Live', 'newfold-module-coming-soon' ),
+			'template_page_title'   => __( 'Coming Soon!', 'newfold-module-coming-soon' ),
+			'template_styles'       => false,
+			'template_content'      => false,
+			'template_h1'           => __( 'Coming Soon!', 'newfold-module-coming-soon' ),
+			'template_h2'           => __( 'A New WordPress Site!', 'newfold-module-coming-soon' ),
+			'template_login_btn'    => false,
+			'template_p'            => __( 'Be the first to know when we launch, enter your email address and we will let you know when we go live and any future website updates we have.', 'newfold-module-coming-soon' ),
+			'template_msg_success'  => __( 'Thank you, please check your email to confirm your subscription.', 'newfold-module-coming-soon' ),
+			'template_msg_active'   => __( 'Your email address is already subscribed to this website. Stay tuned to your inbox for our updates or try a different email address.', 'newfold-module-coming-soon' ),
+			'template_msg_invalid'  => __( 'There was an error with your submission and you were not subscribed. Please try again with a valid email address.', 'newfold-module-coming-soon' ),
+			'template_email_label'  => __( 'Email', 'newfold-module-coming-soon' ),
+			'template_email_ph'     => __( 'Enter your email address', 'newfold-module-coming-soon' ),
+			'template_subscribe'    => __( 'Subscribe', 'newfold-module-coming-soon' ),
+			'template_footer_t'     => __( 'Is this your website? Log in to WordPress to launch your site.', 'newfold-module-coming-soon' ),
 		);
 		$this->args = wp_parse_args( $container->has( 'comingsoon' ) ? $container['comingsoon'] : array(), $defaults );
 
@@ -54,7 +57,7 @@ class ComingSoon {
 		\add_action( 'plugins_loaded', array( $this, 'coming_soon_prevent_emails' ) );
 		\add_action( 'admin_bar_menu', array( $this, 'newfold_site_status' ), 100 );
 		\add_action( 'wp_body_open', array( $this, 'site_preview_warning' ) );
-
+		\add_action( 'admin_head', array($this, 'admin_bar_coming_soon_admin_styles') );
 	}
 
 	/**
@@ -88,21 +91,59 @@ class ComingSoon {
 	}
 
 	/**
+	 * Some basic styles to control visibility of the coming soon state in the admin bar
+	 */
+	public function admin_bar_coming_soon_admin_styles() {
+		?>
+		<style>
+			#nfd-site-status {
+				background-color: #F8F8F8;
+				color: #333333;
+				padding: 0 16px;
+			}
+			#nfd-site-status-coming-soon {
+				color: #E01C1C;
+				display: none;
+			}
+			#nfd-site-status-live {
+				color: #048200;
+				display: none;
+			}
+			#nfd-site-status[data-coming-soon="true"] #nfd-site-status-coming-soon {
+				display: inline-block;
+			}
+			#nfd-site-status[data-coming-soon="false"] #nfd-site-status-live {
+				display: inline-block;
+			}
+		</style>
+		<?php
+	} 
+
+	/**
 	 * Customize the admin bar with site status.
 	 *
 	 * @param \WP_Admin_Bar $admin_bar An instance of the WP_Admin_Bar class.
 	 */
 	public function newfold_site_status( \WP_Admin_Bar $admin_bar ) {
 		if ( current_user_can( 'manage_options' ) ) {
-			$is_coming_soon   = 'true' === get_option( 'nfd_coming_soon', 'false' );
-			$status           = $is_coming_soon
-			? '<span id="nfd-site-status-text" style="color:#E01C1C;">' . esc_html__( 'Coming Soon', 'newfold-module-coming-soon' ) . '</span>'
-			: '<span id="nfd-site-status-text" style="color:#048200;">' . esc_html__( 'Live', 'newfold-module-coming-soon' ) . '</span>';
+
+			$is_coming_soon = 'true' === get_option( 'nfd_coming_soon', 'false' );
+			$current_state  = $is_coming_soon ? 'true' : 'false';
+			$content = '<div id="nfd-site-status" data-coming-soon="'.$current_state.'">';
+			$content .= $this->args['admin_bar_label'];
+			$content .= '<span id="nfd-site-status-coming-soon" class="nfd-coming-soon-active">';
+			$content .= $this->args['admin_bar_cs_active'];
+			$content .= '</span>';
+			$content .= '<span id="nfd-site-status-live" class="nfd-coming-soon-inactive">';
+			$content .= $this->args['admin_bar_cs_inactive'];
+			$content .= '</span>';
+			$content .= '</div>';
+			
 			$site_status_menu = array(
 				'id'     => 'site-status',
 				'parent' => 'top-secondary',
 				'href'   => admin_url( 'admin.php?page=' . $this->container->plugin()->id . '&nfd-target=coming-soon-section#/settings' ),
-				'title'  => '<div style="background-color: #F8F8F8; padding: 0 16px;color:#333333;">' . esc_html__( 'Site Status: ', 'newfold-module-coming-soon' ) . $status . '</div>',
+				'title'  => $content,
 				'meta'   => array(
 					'title' => esc_attr__( 'Launch Your Site', 'newfold-module-coming-soon' ),
 				),
