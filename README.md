@@ -47,10 +47,11 @@ The module offers the ability to check the status of the coming soon, enable the
 
 For PHP applications, you can use its container service provider to interact with the API.
 
-#### Container Service Provider
+#### Container Service Provider Usage
 ```php
 use NewfoldLabs\WP\ModuleLoader\Container;
 
+// Check if coming soon is enabled
 public function check_coming_soon() {
     if ( $this->container->has( 'comingSoon' ) ) {
         $comingSoonService = $this->container->get( 'comingSoon' );
@@ -58,6 +59,7 @@ public function check_coming_soon() {
     }
 }
 
+// Enable coming soon
 public function enable_coming_soon() {
     if ( $this->container->has( 'comingSoon' ) ) {
         $comingSoonService = $this->container->get( 'comingSoon' );
@@ -65,6 +67,7 @@ public function enable_coming_soon() {
     }
 }
 
+// Disable coming soon
 public function disable_coming_soon() {
     if ( $this->container->has( 'comingSoon' ) ) {
         $comingSoonService = $this->container->get( 'comingSoon' );
@@ -75,11 +78,17 @@ public function disable_coming_soon() {
 
 For JavaScript applications, you can use `NewfoldRuntime.comingSoon` window object to interact with the API.
 
-#### Window API (JavaScript)
+The object exposes three asynchronous methods:
+1. `isEnable`: Checks the current state of the coming soon and returns a boolean value or null on error.
+2. `enable`: Enables the coming soon. It will return an object containing two properties, `success` and `comingSoon.` 'success' is a boolean that indicates whether the operation succeeded or not. 'comingSoon' is also a boolean with the new value. If the operation does not succeed, the object will not contain a 'comingSoon' property.
+3. `disable`: Disables the coming soon. It will return an object containing two properties, `success` and `comingSoon.` 'success' is a boolean that indicates whether the operation succeeded or not. 'comingSoon' is also a boolean with the new value. If the operation does not succeed, the object will not contain a 'comingSoon' property.
+
+All three methods are asynchronous, so keep that in mind when calling them.
+
+#### Window API (JavaScript) Usage
 ```JavaScript
-NewfoldRuntime.comingSoon.isEnabled(); // coming soon current status
-NewfoldRuntime.comingSoon.enable(); // enable coming soon
-NewfoldRuntime.comingSoon.disable(); // disable coming soon
-```
+await NewfoldRuntime.comingSoon.isEnabled();
+await NewfoldRuntime.comingSoon.enable();
+await NewfoldRuntime.comingSoon.disable();
 
 [More on Newfold WordPress Modules](https://github.com/newfold-labs/wp-module-loader)
