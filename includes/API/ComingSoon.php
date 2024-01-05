@@ -1,9 +1,19 @@
 <?php
+/**
+ * Coming Soon Module API
+ *
+ * @package NewfoldLabs\WP\Module\ComingSoon\API
+ */
 
 namespace NewfoldLabs\WP\Module\ComingSoon\API;
 
 use function NewfoldLabs\WP\ModuleLoader\container;
 
+/**
+ * Class ComingSoon
+ *
+ * @package NewfoldLabs\WP\Module\ComingSoon\API
+ */
 class ComingSoon
 {
 	private $namespace = 'newfold-coming-soon/v1';
@@ -44,23 +54,44 @@ class ComingSoon
 		);
 	}
 
+	/**
+	 * Check if the coming soon page is enabled.
+	 *
+	 * @return array
+	 */
 	public function check_status() {
 		$coming_soon_service = container()->get( 'comingSoon' );
 		return array( 'comingSoon' => $coming_soon_service->is_enabled() );
 	}
 
+	/**
+	 * Enable the coming soon page.
+	 *
+	 * @return array
+	 */
 	public function enable() {
 		$coming_soon_service = container()->get( 'comingSoon' );
 		$coming_soon_service->enable();
 		return array( 'comingSoon' => true );
 	}
 
+	/**
+	 * Disable the coming soon page.
+	 *
+	 * @return array
+	 */
 	public function disable() {
 		$coming_soon_service = container()->get( 'comingSoon' );
 		$coming_soon_service->disable();
 		return array( 'comingSoon' => false );
 	}
 
+	/**
+	 * Check if the current user has permissions to access the API.
+	 * Or if the service provider is not available, return an error.
+	 *
+	 * @return bool|\WP_Error
+	 */
 	public function check_permissions() {
 		if ( ! current_user_can( 'manage_options' ) ) {
 			return new \WP_Error( 'rest_forbidden', esc_html__( 'You cannot access the resource.' ), array( 'status' => 401 ) );
