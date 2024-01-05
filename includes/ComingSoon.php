@@ -58,6 +58,8 @@ class ComingSoon {
 		\add_action( 'admin_bar_menu', array( $this, 'newfold_site_status' ), 100 );
 		\add_action( 'wp_body_open', array( $this, 'site_preview_warning' ) );
 		\add_action( 'admin_head', array($this, 'admin_bar_coming_soon_admin_styles') );
+
+		new PrePublishModal();
 	}
 
 	/**
