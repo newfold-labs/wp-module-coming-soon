@@ -14,7 +14,7 @@
 	};
 
 	const checkComingSoonStatus = async () => {
-		const result = {};
+		let status;
 
 		await window.wp
 			.apiFetch( {
@@ -23,17 +23,16 @@
 			} )
 			.then( ( response ) => {
 				if ( response.hasOwnProperty( 'comingSoon' ) ) {
-					result.success = true;
-					result.comingSoon = response.comingSoon;
+					status = response.comingSoon;
 				} else {
-					result.success = false;
+					status = null;
 				}
 			} )
 			.catch( () => {
-				result.success = false;
+				status = null;
 			} );
 
-		return result;
+		return status;
 	};
 
 	const enableComingSoon = async () => {
