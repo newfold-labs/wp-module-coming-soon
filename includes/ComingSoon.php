@@ -50,6 +50,8 @@ class ComingSoon {
 			$this->args['template_styles'] = $this->args['template_styles'] . '?v=' . container()->plugin()->version;
 		}
 		// set up all actions
+		\add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
+		\add_action( 'rest_api_init', array( $this, 'rest_api_init' ) );
 		\add_action( 'admin_notices', array( $this, 'notice_display' ) );
 		\add_action( 'template_redirect', array( $this, 'maybe_load_template' ) );
 		\add_action( 'wp_ajax_newfold_coming_soon_subscribe', array( $this, 'coming_soon_subscribe' ) );
@@ -60,6 +62,28 @@ class ComingSoon {
 		\add_action( 'admin_head', array($this, 'admin_bar_coming_soon_admin_styles') );
 
 		new PrePublishModal();
+	}
+
+	/**
+	 * Enqueue admin scripts.
+	 */
+	public function enqueue_admin_scripts() {
+		$assetsDir = container()->plugin()->url . 'vendor/newfold-labs/wp-module-coming-soon/static/js/';
+
+		wp_enqueue_script(
+			'newfold-coming-soon-api',
+			$assetsDir . 'coming-soon.js',
+			array( 'wp-api-fetch', 'nfd-runtime' ),
+			container()->plugin()->version,
+			true
+		);
+	}
+
+	/**
+	 * Register the coming soon route.
+	 */
+	public function rest_api_init() {
+		new API\ComingSoon();
 	}
 
 	/**
