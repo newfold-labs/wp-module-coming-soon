@@ -44,5 +44,8 @@
     "allow-plugins": {
       "dealerdirect/phpcodesniffer-composer-installer": true
     }
+  },
+  "require": {
+    "wp-forge/wp-upgrade-handler": "^1.0"
   }
 }
