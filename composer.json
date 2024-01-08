@@ -46,6 +46,7 @@
     }
   },
   "require": {
-    "wp-forge/wp-upgrade-handler": "^1.0"
+    "wp-forge/wp-upgrade-handler": "^1.0",
+    "newfold-labs/wp-module-install-checker": "^1.0"
   }
 }
