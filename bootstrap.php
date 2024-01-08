@@ -2,6 +2,7 @@
 
 use NewfoldLabs\WP\ModuleLoader\Container;
 use NewfoldLabs\WP\Module\ComingSoon\ComingSoon;
+use NewfoldLabs\WP\Module\ComingSoon\Service;
 use function NewfoldLabs\WP\ModuleLoader\register;
 
 if ( function_exists( 'add_action' ) ) {
@@ -24,6 +25,9 @@ if ( function_exists( 'add_action' ) ) {
 						if ( ! defined( 'NFD_COMING_SOON_BUILD_URL' ) && defined( 'NFD_COMING_SOON_VERSION' ) ) {
 							define( 'NFD_COMING_SOON_BUILD_URL', $container->plugin()->url . 'vendor/newfold-labs/wp-module-coming-soon/build/' . NFD_COMING_SOON_VERSION );
 						}
+						$container->set( 'comingSoon', $container->service( function () {
+							return new Service();
+						}) );
 						return new ComingSoon( $container );
 					},
 					'isActive' => true,
