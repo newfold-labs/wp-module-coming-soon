@@ -11,7 +11,7 @@ use NewfoldLabs\WP\Module\ComingSoon\Service;
 use function NewfoldLabs\WP\ModuleLoader\container;
 
 add_action( 'newfold_container_set', function () {
-	$isFreshInstall = container()->get( 'isFreshInstallation' );
+	$isFreshInstall = container()->has( 'isFreshInstallation' ) ? container()->get( 'isFreshInstallation' ) : false;
 	if ( $isFreshInstall ) {
 		$comingSoonService = new Service();
 		$comingSoonService->enable();
