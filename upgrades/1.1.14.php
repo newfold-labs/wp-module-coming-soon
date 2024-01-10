@@ -14,6 +14,6 @@ add_action( 'newfold_container_set', function () {
 	$isFreshInstall = container()->has( 'isFreshInstallation' ) ? container()->get( 'isFreshInstallation' ) : false;
 	if ( $isFreshInstall ) {
 		$comingSoonService = new Service();
-		$comingSoonService->enable();
+		$comingSoonService->enable( false );
 	}
 } );

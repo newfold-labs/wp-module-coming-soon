@@ -10,6 +10,7 @@
 			isEnabled: checkComingSoonStatus,
 			enable: enableComingSoon,
 			disable: disableComingSoon,
+			lastChanged: getLastChanged,
 		};
 	};
 
@@ -79,6 +80,28 @@
 			} );
 
 		return result;
+	};
+
+	const getLastChanged = async () => {
+		let value;
+
+		await window.wp
+			.apiFetch( {
+				url: `${ API_ENDPOINT }/last-changed`,
+				method: 'GET',
+			} )
+			.then( ( response ) => {
+				if ( response.hasOwnProperty( 'lastChanged' ) ) {
+					value = response.lastChanged;
+				} else {
+					value = null;
+				}
+			} )
+			.catch( () => {
+				value = null;
+			} );
+
+		return value;
 	};
 
 	window.addEventListener( 'DOMContentLoaded', () => {

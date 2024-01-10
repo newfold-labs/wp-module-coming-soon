@@ -49,6 +49,7 @@ class ComingSoon {
 		// set up all actions
 		\add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
 		\add_action( 'rest_api_init', array( $this, 'rest_api_init' ) );
+		\add_action( 'newfold/onboarding/completed', array( $this, 'handle_onboarding_completed' ) );
 		\add_action( 'admin_notices', array( $this, 'notice_display' ) );
 		\add_action( 'admin_bar_menu', array( $this, 'add_tool_bar_item' ), 100 );
 		\add_action( 'template_redirect', array( $this, 'maybe_load_template' ) );
@@ -79,6 +80,21 @@ class ComingSoon {
 	 */
 	public function rest_api_init() {
 		new API\ComingSoon();
+	}
+
+	/**
+	 * Handle the onboarding complete action.
+	 * When the onboarding is complete, disable the coming soon page if the user has not opted in.
+	 * 
+	 * @return void
+	 */
+	public function handle_onboarding_completed() {
+		$coming_soon_service = container()->get( 'comingSoon' );
+
+		$coming_soon_last_changed = $coming_soon_service->get_last_changed_timestamp();
+		if ( ! $coming_soon_last_changed ) {
+			$coming_soon_service->disable();
+		}
 	}
 
 	/**
