@@ -16,9 +16,25 @@ use function NewfoldLabs\WP\ModuleLoader\container;
  */
 class ComingSoon
 {
+	/**
+	 * The namespace for the API.
+	 *
+	 * @var string
+	 */
 	private $namespace = 'newfold-coming-soon/v1';
 
+	/**
+	 * The coming soon service provider.
+	 *
+	 * @var \NewfoldLabs\WP\Module\ComingSoon\Service
+	 */
+	private $coming_soon_service;
+
+	/**
+	 * ComingSoon constructor.
+	 */
 	public function __construct() {
+		$this->coming_soon_service = container()->get( 'comingSoon' );
 		$this->register_routes();
 	}
 
@@ -52,6 +68,16 @@ class ComingSoon
 				'callback'            => array( $this, 'disable'),
 			)
 		);
+
+		register_rest_route(
+			$this->namespace,
+			'/last-changed',
+			array(
+				'methods'             => \WP_REST_Server::READABLE,
+				'permission_callback' => array( $this, 'check_permissions' ),
+				'callback'            => array( $this, 'last_changed_timestamp'),
+			)
+		);
 	}
 
 	/**
@@ -60,8 +86,7 @@ class ComingSoon
 	 * @return array
 	 */
 	public function check_status() {
-		$coming_soon_service = container()->get( 'comingSoon' );
-		return array( 'comingSoon' => $coming_soon_service->is_enabled() );
+		return array( 'comingSoon' => $this->coming_soon_service->is_enabled() );
 	}
 
 	/**
@@ -70,8 +95,7 @@ class ComingSoon
 	 * @return array
 	 */
 	public function enable() {
-		$coming_soon_service = container()->get( 'comingSoon' );
-		$coming_soon_service->enable();
+		$this->coming_soon_service->enable();
 		return array( 'comingSoon' => true );
 	}
 
@@ -81,9 +105,22 @@ class ComingSoon
 	 * @return array
 	 */
 	public function disable() {
-		$coming_soon_service = container()->get( 'comingSoon' );
-		$coming_soon_service->disable();
+		$this->coming_soon_service->disable();
 		return array( 'comingSoon' => false );
+	}
+
+	/**
+	 * Get the last changed timestamp value.
+	 *
+	 * @return array
+	 */
+	public function last_changed_timestamp() {
+		$last_changed = $this->coming_soon_service->get_last_changed_timestamp( true );
+		if ( ! $last_changed ) {
+			return array( 'lastChanged' => false );
+		}
+
+		return array( 'lastChanged' => $last_changed );
 	}
 
 	/**
