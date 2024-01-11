@@ -52,7 +52,7 @@ class Service
 	 *
 	 * @return void
 	 */
-	public function last_changed_timestamp() {
+	private function last_changed_timestamp() {
 		update_option( 'nfd_coming_soon_last_changed', time() );
 	}
 
