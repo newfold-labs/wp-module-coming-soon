@@ -170,15 +170,12 @@ class ComingSoon {
 		if ( current_user_can( 'manage_options' ) ) {
 
 			$is_coming_soon = 'true' === get_option( 'nfd_coming_soon', 'false' );
-			$current_state  = $is_coming_soon ? 'true' : 'false';
+			$current_state  = $is_coming_soon ? true : false;
 			$content = '<div id="nfd-site-status" data-coming-soon="'.$current_state.'">';
 			$content .= $this->args['admin_bar_label'];
-			$content .= '<span id="nfd-site-status-coming-soon" class="nfd-coming-soon-active">';
-			$content .= $this->args['admin_bar_cs_active'];
-			$content .= '</span>';
-			$content .= '<span id="nfd-site-status-live" class="nfd-coming-soon-inactive">';
-			$content .= $this->args['admin_bar_cs_inactive'];
-			$content .= '</span>';
+			$content .= $current_state 
+				? '<span id="nfd-site-status-text" style="color:#E01C1C;">' . $this->args['admin_bar_cs_active'] . '</span>'
+				: '<span id="nfd-site-status-text" style="color:#048200;">' . $this->args['admin_bar_cs_inactive'] . '</span>';
 			$content .= '</div>';
 			
 			$site_status_menu = array(
