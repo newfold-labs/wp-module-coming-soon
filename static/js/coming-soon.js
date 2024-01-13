@@ -7,14 +7,15 @@
 
 	const buildObject = () => {
 		return {
-			isEnabled: checkComingSoonStatus,
-			enable: enableComingSoon,
-			disable: disableComingSoon,
-			lastChanged: getLastChanged,
+			isEnabled,
+			enable,
+			disable,
+			lastChanged,
+			toggleAdminBarSiteStatus,
 		};
 	};
 
-	const checkComingSoonStatus = async () => {
+	const isEnabled = async () => {
 		let status;
 
 		await window.wp
@@ -36,7 +37,7 @@
 		return status;
 	};
 
-	const enableComingSoon = async () => {
+	const enable = async () => {
 		const result = {};
 
 		await window.wp
@@ -48,6 +49,7 @@
 				if ( response.hasOwnProperty( 'comingSoon' ) ) {
 					result.success = true;
 					result.comingSoon = response.comingSoon;
+					toggleAdminBarSiteStatus( true );
 				} else {
 					result.success = false;
 				}
@@ -59,7 +61,7 @@
 		return result;
 	};
 
-	const disableComingSoon = async () => {
+	const disable = async () => {
 		const result = {};
 
 		await window.wp
@@ -71,6 +73,7 @@
 				if ( response.hasOwnProperty( 'comingSoon' ) ) {
 					result.success = true;
 					result.comingSoon = response.comingSoon;
+					toggleAdminBarSiteStatus( false );
 				} else {
 					result.success = false;
 				}
@@ -82,7 +85,7 @@
 		return result;
 	};
 
-	const getLastChanged = async () => {
+	const lastChanged = async () => {
 		let value;
 
 		await window.wp
@@ -102,6 +105,18 @@
 			} );
 
 		return value;
+	};
+
+	const toggleAdminBarSiteStatus = ( newState ) => {
+		const siteStatus = document.querySelector(
+			'#wp-toolbar #nfd-site-status'
+		);
+
+		if ( ! siteStatus ) {
+			return;
+		}
+
+		siteStatus.setAttribute( 'data-coming-soon', newState );
 	};
 
 	window.addEventListener( 'DOMContentLoaded', () => {
