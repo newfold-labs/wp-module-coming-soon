@@ -121,7 +121,7 @@ class ComingSoon {
 		);
 
 		if (
-			'true' === get_option( esc_attr( $this->args['option_name'] ), 'false' ) && // coming soon is active
+			isComingSoonActive() && // coming soon is active
 			false === strpos( $screen->id, $this->args['admin_screen_id'] ) && // not on our app screen
 			current_user_can( 'manage_options' ) // current user can manage options
 		) {
@@ -174,7 +174,7 @@ class ComingSoon {
 	public function newfold_site_status( \WP_Admin_Bar $admin_bar ) {
 		if ( current_user_can( 'manage_options' ) ) {
 
-			$is_coming_soon = 'true' === get_option( 'nfd_coming_soon', 'false' );
+			$is_coming_soon = isComingSoonActive();
 			$current_state  = $is_coming_soon ? 'true' : 'false';
 			$content        = '<div id="nfd-site-status" data-coming-soon="' . $current_state . '">';
 			$content        .= $this->args['admin_bar_label'];
@@ -203,9 +203,8 @@ class ComingSoon {
 	 * Load warning on site Preview
 	 */
 	public function site_preview_warning() {
-		$is_coming_soon   = 'true' === get_option( 'nfd_coming_soon', 'false' );
-		if($is_coming_soon){
-		echo "<div style='background-color: #e71616; padding: 0 16px;color:#ffffff;font-size:16px;text-align:center;font-weight: 590;'>" . esc_html__( 'Site Preview - This site is NOT LIVE, only admins can see this view.', 'newfold-module-coming-soon' ) . "</div>";
+		if ( isComingSoonActive() ) {
+			echo "<div style='background-color: #e71616; padding: 0 16px;color:#ffffff;font-size:16px;text-align:center;font-weight: 590;'>" . esc_html__( 'Site Preview - This site is NOT LIVE, only admins can see this view.', 'newfold-module-coming-soon' ) . "</div>";
 		}
 	}
 
@@ -214,8 +213,7 @@ class ComingSoon {
 	 */
 	public function maybe_load_template() {
 		if ( ! is_user_logged_in() || 'preview=coming_soon' === $_SERVER['QUERY_STRING'] ) {
-			$coming_soon = get_option( esc_attr( $this->args['option_name'] ), 'false' );
-			if ( 'true' === $coming_soon ) {
+			if ( isComingSoonActive() ) {
 				self::coming_soon_content( $this->args );
 				die();
 			}
@@ -305,8 +303,7 @@ class ComingSoon {
 	 */
 	public function coming_soon_prevent_emails() {
 
-		$enabled = get_option( esc_attr( $this->args['option_name'] ), 'false' );
-		if ( 'true' === $enabled ) {
+		if ( isComingSoonActive() ) {
 			add_filter(
 				'jetpack_subscriptions_exclude_all_categories_except',
 				__CLASS__ . '\\coming_soon_prevent_emails_return_array'
