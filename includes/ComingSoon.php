@@ -60,10 +60,38 @@ class ComingSoon {
 		\add_action( 'plugins_loaded', array( $this, 'coming_soon_prevent_emails' ) );
 		\add_action( 'admin_bar_menu', array( $this, 'newfold_site_status' ), 100 );
 		\add_action( 'wp_body_open', array( $this, 'site_preview_warning' ) );
-		\add_action( 'admin_head', array($this, 'admin_bar_coming_soon_admin_styles') );
+		\add_action( 'admin_head', array( $this, 'admin_bar_coming_soon_admin_styles' ) );
+		\add_filter( 'default_option_nfd_coming_soon', array( $this, 'filter_coming_soon_fallback' ) );
+		\add_action( 'update_option_nfd_coming_soon', array( $this, 'on_update_nfd_coming_soon' ), 10, 2 );
+		\add_action( 'update_option_mm_coming_soon', array( $this, 'on_update_mm_coming_soon' ), 10, 2 );
 		\add_filter( 'jetpack_is_under_construction_plugin', array( $this, 'filter_jetpack_is_under_construction' ) );
 
 		new PrePublishModal();
+	}
+
+	public function on_update_nfd_coming_soon( $old_value, $value ) {
+		remove_filter( 'pre_update_option_mm_coming_soon', array( $this, 'on_update_mm_coming_soon' ) );
+		update_option( 'mm_coming_soon', $value );
+		add_filter( 'pre_update_option_mm_coming_soon', array( $this, 'on_update_mm_coming_soon' ) );
+
+		return $value;
+	}
+
+	public function on_update_mm_coming_soon( $old_value, $value ) {
+		remove_filter( 'pre_update_option_nfd_coming_soon', array( $this, 'on_update_nfd_coming_soon' ) );
+		update_option( 'nfd_coming_soon', $value );
+		add_filter( 'pre_update_option_nfd_coming_soon', array( $this, 'on_update_nfd_coming_soon' ) );
+
+		return $value;
+	}
+
+	/**
+	 * If nfd_coming_soon is not defined, set it to the value of mm_coming_soon.
+	 *
+	 * @return bool
+	 */
+	public function filter_coming_soon_fallback() {
+		return wp_validate_boolean( get_option( 'mm_coming_soon', false ) );
 	}
 
 	/**
