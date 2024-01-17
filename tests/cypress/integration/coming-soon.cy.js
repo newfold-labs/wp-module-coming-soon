@@ -8,7 +8,6 @@ describe( 'Coming Soon', function () {
 		cy.exec( 'npx wp-env run cli wp option update nfd_coming_soon true' );
 	} );
 
-	// skip this test since it is not true on some brand plugins.
 	it( 'Has Coming Soon Section on Home', () => {
 		cy.visit(
 			'/wp-admin/admin.php?page=' + Cypress.env( 'pluginId' ) + '#/home'
