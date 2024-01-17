@@ -3,6 +3,7 @@
 namespace NewfoldLabs\WP\Module\ComingSoon;
 
 use NewfoldLabs\WP\ModuleLoader\Container;
+
 use function NewfoldLabs\WP\ModuleLoader\container;
 
 /**
@@ -89,7 +90,7 @@ class ComingSoon {
 	/**
 	 * Handle the onboarding complete action.
 	 * When the onboarding is complete, disable the coming soon page if the user has not opted in.
-	 * 
+	 *
 	 * @return void
 	 */
 	public function handle_onboarding_completed() {
@@ -105,6 +106,7 @@ class ComingSoon {
 	 * Display coming soon notice.
 	 */
 	public function notice_display() {
+
 		$screen = get_current_screen();
 
 		$allowed_notice_html = array(
@@ -124,9 +126,9 @@ class ComingSoon {
 			current_user_can( 'manage_options' ) // current user can manage options
 		) {
 			?>
-			<div class='notice notice-warning'>
-				<p><?php echo wp_kses( $this->args['admin_notice_text'], $allowed_notice_html ); ?></p>
-			</div>
+            <div class='notice notice-warning'>
+                <p><?php echo wp_kses( $this->args['admin_notice_text'], $allowed_notice_html ); ?></p>
+            </div>
 			<?php
 		}
 	}
@@ -136,29 +138,33 @@ class ComingSoon {
 	 */
 	public function admin_bar_coming_soon_admin_styles() {
 		?>
-		<style>
-			#nfd-site-status {
-				background-color: #F8F8F8;
-				color: #333333;
-				padding: 0 16px;
-			}
-			#nfd-site-status-coming-soon {
-				color: #E01C1C;
-				display: none;
-			}
-			#nfd-site-status-live {
-				color: #048200;
-				display: none;
-			}
-			#nfd-site-status[data-coming-soon="true"] #nfd-site-status-coming-soon {
-				display: inline-block;
-			}
-			#nfd-site-status[data-coming-soon="false"] #nfd-site-status-live {
-				display: inline-block;
-			}
-		</style>
+        <style>
+            #nfd-site-status {
+                background-color: #F8F8F8;
+                color: #333333;
+                padding: 0 16px;
+            }
+
+            #nfd-site-status-coming-soon {
+                color: #E01C1C;
+                display: none;
+            }
+
+            #nfd-site-status-live {
+                color: #048200;
+                display: none;
+            }
+
+            #nfd-site-status[data-coming-soon="true"] #nfd-site-status-coming-soon {
+                display: inline-block;
+            }
+
+            #nfd-site-status[data-coming-soon="false"] #nfd-site-status-live {
+                display: inline-block;
+            }
+        </style>
 		<?php
-	} 
+	}
 
 	/**
 	 * Customize the admin bar with site status.
@@ -170,16 +176,16 @@ class ComingSoon {
 
 			$is_coming_soon = 'true' === get_option( 'nfd_coming_soon', 'false' );
 			$current_state  = $is_coming_soon ? 'true' : 'false';
-			$content = '<div id="nfd-site-status" data-coming-soon="'.$current_state.'">';
-			$content .= $this->args['admin_bar_label'];
-			$content .= '<span id="nfd-site-status-coming-soon" class="nfd-coming-soon-active">';
-			$content .= $this->args['admin_bar_cs_active'];
-			$content .= '</span>';
-			$content .= '<span id="nfd-site-status-live" class="nfd-coming-soon-inactive">';
-			$content .= $this->args['admin_bar_cs_inactive'];
-			$content .= '</span>';
-			$content .= '</div>';
-			
+			$content        = '<div id="nfd-site-status" data-coming-soon="' . $current_state . '">';
+			$content        .= $this->args['admin_bar_label'];
+			$content        .= '<span id="nfd-site-status-coming-soon" class="nfd-coming-soon-active">';
+			$content        .= $this->args['admin_bar_cs_active'];
+			$content        .= '</span>';
+			$content        .= '<span id="nfd-site-status-live" class="nfd-coming-soon-inactive">';
+			$content        .= $this->args['admin_bar_cs_inactive'];
+			$content        .= '</span>';
+			$content        .= '</div>';
+
 			$site_status_menu = array(
 				'id'     => 'site-status',
 				'parent' => 'top-secondary',
