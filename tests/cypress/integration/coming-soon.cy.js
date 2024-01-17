@@ -5,17 +5,38 @@ describe( 'Coming Soon', function () {
 
 	before( () => {
 		// Set coming soon to true
-		cy.exec( `npx wp-env run cli wp option update nfd_coming_soon true` );
+		cy.exec( 'npx wp-env run cli wp option update nfd_coming_soon true' );
+	} );
 
+	// skip this test since it is not true on some brand plugins.
+	it( 'Has Coming Soon Section on Home', () => {
+		cy.visit(
+			'/wp-admin/admin.php?page=' + Cypress.env( 'pluginId' ) + '#/home'
+		);
+		cy.get( appClass + '-home .nfd-app-section-content' )
+			.first()
+			.scrollIntoView()
+			.contains( 'h1', 'Ready to go live?' )
+			.should( 'be.visible' );
+
+		cy.get( appClass + '-home .nfd-app-section-content' )
+			.contains( 'a.nfd-button', 'iew your s' )
+			.first()
+			.should( 'exist' );
+
+		cy.get( appClass + '-home .nfd-app-section-content' )
+			.first()
+			.contains( 'button', 'Launch' )
+			.should( 'exist' );
+	} );
+
+	it( 'Coming Soon Toggle Functions', () => {
 		cy.visit(
 			'/wp-admin/admin.php?page=' +
 				Cypress.env( 'pluginId' ) +
 				'#/settings'
 		);
-		cy.injectAxe();
-	} );
 
-	it( 'Coming Soon Toggle Functions', () => {
 		// Initial Coming Soon State
 		cy.get( '#wp-toolbar #wp-admin-bar-site-status' )
 			.contains( 'span', 'Coming Soon' )
@@ -73,27 +94,6 @@ describe( 'Coming Soon', function () {
 		cy.get( '#wp-toolbar #wp-admin-bar-site-status' )
 			.contains( 'span', 'Coming Soon' )
 			.should( 'be.visible' );
-	} );
-
-	it( 'Has Coming Soon Section on Home', () => {
-		cy.visit(
-			'/wp-admin/admin.php?page=' + Cypress.env( 'pluginId' ) + '#/home'
-		);
-		cy.get( appClass + '-home .nfd-app-section-content' )
-			.first()
-			.scrollIntoView()
-			.contains( 'h1', 'Ready to go live?' )
-			.should( 'be.visible' );
-
-		cy.get( appClass + '-home .nfd-app-section-content' )
-			.contains( 'a.nfd-button', 'iew your s' )
-			.first()
-			.should( 'exist' );
-
-		cy.get( appClass + '-home .nfd-app-section-content' )
-			.first()
-			.contains( 'button', 'Launch' )
-			.should( 'exist' );
 	} );
 
 	it( 'Displays admin coming soon notice', () => {
