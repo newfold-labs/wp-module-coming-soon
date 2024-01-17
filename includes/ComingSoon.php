@@ -20,7 +20,6 @@ class ComingSoon {
 		$this->container = $container;
 		// setup args
 		$defaults   = array(
-			'option_name'           => 'nfd_coming_soon',
 			'admin_screen_id'       => container()->plugin()->id,
 			'admin_app_url'         => \admin_url( 'admin.php?page=newfold' ),
 			'admin_notice_text'     => __( 'Your site has Coming Soon mode active.', 'newfold-module-coming-soon' ),
