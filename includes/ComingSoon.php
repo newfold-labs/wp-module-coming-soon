@@ -61,6 +61,7 @@ class ComingSoon {
 		\add_action( 'admin_bar_menu', array( $this, 'newfold_site_status' ), 100 );
 		\add_action( 'wp_body_open', array( $this, 'site_preview_warning' ) );
 		\add_action( 'admin_head', array($this, 'admin_bar_coming_soon_admin_styles') );
+		\add_filter( 'jetpack_is_under_construction_plugin', array( $this, 'filter_jetpack_is_under_construction' ) );
 
 		new PrePublishModal();
 	}
@@ -325,6 +326,23 @@ class ComingSoon {
 			'please-for-the-love-of-all-things-do-not-exist',
 		);
 
+	}
+
+	/**
+	 * Filter Jetpack's is_under_construction_plugin to return true if the coming soon module is active.
+	 *
+	 * @see https://github.com/Automattic/jetpack/blob/trunk/projects/plugins/jetpack/_inc/lib/class.core-rest-api-endpoints.php#L1149-L1184
+	 *
+	 * @param bool $value
+	 *
+	 * @return bool
+	 */
+	public function filter_jetpack_is_under_construction( $value ) {
+		if ( isComingSoonActive() ) {
+			return true;
+		}
+
+		return $value;
 	}
 
 }
