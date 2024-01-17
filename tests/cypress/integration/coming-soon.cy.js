@@ -5,7 +5,7 @@ describe( 'Coming Soon', function () {
 
 	before( () => {
 		// Set coming soon to true
-		cy.exec( 'npx wp-env run cli wp option update nfd_coming_soon "true"' );
+		cy.exec( 'npx wp-env run cli wp option update nfd_coming_soon true' );
 	} );
 
 	it( 'Has Coming Soon Section on Home', () => {
