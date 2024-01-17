@@ -16,7 +16,7 @@ if ( defined( 'NFD_COMING_SOON_MODULE_VERSION' ) ) {
 	return;
 }
 
-define( 'NFD_COMING_SOON_MODULE_VERSION', '1.1.14' );
+define( 'NFD_COMING_SOON_MODULE_VERSION', '1.1.16' );
 
 if ( function_exists( 'is_admin' ) && is_admin() ) {
 	$upgrade_handler = new UpgradeHandler(
