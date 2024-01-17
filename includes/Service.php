@@ -10,15 +10,14 @@ namespace NewfoldLabs\WP\Module\ComingSoon;
 /**
  * A service provider class to interact with the coming soon module from the container.
  **/
-class Service
-{
+class Service {
 	/**
 	 * Enable the coming soon page.
 	 *
 	 * @return void
 	 */
 	public function enable( $timestamp = true ) {
-		update_option( 'nfd_coming_soon', 'true' );
+		update_option( 'nfd_coming_soon', true );
 
 		if ( $timestamp ) {
 			$this->last_changed_timestamp();
@@ -31,7 +30,7 @@ class Service
 	 * @return void
 	 */
 	public function disable( $timestamp = true ) {
-		update_option( 'nfd_coming_soon', 'false' );
+		update_option( 'nfd_coming_soon', false );
 
 		if ( $timestamp ) {
 			$this->last_changed_timestamp();
@@ -44,7 +43,7 @@ class Service
 	 * @return bool
 	 */
 	public function is_enabled() {
-		return 'true' === get_option( 'nfd_coming_soon', 'false' );
+		return true === wp_validate_boolean( get_option( 'nfd_coming_soon', false ) );
 	}
 
 	/**

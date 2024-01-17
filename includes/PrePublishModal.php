@@ -11,7 +11,7 @@ final class PrePublishModal {
 	 * Constructor.
 	 */
 	public function __construct() {
-		if ( self::coming_soon() ) {
+		if ( isComingSoonActive() ) {
 			\add_action( 'enqueue_block_editor_assets', array( __CLASS__, 'register_assets' ) );
 		}
 	}
@@ -23,7 +23,7 @@ final class PrePublishModal {
 		$asset_file = NFD_COMING_SOON_BUILD_DIR . '/coming-soon.asset.php';
 
 		if ( is_readable( $asset_file ) ) {
-			
+
 			$asset = include_once $asset_file;
 
 			\wp_register_script(
@@ -44,28 +44,6 @@ final class PrePublishModal {
 			\wp_enqueue_script( 'nfd-coming-soon' );
 			\wp_enqueue_style( 'nfd-coming-soon' );
 		}
-	}
-
-	/**
-	 * Determine whether the site is in coming soon mode.
-	 *
-	 * @return boolean
-	 */
-	public static function coming_soon() {
-		// Check if nfd_coming_soon is set to true.
-		$coming_soon = \get_option( 'nfd_coming_soon', null );
-		if ( null !== $coming_soon ) {
-			return 'true' === $coming_soon;
-		}
-
-		// Check if legacy mm_coming_soon is set to true.
-		$coming_soon = \get_option( 'mm_coming_soon', null );
-		if ( null !== $coming_soon ) {
-			return 'true' === $coming_soon;
-		}
-
-		// Assume site has been launched if both options do not exist.
-		return false;
 	}
 
 }

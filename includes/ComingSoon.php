@@ -3,6 +3,7 @@
 namespace NewfoldLabs\WP\Module\ComingSoon;
 
 use NewfoldLabs\WP\ModuleLoader\Container;
+
 use function NewfoldLabs\WP\ModuleLoader\container;
 
 /**
@@ -20,7 +21,6 @@ class ComingSoon {
 		$this->container = $container;
 		// setup args
 		$defaults   = array(
-			'option_name'           => 'nfd_coming_soon',
 			'admin_screen_id'       => container()->plugin()->id,
 			'admin_app_url'         => \admin_url( 'admin.php?page=newfold' ),
 			'admin_notice_text'     => __( 'Your site has Coming Soon mode active.', 'newfold-module-coming-soon' ),
@@ -60,9 +60,38 @@ class ComingSoon {
 		\add_action( 'plugins_loaded', array( $this, 'coming_soon_prevent_emails' ) );
 		\add_action( 'admin_bar_menu', array( $this, 'newfold_site_status' ), 100 );
 		\add_action( 'wp_body_open', array( $this, 'site_preview_warning' ) );
-		\add_action( 'admin_head', array($this, 'admin_bar_coming_soon_admin_styles') );
+		\add_action( 'admin_head', array( $this, 'admin_bar_coming_soon_admin_styles' ) );
+		\add_filter( 'default_option_nfd_coming_soon', array( $this, 'filter_coming_soon_fallback' ) );
+		\add_action( 'update_option_nfd_coming_soon', array( $this, 'on_update_nfd_coming_soon' ), 10, 2 );
+		\add_action( 'update_option_mm_coming_soon', array( $this, 'on_update_mm_coming_soon' ), 10, 2 );
+		\add_filter( 'jetpack_is_under_construction_plugin', array( $this, 'filter_jetpack_is_under_construction' ) );
 
 		new PrePublishModal();
+	}
+
+	public function on_update_nfd_coming_soon( $old_value, $value ) {
+		remove_filter( 'pre_update_option_mm_coming_soon', array( $this, 'on_update_mm_coming_soon' ) );
+		update_option( 'mm_coming_soon', $value );
+		add_filter( 'pre_update_option_mm_coming_soon', array( $this, 'on_update_mm_coming_soon' ) );
+
+		return $value;
+	}
+
+	public function on_update_mm_coming_soon( $old_value, $value ) {
+		remove_filter( 'pre_update_option_nfd_coming_soon', array( $this, 'on_update_nfd_coming_soon' ) );
+		update_option( 'nfd_coming_soon', $value );
+		add_filter( 'pre_update_option_nfd_coming_soon', array( $this, 'on_update_nfd_coming_soon' ) );
+
+		return $value;
+	}
+
+	/**
+	 * If nfd_coming_soon is not defined, set it to the value of mm_coming_soon.
+	 *
+	 * @return bool
+	 */
+	public function filter_coming_soon_fallback() {
+		return wp_validate_boolean( get_option( 'mm_coming_soon', false ) );
 	}
 
 	/**
@@ -90,7 +119,7 @@ class ComingSoon {
 	/**
 	 * Handle the onboarding complete action.
 	 * When the onboarding is complete, disable the coming soon page if the user has not opted in.
-	 * 
+	 *
 	 * @return void
 	 */
 	public function handle_onboarding_completed() {
@@ -106,6 +135,7 @@ class ComingSoon {
 	 * Display coming soon notice.
 	 */
 	public function notice_display() {
+
 		$screen = get_current_screen();
 
 		$allowed_notice_html = array(
@@ -120,14 +150,14 @@ class ComingSoon {
 		);
 
 		if (
-			'true' === get_option( esc_attr( $this->args['option_name'] ), 'false' ) && // coming soon is active
+			isComingSoonActive() && // coming soon is active
 			false === strpos( $screen->id, $this->args['admin_screen_id'] ) && // not on our app screen
 			current_user_can( 'manage_options' ) // current user can manage options
 		) {
 			?>
-			<div class='notice notice-warning'>
-				<p><?php echo wp_kses( $this->args['admin_notice_text'], $allowed_notice_html ); ?></p>
-			</div>
+            <div class='notice notice-warning'>
+                <p><?php echo wp_kses( $this->args['admin_notice_text'], $allowed_notice_html ); ?></p>
+            </div>
 			<?php
 		}
 	}
@@ -137,29 +167,33 @@ class ComingSoon {
 	 */
 	public function admin_bar_coming_soon_admin_styles() {
 		?>
-		<style>
-			#nfd-site-status {
-				background-color: #F8F8F8;
-				color: #333333;
-				padding: 0 16px;
-			}
-			#nfd-site-status-coming-soon {
-				color: #E01C1C;
-				display: none;
-			}
-			#nfd-site-status-live {
-				color: #048200;
-				display: none;
-			}
-			#nfd-site-status[data-coming-soon="true"] #nfd-site-status-coming-soon {
-				display: inline-block;
-			}
-			#nfd-site-status[data-coming-soon="false"] #nfd-site-status-live {
-				display: inline-block;
-			}
-		</style>
+        <style>
+            #nfd-site-status {
+                background-color: #F8F8F8;
+                color: #333333;
+                padding: 0 16px;
+            }
+
+            #nfd-site-status-coming-soon {
+                color: #E01C1C;
+                display: none;
+            }
+
+            #nfd-site-status-live {
+                color: #048200;
+                display: none;
+            }
+
+            #nfd-site-status[data-coming-soon="true"] #nfd-site-status-coming-soon {
+                display: inline-block;
+            }
+
+            #nfd-site-status[data-coming-soon="false"] #nfd-site-status-live {
+                display: inline-block;
+            }
+        </style>
 		<?php
-	} 
+	}
 
 	/**
 	 * Customize the admin bar with site status.
@@ -169,18 +203,18 @@ class ComingSoon {
 	public function newfold_site_status( \WP_Admin_Bar $admin_bar ) {
 		if ( current_user_can( 'manage_options' ) ) {
 
-			$is_coming_soon = 'true' === get_option( 'nfd_coming_soon', 'false' );
+			$is_coming_soon = isComingSoonActive();
 			$current_state  = $is_coming_soon ? 'true' : 'false';
-			$content = '<div id="nfd-site-status" data-coming-soon="'.$current_state.'">';
-			$content .= $this->args['admin_bar_label'];
-			$content .= '<span id="nfd-site-status-coming-soon" class="nfd-coming-soon-active">';
-			$content .= $this->args['admin_bar_cs_active'];
-			$content .= '</span>';
-			$content .= '<span id="nfd-site-status-live" class="nfd-coming-soon-inactive">';
-			$content .= $this->args['admin_bar_cs_inactive'];
-			$content .= '</span>';
-			$content .= '</div>';
-			
+			$content        = '<div id="nfd-site-status" data-coming-soon="' . $current_state . '">';
+			$content        .= $this->args['admin_bar_label'];
+			$content        .= '<span id="nfd-site-status-coming-soon" class="nfd-coming-soon-active">';
+			$content        .= $this->args['admin_bar_cs_active'];
+			$content        .= '</span>';
+			$content        .= '<span id="nfd-site-status-live" class="nfd-coming-soon-inactive">';
+			$content        .= $this->args['admin_bar_cs_inactive'];
+			$content        .= '</span>';
+			$content        .= '</div>';
+
 			$site_status_menu = array(
 				'id'     => 'site-status',
 				'parent' => 'top-secondary',
@@ -198,9 +232,8 @@ class ComingSoon {
 	 * Load warning on site Preview
 	 */
 	public function site_preview_warning() {
-		$is_coming_soon   = 'true' === get_option( 'nfd_coming_soon', 'false' );
-		if($is_coming_soon){
-		echo "<div style='background-color: #e71616; padding: 0 16px;color:#ffffff;font-size:16px;text-align:center;font-weight: 590;'>" . esc_html__( 'Site Preview - This site is NOT LIVE, only admins can see this view.', 'newfold-module-coming-soon' ) . "</div>";
+		if ( isComingSoonActive() ) {
+			echo "<div style='background-color: #e71616; padding: 0 16px;color:#ffffff;font-size:16px;text-align:center;font-weight: 590;'>" . esc_html__( 'Site Preview - This site is NOT LIVE, only admins can see this view.', 'newfold-module-coming-soon' ) . "</div>";
 		}
 	}
 
@@ -209,8 +242,7 @@ class ComingSoon {
 	 */
 	public function maybe_load_template() {
 		if ( ! is_user_logged_in() || 'preview=coming_soon' === $_SERVER['QUERY_STRING'] ) {
-			$coming_soon = get_option( esc_attr( $this->args['option_name'] ), 'false' );
-			if ( 'true' === $coming_soon ) {
+			if ( isComingSoonActive() ) {
 				self::coming_soon_content( $this->args );
 				die();
 			}
@@ -300,8 +332,7 @@ class ComingSoon {
 	 */
 	public function coming_soon_prevent_emails() {
 
-		$enabled = get_option( esc_attr( $this->args['option_name'] ), 'false' );
-		if ( 'true' === $enabled ) {
+		if ( isComingSoonActive() ) {
 			add_filter(
 				'jetpack_subscriptions_exclude_all_categories_except',
 				__CLASS__ . '\\coming_soon_prevent_emails_return_array'
@@ -323,6 +354,23 @@ class ComingSoon {
 			'please-for-the-love-of-all-things-do-not-exist',
 		);
 
+	}
+
+	/**
+	 * Filter Jetpack's is_under_construction_plugin to return true if the coming soon module is active.
+	 *
+	 * @see https://github.com/Automattic/jetpack/blob/trunk/projects/plugins/jetpack/_inc/lib/class.core-rest-api-endpoints.php#L1149-L1184
+	 *
+	 * @param bool $value
+	 *
+	 * @return bool
+	 */
+	public function filter_jetpack_is_under_construction( $value ) {
+		if ( isComingSoonActive() ) {
+			return true;
+		}
+
+		return $value;
 	}
 
 }
