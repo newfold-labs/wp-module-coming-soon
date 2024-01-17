@@ -12,7 +12,6 @@ describe( 'Coming Soon', function () {
 				Cypress.env( 'pluginId' ) +
 				'#/settings'
 		);
-		cy.injectAxe();
 	} );
 
 	it( 'Coming Soon Toggle Functions', () => {
