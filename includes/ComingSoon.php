@@ -61,6 +61,7 @@ class ComingSoon {
 		\add_action( 'admin_bar_menu', array( $this, 'newfold_site_status' ), 100 );
 		\add_action( 'wp_body_open', array( $this, 'site_preview_warning' ) );
 		\add_action( 'admin_head', array( $this, 'admin_bar_coming_soon_admin_styles' ) );
+		\add_action( 'wp_head', array( $this, 'admin_bar_coming_soon_admin_styles' ) );
 		\add_filter( 'default_option_nfd_coming_soon', array( $this, 'filter_coming_soon_fallback' ) );
 		\add_action( 'update_option_nfd_coming_soon', array( $this, 'on_update_nfd_coming_soon' ), 10, 2 );
 		\add_action( 'update_option_mm_coming_soon', array( $this, 'on_update_mm_coming_soon' ), 10, 2 );
