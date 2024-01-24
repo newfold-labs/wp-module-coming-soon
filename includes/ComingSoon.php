@@ -173,17 +173,34 @@ class ComingSoon {
                 background-color: #F8F8F8;
                 color: #333333;
                 padding: 0 16px;
+				font-weight: 510;
+				display:flex;
+				height: 22px;
+				align-items: center;
+				gap: 2px;
+				border-radius: 2px;
+				margin-top: 4px;
             }
 
             #nfd-site-status-coming-soon {
                 color: #E01C1C;
                 display: none;
+				font-weight: 510;
             }
 
             #nfd-site-status-live {
                 color: #048200;
                 display: none;
+				font-weight: 510;
             }
+
+			#nfd-site-status[data-coming-soon="true"] {
+				border: 1px solid var(--Dark-Red, #C71919);
+            }
+			
+			#nfd-site-status[data-coming-soon="false"] {
+				border: 1px solid var(--A11y-GRN, #278224);
+			}
 
             #nfd-site-status[data-coming-soon="true"] #nfd-site-status-coming-soon {
                 display: inline-block;
