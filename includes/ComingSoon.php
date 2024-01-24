@@ -71,6 +71,19 @@ class ComingSoon {
 	}
 
 	public function on_update_nfd_coming_soon( $old_value, $value ) {
+
+		// When the database value changes, make sure we fire the appropriate action for enabling/disabling.
+		add_action(
+			'shutdown',
+			function () use ( $value ) {
+				if ( wp_validate_boolean( $value ) ) {
+					do_action( 'newfold/coming-soon/enabled' );
+				} else {
+					do_action( 'newfold/coming-soon/disabled' );
+				}
+			}
+		);
+
 		// When the database value changes for the new value, make sure we update the legacy value.
 		remove_filter( 'update_option_mm_coming_soon', array( $this, 'on_update_mm_coming_soon' ) );
 		update_option( 'mm_coming_soon', $value );
