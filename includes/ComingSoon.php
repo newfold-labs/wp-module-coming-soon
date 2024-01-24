@@ -71,17 +71,20 @@ class ComingSoon {
 	}
 
 	public function on_update_nfd_coming_soon( $old_value, $value ) {
-		remove_filter( 'pre_update_option_mm_coming_soon', array( $this, 'on_update_mm_coming_soon' ) );
+		// When the database value changes for the new value, make sure we update the legacy value.
+		remove_filter( 'update_option_mm_coming_soon', array( $this, 'on_update_mm_coming_soon' ) );
 		update_option( 'mm_coming_soon', $value );
-		add_filter( 'pre_update_option_mm_coming_soon', array( $this, 'on_update_mm_coming_soon' ) );
+		add_filter( 'update_option_mm_coming_soon', array( $this, 'on_update_mm_coming_soon' ), 10, 2 );
 
 		return $value;
 	}
 
 	public function on_update_mm_coming_soon( $old_value, $value ) {
-		remove_filter( 'pre_update_option_nfd_coming_soon', array( $this, 'on_update_nfd_coming_soon' ) );
+
+		// When the database value changes for the legacy value, make sure we update the new value.
+		remove_filter( 'update_option_nfd_coming_soon', array( $this, 'on_update_nfd_coming_soon' ) );
 		update_option( 'nfd_coming_soon', $value );
-		add_filter( 'pre_update_option_nfd_coming_soon', array( $this, 'on_update_nfd_coming_soon' ) );
+		add_filter( 'update_option_nfd_coming_soon', array( $this, 'on_update_nfd_coming_soon' ), 10, 2 );
 
 		return $value;
 	}
