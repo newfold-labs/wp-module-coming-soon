@@ -182,6 +182,10 @@ class ComingSoon {
 				margin-top: 4px;
             }
 
+			#wpadminbar #wp-admin-bar-site-status  .ab-item{
+				height:22px;
+			}
+
             #nfd-site-status-coming-soon {
                 color: #E01C1C;
                 display: none;
