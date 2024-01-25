@@ -130,18 +130,19 @@ class ComingSoon {
 	 * @return void
 	 */
 	public function conditionally_trigger_coming_soon_action_hooks( bool $isEnabled ) {
+
+		if ( ! did_action( 'init' ) ) {
+			add_action( 'init', function () use ( $isEnabled ) {
+				$this->conditionally_trigger_coming_soon_action_hooks( $isEnabled );
+			}, 99 );
+
+			return;
+		}
+
 		if ( $isEnabled ) {
-			if ( did_action( 'init' ) ) {
-				$this->trigger_enabled_action_hook();
-			} else {
-				add_action( 'init', array( $this, 'trigger_enabled_action_hook' ), 99 );
-			}
+			$this->trigger_enabled_action_hook();
 		} else {
-			if ( did_action( 'init' ) ) {
-				$this->trigger_disabled_action_hook();
-			} else {
-				add_action( 'init', array( $this, 'trigger_disabled_action_hook' ), 99 );
-			}
+			$this->trigger_disabled_action_hook();
 		}
 	}
 
