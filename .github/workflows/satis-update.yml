@@ -4,7 +4,6 @@ on:
   release:
     types:
       - created
-  workflow_dispatch:
 
 env:
   VERSION: ${GITHUB_REF#refs/tags/*}
