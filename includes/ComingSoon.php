@@ -26,8 +26,8 @@ class ComingSoon {
 			'admin_notice_text'     => __( 'Your site has Coming Soon mode active.', 'newfold-module-coming-soon' ),
 			'admin_bar_text'        => '<div>' . __( 'Coming Soon Active', 'newfold-module-coming-soon' ) . '</div>',
 			'admin_bar_label'       => __( 'Site Status: ', 'newfold-module-coming-soon' ),
-			'admin_bar_cs_active'   => __( 'Coming Soon', 'newfold-module-coming-soon' ),
-			'admin_bar_cs_inactive' => __( 'Live', 'newfold-module-coming-soon' ),
+			'admin_bar_cs_active'   => __( 'NOT LIVE', 'newfold-module-coming-soon' ),
+			'admin_bar_cs_inactive' => __( 'LIVE', 'newfold-module-coming-soon' ),
 			'template_page_title'   => __( 'Coming Soon!', 'newfold-module-coming-soon' ),
 			'template_styles'       => false,
 			'template_content'      => false,
@@ -173,17 +173,38 @@ class ComingSoon {
                 background-color: #F8F8F8;
                 color: #333333;
                 padding: 0 16px;
+				font-weight: 510;
+				display:flex;
+				height: 22px;
+				align-items: center;
+				gap: 2px;
+				border-radius: 2px;
+				margin-top: 4px;
             }
+
+			#wpadminbar #wp-admin-bar-site-status  .ab-item{
+				height:22px;
+			}
 
             #nfd-site-status-coming-soon {
                 color: #E01C1C;
                 display: none;
+				font-weight: 510;
             }
 
             #nfd-site-status-live {
                 color: #048200;
                 display: none;
+				font-weight: 510;
             }
+
+			#nfd-site-status[data-coming-soon="true"] {
+				border: 1px solid var(--Dark-Red, #C71919);
+            }
+			
+			#nfd-site-status[data-coming-soon="false"] {
+				border: 1px solid var(--A11y-GRN, #278224);
+			}
 
             #nfd-site-status[data-coming-soon="true"] #nfd-site-status-coming-soon {
                 display: inline-block;
