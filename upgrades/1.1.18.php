@@ -1,6 +1,6 @@
 <?php
 /**
- * Handles update for coming soon module version 1.1.14.
+ * Handles update for coming soon module version 1.1.18.
  *
  * Enable coming soon page on fresh installations.
  *
@@ -15,5 +15,8 @@ add_action( 'newfold_container_set', function ( Container $container ) {
 	if ( $isFreshInstall ) {
 		$comingSoonService = new Service();
 		$comingSoonService->enable( false );
+
+		// Initially set the `mm_coming_soon` option to true as well to keep things in sync.
+		update_option( 'mm_coming_soon', true );
 	}
 } );

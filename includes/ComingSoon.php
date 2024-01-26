@@ -70,20 +70,104 @@ class ComingSoon {
 		new PrePublishModal();
 	}
 
+	/**
+	 * When the coming soon state is updated, make sure we trigger actions and update the legacy option value.
+	 *
+	 * @param mixed $old_value
+	 * @param mixed $value
+	 *
+	 * @return mixed
+	 */
 	public function on_update_nfd_coming_soon( $old_value, $value ) {
-		remove_filter( 'pre_update_option_mm_coming_soon', array( $this, 'on_update_mm_coming_soon' ) );
+
+		// Ensure the value is a boolean.
+		$value = wp_validate_boolean( $value );
+
+		// Trigger any actions associated with the coming soon state.
+		$this->conditionally_trigger_coming_soon_action_hooks( $value );
+
+		// When the database value changes for the new value, make sure we update the legacy value.
+		remove_filter( 'update_option_mm_coming_soon', array( $this, 'on_update_mm_coming_soon' ) );
 		update_option( 'mm_coming_soon', $value );
-		add_filter( 'pre_update_option_mm_coming_soon', array( $this, 'on_update_mm_coming_soon' ) );
+		add_filter( 'update_option_mm_coming_soon', array( $this, 'on_update_mm_coming_soon' ), 10, 2 );
 
 		return $value;
 	}
 
+	/**
+	 * When the coming soon state is updated, make sure we trigger actions and update the new option value.
+	 *
+	 * @param mixed $old_value
+	 * @param mixed $value
+	 *
+	 * @return mixed
+	 */
 	public function on_update_mm_coming_soon( $old_value, $value ) {
-		remove_filter( 'pre_update_option_nfd_coming_soon', array( $this, 'on_update_nfd_coming_soon' ) );
+
+		// Ensure the value is a boolean.
+		$value = wp_validate_boolean( $value );
+
+		// Trigger any actions associated with the coming soon state.
+		$this->conditionally_trigger_coming_soon_action_hooks( $value );
+
+		// When the database value changes for the legacy value, make sure we update the new value.
+		remove_filter( 'update_option_nfd_coming_soon', array( $this, 'on_update_nfd_coming_soon' ) );
 		update_option( 'nfd_coming_soon', $value );
-		add_filter( 'pre_update_option_nfd_coming_soon', array( $this, 'on_update_nfd_coming_soon' ) );
+		add_filter( 'update_option_nfd_coming_soon', array( $this, 'on_update_nfd_coming_soon' ), 10, 2 );
 
 		return $value;
+	}
+
+	/**
+	 * Conditionally trigger coming soon actions.
+	 *
+	 * The data module only starts listening for events after the init hook.
+	 *  - If the init hook has run, we trigger the action immediately.
+	 *  - If the init hook has not run, we add a callback to the init hook to trigger the action.
+	 *
+	 * @param bool $isEnabled
+	 *
+	 * @return void
+	 */
+	public function conditionally_trigger_coming_soon_action_hooks( bool $isEnabled ) {
+
+		if ( ! did_action( 'init' ) ) {
+			add_action( 'init', function () use ( $isEnabled ) {
+				$this->conditionally_trigger_coming_soon_action_hooks( $isEnabled );
+			}, 99 );
+
+			return;
+		}
+
+		if ( $isEnabled ) {
+			$this->trigger_enabled_action_hook();
+		} else {
+			$this->trigger_disabled_action_hook();
+		}
+	}
+
+	/**
+	 * Trigger the enabled action hook.
+	 *
+	 * @return void
+	 */
+	public function trigger_enabled_action_hook() {
+		if ( ! did_action( 'newfold/coming-soon/enabled' ) ) {
+			ray( 'enabled' );
+			do_action( 'newfold/coming-soon/enabled' );
+		}
+	}
+
+	/**
+	 * Trigger the disabled action hook.
+	 *
+	 * @return void
+	 */
+	public function trigger_disabled_action_hook() {
+		if ( ! did_action( 'newfold/coming-soon/disabled' ) ) {
+			ray( 'disabled' );
+			do_action( 'newfold/coming-soon/disabled' );
+		}
 	}
 
 	/**
