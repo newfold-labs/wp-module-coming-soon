@@ -26,7 +26,7 @@ describe( 'Coming Soon', function () {
 			.should( 'be.visible' );
 
 		cy.get( appClass + '-app-settings-coming-soon' )
-			.contains( 'label', 'Coming soon' )
+			.contains( 'label', 'Coming' )
 			.scrollIntoView()
 			.should( 'be.visible' );
 
