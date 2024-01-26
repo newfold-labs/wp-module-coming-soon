@@ -21,7 +21,7 @@ jobs:
         if: ${{ (github.repository == 'newfold-labs/wp-module-coming-soon') && (github.event.release.prerelease == false) }}
         run: |
           taggedVersion=${{ env.VERSION }}
-          moduleVersion=`grep "NFD_COMING_SOON_MODULE_VERSION" bootstrap.php | grep -Eo "[0-9\.]*"`
+          moduleVersion=`grep "define( 'NFD_COMING_SOON_MODULE_VERSION'," bootstrap.php | grep -Eo "[0-9\.]*"`
           packageVersion=`grep '"version"' package.json | grep -Eo "[0-9\.]*"`
           echo "Tagged version: $taggedVersion"
           echo "Module version: $moduleVersion"
