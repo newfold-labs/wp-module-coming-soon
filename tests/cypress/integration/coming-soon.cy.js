@@ -16,8 +16,8 @@ describe( 'Coming Soon', function () {
 
 	it( 'Coming Soon Toggle Functions', () => {
 		// Initial Coming Soon State
-		cy.get( '#wp-toolbar #wp-admin-bar-site-status' )
-			.contains( 'span', 'Coming Soon' )
+		cy.get( '#wp-toolbar #wp-admin-bar-site-status #nfd-site-status-coming-soon' )
+			.scrollIntoView()
 			.should( 'be.visible' );
 
 		cy.get( appClass + '-app-settings-coming-soon' )
@@ -41,8 +41,8 @@ describe( 'Coming Soon', function () {
 		cy.get( '[data-id="coming-soon-toggle"]' )
 			.should( 'have.attr', 'aria-checked' )
 			.and( 'include', 'false' );
-		cy.get( '#wp-toolbar #wp-admin-bar-site-status' )
-			.contains( 'span', 'Live' )
+		cy.get( '#wp-toolbar #wp-admin-bar-site-status #nfd-site-status-live' )
+			.scrollIntoView()
 			.should( 'be.visible' );
 		cy.get( '.nfd-notifications' )
 			.contains( '.nfd-notification', 'Coming soon deactivated' )
@@ -55,8 +55,8 @@ describe( 'Coming Soon', function () {
 		cy.get( '[data-id="coming-soon-toggle"]' )
 			.should( 'have.attr', 'aria-checked' )
 			.and( 'include', 'true' );
-		cy.get( '#wp-toolbar #wp-admin-bar-site-status' )
-			.contains( 'span', 'Coming Soon' )
+		cy.get( '#wp-toolbar #wp-admin-bar-site-status #nfd-site-status-coming-soon' )
+			.scrollIntoView()
 			.should( 'be.visible' );
 		cy.get( '.nfd-notifications' )
 			.contains( '.nfd-notification', 'Coming soon activated' )
@@ -69,9 +69,11 @@ describe( 'Coming Soon', function () {
 			.contains( 'div', 'Site Status' )
 			.should( 'be.visible' );
 		// Admin bar contains status
-		cy.get( '#wp-toolbar #wp-admin-bar-site-status' )
-			.contains( 'span', 'Coming Soon' )
+		cy.get( '#wp-toolbar #wp-admin-bar-site-status #nfd-site-status-coming-soon' )
+			.scrollIntoView()
 			.should( 'be.visible' );
+		cy.get( '#wp-toolbar #wp-admin-bar-site-status #nfd-site-status-live' )
+			.should( 'not.be.visible' );
 	} );
 
 	it( 'Has Coming Soon Section on Home', () => {
