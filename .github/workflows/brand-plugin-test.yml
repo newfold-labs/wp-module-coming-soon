@@ -43,8 +43,8 @@ jobs:
       module-repo: ${{ github.repository }}
       module-branch: ${{ needs.setup.outputs.branch }}
       plugin-repo: 'newfold-labs/wp-plugin-hostgator'
-      secondary-module-repo: 'newfold-labs/wp-module-ecommerce'
-      secondary-module-branch: 'tags/v1.3.19'
+      secondary-module-repo: 'newfold-labs/wp-module-onboarding'
+      secondary-module-branch: 'enhance/ai-onboarding'
     secrets: inherit
 
   web:
@@ -55,8 +55,6 @@ jobs:
       module-repo: ${{ github.repository }}
       module-branch: ${{ needs.setup.outputs.branch }}
       plugin-repo: 'newfold-labs/wp-plugin-web'
-      secondary-module-repo: 'newfold-labs/wp-module-data'
-      secondary-module-branch: 'main'
     secrets: inherit
 
   crazydomains:
@@ -67,8 +65,8 @@ jobs:
       module-repo: ${{ github.repository }}
       module-branch: ${{ needs.setup.outputs.branch }}
       plugin-repo: 'newfold-labs/wp-plugin-crazy-domains'
-      secondary-module-repo: 'newfold-labs/wp-module-data'
-      secondary-module-branch: 'tags/2.4.18'
+      secondary-module-repo: 'newfold-labs/wp-module-onboarding'
+      secondary-module-branch: 'enhance/ai-onboarding'
     secrets: inherit
 
   mojo:
@@ -79,6 +77,4 @@ jobs:
       module-repo: ${{ github.repository }}
       module-branch: ${{ needs.setup.outputs.branch }}
       plugin-repo: 'newfold-labs/wp-plugin-mojo'
-      secondary-module-repo: 'newfold-labs/wp-module-data'
-      secondary-module-branch: 'expect-to-fail-no-branch-match-found'
     secrets: inherit
