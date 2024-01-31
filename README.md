@@ -9,6 +9,16 @@ height="42" />
 
 Coming Soon functionality for WordPress.
 
+## Releases
+
+### 1. Bump Version
+
+Update the module versions in the `bootstrap.php` file (the NFD_COMING_SOON_MODULE_VERSION const) and in the `package.json` file (the package version).
+
+### 2. Build
+
+Run `npm run build` to rebuild files and commit the new build files (be sure to remove the old version files).
+
 ## Installation
 
 ### 1. Add the Newfold Satis to your `composer.json`.
