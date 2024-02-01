@@ -26,7 +26,9 @@ header('Cache-Control: no-store, no-cache, must-revalidate');
 				<div class="subscription_widget">
 					<h1><?php echo wp_kses_post( $args['template_h1'] ); ?></h1>
 					<h2><?php echo wp_kses_post( $args['template_h2'] ); ?></h2>
-					<p class="comingsoon_links"><?php echo wp_kses_post( $args['template_coming_soon_links'] ); ?></p>
+					<?php if( isset( $args['template_coming_soon_links'] )) : ?> 
+						<p class="comingsoon_links"><?php echo wp_kses_post( $args['template_coming_soon_links'] ); ?></p>
+					<?php endif; ?>
 					<?php if ( isset( $args['template_login_btn'] ) && true === $args['template_login_btn'] )  : // admin login button ?>
 						<a class="btn" href="<?php echo esc_url( wp_login_url() ); ?>">
 							<?php esc_html_e( 'Admin Login', 'newfold-module-coming-soon' ); ?>
