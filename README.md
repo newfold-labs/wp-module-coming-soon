@@ -9,6 +9,23 @@ height="42" />
 
 Coming Soon functionality for WordPress.
 
+## Module Responsibilities
+
+- Show a coming soon page when a site isn't quite to launch. This page is branded differently per brand plugin.
+- Exposes a toggle where users can launch/unlaunch their website.
+- When JetPack subscriptions are enabled, the coming soon page will show an email subscription form on the coming soon page.
+- When Coming Soon is enabled, a banner is shown to logged-in users to let them know that what they see isn't what non-logged-in users see.
+- Shows a site status indicator on the WP Admin bar. Shows LIVE vs NOT LIVE.
+- On WP admin pages, when coming soon is enabled, an admin notice shows that will guide the user to the toggle.
+- On the brand plugin homepage, if the site is not live, it shows a notice with a button to launch the site.
+- Exposes a class on the dependency injection container that allows other modules to enable, disable, and check status of Coming Soon.
+- Exposes actions to other modules that may need to listen for changes coming soon.
+
+## Critical Paths
+
+- If a user enabled coming soon, it should show the coming soon page.
+- If a user disables coming soon, it should not show the coming soon page.
+
 ## Releases
 
 ### 1. Bump Version
