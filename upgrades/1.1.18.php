@@ -12,7 +12,10 @@ use NewfoldLabs\WP\ModuleLoader\Container;
 
 add_action( 'newfold_container_set', function ( Container $container ) {
 	$isFreshInstall = $container->has( 'isFreshInstallation' ) ? $container->get( 'isFreshInstallation' ) : false;
-	if ( $isFreshInstall ) {
+	if ( apply_filters(
+		'newfold/coming-soon/filter/default/fresh',
+		$isFreshInstall
+	) ) {
 		$comingSoonService = new Service();
 		$comingSoonService->enable( false );
 
