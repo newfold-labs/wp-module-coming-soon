@@ -28,7 +28,7 @@ if ( ! $old_coming_soon_module_version || is_admin() ) {
 	$upgrade_handler = new UpgradeHandler(
 		__DIR__ . '/upgrades',
 		$old_coming_soon_module_version,
-		NFD_DATA_MODULE_VERSION
+		NFD_COMING_SOON_MODULE_VERSION
 	);
 
 	if ( $upgrade_handler->maybe_upgrade() ) {
