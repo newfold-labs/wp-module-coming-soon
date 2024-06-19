@@ -146,7 +146,8 @@ describe( 'Coming Soon', function () {
 		cy.get( '#wrap' ).contains( 'Coming Soon' ).should( 'exist' );
 	} );
 
-	it( 'Launching launches site', () => {
+	// this test is already in the ecommerce module, once the component is moved into this module this test can be used
+	it.skip( 'Launching launches site', () => {
 		cy.login( Cypress.env( 'wpUsername' ), Cypress.env( 'wpPassword' ) );
 		cy.visit(
 			'/wp-admin/admin.php?page=' +
