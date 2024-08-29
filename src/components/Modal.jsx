@@ -13,23 +13,20 @@ import { __ } from '@wordpress/i18n';
  * Internal dependencies
  */
 import { store as nfdComingSoonStore } from '../store';
-import { setComingSoon } from '../utils/api/comingSoon';
 
 const Modal = () => {
 	const { setIsModalOpen } = useDispatch(nfdComingSoonStore);
-	const [isComingSoonActive, setIsComingSoonActive] = useState(true);
 
 	const { isModalOpen } = useSelect((select) => ({
 		isModalOpen: select(nfdComingSoonStore).isModalOpen(),
 	}));
 
 	const handlePublishAndLaunch = () => {
-		setComingSoon(false);
-		setIsComingSoonActive(false);
+		window.NewfoldRuntime.comingSoon.disable();
 		setIsModalOpen(false);
 	};
 
-	if (!isModalOpen || !isComingSoonActive) {
+	if (!isModalOpen || !window.NewfoldRuntime.comingSoon.isEnabled) {
 		return null;
 	}
 
@@ -49,16 +46,36 @@ const Modal = () => {
 			<div>
 				<p>{heading}</p>
 				<br />
-				<Button variant="primary" onClick={handlePublishAndLaunch}>
-					{launchButtonText}
-				</Button>
-				&nbsp;
-				<Button
-					variant="secondary"
-					onClick={() => setIsModalOpen(false)}
+				<div
+					style={ {
+						alignContent: 'space-between',
+						display: 'flex',
+						flexWrap: 'wrap',
+						gap: '16px',
+						boxSizing: 'inherit',
+					} }
 				>
-					{withoutLaunchButtonText}
-				</Button>
+					<Button
+						variant="primary"
+						onClick={handlePublishAndLaunch}
+						style={{
+							flex: 1,
+							justifyContent: 'center',
+						}}
+					>
+						{launchButtonText}
+					</Button>
+					<Button
+						variant="link"
+						onClick={() => setIsModalOpen(false)}
+						style={{
+							flex: 1,
+							justifyContent: 'center',
+						}}
+					>
+						{withoutLaunchButtonText}
+					</Button>
+				</div>
 			</div>
 		</WP2Modal>
 	);
