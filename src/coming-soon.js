@@ -1,9 +1,4 @@
 /**
- * Styles.
- */
-import './styles/app.scss';
-
-/**
  * WordPress dependencies
  */
 import domReady from '@wordpress/dom-ready';

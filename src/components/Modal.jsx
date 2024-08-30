@@ -1,63 +1,78 @@
 /**
  * External dependencies
  */
-import { useState } from 'react';
+import { useState } from '@wordpress/element';
 
 /**
  * WordPress dependencies
  */
-import { Modal as WP2Modal, Button, Icon } from '@wordpress/components';
+import { Modal as WP2Modal, Button } from '@wordpress/components';
 import { useDispatch, useSelect } from '@wordpress/data';
-import { useEffect } from '@wordpress/element';
-import { store as editPostStore } from '@wordpress/edit-post';
 import { __ } from '@wordpress/i18n';
 /**
  * Internal dependencies
  */
-import { launch } from './Icons';
 import { store as nfdComingSoonStore } from '../store';
-import { setComingSoon } from '../utils/api/comingSoon';
-
 
 const Modal = () => {
 	const { setIsModalOpen } = useDispatch(nfdComingSoonStore);
-	const [isComingSoonActive, setIsComingSoonActive] = useState(true); 
 
-	const { isModalOpen } = useSelect(
-		(select) => ({
-			isModalOpen: select(nfdComingSoonStore).isModalOpen(),
-		})
-	);
+	const { isModalOpen } = useSelect((select) => ({
+		isModalOpen: select(nfdComingSoonStore).isModalOpen(),
+	}));
 
 	const handlePublishAndLaunch = () => {
-		setComingSoon(false);
-		setIsComingSoonActive(false);
+		window.NewfoldRuntime.comingSoon.disable();
 		setIsModalOpen(false);
 	};
 
-	if (!isModalOpen || !isComingSoonActive) {
+	if (!isModalOpen || !window.NewfoldRuntime.comingSoon.isEnabled) {
 		return null;
 	}
 
 	const title = __('Ready to launch your Site?', 'nfd-coming-soon');
-	const heading = __('Pages and posts you publish will not be visible to the public until you launch your site.', 'nfd-coming-soon');
+	const heading = __(
+		'Pages and posts you publish will not be visible to the public until you launch your site.',
+		'nfd-coming-soon'
+	);
 	const launchButtonText = __('Publish & Launch Site', 'nfd-coming-soon');
-	const withoutLaunchButtonText = __('Publish without launching', 'nfd-coming-soon');
+	const withoutLaunchButtonText = __(
+		'Publish Without Launching',
+		'nfd-coming-soon'
+	);
 
 	return (
-		<WP2Modal
-			title={title}
-			onRequestClose={() => setIsModalOpen(false)}
-		>
+		<WP2Modal title={title} onRequestClose={() => setIsModalOpen(false)}>
 			<div>
 				<p>{heading}</p>
-				<div className="modal-buttons">
+				<br />
+				<div
+					style={ {
+						alignContent: 'space-between',
+						display: 'flex',
+						flexWrap: 'wrap',
+						gap: '16px',
+						boxSizing: 'inherit',
+					} }
+				>
 					<Button
-						icon={<Icon icon={launch} />}
-						variant="primary" onClick={handlePublishAndLaunch}>
+						variant="primary"
+						onClick={handlePublishAndLaunch}
+						style={{
+							flex: 1,
+							justifyContent: 'center',
+						}}
+					>
 						{launchButtonText}
 					</Button>
-					<Button variant="secondary" onClick={() => setIsModalOpen(false)}>
+					<Button
+						variant="link"
+						onClick={() => setIsModalOpen(false)}
+						style={{
+							flex: 1,
+							justifyContent: 'center',
+						}}
+					>
 						{withoutLaunchButtonText}
 					</Button>
 				</div>
