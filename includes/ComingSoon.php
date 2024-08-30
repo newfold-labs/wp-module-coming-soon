@@ -249,52 +249,54 @@ class ComingSoon {
 	 * Some basic styles to control visibility of the coming soon state in the admin bar
 	 */
 	public function admin_bar_coming_soon_admin_styles() {
-		?>
-        <style>
-            #nfd-site-status {
-				align-items: center;
-                background-color: #F8F8F8;
-				border-radius: 2px;
-				border-style: solid;
-				border-width: 1px;
-                color: #333333;
-				display: flex;
-				font-weight: 500;
-				gap: 2px;
-				height: 22px;
-				margin-top: 4px;
-                padding: 0 14px;
-            }
+		if( is_user_logged_in() ) {
+			?>
+			<style>
+				#nfd-site-status {
+					align-items: center;
+					background-color: #F8F8F8;
+					border-radius: 2px;
+					border-style: solid;
+					border-width: 1px;
+					color: #333333;
+					display: flex;
+					font-weight: 500;
+					gap: 2px;
+					height: 22px;
+					margin-top: 4px;
+					padding: 0 14px;
+				}
 
-			#wpadminbar #wp-admin-bar-site-status .ab-item{
-				height:22px;
-			}
+				#wpadminbar #wp-admin-bar-site-status .ab-item{
+					height:22px;
+				}
 
-			#nfd-site-status[data-coming-soon="true"] {
-				border-color: var(--Dark-Red, #C71919);
-            }
-			
-			#nfd-site-status[data-coming-soon="false"] {
-				border-color: var(--A11y-GRN, #278224);
-			}
+				#nfd-site-status[data-coming-soon="true"] {
+					border-color: var(--Dark-Red, #C71919);
+				}
+				
+				#nfd-site-status[data-coming-soon="false"] {
+					border-color: var(--A11y-GRN, #278224);
+				}
 
-			#nfd-site-status span { 
-				display: none;
-				text-transform: uppercase;
-				font-weight: 500;
-			}
+				#nfd-site-status span { 
+					display: none;
+					text-transform: uppercase;
+					font-weight: 500;
+				}
 
-            #nfd-site-status[data-coming-soon="true"] #nfd-site-status-coming-soon {
-                color: var(--Dark-Red, #C71919);
-				display: inline-block;
-			}
+				#nfd-site-status[data-coming-soon="true"] #nfd-site-status-coming-soon {
+					color: var(--Dark-Red, #C71919);
+					display: inline-block;
+				}
 
-			#nfd-site-status[data-coming-soon="false"] #nfd-site-status-live {
-                color: var(--A11y-GRN, #278224);
-                display: inline-block;
-            }
-        </style>
+				#nfd-site-status[data-coming-soon="false"] #nfd-site-status-live {
+					color: var(--A11y-GRN, #278224);
+					display: inline-block;
+				}
+			</style>
 		<?php
+		}
 	}
 
 	/**
