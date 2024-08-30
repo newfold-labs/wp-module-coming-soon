@@ -1,1 +1,0 @@
-.modal-buttons{display:flex;justify-content:flex-end;margin-top:30px}@media only screen and (max-width:600px){.modal-buttons{align-items:stretch;flex-direction:column}}.modal-buttons svg{margin-top:5px}.modal-buttons .is-primary{box-shadow:none;margin-right:5px}.modal-buttons .is-secondary{box-shadow:none}
