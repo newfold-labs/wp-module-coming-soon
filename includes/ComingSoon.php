@@ -49,6 +49,9 @@ class ComingSoon {
 			// add plugin version to plugin styles file for cache busting
 			$this->args['template_styles'] = $this->args['template_styles'] . '?v=' . container()->plugin()->version;
 		}
+
+		new WooCommerceOptionSync( $container );
+
 		// set up all actions
 		\add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
 		\add_action( 'rest_api_init', array( $this, 'rest_api_init' ) );
