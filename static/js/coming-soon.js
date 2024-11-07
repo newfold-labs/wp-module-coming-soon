@@ -107,16 +107,93 @@
 		return value;
 	};
 
+	/**
+	 * Toggle the site status badge in the admin bar.
+	 *
+	 * @param {boolean} newState The new state of the site status.
+	 */
 	const toggleAdminBarSiteStatus = ( newState ) => {
-		const siteStatus = document.querySelector(
-			'#wp-toolbar #nfd-site-status'
+		/**
+		 * The badge elements for NFD and WooCommerce.
+		 * Only one of them will be active at a time.
+		 * When WooCommerce is active, the WooCommerce badge will be used.
+		 * When WooCommerce is not active, the NFD badge will be used.
+		 */
+		const badge = {
+			nfd: {
+				selector: '#wp-toolbar #wp-admin-bar-nfd-site-visibility-badge',
+				comingSoon: {
+					text: 'Coming soon',
+					class: 'nfd-site-status-badge-coming-soon',
+				},
+				live: {
+					text: 'Live',
+					class: 'nfd-site-status-badge-live',
+				},
+				hidden: {
+					class: 'nfd-site-status-badge-hidden',
+				},
+			},
+			woocommerce: {
+				selector:
+					'#wp-toolbar #wp-admin-bar-woocommerce-site-visibility-badge',
+				comingSoon: {
+					text: 'Coming soon',
+					class: 'woocommerce-site-status-badge-coming-soon',
+				},
+				live: {
+					text: 'Live',
+					class: 'woocommerce-site-status-badge-live',
+				},
+				hidden: {
+					class: 'woocommerce-site-status-badge-hidden',
+				},
+			},
+		};
+
+		const getActiveBadge = () => {
+			// Return the WooCommerce badge if WooCommerce is active.
+			if ( window.NewfoldRuntime.isWoocommerceActive ) {
+				return badge.woocommerce;
+			}
+			return badge.nfd;
+		};
+		const activeBadge = getActiveBadge();
+
+		const siteVisibilityBadge = document.querySelector(
+			activeBadge.selector
 		);
 
-		if ( ! siteStatus ) {
+		if ( ! siteVisibilityBadge ) {
 			return;
 		}
 
-		siteStatus.setAttribute( 'data-coming-soon', newState );
+		const toggle = ( newState ) => {
+			if ( newState ) {
+				// Coming soon
+				siteVisibilityBadge.classList.remove(
+					activeBadge.live.class,
+					activeBadge.hidden.class
+				);
+				siteVisibilityBadge.classList.add( activeBadge.comingSoon.class );
+				const textElement = siteVisibilityBadge.querySelector( 'a.ab-item' );
+				if ( textElement ) {
+					textElement.textContent = activeBadge.comingSoon.text;
+				}
+			} else {
+				// Live
+				siteVisibilityBadge.classList.remove(
+					activeBadge.comingSoon.class,
+					activeBadge.hidden.class
+				);
+				siteVisibilityBadge.classList.add( activeBadge.live.class );
+				const textElement = siteVisibilityBadge.querySelector( 'a.ab-item' );
+				if ( textElement ) {
+					textElement.textContent = activeBadge.live.text;
+				}
+			}
+		};
+		toggle( newState );
 	};
 
 	window.addEventListener( 'DOMContentLoaded', () => {
