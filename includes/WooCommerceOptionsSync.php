@@ -2,7 +2,10 @@
 
 namespace NewfoldLabs\WP\Module\ComingSoon;
 
-class WooCommerceOptionSync {
+/**
+ * Sync coming soon options between the brand plugin and WooCommerce.
+ */
+class WooCommerceOptionsSync {
 	/**
 	 * Service provider.
 	 *
@@ -34,7 +37,7 @@ class WooCommerceOptionSync {
 	 * @param mixed  $new_value   The new option value.
 	 * @param string $option_name The option name.
 	 */
-	public static function sync_options( $old_value = '', $new_value, $option_name ): void {
+	public static function sync_options( $old_value, $new_value, $option_name ): void {
 		// Prevent infinite loops
 		if ( self::$syncing ) {
 			return;
@@ -63,8 +66,6 @@ class WooCommerceOptionSync {
 
 	/**
 	 * Get the service provider.
-	 *
-	 * @return Service
 	 */
 	private static function get_service(): Service {
 		if ( ! self::$service ) {
@@ -80,10 +81,11 @@ class WooCommerceOptionSync {
 	 * @param bool $new_value The new value of the option.
 	 */
 	private static function sync_woocommerce_coming_soon_option( $new_value ): void {
-		if ( $new_value ) {
-			update_option( 'woocommerce_coming_soon', 'yes' );
-		} else {
-			update_option( 'woocommerce_coming_soon', 'no' );
+		if ( get_option( 'woocommerce_coming_soon' ) ) {
+			$value = wp_validate_boolean( $new_value );
+			$value = $value ? 'yes' : 'no';
+
+			update_option( 'woocommerce_coming_soon', $value );
 		}
 	}
 
@@ -91,7 +93,7 @@ class WooCommerceOptionSync {
 	 * Sync the woocommerce_store_pages_only option with the nfd_coming_soon option.
 	 */
 	private static function sync_nfd_woocommerce_pages_only_option(): void {
-		if ( get_option( 'woocommerce_store_pages_only', false ) ) {
+		if ( get_option( 'woocommerce_store_pages_only' ) ) {
 			update_option( 'woocommerce_store_pages_only', 'no' );
 		}
 	}
@@ -130,8 +132,9 @@ class WooCommerceOptionSync {
 	 * Sync the coming soon options when the woocommerce_coming_soon option is newly added.
 	 */
 	private static function sync_when_woocommerce_option_is_added(): void {
-		$nfd_coming_soon_value = get_option( 'nfd_coming_soon', false );
+		$nfd_coming_soon_service = self::get_service();
+		$new_value               = $nfd_coming_soon_service->is_enabled();
 
-		self::sync_woocommerce_coming_soon_option( $nfd_coming_soon_value );
+		self::sync_woocommerce_coming_soon_option( $new_value );
 	}
 }
