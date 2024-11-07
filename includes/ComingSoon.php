@@ -246,7 +246,7 @@ class ComingSoon {
 	 * Load warning on site Preview
 	 */
 	public function site_preview_warning() {
-		if ( isComingSoonActive() ) {
+		if ( !isWoocommerceActive() && isComingSoonActive() ) {
 			echo "<div style='background-color: #e71616; padding: 0 16px;color:#ffffff;font-size:16px;text-align:center;font-weight: 590;'>" . esc_html__( 'Site Preview - This site is NOT LIVE, only admins can see this view.', 'newfold-module-coming-soon' ) . "</div>";
 		}
 	}
