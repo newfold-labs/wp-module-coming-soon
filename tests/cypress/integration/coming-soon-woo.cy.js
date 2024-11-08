@@ -21,15 +21,15 @@ describe( 'Coming Soon with WooCommerce', function () {
 	} );
 
 	it( 'Replace our admin bar site status badge with WooCommerce\'s when active', () => {
-		// reload the page
-		cy.reload();
-
 		// Visit settings page
 		cy.visit(
 			'/wp-admin/admin.php?page=' +
 				Cypress.env( 'pluginId' ) +
 				'#/settings'
 		);
+
+		// reload the page
+		cy.reload();
 
 		// Our badge shouldn't be visible
 		cy.get( '#wp-toolbar #wp-admin-bar-nfd-site-visibility-badge' )
