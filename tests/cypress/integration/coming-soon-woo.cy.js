@@ -11,9 +11,6 @@ describe( 'Coming Soon with WooCommerce', function () {
 			timeout: 40000,
 			log: true,
 		} );
-
-		// reload the page
-		cy.reload();
 	} );
 
 	after( () => {
@@ -24,6 +21,9 @@ describe( 'Coming Soon with WooCommerce', function () {
 	} );
 
 	it( 'Replace our admin bar site status badge with WooCommerce\'s when active', () => {
+		// reload the page
+		cy.reload();
+
 		// Visit settings page
 		cy.visit(
 			'/wp-admin/admin.php?page=' +
