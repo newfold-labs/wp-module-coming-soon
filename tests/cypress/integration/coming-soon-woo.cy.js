@@ -1,8 +1,6 @@
-// disable eslint for this file
-/* eslint-disable */
+// <reference types="Cypress" />
 
 describe( 'Coming Soon with WooCommerce', function () {
-
 	before( () => {
 		// Set coming soon option to true to start with
 		cy.exec( `npx wp-env run cli wp option update mm_coming_soon true` );

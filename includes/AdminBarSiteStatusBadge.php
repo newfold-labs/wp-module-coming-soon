@@ -27,6 +27,8 @@ class AdminBarSiteStatusBadge {
 
 	/**
 	 * Constructor.
+	 * 
+	 * @param Container $container Container.
 	 */
 	public function __construct( Container $container ) {
 		// Bail if WooCommerce is active.
@@ -92,7 +94,7 @@ class AdminBarSiteStatusBadge {
 	 * Output CSS for site status badge.
 	 */
 	public function site_status_badge_styles(): void {
-		if( is_admin_bar_showing() ) {
+		if ( is_admin_bar_showing() ) {
 			?>
 			<style>
 				#wpadminbar .quicklinks #wp-admin-bar-nfd-site-visibility-badge a.ab-item {
@@ -128,12 +130,15 @@ class AdminBarSiteStatusBadge {
 					display: none;
 				}
 			</style>
-		<?php
+			<?php
 		}
 	}
 
 	/**
 	 * Set 10 minutes transient timer for site status badge when coming soon is turned off.
+	 * 
+	 * @param bool $old_value The old option value.
+	 * @param bool $new_value The new option value.
 	 */
 	public static function site_status_badge_timer( $old_value, $new_value ): void {
 		$value = wp_validate_boolean( $new_value );

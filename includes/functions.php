@@ -13,5 +13,5 @@ function isComingSoonActive(): bool {
  * Check if WooCommerce is activated
  */
 function isWoocommerceActive(): bool {
-	return class_exists('woocommerce');
+	return class_exists( 'woocommerce' );
 }

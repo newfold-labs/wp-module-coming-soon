@@ -38,26 +38,26 @@ class WooCommerceOptionsSync {
 	 * @param string $option_name The option name.
 	 */
 	public static function sync_options( $old_value, $new_value, $option_name ): void {
-		// Prevent infinite loops
+		// Prevent infinite loops.
 		if ( self::$syncing ) {
 			return;
 		}
 
 		self::$syncing = true;
 
-		if ( $option_name === 'nfd_coming_soon' ) {
-			// Update WooCommerce options to match nfd_coming_soon
+		if ( 'nfd_coming_soon' === $option_name ) {
+			// Update WooCommerce options to match nfd_coming_soon.
 			self::sync_woocommerce_coming_soon_option( $new_value );
 			self::sync_nfd_woocommerce_pages_only_option();
 		}
 	
-		if ( $option_name === 'woocommerce_coming_soon' ) {
-			// Update brand plugin's option to match woocommerce_coming_soon
+		if ( 'woocommerce_coming_soon' === $option_name ) {
+			// Update brand plugin's option to match woocommerce_coming_soon.
 			self::sync_nfd_coming_soon_option( $new_value, $option_name );
 		}
 
-		if ( $option_name === 'woocommerce_store_pages_only' ) {
-			// Update brand plugin's option to match woocommerce_store_pages_only
+		if ( 'woocommerce_store_pages_only' === $option_name ) {
+			// Update brand plugin's option to match woocommerce_store_pages_only.
 			self::sync_nfd_coming_soon_option( $new_value, $option_name );
 		}
 
