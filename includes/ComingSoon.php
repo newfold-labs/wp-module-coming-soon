@@ -57,13 +57,13 @@ class ComingSoon {
 		\add_action( 'wp_ajax_newfold_coming_soon_subscribe', array( $this, 'coming_soon_subscribe' ) );
 		\add_action( 'wp_ajax_nopriv_newfold_coming_soon_subscribe', array( $this, 'coming_soon_subscribe' ) );
 		\add_action( 'plugins_loaded', array( $this, 'coming_soon_prevent_emails' ) );
-		\add_action( 'wp_body_open', array( $this, 'site_preview_warning' ) );
 		\add_filter( 'default_option_nfd_coming_soon', array( $this, 'filter_coming_soon_fallback' ) );
 		\add_action( 'update_option_nfd_coming_soon', array( $this, 'on_update_nfd_coming_soon' ), 10, 2 );
 		\add_action( 'update_option_mm_coming_soon', array( $this, 'on_update_mm_coming_soon' ), 10, 2 );
 		\add_filter( 'jetpack_is_under_construction_plugin', array( $this, 'filter_jetpack_is_under_construction' ) );
 
 		new AdminBarSiteStatusBadge( $container );
+		new SitePreviewWarning();
 		new PrePublishModal();
 	}
 
@@ -239,15 +239,6 @@ class ComingSoon {
                 <p><?php echo wp_kses( $this->args['admin_notice_text'], $allowed_notice_html ); ?></p>
             </div>
 			<?php
-		}
-	}
-
-	/**
-	 * Load warning on site Preview
-	 */
-	public function site_preview_warning() {
-		if ( !isWoocommerceActive() && isComingSoonActive() ) {
-			echo "<div style='background-color: #e71616; padding: 0 16px;color:#ffffff;font-size:16px;text-align:center;font-weight: 590;'>" . esc_html__( 'Site Preview - This site is NOT LIVE, only admins can see this view.', 'newfold-module-coming-soon' ) . "</div>";
 		}
 	}
 
