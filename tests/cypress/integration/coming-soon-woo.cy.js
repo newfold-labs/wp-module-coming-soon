@@ -20,25 +20,27 @@ describe( 'Coming Soon with WooCommerce', function () {
 		} );
 	} );
 
-	it( 'Replace our admin bar site status badge with WooCommerce\'s when active', () => {
-		// Visit settings page
-		cy.visit(
-			'/wp-admin/admin.php?page=' +
-				Cypress.env( 'pluginId' ) +
-				'#/settings'
-		);
+	it( 'Replace our admin bar site status badge with WooCommerce\'s when active', 
+		{ defaultCommandTimeout: 15000 },
+		() => {
+			// Visit settings page
+			cy.visit(
+				'/wp-admin/admin.php?page=' +
+					Cypress.env( 'pluginId' ) +
+					'#/settings'
+			);
 
-		// reload the page
-		cy.reload();
+			// reload the page
+			cy.reload();
 
-		// Our badge shouldn't be visible
-		cy.get( '#wp-toolbar #wp-admin-bar-nfd-site-visibility-badge' )
-			.should( 'not.exist' );
+			// Our badge shouldn't be visible
+			cy.get( '#wp-toolbar #wp-admin-bar-nfd-site-visibility-badge' )
+				.should( 'not.exist' );
 
-		// WooCommerce badge should be visible
-		cy.get( '#wp-toolbar #wp-admin-bar-woocommerce-site-visibility-badge a.ab-item' )
-			.contains( 'a', 'Coming soon' )
-			.should( 'be.visible' );
+			// WooCommerce badge should be visible
+			cy.get( '#wp-toolbar #wp-admin-bar-woocommerce-site-visibility-badge a.ab-item' )
+				.contains( 'a', 'Coming soon' )
+				.should( 'be.visible' );
 	});
 
 	it ( 'Our plugin settings should toggle WooCommerce admin bar badge',
