@@ -28,6 +28,7 @@ class WooCommerceOptionsSync {
 		add_action( 'update_option_woocommerce_coming_soon', array( __CLASS__, 'sync_options' ), 10, 3 );
 		add_action( 'update_option_woocommerce_store_pages_only', array( __CLASS__, 'sync_options' ), 10, 3 );
 		add_action( 'add_option_woocommerce_coming_soon', array( __CLASS__, 'sync_when_woocommerce_option_is_added' ) );
+		add_action( 'woocommerce_init', array( __CLASS__, 'sync_when_woocommerce_option_is_missing' ) );
 	}
 
 	/**
@@ -81,7 +82,7 @@ class WooCommerceOptionsSync {
 	 * @param bool $new_value The new value of the option.
 	 */
 	private static function sync_woocommerce_coming_soon_option( $new_value ): void {
-		if ( get_option( 'woocommerce_coming_soon' ) ) {
+		if ( optionExists( 'woocommerce_coming_soon' ) ) {
 			$value = wp_validate_boolean( $new_value );
 			$value = $value ? 'yes' : 'no';
 
@@ -93,7 +94,7 @@ class WooCommerceOptionsSync {
 	 * Sync the woocommerce_store_pages_only option with the nfd_coming_soon option.
 	 */
 	private static function sync_nfd_woocommerce_pages_only_option(): void {
-		if ( get_option( 'woocommerce_store_pages_only' ) ) {
+		if ( optionExists( 'woocommerce_store_pages_only' ) ) {
 			update_option( 'woocommerce_store_pages_only', 'no' );
 		}
 	}
@@ -131,10 +132,21 @@ class WooCommerceOptionsSync {
 	/**
 	 * Sync the coming soon options when the woocommerce_coming_soon option is newly added.
 	 */
-	private static function sync_when_woocommerce_option_is_added(): void {
+	public static function sync_when_woocommerce_option_is_added(): void {
 		$nfd_coming_soon_service = self::get_service();
 		$new_value               = $nfd_coming_soon_service->is_enabled();
 
 		self::sync_woocommerce_coming_soon_option( $new_value );
+	}
+
+	/**
+	 * Sync options when WooCommerce is initialized but the 'woocommerce_coming_soon' option is not set.
+	 */
+	public static function sync_when_woocommerce_option_is_missing(): void {
+		if ( optionExists( 'woocommerce_coming_soon' ) ) {
+			return;
+		}
+
+		self::sync_when_woocommerce_option_is_added();
 	}
 }
