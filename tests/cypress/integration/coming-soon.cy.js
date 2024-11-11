@@ -6,7 +6,12 @@ describe( 'Coming Soon', function () {
 	before( () => {
 		// Set coming soon option to true to start with
 		cy.exec( `npx wp-env run cli wp option update mm_coming_soon true` );
-		cy.exec( `npx wp-env run cli wp option update nfd_coming_soon true` );		
+		cy.exec( `npx wp-env run cli wp option update nfd_coming_soon true` );
+
+		// Deactivate WooCommerce
+		cy.exec( `npx wp-env run cli wp plugin deactivate woocommerce`, {
+			timeout: 40000,
+		} );
 	} );
 
 	it( 'Coming Soon is active', () => {
@@ -18,7 +23,7 @@ describe( 'Coming Soon', function () {
 		cy.reload();
 
 		// Initial Coming Soon State
-		cy.get( '#wp-toolbar #wp-admin-bar-site-status #nfd-site-status-coming-soon' )
+		cy.get( '#wp-toolbar #wp-admin-bar-nfd-site-visibility-badge' )
 			.scrollIntoView()
 			.should( 'be.visible' );
 
@@ -39,15 +44,9 @@ describe( 'Coming Soon', function () {
 
 	it( 'Displays Coming Soon in Site Status Admin Toolbar', () => {
 		// Admin bar contains label
-		cy.get( '#wp-toolbar #wp-admin-bar-site-status' )
-			.contains( 'div', 'Site Status' )
+		cy.get( '#wp-toolbar #wp-admin-bar-nfd-site-visibility-badge a.ab-item' )
+			.contains( 'a', 'Coming soon' )
 			.should( 'be.visible' );
-		// Admin bar contains status
-		cy.get( '#wp-toolbar #wp-admin-bar-site-status #nfd-site-status-coming-soon' )
-			.scrollIntoView()
-			.should( 'be.visible' );
-		cy.get( '#wp-toolbar #wp-admin-bar-site-status #nfd-site-status-live' )
-			.should( 'not.be.visible' );
 	} );
 
 	it( 'Has Coming Soon Section on Home', () => {
@@ -73,7 +72,7 @@ describe( 'Coming Soon', function () {
 	} );
 
 	it( 'Coming Soon Admin bar links to setting', () => {
-		cy.get( '#wp-toolbar #wp-admin-bar-site-status #nfd-site-status-coming-soon' ).click();
+		cy.get( '#wp-toolbar #wp-admin-bar-nfd-site-visibility-badge a.ab-item' ).click();
 		cy.location().should( ( loc ) => {
 			expect( loc.hash ).to.eq( '#/settings' )
 		});
@@ -87,7 +86,7 @@ describe( 'Coming Soon', function () {
 		);
 		// Deactivate coming soon - Launch Site
 		cy.get( '[data-id="coming-soon-toggle"]' ).click();
-		cy.wait( 500 );
+		cy.wait( 2000 );
 
 		// Toggle is false
 		cy.get( '[data-id="coming-soon-toggle"]' )
@@ -95,8 +94,9 @@ describe( 'Coming Soon', function () {
 			.and( 'include', 'false' );
 
 		// Admin bar is updated
-		cy.get( '#wp-toolbar #wp-admin-bar-site-status #nfd-site-status-live' )
+		cy.get( '#wp-toolbar .nfd-site-status-badge-live a.ab-item' )
 			.scrollIntoView()
+			.contains( 'a', 'Live' )
 			.should( 'be.visible' );
 
 		// Snackbar notice displays properly
@@ -114,7 +114,7 @@ describe( 'Coming Soon', function () {
 
 		// Activate Coming Soon - Unlaunch Site
 		cy.get( '[data-id="coming-soon-toggle"]' ).click();
-		cy.wait( 500 );
+		cy.wait( 2000 );
 
 		// Toggle is true
 		cy.get( '[data-id="coming-soon-toggle"]' )
@@ -122,8 +122,9 @@ describe( 'Coming Soon', function () {
 			.and( 'include', 'true' );
 
 		// Admin bar is updated
-		cy.get( '#wp-toolbar #wp-admin-bar-site-status #nfd-site-status-coming-soon' )
+		cy.get( '#wp-toolbar .nfd-site-status-badge-coming-soon a.ab-item' )
 			.scrollIntoView()
+			.contains( 'a', 'Coming soon' )
 			.should( 'be.visible' );
 
 		// Snackbar notice displays properly
@@ -136,6 +137,13 @@ describe( 'Coming Soon', function () {
 		cy.visit( '/wp-admin/index.php' );
 		cy.get( '.notice-warning' )
 			.contains( 'p', 'coming' )
+			.should( 'be.visible' );
+	} );
+
+	it( 'Displays Coming Soon Site Preview Warning', () => {
+		cy.visit( '/' );
+		cy.get( '.nfd-site-preview-warning' )
+			.contains( 'div', 'Site Preview' )
 			.should( 'be.visible' );
 	} );
 

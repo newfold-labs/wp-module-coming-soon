@@ -24,10 +24,6 @@ class ComingSoon {
 			'admin_screen_id'       => container()->plugin()->id,
 			'admin_app_url'         => \admin_url( 'admin.php?page=newfold' ),
 			'admin_notice_text'     => __( 'Your site has Coming Soon mode active.', 'newfold-module-coming-soon' ),
-			'admin_bar_text'        => '<div>' . __( 'Coming Soon Active', 'newfold-module-coming-soon' ) . '</div>',
-			'admin_bar_label'       => __( 'Site Status: ', 'newfold-module-coming-soon' ),
-			'admin_bar_cs_active'   => __( 'Not Live', 'newfold-module-coming-soon' ),
-			'admin_bar_cs_inactive' => __( 'Live', 'newfold-module-coming-soon' ),
 			'template_page_title'   => __( 'Coming Soon!', 'newfold-module-coming-soon' ),
 			'template_styles'       => false,
 			'template_content'      => false,
@@ -49,6 +45,9 @@ class ComingSoon {
 			// add plugin version to plugin styles file for cache busting
 			$this->args['template_styles'] = $this->args['template_styles'] . '?v=' . container()->plugin()->version;
 		}
+
+		new WooCommerceOptionsSync();
+
 		// set up all actions
 		\add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
 		\add_action( 'rest_api_init', array( $this, 'rest_api_init' ) );
@@ -58,15 +57,13 @@ class ComingSoon {
 		\add_action( 'wp_ajax_newfold_coming_soon_subscribe', array( $this, 'coming_soon_subscribe' ) );
 		\add_action( 'wp_ajax_nopriv_newfold_coming_soon_subscribe', array( $this, 'coming_soon_subscribe' ) );
 		\add_action( 'plugins_loaded', array( $this, 'coming_soon_prevent_emails' ) );
-		\add_action( 'admin_bar_menu', array( $this, 'newfold_site_status' ), 100 );
-		\add_action( 'wp_body_open', array( $this, 'site_preview_warning' ) );
-		\add_action( 'admin_head', array( $this, 'admin_bar_coming_soon_admin_styles' ) );
-		\add_action( 'wp_head', array( $this, 'admin_bar_coming_soon_admin_styles' ) );
 		\add_filter( 'default_option_nfd_coming_soon', array( $this, 'filter_coming_soon_fallback' ) );
 		\add_action( 'update_option_nfd_coming_soon', array( $this, 'on_update_nfd_coming_soon' ), 10, 2 );
 		\add_action( 'update_option_mm_coming_soon', array( $this, 'on_update_mm_coming_soon' ), 10, 2 );
 		\add_filter( 'jetpack_is_under_construction_plugin', array( $this, 'filter_jetpack_is_under_construction' ) );
 
+		new AdminBarSiteStatusBadge( $container );
+		new SitePreviewWarning();
 		new PrePublishModal();
 	}
 
@@ -242,99 +239,6 @@ class ComingSoon {
                 <p><?php echo wp_kses( $this->args['admin_notice_text'], $allowed_notice_html ); ?></p>
             </div>
 			<?php
-		}
-	}
-
-	/**
-	 * Some basic styles to control visibility of the coming soon state in the admin bar
-	 */
-	public function admin_bar_coming_soon_admin_styles() {
-		if( is_user_logged_in() ) {
-			?>
-			<style>
-				#nfd-site-status {
-					align-items: center;
-					background-color: #F8F8F8;
-					border-radius: 2px;
-					border-style: solid;
-					border-width: 1px;
-					color: #333333;
-					display: flex;
-					font-weight: 500;
-					gap: 2px;
-					height: 22px;
-					margin-top: 4px;
-					padding: 0 14px;
-				}
-
-				#wpadminbar #wp-admin-bar-site-status .ab-item{
-					height:22px;
-				}
-
-				#nfd-site-status[data-coming-soon="true"] {
-					border-color: var(--Dark-Red, #C71919);
-				}
-				
-				#nfd-site-status[data-coming-soon="false"] {
-					border-color: var(--A11y-GRN, #278224);
-				}
-
-				#nfd-site-status span { 
-					display: none;
-					text-transform: uppercase;
-					font-weight: 500;
-				}
-
-				#nfd-site-status[data-coming-soon="true"] #nfd-site-status-coming-soon {
-					color: var(--Dark-Red, #C71919);
-					display: inline-block;
-				}
-
-				#nfd-site-status[data-coming-soon="false"] #nfd-site-status-live {
-					color: var(--A11y-GRN, #278224);
-					display: inline-block;
-				}
-			</style>
-		<?php
-		}
-	}
-
-	/**
-	 * Customize the admin bar with site status.
-	 *
-	 * @param \WP_Admin_Bar $admin_bar An instance of the WP_Admin_Bar class.
-	 */
-	public function newfold_site_status( \WP_Admin_Bar $admin_bar ) {
-		if ( current_user_can( 'manage_options' ) ) {
-
-			$is_coming_soon = isComingSoonActive();
-			$current_state  = $is_coming_soon ? 'true' : 'false';
-			$content        = '<div id="nfd-site-status" data-coming-soon="' . $current_state . '">';
-			$content        .= $this->args['admin_bar_label'];
-			$content        .= '<span id="nfd-site-status-coming-soon" class="nfd-coming-soon-active">';
-			$content        .= $this->args['admin_bar_cs_active'];
-			$content        .= '</span>';
-			$content        .= '<span id="nfd-site-status-live" class="nfd-coming-soon-inactive">';
-			$content        .= $this->args['admin_bar_cs_inactive'];
-			$content        .= '</span>';
-			$content        .= '</div>';
-
-			$site_status_menu = array(
-				'id'     => 'site-status',
-				'parent' => 'top-secondary',
-				'href'   => admin_url( 'admin.php?page=' . $this->container->plugin()->id . '&nfd-target=coming-soon-section#/settings' ),
-				'title'  => $content,
-			);
-			$admin_bar->add_menu( $site_status_menu );
-		}
-	}
-
-	/**
-	 * Load warning on site Preview
-	 */
-	public function site_preview_warning() {
-		if ( isComingSoonActive() ) {
-			echo "<div style='background-color: #e71616; padding: 0 16px;color:#ffffff;font-size:16px;text-align:center;font-weight: 590;'>" . esc_html__( 'Site Preview - This site is NOT LIVE, only admins can see this view.', 'newfold-module-coming-soon' ) . "</div>";
 		}
 	}
 
