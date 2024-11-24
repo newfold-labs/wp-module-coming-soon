@@ -8,9 +8,11 @@ describe( 'Coming Soon', function () {
 		cy.exec( `npx wp-env run cli wp option update mm_coming_soon true` );
 		cy.exec( `npx wp-env run cli wp option update nfd_coming_soon true` );
 
-		// Deactivate WooCommerce
+		// Deactivate WooCommerce if it's active
 		cy.exec( `npx wp-env run cli wp plugin deactivate woocommerce`, {
 			timeout: 40000,
+			log: true,
+			failOnNonZeroExit: false,
 		} );
 	} );
 
