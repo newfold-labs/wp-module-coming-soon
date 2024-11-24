@@ -14,10 +14,14 @@ describe( 'Coming Soon with WooCommerce', function () {
 	} );
 
 	after( () => {
-		// Deactivate WooCommerce
-		cy.exec( `npx wp-env run cli wp plugin deactivate woocommerce`, {
-			timeout: 40000,
-		} );
+		// Uninstall WooCommerce and extensions
+		cy.exec(
+			'npx wp-env run cli wp plugin uninstall --all --deactivate --exclude=bluehost-wordpress-plugin,wp-plugin-hostgator,wp-plugin-crazy-domains,wp-plugin-web,wp-plugin-mojo',
+			{
+				timeout: 60000,
+				log: true,
+			}
+		);
 	} );
 
 	it( 'Replace our admin bar site status badge with WooCommerce\'s when active', () => {
