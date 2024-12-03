@@ -1,19 +1,22 @@
 // <reference types="Cypress" />
+import { wpLogin, wpCli } from '../wp-module-support/utils.cy';
 
-describe( 'Coming Soon', function () {
+describe( 'Coming Soon', { testIsolation: true }, () => {
 	const appClass = '.' + Cypress.env( 'appId' );
 
-	before( () => {
+	beforeEach( () => {
+		wpLogin();
 		// Set coming soon option to true to start with
-		cy.exec( `npx wp-env run cli wp option update mm_coming_soon true` );
-		cy.exec( `npx wp-env run cli wp option update nfd_coming_soon true` );
+		wpCli( `option update mm_coming_soon true` );
+		wpCli( `option update nfd_coming_soon true` );
 
 		// Deactivate WooCommerce if it's active
-		cy.exec( `npx wp-env run cli wp plugin deactivate woocommerce`, {
+		wpCli( `plugin deactivate woocommerce`, {
 			timeout: 40000,
 			log: true,
 			failOnNonZeroExit: false,
 		} );
+		cy.visit( '/wp-admin/index.php' );
 	} );
 
 	it( 'Coming Soon is active', () => {
@@ -42,11 +45,11 @@ describe( 'Coming Soon', function () {
 		cy.get( '[data-id="coming-soon-toggle"]' )
 			.should( 'have.attr', 'aria-checked' )
 			.and( 'include', 'true' );
-	});
 
-	it( 'Displays Coming Soon in Site Status Admin Toolbar', () => {
 		// Admin bar contains label
-		cy.get( '#wp-toolbar #wp-admin-bar-nfd-site-visibility-badge a.ab-item' )
+		cy.get(
+			'#wp-toolbar #wp-admin-bar-nfd-site-visibility-badge a.ab-item'
+		)
 			.contains( 'a', 'Coming soon' )
 			.should( 'be.visible' );
 	} );
@@ -71,13 +74,13 @@ describe( 'Coming Soon', function () {
 			.contains( 'button', 'Launch' )
 			.should( 'exist' );
 
-	} );
-
-	it( 'Coming Soon Admin bar links to setting', () => {
-		cy.get( '#wp-toolbar #wp-admin-bar-nfd-site-visibility-badge a.ab-item' ).click();
+		// Coming Soon Admin bar links to setting
+		cy.get(
+			'#wp-toolbar #wp-admin-bar-nfd-site-visibility-badge a.ab-item'
+		).click();
 		cy.location().should( ( loc ) => {
-			expect( loc.hash ).to.eq( '#/settings' )
-		});
+			expect( loc.hash ).to.eq( '#/settings' );
+		} );
 	} );
 
 	it( 'Coming Soon Toggle Turns Coming Soon Off', () => {
@@ -105,15 +108,8 @@ describe( 'Coming Soon', function () {
 		cy.get( '.nfd-notifications' )
 			.contains( '.nfd-notification', 'Coming soon deactivated' )
 			.should( 'be.visible' );
-	} );
 
-	it( 'Coming Soon Toggle Turns Coming Soon On', () => {
-		cy.visit(
-			'/wp-admin/admin.php?page=' +
-				Cypress.env( 'pluginId' ) +
-				'#/settings'
-		);
-
+		// Coming Soon Toggle Turns Coming Soon Back On
 		// Activate Coming Soon - Unlaunch Site
 		cy.get( '[data-id="coming-soon-toggle"]' ).click();
 		cy.wait( 2000 );
@@ -156,9 +152,9 @@ describe( 'Coming Soon', function () {
 		cy.get( '#wrap' ).contains( 'Coming Soon' ).should( 'exist' );
 	} );
 
-	// this test is already in the ecommerce module, once the component is moved into this module this test can be used
-	it.skip( 'Launching launches site', () => {
-		cy.login( Cypress.env( 'wpUsername' ), Cypress.env( 'wpPassword' ) );
+	// this test is already in the ecommerce module, and the code is in the ecommerce module
+	// once the component is moved into this module this test will be used and the ecom test removed
+	it( 'Launching launches site', () => {
 		cy.visit(
 			'/wp-admin/admin.php?page=' +
 				Cypress.env( 'pluginId' ) +
@@ -199,6 +195,5 @@ describe( 'Coming Soon', function () {
 		cy.get( '[data-id="coming-soon-toggle"]' )
 			.should( 'have.attr', 'aria-checked' )
 			.and( 'include', 'false' );
-
 	} );
 } );
