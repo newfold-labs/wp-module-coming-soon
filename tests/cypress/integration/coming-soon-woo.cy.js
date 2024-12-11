@@ -21,7 +21,7 @@ describe( 'Coming Soon with WooCommerce', { testIsolation: true }, () => {
 	after( () => {
 		// Uninstall WooCommerce and extensions
 		wpCli(
-			'plugin uninstall --all --deactivate --exclude=bluehost-wordpress-plugin,wp-plugin-hostgator,wp-plugin-crazy-domains,wp-plugin-web,wp-plugin-mojo,wpforms-lite',
+			'plugin uninstall woocommerce yith-stripe-payments-for-woocommerce-extended yith-paypal-payments-for-woocommerce-extended --deactivate',
 			{
 				timeout: 60000,
 				log: true,
