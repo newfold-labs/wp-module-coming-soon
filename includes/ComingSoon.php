@@ -246,7 +246,7 @@ class ComingSoon {
 	 * Load the coming soon page, if necessary.
 	 */
 	public function maybe_load_template() {
-		if ( ! is_user_logged_in() || 'preview=coming_soon' === $_SERVER['QUERY_STRING'] ) {
+		if ( ! is_user_logged_in() || ( isset( $_SERVER['QUERY_STRING'] ) && 'preview=coming_soon' === $_SERVER['QUERY_STRING'] ) ) {
 			if ( isComingSoonActive() ) {
 				self::coming_soon_content( $this->args );
 				die();
