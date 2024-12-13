@@ -11,12 +11,17 @@
 		"build": "wp-scripts build ./src/coming-soon.js",
 		"clean": "rm -rf ./assets/build && rm -rf ./assets/styles && rm -rf ./build",
 		"clean:node_modules": "rm -rf node_modules",
-		"format": "wp-scripts format ./src",
-		"start": "wp-scripts start ./src/coming-soon.js",
-		"start:local": "concurrently \"wp-scripts start ./src/coming-soon.js\" \"npm run json-server\"",
 		"lint:js": "wp-scripts lint-js ./src",
 		"lint:js:fix": "wp-scripts lint-js ./src --fix",
-		"json-server": "json-server --watch api.dev.json --port 3003"
+		"format": "wp-scripts format ./src",
+		"json-server": "json-server --watch api.dev.json --port 3003",
+		"set-version-bump": "node ./set-version-bump.js && npm i && rm -rf ./build && npm run build",
+		"start": "wp-scripts start ./src/coming-soon.js",
+		"start:local": "concurrently \"wp-scripts start ./src/coming-soon.js\" \"npm run json-server\""
+	},
+	"engines": {
+		"node": ">=20",
+		"npm": ">=10"
 	},
 	"devDependencies": {
 		"@wordpress/eslint-plugin": "^17.0.0",
@@ -35,6 +40,7 @@
 		"postcss-safe-important": "^1.2.1",
 		"prettier": "^3.0.3",
 		"prettier-plugin-tailwindcss": "^0.5.6",
+		"semver": "^7.6.3",
 		"tailwindcss": "^3.4.1",
 		"webpack-merge": "^5.10.0"
 	},
