@@ -154,7 +154,7 @@ describe( 'Coming Soon', { testIsolation: true }, () => {
 
 	// this test is already in the ecommerce module, and the code is in the ecommerce module
 	// once the component is moved into this module this test will be used and the ecom test removed
-	it( 'Launching launches site', () => {
+	it.skip( 'Launching launches site', () => {
 		cy.visit(
 			'/wp-admin/admin.php?page=' +
 				Cypress.env( 'pluginId' ) +
