@@ -30,7 +30,7 @@ Coming Soon functionality for WordPress.
 
 ### 1. Bump Version
 
-Update the module versions in the `bootstrap.php` file (the NFD_COMING_SOON_MODULE_VERSION const) and in the `package.json` file (the package version).
+Update the module versions in the `bootstrap.php` file (the NFD_COMING_SOON_MODULE_VERSION const) and in the `package.json` file (the package version). Alternatively, run the set-version-bump script to update the versions for you: `npm run set-version-bump`.
 
 ### 2. Build
 
