@@ -34,16 +34,7 @@ final class PrePublishModal {
 				true
 			);
 
-			\wp_register_style(
-				'nfd-coming-soon',
-				NFD_COMING_SOON_BUILD_URL . '/coming-soon.css',
-				array(),
-				$asset['version']
-			);
-
 			\wp_enqueue_script( 'nfd-coming-soon' );
-			\wp_enqueue_style( 'nfd-coming-soon' );
 		}
 	}
-
 }
