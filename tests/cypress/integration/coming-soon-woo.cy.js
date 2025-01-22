@@ -25,6 +25,7 @@ describe( 'Coming Soon with WooCommerce', { testIsolation: true }, () => {
 			{
 				timeout: 60000,
 				log: true,
+				failOnNonZeroExit: false,
 			}
 		);
 	} );
