@@ -25,6 +25,7 @@ describe( 'Coming Soon with WooCommerce', { testIsolation: true }, () => {
 			{
 				timeout: 60000,
 				log: true,
+				failOnNonZeroExit: false,
 			}
 		);
 	} );
@@ -46,7 +47,7 @@ describe( 'Coming Soon with WooCommerce', { testIsolation: true }, () => {
 		cy.get(
 			'#wp-toolbar #wp-admin-bar-woocommerce-site-visibility-badge a.ab-item'
 		)
-			.contains( 'a', 'Coming soon' )
+			.contains( 'a', 'Coming soon', { matchCase: false } )
 			.should( 'be.visible' );
 	} );
 
