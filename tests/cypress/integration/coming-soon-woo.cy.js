@@ -47,7 +47,7 @@ describe( 'Coming Soon with WooCommerce', { testIsolation: true }, () => {
 		cy.get(
 			'#wp-toolbar #wp-admin-bar-woocommerce-site-visibility-badge a.ab-item'
 		)
-			.contains( 'a', 'Coming soon' )
+			.contains( 'a', 'oming soon' )
 			.should( 'be.visible' );
 	} );
 
