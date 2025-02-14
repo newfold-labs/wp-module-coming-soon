@@ -1,0 +1,131 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Vara Prasad Maruboina <varaprasad.maruboina@newfold.com>\n"
+"Language-Team: Spanish <es@tp.org.es>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-02-13T09:55:55+00:00\n"
+"PO-Revision-Date: 2025-02-13 18:34+0530\n"
+"X-Generator: WP-CLI 2.11.0\n"
+"X-Domain: wp-module-coming-soon\n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: bootstrap.php:48
+msgid "Coming Soon"
+msgstr ""
+
+#: includes/AdminBarSiteStatusBadge.php:42
+msgid "Coming soon"
+msgstr ""
+
+#: includes/AdminBarSiteStatusBadge.php:43
+msgid "Live"
+msgstr ""
+
+#: includes/API/ComingSoon.php:134
+msgid "You cannot access the resource."
+msgstr ""
+
+#: includes/API/ComingSoon.php:137
+msgid "Coming Soon module service provider error."
+msgstr ""
+
+#: includes/ComingSoon.php:26
+msgid "Your site has Coming Soon mode active."
+msgstr ""
+
+#: includes/ComingSoon.php:27 includes/ComingSoon.php:30
+msgid "Coming Soon!"
+msgstr ""
+
+#: includes/ComingSoon.php:31
+msgid "A New WordPress Site!"
+msgstr ""
+
+#: includes/ComingSoon.php:33
+msgid ""
+"Be the first to know when we launch, enter your email address and we will "
+"let you know when we go live and any future website updates we have."
+msgstr ""
+
+#: includes/ComingSoon.php:34
+msgid "Thank you, please check your email to confirm your subscription."
+msgstr ""
+
+#: includes/ComingSoon.php:35
+msgid ""
+"Your email address is already subscribed to this website. Stay tuned to your "
+"inbox for our updates or try a different email address."
+msgstr ""
+
+#: includes/ComingSoon.php:36
+msgid ""
+"There was an error with your submission and you were not subscribed. Please "
+"try again with a valid email address."
+msgstr ""
+
+#: includes/ComingSoon.php:37
+msgid "Email"
+msgstr ""
+
+#: includes/ComingSoon.php:38
+msgid "Enter your email address"
+msgstr ""
+
+#: includes/ComingSoon.php:39
+msgid "Subscribe"
+msgstr ""
+
+#: includes/ComingSoon.php:40
+msgid "Is this your website? Log in to WordPress to launch your site."
+msgstr ""
+
+#: includes/ComingSoon.php:278
+msgid "Gotcha!"
+msgstr ""
+
+#: includes/ComingSoon.php:285
+msgid "Please provide a valid email address"
+msgstr ""
+
+#: includes/ComingSoon.php:295
+msgid "Jetpack encountered an error with the subscription"
+msgstr ""
+
+#: includes/ComingSoon.php:317
+msgid "There was an error with the subscription"
+msgstr ""
+
+#: includes/ComingSoon.php:322
+msgid "Subscription successful"
+msgstr ""
+
+#: includes/SitePreviewWarning.php:27
+msgid "Site Preview - This site is NOT LIVE, only admins can see this view."
+msgstr ""
+
+#: includes/template/index.php:34
+msgid "Admin Login"
+msgstr ""
+
+#: src/components/Modal.jsx:33
+msgid "Ready to launch your Site?"
+msgstr ""
+
+#: src/components/Modal.jsx:34
+msgid ""
+"Pages and posts you publish will not be visible to the public until you "
+"launch your site."
+msgstr ""
+
+#: src/components/Modal.jsx:38
+msgid "Publish & Launch Site"
+msgstr ""
+
+#: src/components/Modal.jsx:39
+msgid "Publish Without Launching"
+msgstr ""

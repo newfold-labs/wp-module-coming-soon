@@ -39,8 +39,8 @@ class AdminBarSiteStatusBadge {
 		$this->container = $container;
 
 		$this->defaults = array(
-			'admin_bar_cs_active'   => __( 'Coming soon', 'newfold-module-coming-soon' ),
-			'admin_bar_cs_inactive' => __( 'Live', 'newfold-module-coming-soon' ),
+			'admin_bar_cs_active'   => __( 'Coming soon', 'wp-module-coming-soon' ),
+			'admin_bar_cs_inactive' => __( 'Live', 'wp-module-coming-soon' ),
 		);
 
 		add_action( 'admin_bar_menu', array( $this, 'site_status_badge' ), 31 );
