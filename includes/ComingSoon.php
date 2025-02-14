@@ -23,21 +23,21 @@ class ComingSoon {
 		$defaults   = array(
 			'admin_screen_id'       => container()->plugin()->id,
 			'admin_app_url'         => \admin_url( 'admin.php?page=newfold' ),
-			'admin_notice_text'     => __( 'Your site has Coming Soon mode active.', 'newfold-module-coming-soon' ),
-			'template_page_title'   => __( 'Coming Soon!', 'newfold-module-coming-soon' ),
+			'admin_notice_text'     => __( 'Your site has Coming Soon mode active.', 'wp-module-coming-soon' ),
+			'template_page_title'   => __( 'Coming Soon!', 'wp-module-coming-soon' ),
 			'template_styles'       => false,
 			'template_content'      => false,
-			'template_h1'           => __( 'Coming Soon!', 'newfold-module-coming-soon' ),
-			'template_h2'           => __( 'A New WordPress Site!', 'newfold-module-coming-soon' ),
+			'template_h1'           => __( 'Coming Soon!', 'wp-module-coming-soon' ),
+			'template_h2'           => __( 'A New WordPress Site!', 'wp-module-coming-soon' ),
 			'template_login_btn'    => false,
-			'template_p'            => __( 'Be the first to know when we launch, enter your email address and we will let you know when we go live and any future website updates we have.', 'newfold-module-coming-soon' ),
-			'template_msg_success'  => __( 'Thank you, please check your email to confirm your subscription.', 'newfold-module-coming-soon' ),
-			'template_msg_active'   => __( 'Your email address is already subscribed to this website. Stay tuned to your inbox for our updates or try a different email address.', 'newfold-module-coming-soon' ),
-			'template_msg_invalid'  => __( 'There was an error with your submission and you were not subscribed. Please try again with a valid email address.', 'newfold-module-coming-soon' ),
-			'template_email_label'  => __( 'Email', 'newfold-module-coming-soon' ),
-			'template_email_ph'     => __( 'Enter your email address', 'newfold-module-coming-soon' ),
-			'template_subscribe'    => __( 'Subscribe', 'newfold-module-coming-soon' ),
-			'template_footer_t'     => __( 'Is this your website? Log in to WordPress to launch your site.', 'newfold-module-coming-soon' ),
+			'template_p'            => __( 'Be the first to know when we launch, enter your email address and we will let you know when we go live and any future website updates we have.', 'wp-module-coming-soon' ),
+			'template_msg_success'  => __( 'Thank you, please check your email to confirm your subscription.', 'wp-module-coming-soon' ),
+			'template_msg_active'   => __( 'Your email address is already subscribed to this website. Stay tuned to your inbox for our updates or try a different email address.', 'wp-module-coming-soon' ),
+			'template_msg_invalid'  => __( 'There was an error with your submission and you were not subscribed. Please try again with a valid email address.', 'wp-module-coming-soon' ),
+			'template_email_label'  => __( 'Email', 'wp-module-coming-soon' ),
+			'template_email_ph'     => __( 'Enter your email address', 'wp-module-coming-soon' ),
+			'template_subscribe'    => __( 'Subscribe', 'wp-module-coming-soon' ),
+			'template_footer_t'     => __( 'Is this your website? Log in to WordPress to launch your site.', 'wp-module-coming-soon' ),
 		);
 		$this->args = wp_parse_args( $container->has( 'comingsoon' ) ? $container['comingsoon'] : array(), $defaults );
 
@@ -50,6 +50,7 @@ class ComingSoon {
 
 		// set up all actions
 		\add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
+		\add_action( 'init', array( __CLASS__, 'load_text_domain' ), 100 );
 		\add_action( 'rest_api_init', array( $this, 'rest_api_init' ) );
 		\add_action( 'newfold/onboarding/completed', array( $this, 'handle_onboarding_completed' ) );
 		\add_action( 'admin_notices', array( $this, 'notice_display' ) );
@@ -187,6 +188,12 @@ class ComingSoon {
 			container()->plugin()->version,
 			true
 		);
+
+		\wp_set_script_translations(
+			'newfold-coming-soon-api',
+			'wp-module-coming-soon',
+			NFD_COMING_SOON_DIR . '/languages'
+		);
 	}
 
 	/**
@@ -275,14 +282,14 @@ class ComingSoon {
 
 		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( wp_unslash( $_POST['nonce'] ), 'newfold_coming_soon_subscribe_nonce' ) ) {
 
-			$a_response['message'] = __( 'Gotcha!', 'newfold-module-coming-soon' );
+			$a_response['message'] = __( 'Gotcha!', 'wp-module-coming-soon' );
 			$a_response['status']  = 'nonce_failure';
 
 		} else {
 
 			if ( ! is_email( $email ) ) {
 
-				$a_response['message'] = __( 'Please provide a valid email address', 'newfold-module-coming-soon' );
+				$a_response['message'] = __( 'Please provide a valid email address', 'wp-module-coming-soon' );
 				$a_response['status']  = 'invalid_email';
 
 			} else {
@@ -292,7 +299,7 @@ class ComingSoon {
 
 				// ensure jetpack subscribe is callable, bail if not.
 				if ( ! is_callable( array( $jetpack, 'subscribe' ) ) ) {
-					$a_response['message'] = __( 'Jetpack encountered an error with the subscription', 'newfold-module-coming-soon' );
+					$a_response['message'] = __( 'Jetpack encountered an error with the subscription', 'wp-module-coming-soon' );
 					$a_response['status']  = 'jetpack-error';
 					wp_send_json( $a_response );
 					exit;
@@ -314,12 +321,12 @@ class ComingSoon {
 					$error_text = array_keys( $response[0]->errors );
 					$error_text = $error_text[0];
 
-					$a_response['message'] = __( 'There was an error with the subscription', 'newfold-module-coming-soon' );
+					$a_response['message'] = __( 'There was an error with the subscription', 'wp-module-coming-soon' );
 					$a_response['status']  = $error_text;
 
 				} else {
 
-					$a_response['message'] = __( 'Subscription successful', 'newfold-module-coming-soon' );
+					$a_response['message'] = __( 'Subscription successful', 'wp-module-coming-soon' );
 					$a_response['status']  = 'success';
 
 				}
@@ -376,6 +383,26 @@ class ComingSoon {
 		}
 
 		return $value;
+	}
+
+	/**
+	 * Load text domain for Module
+	 *
+	 * @return void
+	 */
+	public static function load_text_domain() {
+
+		\load_plugin_textdomain(
+			'wp-module-coming-soon',
+			false,
+			NFD_COMING_SOON_DIR . '/languages'
+		);
+
+		\load_script_textdomain(
+			'newfold-coming-soon-api',
+			'wp-module-coming-soon',
+			NFD_COMING_SOON_DIR . '/languages'
+		);
 	}
 
 }

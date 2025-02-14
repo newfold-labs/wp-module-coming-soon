@@ -31,7 +31,7 @@ header('Cache-Control: no-store, no-cache, must-revalidate');
 					<?php endif; ?>
 					<?php if ( isset( $args['template_login_btn'] ) && true === $args['template_login_btn'] )  : // admin login button ?>
 						<a class="btn" href="<?php echo esc_url( wp_login_url() ); ?>">
-							<?php esc_html_e( 'Admin Login', 'newfold-module-coming-soon' ); ?>
+							<?php esc_html_e( 'Admin Login', 'wp-module-coming-soon' ); ?>
 						</a>
 					<?php endif; // end admin login button ?>
 					<?php if ( class_exists( 'Jetpack' ) && Jetpack::is_module_active( 'subscriptions' ) ) : ?>

@@ -131,10 +131,10 @@ class ComingSoon
 	 */
 	public function check_permissions() {
 		if ( ! current_user_can( 'manage_options' ) ) {
-			return new \WP_Error( 'rest_forbidden', esc_html__( 'You cannot access the resource.' ), array( 'status' => 401 ) );
+			return new \WP_Error( 'rest_forbidden', esc_html__( 'You cannot access the resource.', 'wp-module-coming-soon' ), array( 'status' => 401 ) );
 		}
 		if ( ! container()->has( 'comingSoon' ) ) {
-			return new \WP_Error( 'rest_forbidden', esc_html__( 'Coming Soon module service provider error.' ), array( 'status' => 401 ) );
+			return new \WP_Error( 'rest_forbidden', esc_html__( 'Coming Soon module service provider error.', 'wp-module-coming-soon' ), array( 'status' => 401 ) );
 		}
 		return true;
 	}

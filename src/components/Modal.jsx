@@ -30,15 +30,15 @@ const Modal = () => {
 		return null;
 	}
 
-	const title = __('Ready to launch your Site?', 'nfd-coming-soon');
+	const title = __('Ready to launch your Site?', 'wp-module-coming-soon');
 	const heading = __(
 		'Pages and posts you publish will not be visible to the public until you launch your site.',
-		'nfd-coming-soon'
+		'wp-module-coming-soon'
 	);
-	const launchButtonText = __('Publish & Launch Site', 'nfd-coming-soon');
+	const launchButtonText = __('Publish & Launch Site', 'wp-module-coming-soon');
 	const withoutLaunchButtonText = __(
 		'Publish Without Launching',
-		'nfd-coming-soon'
+		'wp-module-coming-soon'
 	);
 
 	return (
