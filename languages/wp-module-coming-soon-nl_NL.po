@@ -1,131 +1,130 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: newfold-labswp-module-staging\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Vara Prasad Maruboina <varaprasad.maruboina@newfold.com>\n"
-"Language-Team: Dutch <vertaling@vrijschrift.org>\n"
+"Last-Translator: \n"
+"Language-Team: Dutch\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2025-02-13T09:55:55+00:00\n"
-"PO-Revision-Date: 2025-02-13 18:34+0530\n"
+"PO-Revision-Date: 2025-02-19 17:00\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: wp-module-coming-soon\n"
-"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Crowdin-Project: newfold-labswp-module-staging\n"
+"X-Crowdin-Project-ID: 764889\n"
+"X-Crowdin-Language: nl\n"
+"X-Crowdin-File: wp-module-coming-soon.pot\n"
+"X-Crowdin-File-ID: 54\n"
+"Language: nl_NL\n"
 
 #: bootstrap.php:48
 msgid "Coming Soon"
-msgstr ""
+msgstr "Binnenkort beschikbaar"
 
 #: includes/AdminBarSiteStatusBadge.php:42
 msgid "Coming soon"
-msgstr ""
+msgstr "Binnenkort beschikbaar"
 
 #: includes/AdminBarSiteStatusBadge.php:43
 msgid "Live"
-msgstr ""
+msgstr "Zichtbaar"
 
 #: includes/API/ComingSoon.php:134
 msgid "You cannot access the resource."
-msgstr ""
+msgstr "U hebt geen toegang tot de bron."
 
 #: includes/API/ComingSoon.php:137
 msgid "Coming Soon module service provider error."
-msgstr ""
+msgstr "Binnenkort komt er een fout in de serviceprovider."
 
 #: includes/ComingSoon.php:26
 msgid "Your site has Coming Soon mode active."
-msgstr ""
+msgstr "De site is binnenkort actief."
 
-#: includes/ComingSoon.php:27 includes/ComingSoon.php:30
+#: includes/ComingSoon.php:27
+#: includes/ComingSoon.php:30
 msgid "Coming Soon!"
-msgstr ""
+msgstr "Binnenkort beschikbaar!"
 
 #: includes/ComingSoon.php:31
 msgid "A New WordPress Site!"
-msgstr ""
+msgstr "Een nieuwe WordPress-site!"
 
 #: includes/ComingSoon.php:33
-msgid ""
-"Be the first to know when we launch, enter your email address and we will "
-"let you know when we go live and any future website updates we have."
-msgstr ""
+msgid "Be the first to know when we launch, enter your email address and we will let you know when we go live and any future website updates we have."
+msgstr "Wees de eerste om te weten wanneer we starten, Voer je e-mailadres in en we laten je weten wanneer we live gaan en eventuele toekomstige website-updates die we hebben."
 
 #: includes/ComingSoon.php:34
 msgid "Thank you, please check your email to confirm your subscription."
-msgstr ""
+msgstr "Bedankt, controleer je e-mail om je abonnement te bevestigen."
 
 #: includes/ComingSoon.php:35
-msgid ""
-"Your email address is already subscribed to this website. Stay tuned to your "
-"inbox for our updates or try a different email address."
-msgstr ""
+msgid "Your email address is already subscribed to this website. Stay tuned to your inbox for our updates or try a different email address."
+msgstr "Uw e-mailadres is al geabonneerd op deze website. Blijf op de hoogte van uw inbox voor onze updates of probeer een ander e-mailadres."
 
 #: includes/ComingSoon.php:36
-msgid ""
-"There was an error with your submission and you were not subscribed. Please "
-"try again with a valid email address."
-msgstr ""
+msgid "There was an error with your submission and you were not subscribed. Please try again with a valid email address."
+msgstr "Er is een fout opgetreden bij het indienen van uw aanmelding. Probeer het opnieuw met een geldig e-mailadres."
 
 #: includes/ComingSoon.php:37
 msgid "Email"
-msgstr ""
+msgstr "E-mailadres"
 
 #: includes/ComingSoon.php:38
 msgid "Enter your email address"
-msgstr ""
+msgstr "Voer uw e-mailadres in"
 
 #: includes/ComingSoon.php:39
 msgid "Subscribe"
-msgstr ""
+msgstr "Abonneren"
 
 #: includes/ComingSoon.php:40
 msgid "Is this your website? Log in to WordPress to launch your site."
-msgstr ""
+msgstr "Is dit uw website? Log in bij WordPress om uw site te starten."
 
 #: includes/ComingSoon.php:278
 msgid "Gotcha!"
-msgstr ""
+msgstr "Gotcha!"
 
 #: includes/ComingSoon.php:285
 msgid "Please provide a valid email address"
-msgstr ""
+msgstr "Geef een geldig e-mailadres op"
 
 #: includes/ComingSoon.php:295
 msgid "Jetpack encountered an error with the subscription"
-msgstr ""
+msgstr "Jetpack ondervond een fout met het abonnement"
 
 #: includes/ComingSoon.php:317
 msgid "There was an error with the subscription"
-msgstr ""
+msgstr "Er is een fout opgetreden met het abonnement"
 
 #: includes/ComingSoon.php:322
 msgid "Subscription successful"
-msgstr ""
+msgstr "Abonnement succesvol"
 
 #: includes/SitePreviewWarning.php:27
 msgid "Site Preview - This site is NOT LIVE, only admins can see this view."
-msgstr ""
+msgstr "Voorbeeld van de site - Deze site is NIET LIVE, alleen admins kunnen deze weergave zien."
 
 #: includes/template/index.php:34
 msgid "Admin Login"
-msgstr ""
+msgstr "Inloggen voor beheerder"
 
 #: src/components/Modal.jsx:33
 msgid "Ready to launch your Site?"
-msgstr ""
+msgstr "Klaar om uw site te starten?"
 
 #: src/components/Modal.jsx:34
-msgid ""
-"Pages and posts you publish will not be visible to the public until you "
-"launch your site."
-msgstr ""
+msgid "Pages and posts you publish will not be visible to the public until you launch your site."
+msgstr "Pagina's en berichten die u publiceert zullen niet zichtbaar zijn voor het publiek totdat u uw site opstart."
 
 #: src/components/Modal.jsx:38
 msgid "Publish & Launch Site"
-msgstr ""
+msgstr "Publiceer & start site"
 
 #: src/components/Modal.jsx:39
 msgid "Publish Without Launching"
-msgstr ""
+msgstr "Publiceren zonder starten"
+
