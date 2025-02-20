@@ -184,7 +184,7 @@ class ComingSoon {
 		wp_enqueue_script(
 			'newfold-coming-soon-api',
 			$assetsDir . 'coming-soon.js',
-			array( 'wp-api-fetch', 'nfd-runtime' ),
+			array( 'wp-api-fetch', 'nfd-runtime', 'wp-i18n' ),
 			container()->plugin()->version,
 			true
 		);
