@@ -34,6 +34,12 @@ final class PrePublishModal {
 				true
 			);
 
+			\wp_set_script_translations(
+				'nfd-coming-soon',
+				'wp-module-coming-soon',
+				NFD_COMING_SOON_DIR . '/languages'
+			);
+
 			\wp_enqueue_script( 'nfd-coming-soon' );
 		}
 	}
