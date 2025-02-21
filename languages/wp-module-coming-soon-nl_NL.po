@@ -9,6 +9,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2025-02-13T09:55:55+00:00\n"
 "PO-Revision-Date: 2025-02-19 17:00\n"
+"Language: nl_NL\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: wp-module-coming-soon\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -17,17 +18,20 @@ msgstr ""
 "X-Crowdin-Language: nl\n"
 "X-Crowdin-File: wp-module-coming-soon.pot\n"
 "X-Crowdin-File-ID: 54\n"
-"Language: nl_NL\n"
 
 #: bootstrap.php:48
 msgid "Coming Soon"
 msgstr "Binnenkort beschikbaar"
 
 #: includes/AdminBarSiteStatusBadge.php:42
+#: static/js/coming-soon.js:127
+#: static/js/coming-soon.js:142
 msgid "Coming soon"
 msgstr "Binnenkort beschikbaar"
 
 #: includes/AdminBarSiteStatusBadge.php:43
+#: static/js/coming-soon.js:131
+#: static/js/coming-soon.js:146
 msgid "Live"
 msgstr "Zichtbaar"
 
@@ -84,23 +88,23 @@ msgstr "Abonneren"
 msgid "Is this your website? Log in to WordPress to launch your site."
 msgstr "Is dit uw website? Log in bij WordPress om uw site te starten."
 
-#: includes/ComingSoon.php:278
+#: includes/ComingSoon.php:285
 msgid "Gotcha!"
 msgstr "Gotcha!"
 
-#: includes/ComingSoon.php:285
+#: includes/ComingSoon.php:292
 msgid "Please provide a valid email address"
 msgstr "Geef een geldig e-mailadres op"
 
-#: includes/ComingSoon.php:295
+#: includes/ComingSoon.php:302
 msgid "Jetpack encountered an error with the subscription"
 msgstr "Jetpack ondervond een fout met het abonnement"
 
-#: includes/ComingSoon.php:317
+#: includes/ComingSoon.php:324
 msgid "There was an error with the subscription"
 msgstr "Er is een fout opgetreden met het abonnement"
 
-#: includes/ComingSoon.php:322
+#: includes/ComingSoon.php:329
 msgid "Subscription successful"
 msgstr "Abonnement succesvol"
 
@@ -112,19 +116,18 @@ msgstr "Voorbeeld van de site - Deze site is NIET LIVE, alleen admins kunnen dez
 msgid "Admin Login"
 msgstr "Inloggen voor beheerder"
 
-#: src/components/Modal.jsx:33
+#: src/components/Modal.jsx:28
 msgid "Ready to launch your Site?"
 msgstr "Klaar om uw site te starten?"
 
-#: src/components/Modal.jsx:34
+#: src/components/Modal.jsx:29
 msgid "Pages and posts you publish will not be visible to the public until you launch your site."
 msgstr "Pagina's en berichten die u publiceert zullen niet zichtbaar zijn voor het publiek totdat u uw site opstart."
 
-#: src/components/Modal.jsx:38
+#: src/components/Modal.jsx:33
 msgid "Publish & Launch Site"
 msgstr "Publiceer & start site"
 
-#: src/components/Modal.jsx:39
+#: src/components/Modal.jsx:37
 msgid "Publish Without Launching"
 msgstr "Publiceren zonder starten"
-

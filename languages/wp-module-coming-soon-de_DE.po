@@ -9,6 +9,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2025-02-13T09:55:55+00:00\n"
 "PO-Revision-Date: 2025-02-19 17:00\n"
+"Language: de_DE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: wp-module-coming-soon\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -17,17 +18,20 @@ msgstr ""
 "X-Crowdin-Language: de\n"
 "X-Crowdin-File: wp-module-coming-soon.pot\n"
 "X-Crowdin-File-ID: 54\n"
-"Language: de_DE\n"
 
 #: bootstrap.php:48
 msgid "Coming Soon"
 msgstr "Demnächst"
 
 #: includes/AdminBarSiteStatusBadge.php:42
+#: static/js/coming-soon.js:127
+#: static/js/coming-soon.js:142
 msgid "Coming soon"
 msgstr "Demnächst"
 
 #: includes/AdminBarSiteStatusBadge.php:43
+#: static/js/coming-soon.js:131
+#: static/js/coming-soon.js:146
 msgid "Live"
 msgstr "Live"
 
@@ -84,23 +88,23 @@ msgstr "Abonnieren"
 msgid "Is this your website? Log in to WordPress to launch your site."
 msgstr "Ist dies Ihre Website? Melden Sie sich bei WordPress an, um Ihre Website zu starten."
 
-#: includes/ComingSoon.php:278
+#: includes/ComingSoon.php:285
 msgid "Gotcha!"
 msgstr "Gotcha!"
 
-#: includes/ComingSoon.php:285
+#: includes/ComingSoon.php:292
 msgid "Please provide a valid email address"
 msgstr "Bitte geben Sie eine gültige E-Mail-Adresse ein"
 
-#: includes/ComingSoon.php:295
+#: includes/ComingSoon.php:302
 msgid "Jetpack encountered an error with the subscription"
 msgstr "Jetpack hat einen Fehler mit dem Abonnement aufgetreten"
 
-#: includes/ComingSoon.php:317
+#: includes/ComingSoon.php:324
 msgid "There was an error with the subscription"
 msgstr "Beim Abonnement ist ein Fehler aufgetreten"
 
-#: includes/ComingSoon.php:322
+#: includes/ComingSoon.php:329
 msgid "Subscription successful"
 msgstr "Abonnement erfolgreich"
 
@@ -112,19 +116,18 @@ msgstr "Seitenvorschau - Diese Seite ist NICHT LIVE, nur Administratoren können
 msgid "Admin Login"
 msgstr "Admin-Login"
 
-#: src/components/Modal.jsx:33
+#: src/components/Modal.jsx:28
 msgid "Ready to launch your Site?"
 msgstr "Bereit für den Start Ihrer Website?"
 
-#: src/components/Modal.jsx:34
+#: src/components/Modal.jsx:29
 msgid "Pages and posts you publish will not be visible to the public until you launch your site."
 msgstr "Seiten und Beiträge, die Sie veröffentlichen, werden erst für die Öffentlichkeit sichtbar sein, wenn Sie Ihre Website starten."
 
-#: src/components/Modal.jsx:38
+#: src/components/Modal.jsx:33
 msgid "Publish & Launch Site"
 msgstr "Site veröffentlichen & starten"
 
-#: src/components/Modal.jsx:39
+#: src/components/Modal.jsx:37
 msgid "Publish Without Launching"
 msgstr "Ohne Start veröffentlichen"
-
