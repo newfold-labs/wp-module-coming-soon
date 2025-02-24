@@ -117,21 +117,17 @@ msgid "Admin Login"
 msgstr "Connexion de l'administrateur"
 
 #: build/1.3.6/coming-soon.js:1
-#: src/components/Modal.jsx:28
 msgid "Ready to launch your Site?"
 msgstr "Prêt à lancer votre site ?"
 
 #: build/1.3.6/coming-soon.js:1
-#: src/components/Modal.jsx:29
 msgid "Pages and posts you publish will not be visible to the public until you launch your site."
 msgstr "Les pages et les messages que vous publiez ne seront pas visibles au public jusqu'à ce que vous lancez votre site."
 
 #: build/1.3.6/coming-soon.js:1
-#: src/components/Modal.jsx:33
 msgid "Publish & Launch Site"
 msgstr "Publier et lancer le site"
 
 #: build/1.3.6/coming-soon.js:1
-#: src/components/Modal.jsx:37
 msgid "Publish Without Launching"
 msgstr "Publier sans lancer"
