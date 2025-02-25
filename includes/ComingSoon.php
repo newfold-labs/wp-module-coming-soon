@@ -21,23 +21,23 @@ class ComingSoon {
 		$this->container = $container;
 		// setup args
 		$defaults   = array(
-			'admin_screen_id'       => container()->plugin()->id,
-			'admin_app_url'         => \admin_url( 'admin.php?page=newfold' ),
-			'admin_notice_text'     => __( 'Your site has Coming Soon mode active.', 'wp-module-coming-soon' ),
-			'template_page_title'   => __( 'Coming Soon!', 'wp-module-coming-soon' ),
-			'template_styles'       => false,
-			'template_content'      => false,
-			'template_h1'           => __( 'Coming Soon!', 'wp-module-coming-soon' ),
-			'template_h2'           => __( 'A New WordPress Site!', 'wp-module-coming-soon' ),
-			'template_login_btn'    => false,
-			'template_p'            => __( 'Be the first to know when we launch, enter your email address and we will let you know when we go live and any future website updates we have.', 'wp-module-coming-soon' ),
-			'template_msg_success'  => __( 'Thank you, please check your email to confirm your subscription.', 'wp-module-coming-soon' ),
-			'template_msg_active'   => __( 'Your email address is already subscribed to this website. Stay tuned to your inbox for our updates or try a different email address.', 'wp-module-coming-soon' ),
-			'template_msg_invalid'  => __( 'There was an error with your submission and you were not subscribed. Please try again with a valid email address.', 'wp-module-coming-soon' ),
-			'template_email_label'  => __( 'Email', 'wp-module-coming-soon' ),
-			'template_email_ph'     => __( 'Enter your email address', 'wp-module-coming-soon' ),
-			'template_subscribe'    => __( 'Subscribe', 'wp-module-coming-soon' ),
-			'template_footer_t'     => __( 'Is this your website? Log in to WordPress to launch your site.', 'wp-module-coming-soon' ),
+			'admin_screen_id'      => container()->plugin()->id,
+			'admin_app_url'        => \admin_url( 'admin.php?page=newfold' ),
+			'admin_notice_text'    => __( 'Your site has Coming Soon mode active.', 'wp-module-coming-soon' ),
+			'template_page_title'  => __( 'Coming Soon!', 'wp-module-coming-soon' ),
+			'template_styles'      => false,
+			'template_content'     => false,
+			'template_h1'          => __( 'Coming Soon!', 'wp-module-coming-soon' ),
+			'template_h2'          => __( 'A New WordPress Site!', 'wp-module-coming-soon' ),
+			'template_login_btn'   => false,
+			'template_p'           => __( 'Be the first to know when we launch, enter your email address and we will let you know when we go live and any future website updates we have.', 'wp-module-coming-soon' ),
+			'template_msg_success' => __( 'Thank you, please check your email to confirm your subscription.', 'wp-module-coming-soon' ),
+			'template_msg_active'  => __( 'Your email address is already subscribed to this website. Stay tuned to your inbox for our updates or try a different email address.', 'wp-module-coming-soon' ),
+			'template_msg_invalid' => __( 'There was an error with your submission and you were not subscribed. Please try again with a valid email address.', 'wp-module-coming-soon' ),
+			'template_email_label' => __( 'Email', 'wp-module-coming-soon' ),
+			'template_email_ph'    => __( 'Enter your email address', 'wp-module-coming-soon' ),
+			'template_subscribe'   => __( 'Subscribe', 'wp-module-coming-soon' ),
+			'template_footer_t'    => __( 'Is this your website? Log in to WordPress to launch your site.', 'wp-module-coming-soon' ),
 		);
 		$this->args = wp_parse_args( $container->has( 'comingsoon' ) ? $container['comingsoon'] : array(), $defaults );
 
@@ -50,7 +50,7 @@ class ComingSoon {
 
 		// set up all actions
 		\add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
-		\add_action( 'init', array( __CLASS__, 'load_text_domain' ), 100 );
+		\add_action( 'init', array( __CLASS__, 'load_text_domain' ), 0 );
 		\add_action( 'rest_api_init', array( $this, 'rest_api_init' ) );
 		\add_action( 'newfold/onboarding/completed', array( $this, 'handle_onboarding_completed' ) );
 		\add_action( 'admin_notices', array( $this, 'notice_display' ) );
@@ -62,6 +62,7 @@ class ComingSoon {
 		\add_action( 'update_option_nfd_coming_soon', array( $this, 'on_update_nfd_coming_soon' ), 10, 2 );
 		\add_action( 'update_option_mm_coming_soon', array( $this, 'on_update_mm_coming_soon' ), 10, 2 );
 		\add_filter( 'jetpack_is_under_construction_plugin', array( $this, 'filter_jetpack_is_under_construction' ) );
+		\add_filter( 'load_script_translation_file', array( $this, 'load_script_translation_file' ), 10, 3 );
 
 		new AdminBarSiteStatusBadge( $container );
 		new SitePreviewWarning();
@@ -130,9 +131,13 @@ class ComingSoon {
 	public function conditionally_trigger_coming_soon_action_hooks( bool $isEnabled ) {
 
 		if ( ! did_action( 'init' ) ) {
-			add_action( 'init', function () use ( $isEnabled ) {
-				$this->conditionally_trigger_coming_soon_action_hooks( $isEnabled );
-			}, 99 );
+			add_action(
+				'init',
+				function () use ( $isEnabled ) {
+					$this->conditionally_trigger_coming_soon_action_hooks( $isEnabled );
+				},
+				99
+			);
 
 			return;
 		}
@@ -242,9 +247,9 @@ class ComingSoon {
 			current_user_can( 'manage_options' ) // current user can manage options
 		) {
 			?>
-            <div class='notice notice-warning'>
-                <p><?php echo wp_kses( $this->args['admin_notice_text'], $allowed_notice_html ); ?></p>
-            </div>
+			<div class='notice notice-warning'>
+				<p><?php echo wp_kses( $this->args['admin_notice_text'], $allowed_notice_html ); ?></p>
+			</div>
 			<?php
 		}
 	}
@@ -336,7 +341,6 @@ class ComingSoon {
 			exit;
 
 		}
-
 	}
 
 	/**
@@ -350,7 +354,6 @@ class ComingSoon {
 				__CLASS__ . '\\coming_soon_prevent_emails_return_array'
 			);
 		}
-
 	}
 
 	/**
@@ -358,14 +361,12 @@ class ComingSoon {
 	 *
 	 * @return string[]
 	 * @see coming_soon_prevent_emails
-	 *
 	 */
 	public function coming_soon_prevent_emails_return_array() {
 
 		return array(
 			'please-for-the-love-of-all-things-do-not-exist',
 		);
-
 	}
 
 	/**
@@ -397,12 +398,33 @@ class ComingSoon {
 			false,
 			NFD_COMING_SOON_DIR . '/languages'
 		);
-
-		\load_script_textdomain(
-			'newfold-coming-soon-api',
-			'wp-module-coming-soon',
-			NFD_COMING_SOON_DIR . '/languages'
-		);
 	}
 
+	/**
+	 * Filters the file path for the JS translation JSON.
+	 *
+	 * If the script handle matches the module's handle, builds a custom path using
+	 * the languages directory, current locale, text domain, and a hash of the script.
+	 *
+	 * @param string $file   Default translation file path.
+	 * @param string $handle Script handle.
+	 * @param string $domain Text domain.
+	 * @return string Modified file path for the translation JSON.
+	 */
+	public function load_script_translation_file( $file, $handle, $domain ) {
+
+		if ( $handle === self::$handle ) {
+			$path   = NFD_COMING_SOON_DIR . '/languages/';
+			$locale = determine_locale();
+
+			$file_base = 'default' === $domain
+				? $locale
+				: $domain . '-' . $locale;
+			$file      = $path . $file_base . '-' . md5( 'build/' . NFD_COMING_SOON_MODULE_VERSION . 'index.js' )
+						. '.json';
+
+		}
+
+		return $file;
+	}
 }
