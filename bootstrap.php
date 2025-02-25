@@ -56,9 +56,14 @@ add_action(
 					if ( ! defined( 'NFD_COMING_SOON_DIR' ) ) {
 						define( 'NFD_COMING_SOON_DIR', __DIR__ );
 					}
-					$container->set( 'comingSoon', $container->service( function () {
-						return new Service();
-					} ) );
+					$container->set(
+						'comingSoon',
+						$container->service(
+							function () {
+								return new Service();
+							}
+						)
+					);
 
 					return new ComingSoon( $container );
 				},
@@ -66,6 +71,5 @@ add_action(
 				'isHidden' => true,
 			)
 		);
-
 	}
 );

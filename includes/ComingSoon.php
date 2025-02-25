@@ -15,11 +15,11 @@ class ComingSoon {
 	/**
 	 * Register functionality using WordPress Actions.
 	 *
-	 * @param Container $container the container from the module loader
+	 * @param Container $container the container from the module loader.
 	 */
 	public function __construct( Container $container ) {
 		$this->container = $container;
-		// setup args
+		// setup args.
 		$defaults   = array(
 			'admin_screen_id'      => container()->plugin()->id,
 			'admin_app_url'        => \admin_url( 'admin.php?page=newfold' ),
@@ -42,13 +42,13 @@ class ComingSoon {
 		$this->args = wp_parse_args( $container->has( 'comingsoon' ) ? $container['comingsoon'] : array(), $defaults );
 
 		if ( false !== $this->args['template_styles'] && isset( $container['plugin'] ) ) {
-			// add plugin version to plugin styles file for cache busting
+			// add plugin version to plugin styles file for cache busting.
 			$this->args['template_styles'] = $this->args['template_styles'] . '?v=' . container()->plugin()->version;
 		}
 
 		new WooCommerceOptionsSync();
 
-		// set up all actions
+		// set up all actions.
 		\add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
 		\add_action( 'init', array( __CLASS__, 'load_text_domain' ), 0 );
 		\add_action( 'rest_api_init', array( $this, 'rest_api_init' ) );
@@ -71,8 +71,8 @@ class ComingSoon {
 	/**
 	 * When the coming soon state is updated, make sure we trigger actions and update the legacy option value.
 	 *
-	 * @param mixed $old_value
-	 * @param mixed $value
+	 * @param mixed $old_value Old option value.
+	 * @param mixed $value New option value.
 	 *
 	 * @return mixed
 	 */
@@ -95,8 +95,8 @@ class ComingSoon {
 	/**
 	 * When the coming soon state is updated, make sure we trigger actions and update the new option value.
 	 *
-	 * @param mixed $old_value
-	 * @param mixed $value
+	 * @param mixed $old_value Old option value.
+	 * @param mixed $value New option value.
 	 *
 	 * @return mixed
 	 */
@@ -123,17 +123,17 @@ class ComingSoon {
 	 *  - If the init hook has run, we trigger the action immediately.
 	 *  - If the init hook has not run, we add a callback to the init hook to trigger the action.
 	 *
-	 * @param bool $isEnabled
+	 * @param bool $is_enabled True if coming soon is enabled, false otherwise.
 	 *
 	 * @return void
 	 */
-	public function conditionally_trigger_coming_soon_action_hooks( bool $isEnabled ) {
+	public function conditionally_trigger_coming_soon_action_hooks( bool $is_enabled ) {
 
 		if ( ! did_action( 'init' ) ) {
 			add_action(
 				'init',
-				function () use ( $isEnabled ) {
-					$this->conditionally_trigger_coming_soon_action_hooks( $isEnabled );
+				function () use ( $is_enabled ) {
+					$this->conditionally_trigger_coming_soon_action_hooks( $is_enabled );
 				},
 				99
 			);
@@ -141,7 +141,7 @@ class ComingSoon {
 			return;
 		}
 
-		if ( $isEnabled ) {
+		if ( $is_enabled ) {
 			$this->trigger_enabled_action_hook();
 		} else {
 			$this->trigger_disabled_action_hook();
@@ -155,7 +155,7 @@ class ComingSoon {
 	 */
 	public function trigger_enabled_action_hook() {
 		if ( ! did_action( 'newfold/coming-soon/enabled' ) ) {
-			do_action( 'newfold/coming-soon/enabled' );
+			do_action( 'newfold/coming-soon/enabled' ); // phpcs:ignore
 		}
 	}
 
@@ -166,7 +166,7 @@ class ComingSoon {
 	 */
 	public function trigger_disabled_action_hook() {
 		if ( ! did_action( 'newfold/coming-soon/disabled' ) ) {
-			do_action( 'newfold/coming-soon/disabled' );
+			do_action( 'newfold/coming-soon/disabled' ); // phpcs:ignore
 		}
 	}
 
@@ -183,11 +183,11 @@ class ComingSoon {
 	 * Enqueue admin scripts.
 	 */
 	public function enqueue_admin_scripts() {
-		$assetsDir = container()->plugin()->url . 'vendor/newfold-labs/wp-module-coming-soon/static/js/';
+		$assets_dir = container()->plugin()->url . 'vendor/newfold-labs/wp-module-coming-soon/static/js/';
 
 		wp_enqueue_script(
 			'newfold-coming-soon-api',
-			$assetsDir . 'coming-soon.js',
+			$assets_dir . 'coming-soon.js',
 			array( 'wp-api-fetch', 'nfd-runtime', 'wp-i18n' ),
 			container()->plugin()->version,
 			true
@@ -230,10 +230,10 @@ class ComingSoon {
 		$screen = get_current_screen();
 
 		$allowed_notice_html = array(
-			// formatting
+			// formatting.
 			'strong' => array(),
 			'em'     => array(),
-			// and links
+			// and links.
 			'a'      => array(
 				'href'  => array(),
 				'title' => array(),
@@ -241,9 +241,9 @@ class ComingSoon {
 		);
 
 		if (
-			isComingSoonActive() && // coming soon is active
-			false === strpos( $screen->id, $this->args['admin_screen_id'] ) && // not on our app screen
-			current_user_can( 'manage_options' ) // current user can manage options
+			isComingSoonActive() && // coming soon is active.
+			false === strpos( $screen->id, $this->args['admin_screen_id'] ) && // not on our app screen.
+			current_user_can( 'manage_options' ) // current user can manage options.
 		) {
 			?>
 			<div class='notice notice-warning'>
@@ -268,7 +268,7 @@ class ComingSoon {
 	/**
 	 * Render the coming soon page.
 	 *
-	 * @param array $args the args from container and defaults to pass to the template
+	 * @param array $args The args from container and defaults to pass to the template.
 	 */
 	public static function coming_soon_content( $args ) {
 		$coming_soon_template = __DIR__ . '/template/index.php';
@@ -282,7 +282,7 @@ class ComingSoon {
 
 		$response   = array();
 		$a_response = array();
-		$email      = sanitize_email( wp_unslash( $_POST['email'] ) );
+		$email      = isset( $_POST['email'] ) ? sanitize_email( wp_unslash( $_POST['email'] ) ) : '';
 
 		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( wp_unslash( $_POST['nonce'] ), 'newfold_coming_soon_subscribe_nonce' ) ) {
 
@@ -298,7 +298,7 @@ class ComingSoon {
 
 			} else {
 
-				// Initialize JetPack_Subscriptions
+				// Initialize JetPack_Subscriptions.
 				$jetpack = \Jetpack_Subscriptions::init();
 
 				// ensure jetpack subscribe is callable, bail if not.
@@ -309,12 +309,12 @@ class ComingSoon {
 					exit;
 				}
 
-				// Get JetPack response and subscribe email if response is true
+				// Get JetPack response and subscribe email if response is true.
 				$response = $jetpack->subscribe(
 					$email,
 					0,
 					false,
-					// See Jetpack subscribe `extra_data` attribute
+					// See Jetpack subscribe `extra_data` attribute.
 					array(
 						'server_data' => jetpack_subscriptions_cherry_pick_server_data(),
 					)
@@ -373,7 +373,7 @@ class ComingSoon {
 	 *
 	 * @see https://github.com/Automattic/jetpack/blob/trunk/projects/plugins/jetpack/_inc/lib/class.core-rest-api-endpoints.php#L1149-L1184
 	 *
-	 * @param bool $value
+	 * @param bool $value Current value.
 	 *
 	 * @return bool
 	 */
@@ -404,32 +404,37 @@ class ComingSoon {
 	 *
 	 * @global WP_Scripts $wp_scripts The WP_Scripts object for printing scripts.
 	 *
-	 * @param string $handle Script handle the textdomain will be attached to.
-	 * @param string $domain Optional. Text domain. Default 'default'.
-	 * @param string $path   Optional. The full file path to the directory containing translation files.
+	 * @param string $script_handle Script handle the textdomain will be attached to.
+	 * @param string $domain Text domain. Default 'default'.
+	 * @param string $languages_dir The full file path to the directory containing translation files.
 	 * @return bool True if the text domain was successfully localized, false otherwise.
 	 */
-	public static function load_js_translations( $script_slug, $domain, $languages_dir ) {
-		\add_filter( 'load_script_translation_file', function( $file, $handle, $domain ) use( $script_slug, $languages_dir ) {
-			global $wp_scripts;
+	public static function load_js_translations( $script_handle, $domain, $languages_dir ) {
+		\add_filter(
+			'load_script_translation_file',
+			function ( $file, $handle, $domain ) use ( $script_handle, $languages_dir ) {
+				global $wp_scripts;
 
-			if ( $script_slug !== $handle ) {
+				if ( $script_slug !== $handle ) {
+					return $file;
+				}
+
+				$src = $wp_scripts->registered[ $handle ]->src ?? false;
+
+				if ( ! $src ) {
+					return $file;
+				}
+
+				$locale  = determine_locale();
+				$baseurl = plugins_url( '/', $languages_dir );
+				$hash    = md5( str_replace( $baseurl, '', $src ) );
+				$file    = "{$languages_dir}/{$domain}-{$locale}-{$hash}.json";
+
 				return $file;
-			}
-
-			$src = $wp_scripts->registered[ $handle ]->src ?? false;
-
-			if ( ! $src ) {
-				return $file;
-			}
-
-			$locale    = determine_locale();
-			$baseurl   = plugins_url( '/', $languages_dir );
-			$hash      = md5( str_replace( $baseurl, '', $src ) );
-			$file      = "{$languages_dir}/{$domain}-{$locale}-{$hash}.json";
-
-			return $file;
-		}, 10, 3 );
+			},
+			10,
+			3
+		);
 
 		return \wp_set_script_translations(
 			$script_slug,
