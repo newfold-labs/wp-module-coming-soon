@@ -62,7 +62,6 @@ class ComingSoon {
 		\add_action( 'update_option_nfd_coming_soon', array( $this, 'on_update_nfd_coming_soon' ), 10, 2 );
 		\add_action( 'update_option_mm_coming_soon', array( $this, 'on_update_mm_coming_soon' ), 10, 2 );
 		\add_filter( 'jetpack_is_under_construction_plugin', array( $this, 'filter_jetpack_is_under_construction' ) );
-		\add_filter( 'load_script_translation_file', array( $this, 'load_script_translation_file' ), 10, 3 );
 
 		new AdminBarSiteStatusBadge( $container );
 		new SitePreviewWarning();
@@ -194,7 +193,7 @@ class ComingSoon {
 			true
 		);
 
-		\wp_set_script_translations(
+		self::load_js_translations(
 			'newfold-coming-soon-api',
 			'wp-module-coming-soon',
 			NFD_COMING_SOON_DIR . '/languages'
@@ -401,30 +400,41 @@ class ComingSoon {
 	}
 
 	/**
-	 * Filters the file path for the JS translation JSON.
+	 * Sets translated strings for a script.
 	 *
-	 * If the script handle matches the module's handle, builds a custom path using
-	 * the languages directory, current locale, text domain, and a hash of the script.
+	 * @global WP_Scripts $wp_scripts The WP_Scripts object for printing scripts.
 	 *
-	 * @param string $file   Default translation file path.
-	 * @param string $handle Script handle.
-	 * @param string $domain Text domain.
-	 * @return string Modified file path for the translation JSON.
+	 * @param string $handle Script handle the textdomain will be attached to.
+	 * @param string $domain Optional. Text domain. Default 'default'.
+	 * @param string $path   Optional. The full file path to the directory containing translation files.
+	 * @return bool True if the text domain was successfully localized, false otherwise.
 	 */
-	public function load_script_translation_file( $file, $handle, $domain ) {
+	public static function load_js_translations( $script_slug, $domain, $languages_dir ) {
+		\add_filter( 'load_script_translation_file', function( $file, $handle, $domain ) use( $script_slug, $languages_dir ) {
+			global $wp_scripts;
 
-		if ( $handle === self::$handle ) {
-			$path   = NFD_COMING_SOON_DIR . '/languages/';
-			$locale = determine_locale();
+			if ( $script_slug !== $handle ) {
+				return $file;
+			}
 
-			$file_base = 'default' === $domain
-				? $locale
-				: $domain . '-' . $locale;
-			$file      = $path . $file_base . '-' . md5( 'build/' . NFD_COMING_SOON_MODULE_VERSION . 'index.js' )
-						. '.json';
+			$src = $wp_scripts->registered[ $handle ]->src ?? false;
 
-		}
+			if ( ! $src ) {
+				return $file;
+			}
 
-		return $file;
+			$locale    = determine_locale();
+			$baseurl   = plugins_url( '/', $languages_dir );
+			$hash      = md5( str_replace( $baseurl, '', $src ) );
+			$file      = "{$languages_dir}/{$domain}-{$locale}-{$hash}.json";
+
+			return $file;
+		}, 10, 3 );
+
+		return \wp_set_script_translations(
+			$script_slug,
+			$domain,
+			$languages_dir
+		);
 	}
 }
