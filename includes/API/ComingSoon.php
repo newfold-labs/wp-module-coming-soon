@@ -14,8 +14,7 @@ use function NewfoldLabs\WP\ModuleLoader\container;
  *
  * @package NewfoldLabs\WP\Module\ComingSoon\API
  */
-class ComingSoon
-{
+class ComingSoon {
 	/**
 	 * The namespace for the API.
 	 *
@@ -38,6 +37,11 @@ class ComingSoon
 		$this->register_routes();
 	}
 
+	/**
+	 * Register ComingSoon API routes.
+	 *
+	 * @return void
+	 */
 	public function register_routes() {
 		register_rest_route(
 			$this->namespace,
@@ -55,7 +59,7 @@ class ComingSoon
 			array(
 				'methods'             => \WP_REST_Server::EDITABLE,
 				'permission_callback' => array( $this, 'check_permissions' ),
-				'callback'            => array( $this, 'enable'),
+				'callback'            => array( $this, 'enable' ),
 			)
 		);
 
@@ -65,7 +69,7 @@ class ComingSoon
 			array(
 				'methods'             => \WP_REST_Server::EDITABLE,
 				'permission_callback' => array( $this, 'check_permissions' ),
-				'callback'            => array( $this, 'disable'),
+				'callback'            => array( $this, 'disable' ),
 			)
 		);
 
@@ -75,7 +79,7 @@ class ComingSoon
 			array(
 				'methods'             => \WP_REST_Server::READABLE,
 				'permission_callback' => array( $this, 'check_permissions' ),
-				'callback'            => array( $this, 'last_changed_timestamp'),
+				'callback'            => array( $this, 'last_changed_timestamp' ),
 			)
 		);
 	}
