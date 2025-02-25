@@ -415,7 +415,7 @@ class ComingSoon {
 			function ( $file, $handle, $domain ) use ( $script_handle, $languages_dir ) {
 				global $wp_scripts;
 
-				if ( $script_slug !== $handle ) {
+				if ( $script_handle !== $handle ) {
 					return $file;
 				}
 
@@ -437,7 +437,7 @@ class ComingSoon {
 		);
 
 		return \wp_set_script_translations(
-			$script_slug,
+			$script_handle,
 			$domain,
 			$languages_dir
 		);
