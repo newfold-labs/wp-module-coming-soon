@@ -45,7 +45,7 @@ add_action(
 		register(
 			array(
 				'name'     => 'coming-soon',
-				'label'    => __( 'Coming Soon', 'newfold-module-coming-soon' ),
+				'label'    => __( 'Coming Soon', 'wp-module-coming-soon' ),
 				'callback' => function ( Container $container ) {
 					if ( ! defined( 'NFD_COMING_SOON_BUILD_DIR' ) && defined( 'NFD_COMING_SOON_MODULE_VERSION' ) ) {
 						define( 'NFD_COMING_SOON_BUILD_DIR', __DIR__ . '/build/' . NFD_COMING_SOON_MODULE_VERSION );
@@ -53,9 +53,17 @@ add_action(
 					if ( ! defined( 'NFD_COMING_SOON_BUILD_URL' ) && defined( 'NFD_COMING_SOON_MODULE_VERSION' ) ) {
 						define( 'NFD_COMING_SOON_BUILD_URL', $container->plugin()->url . 'vendor/newfold-labs/wp-module-coming-soon/build/' . NFD_COMING_SOON_MODULE_VERSION );
 					}
-					$container->set( 'comingSoon', $container->service( function () {
-						return new Service();
-					} ) );
+					if ( ! defined( 'NFD_COMING_SOON_DIR' ) ) {
+						define( 'NFD_COMING_SOON_DIR', __DIR__ );
+					}
+					$container->set(
+						'comingSoon',
+						$container->service(
+							function () {
+								return new Service();
+							}
+						)
+					);
 
 					return new ComingSoon( $container );
 				},
@@ -63,6 +71,5 @@ add_action(
 				'isHidden' => true,
 			)
 		);
-
 	}
 );

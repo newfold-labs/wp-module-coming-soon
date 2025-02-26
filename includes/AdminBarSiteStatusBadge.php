@@ -27,7 +27,7 @@ class AdminBarSiteStatusBadge {
 
 	/**
 	 * Constructor.
-	 * 
+	 *
 	 * @param Container $container Container.
 	 */
 	public function __construct( Container $container ) {
@@ -39,8 +39,8 @@ class AdminBarSiteStatusBadge {
 		$this->container = $container;
 
 		$this->defaults = array(
-			'admin_bar_cs_active'   => __( 'Coming soon', 'newfold-module-coming-soon' ),
-			'admin_bar_cs_inactive' => __( 'Live', 'newfold-module-coming-soon' ),
+			'admin_bar_cs_active'   => __( 'Coming soon', 'wp-module-coming-soon' ),
+			'admin_bar_cs_inactive' => __( 'Live', 'wp-module-coming-soon' ),
 		);
 
 		add_action( 'admin_bar_menu', array( $this, 'site_status_badge' ), 31 );
@@ -136,13 +136,13 @@ class AdminBarSiteStatusBadge {
 
 	/**
 	 * Set 10 minutes transient timer for site status badge when coming soon is turned off.
-	 * 
+	 *
 	 * @param bool $old_value The old option value.
 	 * @param bool $new_value The new option value.
 	 */
 	public static function site_status_badge_timer( $old_value, $new_value ): void {
 		$value = wp_validate_boolean( $new_value );
-		
+
 		if ( false === $value ) {
 			set_transient( 'nfd_coming_soon_site_status_badge_timer', true, 10 * MINUTE_IN_SECONDS );
 		}

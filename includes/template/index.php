@@ -1,5 +1,5 @@
 <?php
-header('Cache-Control: no-store, no-cache, must-revalidate');
+header( 'Cache-Control: no-store, no-cache, must-revalidate' );
 /**
  * This template renders a coming soon page when the coming soon feature is active.
  */
@@ -20,20 +20,20 @@ header('Cache-Control: no-store, no-cache, must-revalidate');
 	<body>
 		<div id="wrap">
 			<main class="content">
-				<?php if ( isset( $args['template_content'] ) && is_readable( $args['template_content'] ) ) : // check for custom template_constant ?>
+				<?php if ( isset( $args['template_content'] ) && is_readable( $args['template_content'] ) ) : // check for custom template_constant. ?>
 					<?php load_template( $args['template_content'], true, $args ); ?>
-				<?php else : // no template provided use default ?>
+				<?php else : // no template provided use default. ?>
 				<div class="subscription_widget">
 					<h1><?php echo wp_kses_post( $args['template_h1'] ); ?></h1>
 					<h2><?php echo wp_kses_post( $args['template_h2'] ); ?></h2>
-					<?php if( isset( $args['template_coming_soon_links'] )) : ?> 
+					<?php if ( isset( $args['template_coming_soon_links'] ) ) : ?>
 						<p class="comingsoon_links"><?php echo wp_kses_post( $args['template_coming_soon_links'] ); ?></p>
 					<?php endif; ?>
-					<?php if ( isset( $args['template_login_btn'] ) && true === $args['template_login_btn'] )  : // admin login button ?>
+					<?php if ( isset( $args['template_login_btn'] ) && true === $args['template_login_btn'] ) : // admin login button. ?>
 						<a class="btn" href="<?php echo esc_url( wp_login_url() ); ?>">
-							<?php esc_html_e( 'Admin Login', 'newfold-module-coming-soon' ); ?>
+							<?php esc_html_e( 'Admin Login', 'wp-module-coming-soon' ); ?>
 						</a>
-					<?php endif; // end admin login button ?>
+					<?php endif; // end admin login button. ?>
 					<?php if ( class_exists( 'Jetpack' ) && Jetpack::is_module_active( 'subscriptions' ) ) : ?>
 						<div id="subscribe-text">
 							<p><?php echo esc_html( $args['template_p'] ); ?></p>
@@ -73,9 +73,9 @@ header('Cache-Control: no-store, no-cache, must-revalidate');
 							};
 							<?php echo file_get_contents( 'script.js', true ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 						</script>
-					<?php endif; // end subscribe form ?>
+					<?php endif; // end subscribe form. ?>
 				</div>
-				<?php endif; // end template ?>
+				<?php endif; // end template. ?>
 			</main>
 		</div>
 		<footer>

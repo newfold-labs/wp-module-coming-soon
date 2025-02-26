@@ -1,0 +1,128 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Vara Prasad Maruboina <varaprasad.maruboina@newfold.com>\n"
+"Language-Team: English (British) <(nothing)>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-02-13T09:55:55+00:00\n"
+"PO-Revision-Date: 2025-02-13 18:33+0530\n"
+"Language: en_GB\n"
+"X-Generator: WP-CLI 2.11.0\n"
+"X-Domain: wp-module-coming-soon\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: bootstrap.php:48
+msgid "Coming Soon"
+msgstr "Coming Soon"
+
+#: includes/AdminBarSiteStatusBadge.php:42
+#: static/js/coming-soon.js:127
+#: static/js/coming-soon.js:142
+msgid "Coming soon"
+msgstr "Coming soon"
+
+#: includes/AdminBarSiteStatusBadge.php:43
+#: static/js/coming-soon.js:131
+#: static/js/coming-soon.js:146
+msgid "Live"
+msgstr "Live"
+
+#: includes/API/ComingSoon.php:134
+msgid "You cannot access the resource."
+msgstr "You cannot access the resource."
+
+#: includes/API/ComingSoon.php:137
+msgid "Coming Soon module service provider error."
+msgstr "Coming Soon module service provider error."
+
+#: includes/ComingSoon.php:26
+msgid "Your site has Coming Soon mode active."
+msgstr "Your site has Coming Soon mode active."
+
+#: includes/ComingSoon.php:27
+#: includes/ComingSoon.php:30
+msgid "Coming Soon!"
+msgstr "Coming Soon!"
+
+#: includes/ComingSoon.php:31
+msgid "A New WordPress Site!"
+msgstr "A New WordPress Site!"
+
+#: includes/ComingSoon.php:33
+msgid "Be the first to know when we launch, enter your email address and we will let you know when we go live and any future website updates we have."
+msgstr "Be the first to know when we launch, enter your email address and we will let you know when we go live and any future website updates we have."
+
+#: includes/ComingSoon.php:34
+msgid "Thank you, please check your email to confirm your subscription."
+msgstr "Thank you, please check your email to confirm your subscription."
+
+#: includes/ComingSoon.php:35
+msgid "Your email address is already subscribed to this website. Stay tuned to your inbox for our updates or try a different email address."
+msgstr "Your email address is already subscribed to this website. Stay tuned to your inbox for our updates or try a different email address."
+
+#: includes/ComingSoon.php:36
+msgid "There was an error with your submission and you were not subscribed. Please try again with a valid email address."
+msgstr "There was an error with your submission and you were not subscribed. Please try again with a valid email address."
+
+#: includes/ComingSoon.php:37
+msgid "Email"
+msgstr "Email"
+
+#: includes/ComingSoon.php:38
+msgid "Enter your email address"
+msgstr "Enter your email address"
+
+#: includes/ComingSoon.php:39
+msgid "Subscribe"
+msgstr "Subscribe"
+
+#: includes/ComingSoon.php:40
+msgid "Is this your website? Log in to WordPress to launch your site."
+msgstr "Is this your website? Log in to WordPress to launch your site."
+
+#: includes/ComingSoon.php:285
+msgid "Gotcha!"
+msgstr "Gotcha!"
+
+#: includes/ComingSoon.php:292
+msgid "Please provide a valid email address"
+msgstr "Please provide a valid email address"
+
+#: includes/ComingSoon.php:302
+msgid "Jetpack encountered an error with the subscription"
+msgstr "Jetpack encountered an error with the subscription"
+
+#: includes/ComingSoon.php:324
+msgid "There was an error with the subscription"
+msgstr "There was an error with the subscription"
+
+#: includes/ComingSoon.php:329
+msgid "Subscription successful"
+msgstr "Subscription successful"
+
+#: includes/SitePreviewWarning.php:27
+msgid "Site Preview - This site is NOT LIVE, only admins can see this view."
+msgstr "Site Preview - This site is NOT LIVE, only admins can see this view."
+
+#: includes/template/index.php:34
+msgid "Admin Login"
+msgstr "Admin Login"
+
+#: build/1.3.6/coming-soon.js:1
+msgid "Ready to launch your Site?"
+msgstr "Ready to launch your Site?"
+
+#: build/1.3.6/coming-soon.js:1
+msgid "Pages and posts you publish will not be visible to the public until you launch your site."
+msgstr "Pages and posts you publish will not be visible to the public until you launch your site."
+
+#: build/1.3.6/coming-soon.js:1
+msgid "Publish & Launch Site"
+msgstr "Publish & Launch Site"
+
+#: build/1.3.6/coming-soon.js:1
+msgid "Publish Without Launching"
+msgstr "Publish Without Launching"

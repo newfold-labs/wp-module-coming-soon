@@ -1,5 +1,6 @@
 {
 	const API_ENDPOINT = window.NewfoldRuntime.restUrl + 'newfold-coming-soon/v1';
+	const { __ } = wp.i18n;
 
 	const attachToRuntime = () => {
 		window.NewfoldRuntime.comingSoon = buildObject();
@@ -123,11 +124,11 @@
 			nfd: {
 				selector: '#wp-toolbar #wp-admin-bar-nfd-site-visibility-badge',
 				comingSoon: {
-					text: 'Coming soon',
+					text: __( 'Coming soon', 'wp-module-coming-soon' ),
 					class: 'nfd-site-status-badge-coming-soon',
 				},
 				live: {
-					text: 'Live',
+					text: __( 'Live', 'wp-module-coming-soon' ),
 					class: 'nfd-site-status-badge-live',
 				},
 				hidden: {
@@ -138,11 +139,11 @@
 				selector:
 					'#wp-toolbar #wp-admin-bar-woocommerce-site-visibility-badge',
 				comingSoon: {
-					text: 'Coming soon',
+					text: __( 'Coming soon', 'wp-module-coming-soon' ),
 					class: 'woocommerce-site-status-badge-coming-soon',
 				},
 				live: {
-					text: 'Live',
+					text: __( 'Live', 'wp-module-coming-soon' ),
 					class: 'woocommerce-site-status-badge-live',
 				},
 				hidden: {
