@@ -15,7 +15,7 @@
 		"lint:js:fix": "wp-scripts lint-js ./src --fix",
 		"format": "wp-scripts format ./src",
 		"json-server": "json-server --watch api.dev.json --port 3003",
-		"set-version-bump": "node ./set-version-bump.js && npm i && rm -rf ./build && npm run build",
+		"set-version-bump": "node ./set-version-bump.js && npm i && rm -rf ./build && npm run build && composer install && composer run i18n",
 		"start": "wp-scripts start ./src/coming-soon.js",
 		"start:local": "concurrently \"wp-scripts start ./src/coming-soon.js\" \"npm run json-server\""
 	},
