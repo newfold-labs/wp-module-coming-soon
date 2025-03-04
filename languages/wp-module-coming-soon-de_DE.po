@@ -35,11 +35,11 @@ msgstr "Demnächst"
 msgid "Live"
 msgstr "Live"
 
-#: includes/API/ComingSoon.php:134
+#: includes/API/ComingSoon.php:138
 msgid "You cannot access the resource."
 msgstr "Sie können nicht auf die Ressource zugreifen."
 
-#: includes/API/ComingSoon.php:137
+#: includes/API/ComingSoon.php:141
 msgid "Coming Soon module service provider error."
 msgstr "Coming Soon Modul Service Provider Fehler."
 
@@ -88,23 +88,23 @@ msgstr "Abonnieren"
 msgid "Is this your website? Log in to WordPress to launch your site."
 msgstr "Ist dies Ihre Website? Melden Sie sich bei WordPress an, um Ihre Website zu starten."
 
-#: includes/ComingSoon.php:285
+#: includes/ComingSoon.php:289
 msgid "Gotcha!"
 msgstr "Gotcha!"
 
-#: includes/ComingSoon.php:292
+#: includes/ComingSoon.php:296
 msgid "Please provide a valid email address"
 msgstr "Bitte geben Sie eine gültige E-Mail-Adresse ein"
 
-#: includes/ComingSoon.php:302
+#: includes/ComingSoon.php:306
 msgid "Jetpack encountered an error with the subscription"
 msgstr "Jetpack hat einen Fehler mit dem Abonnement aufgetreten"
 
-#: includes/ComingSoon.php:324
+#: includes/ComingSoon.php:328
 msgid "There was an error with the subscription"
 msgstr "Beim Abonnement ist ein Fehler aufgetreten"
 
-#: includes/ComingSoon.php:329
+#: includes/ComingSoon.php:333
 msgid "Subscription successful"
 msgstr "Abonnement erfolgreich"
 
@@ -116,18 +116,18 @@ msgstr "Seitenvorschau - Diese Seite ist NICHT LIVE, nur Administratoren können
 msgid "Admin Login"
 msgstr "Admin-Login"
 
-#: build/1.3.6/coming-soon.js:1
+#: build/1.4.0/coming-soon.js:1
 msgid "Ready to launch your Site?"
 msgstr "Bereit für den Start Ihrer Website?"
 
-#: build/1.3.6/coming-soon.js:1
+#: build/1.4.0/coming-soon.js:1
 msgid "Pages and posts you publish will not be visible to the public until you launch your site."
 msgstr "Seiten und Beiträge, die Sie veröffentlichen, werden erst für die Öffentlichkeit sichtbar sein, wenn Sie Ihre Website starten."
 
-#: build/1.3.6/coming-soon.js:1
+#: build/1.4.0/coming-soon.js:1
 msgid "Publish & Launch Site"
 msgstr "Site veröffentlichen & starten"
 
-#: build/1.3.6/coming-soon.js:1
+#: build/1.4.0/coming-soon.js:1
 msgid "Publish Without Launching"
 msgstr "Ohne Start veröffentlichen"
