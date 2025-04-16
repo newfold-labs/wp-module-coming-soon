@@ -1,4 +1,8 @@
-vendor
 
 #node_modules
 /node_modules
+/node_modules/tests/_output
+/tests/_support/_generated
+/wordpress
+/wp-content
+vendor
