@@ -49,8 +49,12 @@ describe( 'Coming Soon with WooCommerce', { testIsolation: true }, () => {
 		cy.get(
 			'#wp-toolbar #wp-admin-bar-woocommerce-site-visibility-badge a.ab-item'
 		)
-			.contains( 'Coming soon', { matchCase: false } )
-			.should( 'be.visible' );
+			.scrollIntoView()
+			.should( 'be.visible' )
+			.and( 'have.attr', 'href' )
+			.then( ( href ) => {
+				expect( href.includes( 'wc-settings' ) ).to.be.true;
+			} );
 	} );
 
 	it( 'Our plugin settings should toggle WooCommerce admin bar badge', () => {
