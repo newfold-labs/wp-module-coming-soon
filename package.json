@@ -1,60 +1,60 @@
 {
-	"version": "1.4.0",
-	"description": "Coming Soon",
-	"license": "GPL-2.0-or-later",
-	"private": true,
-	"author": {
-		"name": "Vara",
-		"email": "varaprasad.maruboina@newfold.com"
-	},
-	"scripts": {
-		"build": "wp-scripts build ./src/coming-soon.js",
-		"clean": "rm -rf ./assets/build && rm -rf ./assets/styles && rm -rf ./build",
-		"clean:node_modules": "rm -rf node_modules",
-		"lint:js": "wp-scripts lint-js ./src",
-		"lint:js:fix": "wp-scripts lint-js ./src --fix",
-		"format": "wp-scripts format ./src",
-		"json-server": "json-server --watch api.dev.json --port 3003",
-		"set-version-bump": "npm run set-version-patch",
-		"set-version-patch": "node ./.github/scripts/set-version-bump.js && npm run post-set-version",
-		"set-version-minor": "node ./.github/scripts/set-version-bump.js minor && npm run post-set-version",
-		"set-version-major": "node ./.github/scripts/set-version-bump.js major && npm run post-set-version",
-		"post-set-version": "npm ci && composer install && rm -rf ./build && npm run build && composer run i18n",
-		"start": "wp-scripts start ./src/coming-soon.js",
-		"start:local": "concurrently \"wp-scripts start ./src/coming-soon.js\" \"npm run json-server\""
-	},
-	"engines": {
-		"node": ">=20",
-		"npm": ">=10"
-	},
-	"devDependencies": {
-		"@wordpress/eslint-plugin": "^17.13.0",
-		"@wordpress/prettier-config": "^3.15.0",
-		"@wordpress/scripts": "^30.8.1",
-		"autoprefixer": "^10.4.20",
-		"concurrently": "^8.2.2",
-		"cssnano": "^6.1.2",
-		"esbuild": "^0.24.2",
-		"eslint": "^8.57.1",
-		"eslint-plugin-prettier": "^5.2.1",
-		"json-server": "^0.17.4",
-		"postcss": "^8.5.0",
-		"postcss-cli": "^10.1.0",
-		"postcss-import": "^15.1.0",
-		"postcss-safe-important": "^2.0.1",
-		"prettier": "^3.4.2",
-		"prettier-plugin-tailwindcss": "^0.5.14",
-		"semver": "^7.6.3",
-		"tailwindcss": "^3.4.17",
-		"webpack-merge": "^5.10.0"
-	},
-	"dependencies": {
-		"@wordpress/icons": "^10.15.1",
-		"classnames": "^2.5.1",
-		"compare-versions": "^6.1.1",
-		"lodash": "^4.17.21",
-		"react-intersection-observer": "^9.5.2",
-		"react-masonry-css": "^1.0.16",
-		"swr": "^2.3.0"
-	}
+  "version": "1.4.1",
+  "description": "Coming Soon",
+  "license": "GPL-2.0-or-later",
+  "private": true,
+  "author": {
+    "name": "Vara",
+    "email": "varaprasad.maruboina@newfold.com"
+  },
+  "scripts": {
+    "build": "wp-scripts build ./src/coming-soon.js",
+    "clean": "rm -rf ./assets/build && rm -rf ./assets/styles && rm -rf ./build",
+    "clean:node_modules": "rm -rf node_modules",
+    "lint:js": "wp-scripts lint-js ./src",
+    "lint:js:fix": "wp-scripts lint-js ./src --fix",
+    "format": "wp-scripts format ./src",
+    "json-server": "json-server --watch api.dev.json --port 3003",
+    "set-version-bump": "npm run set-version-patch",
+    "set-version-patch": "node ./.github/scripts/set-version-bump.js && npm run post-set-version",
+    "set-version-minor": "node ./.github/scripts/set-version-bump.js minor && npm run post-set-version",
+    "set-version-major": "node ./.github/scripts/set-version-bump.js major && npm run post-set-version",
+    "post-set-version": "npm ci && composer install && rm -rf ./build && npm run build && composer run i18n",
+    "start": "wp-scripts start ./src/coming-soon.js",
+    "start:local": "concurrently \"wp-scripts start ./src/coming-soon.js\" \"npm run json-server\""
+  },
+  "engines": {
+    "node": ">=20",
+    "npm": ">=10"
+  },
+  "devDependencies": {
+    "@wordpress/eslint-plugin": "^17.13.0",
+    "@wordpress/prettier-config": "^3.15.0",
+    "@wordpress/scripts": "^30.8.1",
+    "autoprefixer": "^10.4.20",
+    "concurrently": "^8.2.2",
+    "cssnano": "^6.1.2",
+    "esbuild": "^0.24.2",
+    "eslint": "^8.57.1",
+    "eslint-plugin-prettier": "^5.2.1",
+    "json-server": "^0.17.4",
+    "postcss": "^8.5.0",
+    "postcss-cli": "^10.1.0",
+    "postcss-import": "^15.1.0",
+    "postcss-safe-important": "^2.0.1",
+    "prettier": "^3.4.2",
+    "prettier-plugin-tailwindcss": "^0.5.14",
+    "semver": "^7.6.3",
+    "tailwindcss": "^3.4.17",
+    "webpack-merge": "^5.10.0"
+  },
+  "dependencies": {
+    "@wordpress/icons": "^10.15.1",
+    "classnames": "^2.5.1",
+    "compare-versions": "^6.1.1",
+    "lodash": "^4.17.21",
+    "react-intersection-observer": "^9.5.2",
+    "react-masonry-css": "^1.0.16",
+    "swr": "^2.3.0"
+  }
 }

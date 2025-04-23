@@ -116,18 +116,18 @@ msgstr "Anteprima del sito - Questo sito NON è VIVO, solo gli amministratori po
 msgid "Admin Login"
 msgstr "Accesso Amministratore"
 
-#: build/1.4.0/coming-soon.js:1
+#: build/1.4.1/coming-soon.js:1
 msgid "Ready to launch your Site?"
 msgstr "Sei pronto a lanciare il tuo Sito?"
 
-#: build/1.4.0/coming-soon.js:1
+#: build/1.4.1/coming-soon.js:1
 msgid "Pages and posts you publish will not be visible to the public until you launch your site."
 msgstr "Le pagine e i post pubblicati non saranno visibili al pubblico fino al lancio del sito."
 
-#: build/1.4.0/coming-soon.js:1
+#: build/1.4.1/coming-soon.js:1
 msgid "Publish & Launch Site"
 msgstr "Pubblica & Avvia Sito"
 
-#: build/1.4.0/coming-soon.js:1
+#: build/1.4.1/coming-soon.js:1
 msgid "Publish Without Launching"
 msgstr "Pubblica Senza Avvio"
