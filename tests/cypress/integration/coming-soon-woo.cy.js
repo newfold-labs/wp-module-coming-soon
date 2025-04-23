@@ -5,15 +5,15 @@ describe( 'Coming Soon with WooCommerce', { testIsolation: true }, () => {
 	beforeEach( () => {
 		wpLogin();
 
-		// Set coming soon option to true to start with
-		wpCli( `option update mm_coming_soon true` );
-		wpCli( `option update nfd_coming_soon true` );
-
 		// Activate WooCommerce
 		wpCli( `plugin install woocommerce --activate`, {
 			timeout: 40000,
 			log: true,
 		} );
+
+		// Set coming soon option to true to start with
+		wpCli( `option update mm_coming_soon true` );
+		wpCli( `option update nfd_coming_soon true` );
 
 		cy.visit( '/wp-admin/index.php' );
 	} );
@@ -37,6 +37,8 @@ describe( 'Coming Soon with WooCommerce', { testIsolation: true }, () => {
 				Cypress.env( 'pluginId' ) +
 				'#/settings'
 		);
+		// force refresh
+		cy.reload( true );
 
 		// Our badge shouldn't be visible
 		cy.get( '#wp-toolbar #wp-admin-bar-nfd-site-visibility-badge' ).should(
