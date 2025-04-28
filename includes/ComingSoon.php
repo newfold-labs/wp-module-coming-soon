@@ -289,57 +289,52 @@ class ComingSoon {
 			$a_response['message'] = __( 'Gotcha!', 'wp-module-coming-soon' );
 			$a_response['status']  = 'nonce_failure';
 
-		} else {
-
-			if ( ! is_email( $email ) ) {
+		} elseif ( ! is_email( $email ) ) {
 
 				$a_response['message'] = __( 'Please provide a valid email address', 'wp-module-coming-soon' );
 				$a_response['status']  = 'invalid_email';
 
-			} else {
+		} else {
 
-				// Initialize JetPack_Subscriptions.
-				$jetpack = \Jetpack_Subscriptions::init();
+			// Initialize JetPack_Subscriptions.
+			$jetpack = \Jetpack_Subscriptions::init();
 
-				// ensure jetpack subscribe is callable, bail if not.
-				if ( ! is_callable( array( $jetpack, 'subscribe' ) ) ) {
-					$a_response['message'] = __( 'Jetpack encountered an error with the subscription', 'wp-module-coming-soon' );
-					$a_response['status']  = 'jetpack-error';
-					wp_send_json( $a_response );
-					exit;
-				}
-
-				// Get JetPack response and subscribe email if response is true.
-				$response = $jetpack->subscribe(
-					$email,
-					0,
-					false,
-					// See Jetpack subscribe `extra_data` attribute.
-					array(
-						'server_data' => jetpack_subscriptions_cherry_pick_server_data(),
-					)
-				);
-
-				if ( isset( $response[0]->errors ) ) {
-
-					$error_text = array_keys( $response[0]->errors );
-					$error_text = $error_text[0];
-
-					$a_response['message'] = __( 'There was an error with the subscription', 'wp-module-coming-soon' );
-					$a_response['status']  = $error_text;
-
-				} else {
-
-					$a_response['message'] = __( 'Subscription successful', 'wp-module-coming-soon' );
-					$a_response['status']  = 'success';
-
-				}
+			// ensure jetpack subscribe is callable, bail if not.
+			if ( ! is_callable( array( $jetpack, 'subscribe' ) ) ) {
+				$a_response['message'] = __( 'Jetpack encountered an error with the subscription', 'wp-module-coming-soon' );
+				$a_response['status']  = 'jetpack-error';
+				wp_send_json( $a_response );
+				exit;
 			}
 
-			wp_send_json( $a_response );
-			exit;
+			// Get JetPack response and subscribe email if response is true.
+			$response = $jetpack->subscribe(
+				$email,
+				0,
+				false,
+				// See Jetpack subscribe `extra_data` attribute.
+				array(
+					'server_data' => jetpack_subscriptions_cherry_pick_server_data(),
+				)
+			);
 
+			if ( isset( $response[0]->errors ) ) {
+
+				$error_text = array_keys( $response[0]->errors );
+				$error_text = $error_text[0];
+
+				$a_response['message'] = __( 'There was an error with the subscription', 'wp-module-coming-soon' );
+				$a_response['status']  = $error_text;
+
+			} else {
+
+				$a_response['message'] = __( 'Subscription successful', 'wp-module-coming-soon' );
+				$a_response['status']  = 'success';
+
+			}
 		}
+		wp_send_json( $a_response );
+		exit;
 	}
 
 	/**
