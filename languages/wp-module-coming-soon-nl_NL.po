@@ -92,19 +92,19 @@ msgstr "Is dit uw website? Log in bij WordPress om uw site te starten."
 msgid "Gotcha!"
 msgstr "Gotcha!"
 
-#: includes/ComingSoon.php:296
+#: includes/ComingSoon.php:294
 msgid "Please provide a valid email address"
 msgstr "Geef een geldig e-mailadres op"
 
-#: includes/ComingSoon.php:306
+#: includes/ComingSoon.php:304
 msgid "Jetpack encountered an error with the subscription"
 msgstr "Jetpack ondervond een fout met het abonnement"
 
-#: includes/ComingSoon.php:328
+#: includes/ComingSoon.php:326
 msgid "There was an error with the subscription"
 msgstr "Er is een fout opgetreden met het abonnement"
 
-#: includes/ComingSoon.php:333
+#: includes/ComingSoon.php:331
 msgid "Subscription successful"
 msgstr "Abonnement succesvol"
 
@@ -116,18 +116,18 @@ msgstr "Voorbeeld van de site - Deze site is NIET LIVE, alleen admins kunnen dez
 msgid "Admin Login"
 msgstr "Inloggen voor beheerder"
 
-#: build/1.4.1/coming-soon.js:1
+#: build/1.4.2/coming-soon.js:1
 msgid "Ready to launch your Site?"
 msgstr "Klaar om uw site te starten?"
 
-#: build/1.4.1/coming-soon.js:1
+#: build/1.4.2/coming-soon.js:1
 msgid "Pages and posts you publish will not be visible to the public until you launch your site."
 msgstr "Pagina's en berichten die u publiceert zullen niet zichtbaar zijn voor het publiek totdat u uw site opstart."
 
-#: build/1.4.1/coming-soon.js:1
+#: build/1.4.2/coming-soon.js:1
 msgid "Publish & Launch Site"
 msgstr "Publiceer & start site"
 
-#: build/1.4.1/coming-soon.js:1
+#: build/1.4.2/coming-soon.js:1
 msgid "Publish Without Launching"
 msgstr "Publiceren zonder starten"

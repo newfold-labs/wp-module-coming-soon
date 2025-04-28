@@ -87,19 +87,19 @@ msgstr "Is this your website? Log in to WordPress to launch your site."
 msgid "Gotcha!"
 msgstr "Gotcha!"
 
-#: includes/ComingSoon.php:296
+#: includes/ComingSoon.php:294
 msgid "Please provide a valid email address"
 msgstr "Please provide a valid email address"
 
-#: includes/ComingSoon.php:306
+#: includes/ComingSoon.php:304
 msgid "Jetpack encountered an error with the subscription"
 msgstr "Jetpack encountered an error with the subscription"
 
-#: includes/ComingSoon.php:328
+#: includes/ComingSoon.php:326
 msgid "There was an error with the subscription"
 msgstr "There was an error with the subscription"
 
-#: includes/ComingSoon.php:333
+#: includes/ComingSoon.php:331
 msgid "Subscription successful"
 msgstr "Subscription successful"
 
@@ -111,18 +111,18 @@ msgstr "Site Preview - This site is NOT LIVE, only admins can see this view."
 msgid "Admin Login"
 msgstr "Admin Login"
 
-#: build/1.4.1/coming-soon.js:1
+#: build/1.4.2/coming-soon.js:1
 msgid "Ready to launch your Site?"
 msgstr "Ready to launch your Site?"
 
-#: build/1.4.1/coming-soon.js:1
+#: build/1.4.2/coming-soon.js:1
 msgid "Pages and posts you publish will not be visible to the public until you launch your site."
 msgstr "Pages and posts you publish will not be visible to the public until you launch your site."
 
-#: build/1.4.1/coming-soon.js:1
+#: build/1.4.2/coming-soon.js:1
 msgid "Publish & Launch Site"
 msgstr "Publish & Launch Site"
 
-#: build/1.4.1/coming-soon.js:1
+#: build/1.4.2/coming-soon.js:1
 msgid "Publish Without Launching"
 msgstr "Publish Without Launching"
