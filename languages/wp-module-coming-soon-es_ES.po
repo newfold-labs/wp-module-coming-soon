@@ -92,19 +92,19 @@ msgstr "¿Es este su sitio web? Inicie sesión en WordPress para lanzar su sitio
 msgid "Gotcha!"
 msgstr "Gotcha!"
 
-#: includes/ComingSoon.php:296
+#: includes/ComingSoon.php:294
 msgid "Please provide a valid email address"
 msgstr "Por favor, proporcione una dirección de correo electrónico válida"
 
-#: includes/ComingSoon.php:306
+#: includes/ComingSoon.php:304
 msgid "Jetpack encountered an error with the subscription"
 msgstr "Jetpack encontró un error con la suscripción"
 
-#: includes/ComingSoon.php:328
+#: includes/ComingSoon.php:326
 msgid "There was an error with the subscription"
 msgstr "Hubo un error con la suscripción"
 
-#: includes/ComingSoon.php:333
+#: includes/ComingSoon.php:331
 msgid "Subscription successful"
 msgstr "Suscripción exitosa"
 
@@ -116,18 +116,18 @@ msgstr "Vista previa del sitio - Este sitio NO está LIBRE, sólo los administra
 msgid "Admin Login"
 msgstr "Login de Admin"
 
-#: build/1.4.1/coming-soon.js:1
+#: build/1.5.0/coming-soon.js:1
 msgid "Ready to launch your Site?"
 msgstr "¿Estás listo para lanzar tu sitio?"
 
-#: build/1.4.1/coming-soon.js:1
+#: build/1.5.0/coming-soon.js:1
 msgid "Pages and posts you publish will not be visible to the public until you launch your site."
 msgstr "Las páginas y publicaciones que publique no serán visibles para el público hasta que lance su sitio."
 
-#: build/1.4.1/coming-soon.js:1
+#: build/1.5.0/coming-soon.js:1
 msgid "Publish & Launch Site"
 msgstr "Publicar y lanzar sitio"
 
-#: build/1.4.1/coming-soon.js:1
+#: build/1.5.0/coming-soon.js:1
 msgid "Publish Without Launching"
 msgstr "Publicar sin iniciar"
