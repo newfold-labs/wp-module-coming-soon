@@ -1,5 +1,5 @@
 {
-    "translation-revision-date": "2025-02-19 17:00",
+    "translation-revision-date": "2025-05-07 13:58+0100",
     "generator": "WP-CLI\/2.11.0",
     "source": "static\/js\/coming-soon.js",
     "domain": "messages",
@@ -7,7 +7,7 @@
         "messages": {
             "": {
                 "domain": "messages",
-                "lang": "es_ES",
+                "lang": "es_MX",
                 "plural-forms": "nplurals=2; plural=(n != 1);"
             },
             "Coming soon": [
