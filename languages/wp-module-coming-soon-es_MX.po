@@ -1,0 +1,128 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://github.com/newfold-labs/wp-module-coming-soon/issues\n"
+"Last-Translator: Carlos Rodriguez <carlos.rodriguez@newfold.com>\n"
+"Language-Team: Spanish <es@tp.org.es>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-02-13T09:55:55+00:00\n"
+"PO-Revision-Date: 2025-05-07 13:58+0100\n"
+"Language: es_MX\n"
+"X-Generator: WP-CLI 2.11.0\n"
+"X-Domain: wp-module-coming-soon\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: bootstrap.php:48
+msgid "Coming Soon"
+msgstr "Próximamente"
+
+#: includes/AdminBarSiteStatusBadge.php:42
+#: static/js/coming-soon.js:127
+#: static/js/coming-soon.js:142
+msgid "Coming soon"
+msgstr "Próximamente"
+
+#: includes/AdminBarSiteStatusBadge.php:43
+#: static/js/coming-soon.js:131
+#: static/js/coming-soon.js:146
+msgid "Live"
+msgstr "En vivo"
+
+#: includes/API/ComingSoon.php:138
+msgid "You cannot access the resource."
+msgstr "No puede acceder al recurso."
+
+#: includes/API/ComingSoon.php:141
+msgid "Coming Soon module service provider error."
+msgstr "Error del proveedor de servicios del módulo 'Próximamente'."
+
+#: includes/ComingSoon.php:26
+msgid "Your site has Coming Soon mode active."
+msgstr "Tu sitio tiene el modo 'Próximamente' activado."
+
+#: includes/ComingSoon.php:27
+#: includes/ComingSoon.php:30
+msgid "Coming Soon!"
+msgstr "¡Próximamente!"
+
+#: includes/ComingSoon.php:31
+msgid "A New WordPress Site!"
+msgstr "¡Un nuevo sitio WordPress!"
+
+#: includes/ComingSoon.php:33
+msgid "Be the first to know when we launch, enter your email address and we will let you know when we go live and any future website updates we have."
+msgstr "Sé el primero en enterarte cuando lancemos el sitio. Introduce tu dirección de correo electrónico y te avisaremos cuando esté disponible, junto con futuras actualizaciones."
+
+#: includes/ComingSoon.php:34
+msgid "Thank you, please check your email to confirm your subscription."
+msgstr "Gracias, por favor revisa tu correo electrónico para confirmar tu suscripción."
+
+#: includes/ComingSoon.php:35
+msgid "Your email address is already subscribed to this website. Stay tuned to your inbox for our updates or try a different email address."
+msgstr "Tu dirección de correo electrónico ya está suscrita a este sitio web. Revisa tu bandeja de entrada para nuestras actualizaciones o prueba con otra dirección."
+
+#: includes/ComingSoon.php:36
+msgid "There was an error with your submission and you were not subscribed. Please try again with a valid email address."
+msgstr "Hubo un error con tu registro y no pudimos suscribirte. Por favor, inténtalo de nuevo con una dirección de correo válida."
+
+#: includes/ComingSoon.php:37
+msgid "Email"
+msgstr "Correo electrónico"
+
+#: includes/ComingSoon.php:38
+msgid "Enter your email address"
+msgstr "Introduce tu dirección de correo electrónico"
+
+#: includes/ComingSoon.php:39
+msgid "Subscribe"
+msgstr "Suscribirse"
+
+#: includes/ComingSoon.php:40
+msgid "Is this your website? Log in to WordPress to launch your site."
+msgstr "¿Este es tu sitio web? Inicia sesión en WordPress para lanzarlo."
+
+#: includes/ComingSoon.php:289
+msgid "Gotcha!"
+msgstr "¡Entendido!"
+
+#: includes/ComingSoon.php:294
+msgid "Please provide a valid email address"
+msgstr "Por favor, proporciona una dirección de correo válida"
+
+#: includes/ComingSoon.php:304
+msgid "Jetpack encountered an error with the subscription"
+msgstr "Jetpack encontró un error con la suscripción"
+
+#: includes/ComingSoon.php:326
+msgid "There was an error with the subscription"
+msgstr "Hubo un error con la suscripción"
+
+#: includes/ComingSoon.php:331
+msgid "Subscription successful"
+msgstr "Suscripción exitosa"
+
+#: includes/SitePreviewWarning.php:27
+msgid "Site Preview - This site is NOT LIVE, only admins can see this view."
+msgstr "Vista previa del sitio: este sitio NO está publicado. Solo los administradores pueden ver esta vista."
+
+#: includes/template/index.php:34
+msgid "Admin Login"
+msgstr "Iniciar sesión como administrador"
+
+#: build/1.5.0/coming-soon.js:1
+msgid "Ready to launch your Site?"
+msgstr "¿Estás listo para lanzar tu sitio?"
+
+#: build/1.5.0/coming-soon.js:1
+msgid "Pages and posts you publish will not be visible to the public until you launch your site."
+msgstr "Las páginas y publicaciones que publiques no serán visibles para el público hasta que lances tu sitio."
+
+#: build/1.5.0/coming-soon.js:1
+msgid "Publish & Launch Site"
+msgstr "Publicar y lanzar sitio"
+
+#: build/1.5.0/coming-soon.js:1
+msgid "Publish Without Launching"
+msgstr "Publicar sin lanzar"
