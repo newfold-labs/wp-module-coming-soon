@@ -28,13 +28,17 @@ Coming Soon functionality for WordPress.
 
 ## Releases
 
-### 1. Bump Version
+Run the `Newfold Prepare Release` github action to automatically bump the version (either patch, minor or major version), and update build and language files all at once. It will create a PR with changed files for review. Using this workflow, we can skip all the manual steps below.
 
-Update the module versions in the `bootstrap.php` file (the NFD_COMING_SOON_MODULE_VERSION const) and in the `package.json` file (the package version). Alternatively, run the set-version-bump script to update the versions for you: `npm run set-version-bump`.
+### Manual Release
 
-### 2. Build
+1. Update the module versions in the `bootstrap.php` file (the NFD_COMING_SOON_MODULE_VERSION const) and in the `package.json` file (the package version).
 
-Run `npm run build` to rebuild files and commit the new build files (be sure to remove the old version files).
+2. Build: Run `npm run build` to rebuild files (be sure to remove the old version files).
+
+3. Update language files: Run `composer run i18n`.
+
+4. Commit the updated and new build/language files.
 
 ## Installation
 
