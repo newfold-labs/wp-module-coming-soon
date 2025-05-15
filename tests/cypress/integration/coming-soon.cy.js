@@ -6,9 +6,6 @@ describe( 'Coming Soon', { testIsolation: true }, () => {
 
 	beforeEach( () => {
 		wpLogin();
-		// Set coming soon option to true to start with
-		wpCli( `option update mm_coming_soon true` );
-		wpCli( `option update nfd_coming_soon true` );
 
 		// Deactivate WooCommerce if it's active
 		wpCli( `plugin deactivate woocommerce`, {
@@ -17,6 +14,8 @@ describe( 'Coming Soon', { testIsolation: true }, () => {
 			failOnNonZeroExit: false,
 		} );
 		cy.visit( '/wp-admin/index.php' );
+		// Set coming soon option to true to start with
+		wpCli( `option update nfd_coming_soon true` );
 	} );
 
 	it( 'Coming Soon is active', () => {
