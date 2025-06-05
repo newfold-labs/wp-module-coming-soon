@@ -1,13 +1,13 @@
 {
-    "translation-revision-date": "2025-02-13 18:34+0530",
+    "translation-revision-date": "2025-02-13 18:33+0530",
     "generator": "WP-CLI\/2.11.0",
-    "source": "build\/1.4.0\/coming-soon.js",
+    "source": "build\/1.5.0\/coming-soon.js",
     "domain": "messages",
     "locale_data": {
         "messages": {
             "": {
                 "domain": "messages",
-                "lang": "en_AU",
+                "lang": "en_GB",
                 "plural-forms": "nplurals=2; plural=(n != 1);"
             },
             "Ready to launch your Site?": [

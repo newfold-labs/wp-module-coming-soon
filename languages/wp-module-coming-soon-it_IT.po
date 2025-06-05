@@ -92,19 +92,19 @@ msgstr "È questo il tuo sito web? Accedi a WordPress per lanciare il tuo sito."
 msgid "Gotcha!"
 msgstr "Gotcha!"
 
-#: includes/ComingSoon.php:296
+#: includes/ComingSoon.php:294
 msgid "Please provide a valid email address"
 msgstr "Inserisci un indirizzo email valido"
 
-#: includes/ComingSoon.php:306
+#: includes/ComingSoon.php:304
 msgid "Jetpack encountered an error with the subscription"
 msgstr "Jetpack ha riscontrato un errore con l'abbonamento"
 
-#: includes/ComingSoon.php:328
+#: includes/ComingSoon.php:326
 msgid "There was an error with the subscription"
 msgstr "Si è verificato un errore con l'abbonamento"
 
-#: includes/ComingSoon.php:333
+#: includes/ComingSoon.php:331
 msgid "Subscription successful"
 msgstr "Abbonamento riuscito"
 
@@ -116,18 +116,18 @@ msgstr "Anteprima del sito - Questo sito NON è VIVO, solo gli amministratori po
 msgid "Admin Login"
 msgstr "Accesso Amministratore"
 
-#: build/1.4.0/coming-soon.js:1
+#: build/1.5.0/coming-soon.js:1
 msgid "Ready to launch your Site?"
 msgstr "Sei pronto a lanciare il tuo Sito?"
 
-#: build/1.4.0/coming-soon.js:1
+#: build/1.5.0/coming-soon.js:1
 msgid "Pages and posts you publish will not be visible to the public until you launch your site."
 msgstr "Le pagine e i post pubblicati non saranno visibili al pubblico fino al lancio del sito."
 
-#: build/1.4.0/coming-soon.js:1
+#: build/1.5.0/coming-soon.js:1
 msgid "Publish & Launch Site"
 msgstr "Pubblica & Avvia Sito"
 
-#: build/1.4.0/coming-soon.js:1
+#: build/1.5.0/coming-soon.js:1
 msgid "Publish Without Launching"
 msgstr "Pubblica Senza Avvio"

@@ -1,26 +1,26 @@
 {
     "translation-revision-date": "2025-02-19 17:00",
     "generator": "WP-CLI\/2.11.0",
-    "source": "build\/1.4.0\/coming-soon.js",
+    "source": "build\/1.5.0\/coming-soon.js",
     "domain": "messages",
     "locale_data": {
         "messages": {
             "": {
                 "domain": "messages",
-                "lang": "nl_NL",
+                "lang": "de_DE",
                 "plural-forms": "nplurals=2; plural=(n != 1);"
             },
             "Ready to launch your Site?": [
-                "Klaar om uw site te starten?"
+                "Bereit f\u00fcr den Start Ihrer Website?"
             ],
             "Pages and posts you publish will not be visible to the public until you launch your site.": [
-                "Pagina's en berichten die u publiceert zullen niet zichtbaar zijn voor het publiek totdat u uw site opstart."
+                "Seiten und Beitr\u00e4ge, die Sie ver\u00f6ffentlichen, werden erst f\u00fcr die \u00d6ffentlichkeit sichtbar sein, wenn Sie Ihre Website starten."
             ],
             "Publish & Launch Site": [
-                "Publiceer & start site"
+                "Site ver\u00f6ffentlichen & starten"
             ],
             "Publish Without Launching": [
-                "Publiceren zonder starten"
+                "Ohne Start ver\u00f6ffentlichen"
             ]
         }
     }
