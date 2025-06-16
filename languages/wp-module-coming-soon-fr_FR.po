@@ -131,3 +131,8 @@ msgstr "Publier et lancer le site"
 #: build/1.5.0/coming-soon.js:1
 msgid "Publish Without Launching"
 msgstr "Publier sans lancer"
+
+#: wordpress/wp-includes/blocks/widget-group/block.json
+msgctxt "block title"
+msgid "Widget Group"
+msgstr ""
