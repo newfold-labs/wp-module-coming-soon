@@ -1,5 +1,5 @@
 {
-    "translation-revision-date": "2025-02-19 17:00",
+    "translation-revision-date": "2025-05-07 13:59+0100",
     "generator": "WP-CLI\/2.11.0",
     "source": "build\/1.5.0\/coming-soon.js",
     "domain": "messages",
@@ -7,20 +7,20 @@
         "messages": {
             "": {
                 "domain": "messages",
-                "lang": "es_ES",
-                "plural-forms": "nplurals=2; plural=(n != 1);"
+                "lang": "pt_BR",
+                "plural-forms": "nplurals=2; plural=(n > 1);"
             },
             "Ready to launch your Site?": [
-                "\u00bfEst\u00e1s listo para lanzar tu sitio?"
+                "Pronto para publicar seu site?"
             ],
             "Pages and posts you publish will not be visible to the public until you launch your site.": [
-                "Las p\u00e1ginas y publicaciones que publiques no ser\u00e1n visibles para el p\u00fablico hasta que lances tu sitio."
+                "P\u00e1ginas e posts publicados n\u00e3o ficar\u00e3o vis\u00edveis ao p\u00fablico at\u00e9 que voc\u00ea publique o site."
             ],
             "Publish & Launch Site": [
-                "Publicar y lanzar sitio"
+                "Publicar e Lan\u00e7ar Site"
             ],
             "Publish Without Launching": [
-                "Publicar sin lanzar"
+                "Publicar sem Lan\u00e7ar"
             ]
         }
     }
