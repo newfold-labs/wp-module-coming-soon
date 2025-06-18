@@ -4,6 +4,7 @@ header( 'Cache-Control: no-store, no-cache, must-revalidate' );
  * This template renders a coming soon page when the coming soon feature is active.
  */
 
+$login_icon= '<svg data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9"></path></svg>';
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -18,6 +19,17 @@ header( 'Cache-Control: no-store, no-cache, must-revalidate' );
 		<?php endif; ?>
 	</head>
 	<body>
+	<header>
+		<div class="login-prompt">
+				<?php esc_html_e( 'Is this your website?', 'wp-module-coming-soon' ); ?>
+			<a href="<?php echo esc_url( wp_login_url() ); ?>" class="login-link">
+				<span class="nfd-login-icon">
+					<?php echo wp_kses( $login_icon, \bluehost\KSES_ALLOWED_SVG_TAGS ); ?>
+				</span>
+				<?php esc_html_e( 'Login to WordPress', 'wp-module-coming-soon' ); ?>
+			</a>
+		</div>
+	</header>
 		<div id="wrap">
 			<main class="content">
 				<?php if ( isset( $args['template_content'] ) && is_readable( $args['template_content'] ) ) : // check for custom template_constant. ?>
@@ -68,7 +80,7 @@ header( 'Cache-Control: no-store, no-cache, must-revalidate' );
 							</span>
 						</form>
 						<script>
-							var ajaxscript = { 
+							var ajaxscript = {
 								ajax_url: '<?php echo esc_url( admin_url() ); ?>admin-ajax.php'
 							};
 							<?php echo file_get_contents( 'script.js', true ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
