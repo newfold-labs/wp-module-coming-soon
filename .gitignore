@@ -6,6 +6,3 @@
 /wordpress
 /wp-content
 vendor
-
-# GitHub Action related files and directories
-/translation-action-scripts
