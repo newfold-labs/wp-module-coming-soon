@@ -20,9 +20,9 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
-    uses: newfold-labs/workflows/.github/workflows/reusable-auto-translate.yml@main
     with:
       text_domain: 'wp-module-coming-soon'
+    uses: newfold-labs/workflows/.github/workflows/reusable-azure-ai-translate.yml@main
     secrets:
       TRANSLATOR_API_KEY: ${{ secrets.TRANSLATOR_API_KEY }}
       NEWFOLD_ACCESS_TOKEN: ${{ secrets.NEWFOLD_ACCESS_TOKEN }}
