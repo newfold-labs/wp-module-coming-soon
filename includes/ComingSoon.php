@@ -51,7 +51,7 @@ class ComingSoon {
 			'template_page_title'  => __( 'Coming Soon!', 'wp-module-coming-soon' ),
 			'template_styles'      => false,
 			'template_content'     => false,
-			'template_site_logo'   => $logo_image ?: $coming_soon_svg,
+			'template_site_logo'   => $logo_image ? $logo_image : $coming_soon_svg,
 			'template_h1'          => $h1,
 			'template_login_btn'   => false,
 			'template_p'           => __( 'Signup to be the first to know when we launch.', 'wp-module-coming-soon' ),
@@ -421,9 +421,9 @@ class ComingSoon {
 	 *
 	 * @global WP_Scripts $wp_scripts    The WP_Scripts object for printing scripts.
 	 *
-	 * @param string      $script_handle Script handle the textdomain will be attached to.
-	 * @param string      $domain        Text domain. Default 'default'.
-	 * @param string      $languages_dir The full file path to the directory containing translation files.
+	 * @param string $script_handle Script handle the textdomain will be attached to.
+	 * @param string $domain        Text domain. Default 'default'.
+	 * @param string $languages_dir The full file path to the directory containing translation files.
 	 * @return bool True if the text domain was successfully localized, false otherwise.
 	 */
 	public static function load_js_translations( $script_handle, $domain, $languages_dir ) {

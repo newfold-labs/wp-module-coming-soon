@@ -4,9 +4,9 @@ header( 'Cache-Control: no-store, no-cache, must-revalidate' );
  * This template renders a coming soon page when the coming soon feature is active.
  */
 
-$kses_post_inc_svg= array_merge( wp_kses_allowed_html( 'post' ), \bluehost\KSES_ALLOWED_SVG_TAGS );
-$login_icon= '<svg data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9"></path></svg>';
-$email_icon= '<svg data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"></path></svg>';
+$kses_post_inc_svg = array_merge( wp_kses_allowed_html( 'post' ), \bluehost\KSES_ALLOWED_SVG_TAGS );
+$login_icon        = '<svg data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9"></path></svg>';
+$email_icon        = '<svg data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"></path></svg>';
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -15,7 +15,7 @@ $email_icon= '<svg data-slot="icon" fill="none" stroke-width="1.5" stroke="curre
 		<meta name="viewport" content="width=device-width">
 		<meta name="robots" content="noindex, follow" />
 		<title><?php echo esc_html( $args['template_page_title'] ); ?></title>
-		<?php if ( ! empty( $args['template_p'] ) ): ?>
+		<?php if ( ! empty( $args['template_p'] ) ) : ?>
 			<meta name="description" content="<?php echo esc_attr( $args['template_p'] ); ?>" />
 		<?php endif; ?>
 		<script src="<?php echo esc_url( includes_url( 'js/jquery/jquery.js' ) ); //phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedScript ?>"></script>
@@ -28,11 +28,11 @@ $email_icon= '<svg data-slot="icon" fill="none" stroke-width="1.5" stroke="curre
 		<!-- Structured data JSON-LD -->
 		<script type="application/ld+json">
 			{
-			  "@context": "https://schema.org",
-			  "@type": "WebSite",
-			  "url": "<?php echo esc_url( site_url() ); ?>",
-			  "name": "<?php echo esc_html( $args['template_page_title'] ); ?>",
-			  "description": "<?php echo esc_html( $args['template_page_p'] ); ?>"
+				"@context": "https://schema.org",
+				"@type": "WebSite",
+				"url": "<?php echo esc_url( site_url() ); ?>",
+				"name": "<?php echo esc_html( $args['template_page_title'] ); ?>",
+				"description": "<?php echo esc_html( $args['template_page_p'] ); ?>"
 			}
 		</script>
 
@@ -70,7 +70,7 @@ $email_icon= '<svg data-slot="icon" fill="none" stroke-width="1.5" stroke="curre
 				<div class="subscription_widget">
 					<span><?php echo wp_kses( $args['template_site_logo'], $kses_post_inc_svg ); ?></span>
 					<h1><?php echo wp_kses_post( $args['template_h1'] ); ?></h1>
-					<?php if ( ! empty( $args['template_desc'] ) ): ?>
+					<?php if ( ! empty( $args['template_desc'] ) ) : ?>
 						<p class="comingsoon-description"><?php echo wp_kses_post( $args['template_desc'] ); ?></p>
 					<?php endif; ?>
 					<?php if ( ! empty( $args['template_coming_soon_links'] ) ) : ?>
@@ -97,7 +97,7 @@ $email_icon= '<svg data-slot="icon" fill="none" stroke-width="1.5" stroke="curre
 						<form action="" method="post" accept-charset="utf-8" id="subscribe">
 							<input type="hidden" name="action" value="newfold_coming_soon_subscribe">
 							<?php wp_nonce_field( 'newfold_coming_soon_subscribe_nonce', 'newfold-nonce-coming-soon-subscribe' ); ?>
-							<?php if ( ! empty( $args['template_email_label'] ) ): ?>
+							<?php if ( ! empty( $args['template_email_label'] ) ) : ?>
 								<label id="subscribe-label" for="subscribe-field">
 									<?php echo esc_html( $args['template_email_label'] ); ?>
 								</label>
