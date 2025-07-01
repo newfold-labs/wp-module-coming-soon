@@ -13,7 +13,7 @@ $email_icon        = '<svg data-slot="icon" fill="none" stroke-width="1.5" strok
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width">
-		<meta name="robots" content="noindex, follow" />
+		<meta name="robots" content="index, follow" />
 		<title><?php echo esc_html( $args['template_page_title'] ); ?></title>
 		<?php if ( ! empty( $args['template_p'] ) ) : ?>
 			<meta name="description" content="<?php echo esc_attr( $args['template_p'] ); ?>" />
