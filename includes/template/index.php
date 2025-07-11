@@ -4,7 +4,52 @@ header( 'Cache-Control: no-store, no-cache, must-revalidate' );
  * This template renders a coming soon page when the coming soon feature is active.
  */
 
-$kses_post_inc_svg = array_merge( wp_kses_allowed_html( 'post' ), \bluehost\KSES_ALLOWED_SVG_TAGS );
+$svg_kses = array(
+	'svg'  => array(
+		'class'        => true,
+		'fill'         => true,
+		'height'       => true,
+		'stroke'       => true,
+		'stroke-width' => true,
+		'viewbox'      => true,
+		'width'        => true,
+		'xmlns'        => true,
+	),
+	'g'    => array(
+		'fill'              => true,
+		'stroke'            => true,
+		'stroke-miterlimit' => true,
+		'stroke-width'      => true,
+	),
+	'rect' => array(
+		'fill'      => true,
+		'height'    => true,
+		'rx'        => true,
+		'transform' => true,
+		'width'     => true,
+		'x'         => true,
+		'y'         => true,
+	),
+	'text' => array(
+		'fill'        => true,
+		'font-family' => true,
+		'font-size'   => true,
+		'font-weight' => true,
+		'title'       => true,
+		'transform'   => true,
+	),
+	'path' => array(
+		'd'               => true,
+		'fill'            => true,
+		'opacity'         => true,
+		'stroke-linecap'  => true,
+		'stroke-linejoin' => true,
+		'transform'       => true,
+
+	),
+);
+
+$kses_post_inc_svg = array_merge( wp_kses_allowed_html( 'post' ), $svg_kses );
 $login_icon        = '<svg data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9"></path></svg>';
 $email_icon        = '<svg data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"></path></svg>';
 ?>
@@ -56,7 +101,7 @@ $email_icon        = '<svg data-slot="icon" fill="none" stroke-width="1.5" strok
 			</span>
 			<a href="<?php echo esc_url( wp_login_url() ); ?>" class="login-link" aria-label="<?php esc_html_e( 'Login to WordPress', 'wp-module-coming-soon' ); ?>>">
 				<span class="nfd-login-icon">
-					<?php echo wp_kses( $login_icon, \bluehost\KSES_ALLOWED_SVG_TAGS ); ?>
+					<?php echo wp_kses( $login_icon, $svg_kses ); ?>
 				</span>
 				<?php esc_html_e( 'Login to WordPress', 'wp-module-coming-soon' ); ?>
 			</a>
@@ -104,7 +149,7 @@ $email_icon        = '<svg data-slot="icon" fill="none" stroke-width="1.5" strok
 							<?php endif; ?>
 							<span class="inputs email" id="subscribe-email">
 								<span class="subscription-field-wrapper">
-									<?php echo wp_kses( $email_icon, \bluehost\KSES_ALLOWED_SVG_TAGS ); ?>
+									<?php echo wp_kses( $email_icon, $svg_kses ); ?>
 									<input
 										type="email"
 										name="email"
