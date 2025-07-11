@@ -43,68 +43,51 @@ msgstr "Sie können nicht auf die Ressource zugreifen."
 msgid "Coming Soon module service provider error."
 msgstr "Coming Soon Modul Service Provider Fehler."
 
-#: includes/ComingSoon.php:26
+#: includes/ComingSoon.php:50
 msgid "Your site has Coming Soon mode active."
 msgstr "Ihre Seite ist bald im Modus aktiv."
 
-#: includes/ComingSoon.php:27
-#: includes/ComingSoon.php:30
+#: includes/ComingSoon.php:51
 msgid "Coming Soon!"
 msgstr "Kommt bald!"
 
-#: includes/ComingSoon.php:31
-msgid "A New WordPress Site!"
-msgstr "Eine neue WordPress-Seite!"
-
-#: includes/ComingSoon.php:33
-msgid "Be the first to know when we launch, enter your email address and we will let you know when we go live and any future website updates we have."
-msgstr "Sei der Erste, der weiß, wenn wir starten, Geben Sie Ihre E-Mail-Adresse ein und wir werden Sie darüber informieren, wenn wir live gehen und alle zukünftigen Aktualisierungen unserer Webseiten."
-
-#: includes/ComingSoon.php:34
+#: includes/ComingSoon.php:58
 msgid "Thank you, please check your email to confirm your subscription."
 msgstr "Vielen Dank, bitte überprüfen Sie Ihre E-Mail, um Ihr Abonnement zu bestätigen."
 
-#: includes/ComingSoon.php:35
+#: includes/ComingSoon.php:59
 msgid "Your email address is already subscribed to this website. Stay tuned to your inbox for our updates or try a different email address."
 msgstr "Ihre E-Mail-Adresse ist bereits auf dieser Website abonniert. Bleiben Sie dran in Ihrem Posteingang für unsere Updates oder versuchen Sie eine andere E-Mail-Adresse."
 
-#: includes/ComingSoon.php:36
+#: includes/ComingSoon.php:60
 msgid "There was an error with your submission and you were not subscribed. Please try again with a valid email address."
 msgstr "Es gab einen Fehler bei Ihrer Einsendung und Sie wurden nicht abonniert. Bitte versuchen Sie es erneut mit einer gültigen E-Mail-Adresse."
 
-#: includes/ComingSoon.php:37
-msgid "Email"
-msgstr "E-Mail"
-
-#: includes/ComingSoon.php:38
+#: includes/ComingSoon.php:61
 msgid "Enter your email address"
 msgstr "Geben Sie Ihre E-Mail-Adresse ein"
 
-#: includes/ComingSoon.php:39
+#: includes/ComingSoon.php:62
 msgid "Subscribe"
 msgstr "Abonnieren"
 
-#: includes/ComingSoon.php:40
-msgid "Is this your website? Log in to WordPress to launch your site."
-msgstr "Ist dies Ihre Website? Melden Sie sich bei WordPress an, um Ihre Website zu starten."
-
-#: includes/ComingSoon.php:289
+#: includes/ComingSoon.php:311
 msgid "Gotcha!"
 msgstr "Gotcha!"
 
-#: includes/ComingSoon.php:294
+#: includes/ComingSoon.php:316
 msgid "Please provide a valid email address"
 msgstr "Bitte geben Sie eine gültige E-Mail-Adresse ein"
 
-#: includes/ComingSoon.php:304
+#: includes/ComingSoon.php:326
 msgid "Jetpack encountered an error with the subscription"
 msgstr "Jetpack hat einen Fehler mit dem Abonnement aufgetreten"
 
-#: includes/ComingSoon.php:326
+#: includes/ComingSoon.php:348
 msgid "There was an error with the subscription"
 msgstr "Beim Abonnement ist ein Fehler aufgetreten"
 
-#: includes/ComingSoon.php:331
+#: includes/ComingSoon.php:353
 msgid "Subscription successful"
 msgstr "Abonnement erfolgreich"
 
@@ -112,7 +95,7 @@ msgstr "Abonnement erfolgreich"
 msgid "Site Preview - This site is NOT LIVE, only admins can see this view."
 msgstr "Seitenvorschau - Diese Seite ist NICHT LIVE, nur Administratoren können diese Ansicht sehen."
 
-#: includes/template/index.php:34
+#: includes/template/index.php:126
 msgid "Admin Login"
 msgstr "Admin-Login"
 
@@ -131,3 +114,25 @@ msgstr "Site veröffentlichen & starten"
 #: build/1.5.0/coming-soon.js:1
 msgid "Publish Without Launching"
 msgstr "Ohne Start veröffentlichen"
+
+#: includes/ComingSoon.php:26
+msgid "A new website is on the way!"
+msgstr ""
+
+#: includes/ComingSoon.php:57
+msgid "Signup to be the first to know when we launch."
+msgstr ""
+
+#: includes/template/index.php:100
+msgid "Is this your website?"
+msgstr ""
+
+#: includes/template/index.php:102
+#: includes/template/index.php:106
+msgid "Login to WordPress"
+msgstr ""
+
+#: wordpress/wp-includes/blocks/widget-group/block.json
+msgctxt "block title"
+msgid "Widget Group"
+msgstr ""

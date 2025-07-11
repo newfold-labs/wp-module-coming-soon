@@ -37,67 +37,58 @@ msgid "Coming Soon module service provider error."
 msgstr ""
 
 #: includes/ComingSoon.php:26
+msgid "A new website is on the way!"
+msgstr ""
+
+#: includes/ComingSoon.php:50
 msgid "Your site has Coming Soon mode active."
 msgstr ""
 
-#: includes/ComingSoon.php:27
-#: includes/ComingSoon.php:30
+#: includes/ComingSoon.php:51
 msgid "Coming Soon!"
 msgstr ""
 
-#: includes/ComingSoon.php:31
-msgid "A New WordPress Site!"
+#: includes/ComingSoon.php:57
+msgid "Signup to be the first to know when we launch."
 msgstr ""
 
-#: includes/ComingSoon.php:33
-msgid "Be the first to know when we launch, enter your email address and we will let you know when we go live and any future website updates we have."
-msgstr ""
-
-#: includes/ComingSoon.php:34
+#: includes/ComingSoon.php:58
 msgid "Thank you, please check your email to confirm your subscription."
 msgstr ""
 
-#: includes/ComingSoon.php:35
+#: includes/ComingSoon.php:59
 msgid "Your email address is already subscribed to this website. Stay tuned to your inbox for our updates or try a different email address."
 msgstr ""
 
-#: includes/ComingSoon.php:36
+#: includes/ComingSoon.php:60
 msgid "There was an error with your submission and you were not subscribed. Please try again with a valid email address."
 msgstr ""
 
-#: includes/ComingSoon.php:37
-msgid "Email"
-msgstr ""
-
-#: includes/ComingSoon.php:38
+#: includes/ComingSoon.php:61
 msgid "Enter your email address"
 msgstr ""
 
-#: includes/ComingSoon.php:39
+#: includes/ComingSoon.php:62
 msgid "Subscribe"
 msgstr ""
 
-#: includes/ComingSoon.php:40
-msgid "Is this your website? Log in to WordPress to launch your site."
-msgstr ""
-
-#: includes/ComingSoon.php:289
+#: includes/ComingSoon.php:311
 msgid "Gotcha!"
 msgstr ""
 
-#: includes/ComingSoon.php:294
+#: includes/ComingSoon.php:316
 msgid "Please provide a valid email address"
 msgstr ""
 
-#: includes/ComingSoon.php:304
+#: includes/ComingSoon.php:326
 msgid "Jetpack encountered an error with the subscription"
 msgstr ""
 
-#: includes/ComingSoon.php:326
+#: includes/ComingSoon.php:348
 msgid "There was an error with the subscription"
 msgstr ""
 
-#: includes/ComingSoon.php:331
+#: includes/ComingSoon.php:353
 msgid "Subscription successful"
 msgstr ""
 
@@ -105,7 +96,16 @@ msgstr ""
 msgid "Site Preview - This site is NOT LIVE, only admins can see this view."
 msgstr ""
 
-#: includes/template/index.php:34
+#: includes/template/index.php:100
+msgid "Is this your website?"
+msgstr ""
+
+#: includes/template/index.php:102
+#: includes/template/index.php:106
+msgid "Login to WordPress"
+msgstr ""
+
+#: includes/template/index.php:126
 msgid "Admin Login"
 msgstr ""
 
@@ -123,4 +123,9 @@ msgstr ""
 
 #: build/1.5.0/coming-soon.js:1
 msgid "Publish Without Launching"
+msgstr ""
+
+#: wordpress/wp-includes/blocks/widget-group/block.json
+msgctxt "block title"
+msgid "Widget Group"
 msgstr ""
