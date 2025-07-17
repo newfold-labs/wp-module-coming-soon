@@ -62,3 +62,58 @@ footer p {
 .status-message {
     display: none;
 }
+
+
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 2rem 3rem;
+    width: 100%;
+}
+
+header .login-prompt{
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ADC9ED;
+    font-size: .9rem;
+    display:flex;
+    align-items: center;
+    text-wrap: nowrap;
+}
+
+header .login-prompt,
+header .login-prompt a {
+    display:flex;
+    align-items: center;
+    gap: 5px;
+}
+
+header .login-prompt .login-link {
+    color: #336AD7;
+    text-decoration:none;
+}
+
+header .login-prompt .login-link .nfd-login-icon {
+    display:flex;
+}
+
+header .login-prompt .login-link .nfd-login-icon svg {
+    width: 20px;
+}
+
+.subscription_widget {
+    margin-block: 50px;
+}
+
+.subscription_widget img {
+    max-height: 80px;
+    max-width: 500px;
+}
+
+@media (max-width: 360px) {
+
+    header .login-label {
+        display : none;
+    }
+}
