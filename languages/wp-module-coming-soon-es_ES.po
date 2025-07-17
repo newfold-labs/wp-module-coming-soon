@@ -99,19 +99,19 @@ msgstr "Vista previa del sitio: este sitio NO está publicado. Solo los administ
 msgid "Admin Login"
 msgstr "Iniciar sesión como administrador"
 
-#: build/1.5.0/coming-soon.js:1
+#: build/1.6.0/coming-soon.js:1
 msgid "Ready to launch your Site?"
 msgstr "¿Estás listo para lanzar tu sitio?"
 
-#: build/1.5.0/coming-soon.js:1
+#: build/1.6.0/coming-soon.js:1
 msgid "Pages and posts you publish will not be visible to the public until you launch your site."
 msgstr "Las páginas y publicaciones que publiques no serán visibles para el público hasta que lances tu sitio."
 
-#: build/1.5.0/coming-soon.js:1
+#: build/1.6.0/coming-soon.js:1
 msgid "Publish & Launch Site"
 msgstr "Publicar y lanzar sitio"
 
-#: build/1.5.0/coming-soon.js:1
+#: build/1.6.0/coming-soon.js:1
 msgid "Publish Without Launching"
 msgstr "Publicar sin lanzar"
 
