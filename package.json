@@ -15,11 +15,7 @@
     "lint:js:fix": "wp-scripts lint-js ./src --fix",
     "format": "wp-scripts format ./src",
     "json-server": "json-server --watch api.dev.json --port 3003",
-    "set-version-bump": "npm run set-version-patch",
-    "set-version-patch": "node ./.github/scripts/set-version-bump.js && npm run post-set-version",
-    "set-version-minor": "node ./.github/scripts/set-version-bump.js minor && npm run post-set-version",
-    "set-version-major": "node ./.github/scripts/set-version-bump.js major && npm run post-set-version",
-    "post-set-version": "npm ci && composer install && rm -rf ./build && npm run build && composer run i18n",
+    "post-set-version": "rm -rf ./build",
     "start": "wp-scripts start ./src/coming-soon.js",
     "start:local": "concurrently \"wp-scripts start ./src/coming-soon.js\" \"npm run json-server\""
   },
@@ -44,7 +40,6 @@
     "postcss-safe-important": "^2.0.1",
     "prettier": "^3.4.2",
     "prettier-plugin-tailwindcss": "^0.5.14",
-    "semver": "^7.6.3",
     "tailwindcss": "^3.4.17",
     "webpack-merge": "^5.10.0"
   },
