@@ -4,18 +4,19 @@ import { wpLogin, wpCli } from '../wp-module-support/utils.cy';
 describe( 'Coming Soon', { testIsolation: true }, () => {
 	const appClass = '.' + Cypress.env( 'appId' );
 
-	beforeEach( () => {
-		wpLogin();
-		// Set coming soon option to true to start with
-		wpCli( `option update mm_coming_soon true` );
-		wpCli( `option update nfd_coming_soon true` );
-
-		// Deactivate WooCommerce if it's active
-		wpCli( `plugin deactivate woocommerce`, {
+	before( () => {
+		// Remove WooCommerce
+		wpCli( `plugin uninstall woocommerce`, {
 			timeout: 40000,
 			log: true,
 			failOnNonZeroExit: false,
 		} );
+	});
+
+	beforeEach( () => {
+		wpLogin();
+		// Set coming soon option to true to start with
+		wpCli( `option update nfd_coming_soon true` );
 		cy.visit( '/wp-admin/index.php' );
 	} );
 
