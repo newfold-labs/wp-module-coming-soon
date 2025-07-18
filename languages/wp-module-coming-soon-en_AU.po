@@ -94,19 +94,19 @@ msgstr "Site Preview - This site is NOT LIVE, only admins can see this view."
 msgid "Admin Login"
 msgstr "Admin Login"
 
-#: build/1.6.1/coming-soon.js:1
+#: build/1.6.2/coming-soon.js:1
 msgid "Ready to launch your Site?"
 msgstr "Ready to launch your Site?"
 
-#: build/1.6.1/coming-soon.js:1
+#: build/1.6.2/coming-soon.js:1
 msgid "Pages and posts you publish will not be visible to the public until you launch your site."
 msgstr "Pages and posts you publish will not be visible to the public until you launch your site."
 
-#: build/1.6.1/coming-soon.js:1
+#: build/1.6.2/coming-soon.js:1
 msgid "Publish & Launch Site"
 msgstr "Publish & Launch Site"
 
-#: build/1.6.1/coming-soon.js:1
+#: build/1.6.2/coming-soon.js:1
 msgid "Publish Without Launching"
 msgstr "Publish Without Launching"
 
