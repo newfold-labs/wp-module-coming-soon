@@ -56,8 +56,8 @@ class ComingSoon {
 			'template_login_btn'   => false,
 			'template_p'           => __( 'Signup to be the first to know when we launch.', 'wp-module-coming-soon' ),
 			'template_msg_success' => __( 'Thank you, please check your email to confirm your subscription.', 'wp-module-coming-soon' ),
-			'template_msg_active'  => __( 'Your email address is already subscribed to this website. Stay tuned to your inbox for our updates or try a different email address.', 'wp-module-coming-soon' ),
-			'template_msg_invalid' => __( 'There was an error with your submission and you were not subscribed. Please try again with a valid email address.', 'wp-module-coming-soon' ),
+			'template_msg_active'  => __( 'Your email address is already subscribed to this website.<br>Stay tuned to your inbox for our updates or try a different email address.', 'wp-module-coming-soon' ),
+			'template_msg_invalid' => __( 'There was an error with your submission and you were not subscribed.<br>Please try again with a valid email address.', 'wp-module-coming-soon' ),
 			'template_email_ph'    => __( 'Enter your email address', 'wp-module-coming-soon' ),
 			'template_subscribe'   => __( 'Subscribe', 'wp-module-coming-soon' ),
 		);

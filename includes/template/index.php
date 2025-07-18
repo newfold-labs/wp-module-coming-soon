@@ -128,16 +128,7 @@ $email_icon        = '<svg data-slot="icon" fill="none" stroke-width="1.5" strok
 					<?php endif; // end admin login button. ?>
 					<?php if ( class_exists( 'Jetpack' ) && Jetpack::is_module_active( 'subscriptions' ) ) : ?>
 						<div id="subscribe-text">
-							<p><?php echo esc_html( $args['template_p'] ); ?></p>
-						</div>
-						<div id="success" class="status-message">
-							<?php echo esc_html( $args['template_msg_success'] ); ?>
-						</div>
-						<div id="error-active" class="status-message">
-							<?php echo esc_html( $args['template_msg_active'] ); ?>
-						</div>
-						<div id="error-invalid" class="status-message">
-							<?php echo esc_html( $args['template_msg_invalid'] ); ?>
+							<p><?php echo wp_kses_post( $args['template_p'] ); ?></p>
 						</div>
 						<form action="" method="post" accept-charset="utf-8" id="subscribe">
 							<input type="hidden" name="action" value="newfold_coming_soon_subscribe">
@@ -163,6 +154,15 @@ $email_icon        = '<svg data-slot="icon" fill="none" stroke-width="1.5" strok
 								<input class="btn" type="submit" value="<?php echo esc_attr( $args['template_subscribe'] ); ?>" name="subscriptions_widget">
 							</span>
 							</span>
+							<div id="success" class="status-message">
+								<?php echo wp_kses_post( $args['template_msg_success'] ); ?>
+							</div>
+							<div id="error-active" class="status-message">
+								<?php echo wp_kses_post( $args['template_msg_active'] ); ?>
+							</div>
+							<div id="error-invalid" class="status-message">
+								<?php echo wp_kses_post( $args['template_msg_invalid'] ); ?>
+							</div>
 						</form>
 						<script>
 							var ajaxscript = {
