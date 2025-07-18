@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1752790721">
-  <project timestamp="1752790721">
+<coverage generated="1752846083">
+  <project timestamp="1752846083">
     <file name="/home/runner/work/wp-module-coming-soon/wp-module-coming-soon/includes/API/ComingSoon.php">
       <class name="NewfoldLabs\WP\Module\ComingSoon\API\ComingSoon" namespace="global">
         <metrics complexity="10" methods="7" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="52" coveredstatements="0" elements="59" coveredelements="0"/>
@@ -580,7 +580,6 @@
       <line num="129" type="stmt" count="0"/>
       <line num="130" type="stmt" count="0"/>
       <line num="131" type="stmt" count="0"/>
-      <line num="134" type="stmt" count="0"/>
       <line num="135" type="stmt" count="0"/>
       <line num="136" type="stmt" count="0"/>
       <line num="137" type="stmt" count="0"/>
@@ -597,16 +596,18 @@
       <line num="148" type="stmt" count="0"/>
       <line num="149" type="stmt" count="0"/>
       <line num="150" type="stmt" count="0"/>
-      <line num="151" type="stmt" count="0"/>
-      <line num="152" type="stmt" count="0"/>
-      <line num="153" type="stmt" count="0"/>
       <line num="154" type="stmt" count="0"/>
-      <line num="155" type="stmt" count="0"/>
-      <line num="156" type="stmt" count="0"/>
-      <line num="157" type="stmt" count="0"/>
       <line num="158" type="stmt" count="0"/>
       <line num="159" type="stmt" count="0"/>
+      <line num="160" type="stmt" count="0"/>
+      <line num="161" type="stmt" count="0"/>
+      <line num="162" type="stmt" count="0"/>
       <line num="163" type="stmt" count="0"/>
+      <line num="164" type="stmt" count="0"/>
+      <line num="165" type="stmt" count="0"/>
+      <line num="166" type="stmt" count="0"/>
+      <line num="167" type="stmt" count="0"/>
+      <line num="168" type="stmt" count="0"/>
       <line num="169" type="stmt" count="0"/>
       <line num="171" type="stmt" count="0"/>
       <line num="172" type="stmt" count="0"/>
@@ -626,8 +627,8 @@
       <line num="187" type="stmt" count="0"/>
       <line num="188" type="stmt" count="0"/>
       <line num="189" type="stmt" count="0"/>
-      <metrics loc="190" ncloc="177" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="145" coveredstatements="0" elements="145" coveredelements="0"/>
+      <metrics loc="190" ncloc="177" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="146" coveredstatements="0" elements="146" coveredelements="0"/>
     </file>
-    <metrics files="9" loc="1285" ncloc="930" classes="7" methods="48" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="531" coveredstatements="0" elements="579" coveredelements="0"/>
+    <metrics files="9" loc="1285" ncloc="930" classes="7" methods="48" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="532" coveredstatements="0" elements="580" coveredelements="0"/>
   </project>
 </coverage>
