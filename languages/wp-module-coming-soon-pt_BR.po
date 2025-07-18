@@ -50,14 +50,6 @@ msgstr "Em Breve!"
 msgid "Thank you, please check your email to confirm your subscription."
 msgstr "Obrigado! Verifique seu e-mail para confirmar sua inscrição."
 
-#: includes/ComingSoon.php:59
-msgid "Your email address is already subscribed to this website. Stay tuned to your inbox for our updates or try a different email address."
-msgstr "Seu e-mail já está inscrito neste site. Fique de olho na sua caixa de entrada para nossas atualizações ou tente outro endereço de e-mail."
-
-#: includes/ComingSoon.php:60
-msgid "There was an error with your submission and you were not subscribed. Please try again with a valid email address."
-msgstr "Ocorreu um erro no envio e sua inscrição não foi concluída. Tente novamente com um endereço de e-mail válido."
-
 #: includes/ComingSoon.php:61
 msgid "Enter your email address"
 msgstr "Digite seu endereço de e-mail"
@@ -125,4 +117,12 @@ msgstr ""
 #: includes/template/index.php:102
 #: includes/template/index.php:106
 msgid "Login to WordPress"
+msgstr ""
+
+#: includes/ComingSoon.php:59
+msgid "Your email address is already subscribed to this website.<br>Stay tuned to your inbox for our updates or try a different email address."
+msgstr ""
+
+#: includes/ComingSoon.php:60
+msgid "There was an error with your submission and you were not subscribed.<br>Please try again with a valid email address."
 msgstr ""
