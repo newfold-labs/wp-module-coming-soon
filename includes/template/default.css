@@ -61,6 +61,7 @@ footer p {
 
 .status-message {
     display: none;
+    margin-bottom: 20px;
 }
 
 
@@ -106,7 +107,8 @@ header .login-prompt .login-link .nfd-login-icon svg {
     margin-block: 50px;
 }
 
-.subscription_widget img {
+.subscription_widget img,
+.subscription_widget svg {
     max-height: 80px;
     max-width: 500px;
 }
