@@ -55,14 +55,6 @@ msgstr "Binnenkort beschikbaar!"
 msgid "Thank you, please check your email to confirm your subscription."
 msgstr "Bedankt, controleer je e-mail om je abonnement te bevestigen."
 
-#: includes/ComingSoon.php:59
-msgid "Your email address is already subscribed to this website. Stay tuned to your inbox for our updates or try a different email address."
-msgstr "Uw e-mailadres is al geabonneerd op deze website. Blijf op de hoogte van uw inbox voor onze updates of probeer een ander e-mailadres."
-
-#: includes/ComingSoon.php:60
-msgid "There was an error with your submission and you were not subscribed. Please try again with a valid email address."
-msgstr "Er is een fout opgetreden bij het indienen van uw aanmelding. Probeer het opnieuw met een geldig e-mailadres."
-
 #: includes/ComingSoon.php:61
 msgid "Enter your email address"
 msgstr "Voer uw e-mailadres in"
@@ -99,19 +91,19 @@ msgstr "Voorbeeld van de site - Deze site is NIET LIVE, alleen admins kunnen dez
 msgid "Admin Login"
 msgstr "Inloggen voor beheerder"
 
-#: build/1.6.0/coming-soon.js:1
+#: build/1.6.1/coming-soon.js:1
 msgid "Ready to launch your Site?"
 msgstr "Klaar om uw site te starten?"
 
-#: build/1.6.0/coming-soon.js:1
+#: build/1.6.1/coming-soon.js:1
 msgid "Pages and posts you publish will not be visible to the public until you launch your site."
 msgstr "Pagina's en berichten die u publiceert zullen niet zichtbaar zijn voor het publiek totdat u uw site opstart."
 
-#: build/1.6.0/coming-soon.js:1
+#: build/1.6.1/coming-soon.js:1
 msgid "Publish & Launch Site"
 msgstr "Publiceer & start site"
 
-#: build/1.6.0/coming-soon.js:1
+#: build/1.6.1/coming-soon.js:1
 msgid "Publish Without Launching"
 msgstr "Publiceren zonder starten"
 
@@ -130,4 +122,12 @@ msgstr ""
 #: includes/template/index.php:102
 #: includes/template/index.php:106
 msgid "Login to WordPress"
+msgstr ""
+
+#: includes/ComingSoon.php:59
+msgid "Your email address is already subscribed to this website.<br>Stay tuned to your inbox for our updates or try a different email address."
+msgstr ""
+
+#: includes/ComingSoon.php:60
+msgid "There was an error with your submission and you were not subscribed.<br>Please try again with a valid email address."
 msgstr ""
