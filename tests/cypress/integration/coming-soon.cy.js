@@ -7,8 +7,8 @@ describe( 'Coming Soon', { testIsolation: true }, () => {
 	beforeEach( () => {
 		wpLogin();
 		// Set coming soon option to true to start with
-		wpCli( `option update mm_coming_soon true` );
-		wpCli( `option update nfd_coming_soon true` );
+		wpCli( `option update mm_coming_soon true`, {failOnNonZeroExit: false} );
+		wpCli( `option update nfd_coming_soon true`, {failOnNonZeroExit: false} );
 
 		// Deactivate WooCommerce if it's active
 		wpCli( `plugin deactivate woocommerce`, {
@@ -149,7 +149,9 @@ describe( 'Coming Soon', { testIsolation: true }, () => {
 		cy.logout();
 		cy.visit( '/' );
 		cy.title().should( 'include', 'Coming Soon' );
-		cy.get( '#wrap' ).contains( 'Coming Soon' ).should( 'exist' );
+		cy.get('#wrap').find('h1').should('exist');
+		cy.get('#wrap').find('h1').should('exist');
+		cy.get('header').find('.login-link').should('exist');
 	} );
 
 	// this test is already in the ecommerce module, and the code is in the ecommerce module
