@@ -61,6 +61,7 @@ footer p {
 
 .status-message {
     display: none;
+    margin-bottom: 20px;
 }
 
 
@@ -104,11 +105,23 @@ header .login-prompt .login-link .nfd-login-icon svg {
 
 .subscription_widget {
     margin-block: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
-.subscription_widget img {
+.subscription_widget img,
+.subscription_widget svg {
     max-height: 80px;
     max-width: 500px;
+}
+
+.subscription-field-wrapper{
+    flex:1;
+}
+.subscription-field-wrapper #subscribe-field{
+    width: 100%;
 }
 
 @media (max-width: 360px) {

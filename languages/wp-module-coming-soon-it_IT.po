@@ -56,12 +56,12 @@ msgid "Thank you, please check your email to confirm your subscription."
 msgstr "Grazie, controlla la tua email per confermare l'iscrizione."
 
 #: includes/ComingSoon.php:59
-msgid "Your email address is already subscribed to this website. Stay tuned to your inbox for our updates or try a different email address."
-msgstr "Il tuo indirizzo email è già iscritto a questo sito. Resta sintonizzato alla tua casella di posta per i nostri aggiornamenti o prova un indirizzo email diverso."
+msgid "Your email address is already subscribed to this website.<br>Stay tuned to your inbox for our updates or try a different email address."
+msgstr "Il tuo indirizzo email è già iscritto a questo sito.<br>Resta sintonizzato alla tua casella di posta per i nostri aggiornamenti o prova un indirizzo email diverso."
 
 #: includes/ComingSoon.php:60
-msgid "There was an error with your submission and you were not subscribed. Please try again with a valid email address."
-msgstr "Si è verificato un errore con la tua richiesta e non sei stato iscritto. Riprova con un indirizzo email valido."
+msgid "There was an error with your submission and you were not subscribed.<br>Please try again with a valid email address."
+msgstr "Si è verificato un errore con la tua richiesta e non sei stato iscritto.<br>Riprova con un indirizzo email valido."
 
 #: includes/ComingSoon.php:61
 msgid "Enter your email address"
@@ -99,19 +99,19 @@ msgstr "Anteprima del sito - Questo sito NON è VIVO, solo gli amministratori po
 msgid "Admin Login"
 msgstr "Accesso Amministratore"
 
-#: build/1.6.0/coming-soon.js:1
+#: build/1.6.2/coming-soon.js:1
 msgid "Ready to launch your Site?"
 msgstr "Sei pronto a lanciare il tuo Sito?"
 
-#: build/1.6.0/coming-soon.js:1
+#: build/1.6.2/coming-soon.js:1
 msgid "Pages and posts you publish will not be visible to the public until you launch your site."
 msgstr "Le pagine e i post pubblicati non saranno visibili al pubblico fino al lancio del sito."
 
-#: build/1.6.0/coming-soon.js:1
+#: build/1.6.2/coming-soon.js:1
 msgid "Publish & Launch Site"
 msgstr "Pubblica & Avvia Sito"
 
-#: build/1.6.0/coming-soon.js:1
+#: build/1.6.2/coming-soon.js:1
 msgid "Publish Without Launching"
 msgstr "Pubblica Senza Avvio"
 
