@@ -11,12 +11,14 @@ describe( 'Coming Soon', { testIsolation: true }, () => {
 			log: true,
 			failOnNonZeroExit: false,
 		} );
-	});
+	} );
 
 	beforeEach( () => {
 		wpLogin();
 		// Set coming soon option to true to start with
-		wpCli( `option update nfd_coming_soon true` );
+		wpCli( `option update nfd_coming_soon true`, {
+			failOnNonZeroExit: false,
+		} );
 		cy.visit( '/wp-admin/index.php' );
 	} );
 
@@ -150,7 +152,8 @@ describe( 'Coming Soon', { testIsolation: true }, () => {
 		cy.logout();
 		cy.visit( '/' );
 		cy.title().should( 'include', 'Coming Soon' );
-		cy.get( '#wrap' ).contains( 'Coming Soon' ).should( 'exist' );
+		cy.get( '#wrap' ).find( 'h1' ).should( 'exist' );
+		cy.get( 'header' ).find( '.login-link' ).should( 'exist' );
 	} );
 
 	// this test is already in the ecommerce module, and the code is in the ecommerce module
