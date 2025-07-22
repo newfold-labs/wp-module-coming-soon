@@ -99,19 +99,19 @@ msgstr "Voorbeeld van de site - Deze site is NIET LIVE, alleen admins kunnen dez
 msgid "Admin Login"
 msgstr "Inloggen voor beheerder"
 
-#: build/1.6.2/coming-soon.js:1
+#: build/1.6.3/coming-soon.js:1
 msgid "Ready to launch your Site?"
 msgstr "Klaar om uw site te starten?"
 
-#: build/1.6.2/coming-soon.js:1
+#: build/1.6.3/coming-soon.js:1
 msgid "Pages and posts you publish will not be visible to the public until you launch your site."
 msgstr "Pagina's en berichten die u publiceert zullen niet zichtbaar zijn voor het publiek totdat u uw site opstart."
 
-#: build/1.6.2/coming-soon.js:1
+#: build/1.6.3/coming-soon.js:1
 msgid "Publish & Launch Site"
 msgstr "Publiceer & start site"
 
-#: build/1.6.2/coming-soon.js:1
+#: build/1.6.3/coming-soon.js:1
 msgid "Publish Without Launching"
 msgstr "Publiceren zonder starten"
 

@@ -99,19 +99,19 @@ msgstr "Seitenvorschau - Diese Seite ist NICHT LIVE, nur Administratoren können
 msgid "Admin Login"
 msgstr "Admin-Login"
 
-#: build/1.6.2/coming-soon.js:1
+#: build/1.6.3/coming-soon.js:1
 msgid "Ready to launch your Site?"
 msgstr "Bereit für den Start Ihrer Website?"
 
-#: build/1.6.2/coming-soon.js:1
+#: build/1.6.3/coming-soon.js:1
 msgid "Pages and posts you publish will not be visible to the public until you launch your site."
 msgstr "Seiten und Beiträge, die Sie veröffentlichen, werden erst für die Öffentlichkeit sichtbar sein, wenn Sie Ihre Website starten."
 
-#: build/1.6.2/coming-soon.js:1
+#: build/1.6.3/coming-soon.js:1
 msgid "Publish & Launch Site"
 msgstr "Site veröffentlichen & starten"
 
-#: build/1.6.2/coming-soon.js:1
+#: build/1.6.3/coming-soon.js:1
 msgid "Publish Without Launching"
 msgstr "Ohne Start veröffentlichen"
 
