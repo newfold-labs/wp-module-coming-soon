@@ -99,19 +99,19 @@ msgstr "Aperçu du site - Ce site n'est PAS en vie, seuls les administrateurs pe
 msgid "Admin Login"
 msgstr "Connexion de l'administrateur"
 
-#: build/1.6.2/coming-soon.js:1
+#: build/1.6.3/coming-soon.js:1
 msgid "Ready to launch your Site?"
 msgstr "Prêt à lancer votre site ?"
 
-#: build/1.6.2/coming-soon.js:1
+#: build/1.6.3/coming-soon.js:1
 msgid "Pages and posts you publish will not be visible to the public until you launch your site."
 msgstr "Les pages et les messages que vous publiez ne seront pas visibles au public jusqu'à ce que vous lancez votre site."
 
-#: build/1.6.2/coming-soon.js:1
+#: build/1.6.3/coming-soon.js:1
 msgid "Publish & Launch Site"
 msgstr "Publier et lancer le site"
 
-#: build/1.6.2/coming-soon.js:1
+#: build/1.6.3/coming-soon.js:1
 msgid "Publish Without Launching"
 msgstr "Publier sans lancer"
 

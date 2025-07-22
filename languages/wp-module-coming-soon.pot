@@ -109,18 +109,18 @@ msgstr ""
 msgid "Admin Login"
 msgstr ""
 
-#: build/1.6.2/coming-soon.js:1
+#: build/1.6.3/coming-soon.js:1
 msgid "Ready to launch your Site?"
 msgstr ""
 
-#: build/1.6.2/coming-soon.js:1
+#: build/1.6.3/coming-soon.js:1
 msgid "Pages and posts you publish will not be visible to the public until you launch your site."
 msgstr ""
 
-#: build/1.6.2/coming-soon.js:1
+#: build/1.6.3/coming-soon.js:1
 msgid "Publish & Launch Site"
 msgstr ""
 
-#: build/1.6.2/coming-soon.js:1
+#: build/1.6.3/coming-soon.js:1
 msgid "Publish Without Launching"
 msgstr ""

@@ -1,26 +1,26 @@
 {
     "translation-revision-date": "2025-02-19 17:00",
     "generator": "WP-CLI\/2.11.0",
-    "source": "build\/1.6.2\/coming-soon.js",
+    "source": "build\/1.6.3\/coming-soon.js",
     "domain": "messages",
     "locale_data": {
         "messages": {
             "": {
                 "domain": "messages",
-                "lang": "it_IT",
+                "lang": "nl_NL",
                 "plural-forms": "nplurals=2; plural=(n != 1);"
             },
             "Ready to launch your Site?": [
-                "Sei pronto a lanciare il tuo Sito?"
+                "Klaar om uw site te starten?"
             ],
             "Pages and posts you publish will not be visible to the public until you launch your site.": [
-                "Le pagine e i post pubblicati non saranno visibili al pubblico fino al lancio del sito."
+                "Pagina's en berichten die u publiceert zullen niet zichtbaar zijn voor het publiek totdat u uw site opstart."
             ],
             "Publish & Launch Site": [
-                "Pubblica & Avvia Sito"
+                "Publiceer & start site"
             ],
             "Publish Without Launching": [
-                "Pubblica Senza Avvio"
+                "Publiceren zonder starten"
             ]
         }
     }
