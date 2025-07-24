@@ -20,8 +20,8 @@
     "start:local": "concurrently \"wp-scripts start ./src/coming-soon.js\" \"npm run json-server\""
   },
   "engines": {
-    "node": ">=20",
-    "npm": ">=10"
+    "node": ">=22.11.0",
+    "npm": ">=10.9.0"
   },
   "devDependencies": {
     "@wordpress/eslint-plugin": "^17.13.0",
