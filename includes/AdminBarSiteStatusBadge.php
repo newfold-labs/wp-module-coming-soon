@@ -4,6 +4,8 @@ namespace NewfoldLabs\WP\Module\ComingSoon;
 
 use NewfoldLabs\WP\ModuleLoader\Container;
 use WP_Admin_Bar;
+use function NewfoldLabs\WP\Module\LinkTracker\Functions\build_link as buildLink;
+
 
 /**
  * Add site status badge (Coming Soon or Live) to WP admin bar.
@@ -64,7 +66,7 @@ class AdminBarSiteStatusBadge {
 			$site_status_menu = array(
 				'id'     => 'nfd-site-visibility-badge',
 				'parent' => 'root-default',
-				'href'   => admin_url( 'admin.php?page=' . $this->container->plugin()->id . '&nfd-target=coming-soon-section#/settings' ),
+				'href'   => buildLink( admin_url( 'admin.php?page=' . $this->container->plugin()->id . '&nfd-target=coming-soon-section#/settings' ) ),
 				'title'  => $title,
 				'meta'   => array(
 					'class' => 'nfd-site-status-badge-' . $class,
