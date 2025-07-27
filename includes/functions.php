@@ -18,7 +18,7 @@ function isWoocommerceActive(): bool {
 
 /**
  * Check if an option exists
- * 
+ *
  * @param string $option_name The option name
  */
 function optionExists( $option_name ): bool {
