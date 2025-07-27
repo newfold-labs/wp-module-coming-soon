@@ -51,7 +51,7 @@ class WooCommerceOptionsSync {
 			self::sync_woocommerce_coming_soon_option( $new_value );
 			self::sync_nfd_woocommerce_pages_only_option();
 		}
-
+	
 		if ( 'woocommerce_coming_soon' === $option_name ) {
 			// Update brand plugin's option to match woocommerce_coming_soon.
 			self::sync_nfd_coming_soon_option( $new_value, $option_name );
