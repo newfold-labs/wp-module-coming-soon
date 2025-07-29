@@ -3,7 +3,6 @@
 namespace NewfoldLabs\WP\Module\ComingSoon;
 
 use NewfoldLabs\WP\ModuleLoader\Container;
-
 use function NewfoldLabs\WP\ModuleLoader\container;
 
 /**
@@ -258,6 +257,23 @@ class ComingSoon {
 			if ( isset( $screen->id ) && false !== strpos( $screen->id, $this->container->plugin()->id ) ) {
 				\wp_enqueue_script( 'nfd-coming-soon-portal' );
 				\wp_enqueue_style( 'nfd-coming-soon-portal-style' );
+
+				// Get coming soon site data
+				$comingsoon_portal_data = array(
+					'isComingSoon' => isComingSoonActive(),
+					'viewUrl' => home_url(),
+					'editUrl' => get_admin_url( 
+						null,
+						wp_is_block_theme() ? 'site-editor.php?canvas=edit' : 'customize.php'
+					),
+					'previewUrl' => home_url() . '/?preview=coming_soon',
+				);
+
+				\wp_localize_script(
+					'nfd-coming-soon-portal',
+					'NewfoldComingSoonPortal',
+					$comingsoon_portal_data
+				);
 			}
 		}
 	}

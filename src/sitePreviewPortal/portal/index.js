@@ -36,9 +36,7 @@ export const ComingSoonPortalApp = () => {
 	}
 
 	return createPortal(
-		<div className="coming-soon-fill">
-			<ComingSoon />
-		</div>,
+		<ComingSoon />,
 		container
 	);
 };

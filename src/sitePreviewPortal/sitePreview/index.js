@@ -1,48 +1,55 @@
-// import { useState } from "@wordpress/element";
-// import { __ } from "@wordpress/i18n";
-// import { NewfoldRuntime } from "../sdk/NewfoldRuntime";
+import { useState } from "@wordpress/element";
+import { __ } from "@wordpress/i18n";
+import { 
+	CheckCircleIcon,
+    ExclamationTriangleIcon
+} from '@heroicons/react/24/outline';
 import "../style.scss";
 
-export const SitePreview = () => {
-    console.log('sitePreview component');
-//   const [hovered, setIsHovered] = useState(false);
-//   const [editUrl, setEditUrl] = useState("");
-
-
-//   const handleMouseOver = () => {
-//     setIsHovered(true);
-//   };
-
-//   const handleMouseLeave = () => {
-//     setIsHovered(false);
-//   };
-//   const iframeOnLoad = () => {
-//     if(window.frames["iframe-preview"].document.getElementById("wpadminbar")){
-//       window.frames["iframe-preview"].document.getElementById(
-//         "wpadminbar"
-//       ).style.display = "none";
-//     }
-//   };
-
-  return (
-    <div className="nfd-iframe-outer nfd-flex-col nfd-h-full">
-        <div className="nfd-iframe-innernfd-w-full nfd-min-h-full nfd-relative">
-            <iframe
-                // onLoad={iframeOnLoad}
-                id="iframe-preview"
-                title="Preview"
-                className="nfd-iframe nfd-w-[400%] nfd-min-h-[400%] nfd-basis-full nfd-scale-[0.25] nfd-overflow-hidden nfd-absolute nfd-origin-top-left"
-                src={ window.NewfoldRuntime.homeUrl + "/?preview=coming_soon"
-                // !comingSoon
-                    // ? window.NewfoldRuntime.homeUrl
-                    // : window.NewfoldRuntime.homeUrl + "/?preview=coming_soon"
-                }
-                scrolling="no"
-                name="iframe-preview"
-                sandbox="allow-scripts allow-same-origin"
-                seamless
-            ></iframe>
-        </div>
-    </div>
-  );
+export const SitePreview = ({ isComingSoonEnabled, viewUrl, previewUrl }) => {
+	return (
+		<div id="iframe-preview-wrap">
+			<div
+				id="iframe-preview-label"
+				className="nfd-flex nfd-justify-center nfd-items-center nfd-p-1 nfd-bg-gray-200 nfd-border-b nfd-border-[#dbd1d1] nfd-z-10"
+			>
+				<p className="nfd-font-bold">{ __( 'Site Preview', 'wp-module-coming-soon' ) }</p>
+			</div>
+			<div className="iframe-wrap">
+				<iframe
+					className={`nfd-iframe ${ isComingSoonEnabled ? 'nfd-iframe-coming-soon' : 'nfd-iframe-live'}`}
+					id="iframe-preview"
+					name="iframe-preview"
+					sandbox="allow-scripts allow-same-origin"
+					seamless
+					scrolling="no"
+					src={ 
+						!isComingSoonEnabled
+						? viewUrl
+						: previewUrl
+					}
+					title={ __('Site Preview', 'wp-module-coming-soon') }
+				></iframe>
+			</div>
+			<div
+				id="iframe-preview-detail"
+				className="nfd-flex nfd-justify-between nfd-items-center nfd-p-1 nfd-px-6 nfd-bg-gray-200 nfd-border-t nfd-border-[#dbd1d1] nfd-z-10"
+			>
+				<span className="iframe-preview-domain nfd-font-semibold">
+					{ viewUrl }
+				</span>
+				{ isComingSoonEnabled ? (
+					<span className="iframe-preview-status status-coming-soon nfd-flex nfd-flex-row nfd-items-center nfd-gap-2 nfd-font-semibold">
+						<ExclamationTriangleIcon />
+						{ __( 'Not Live', 'wp-module-coming-soon' ) }
+					</span>
+				) : (
+					<span className="iframe-preview-status status-live nfd-flex nfd-flex-row nfd-items-center nfd-gap-2 nfd-font-semibold">
+						<CheckCircleIcon />
+						{ __( 'Live', 'wp-module-coming-soon' ) }
+					</span>
+				) }
+			</div>
+		</div>
+	);
 };
