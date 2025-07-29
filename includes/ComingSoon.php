@@ -72,6 +72,7 @@ class ComingSoon {
 
 		// set up all actions.
 		\add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
+		\add_action( 'admin_enqueue_scripts', array( $this, 'add_portal_app_scripts' ) );
 		\add_action( 'init', array( __CLASS__, 'load_text_domain' ), 0 );
 		\add_action( 'rest_api_init', array( $this, 'rest_api_init' ) );
 		\add_action( 'newfold/onboarding/completed', array( $this, 'handle_onboarding_completed' ) );
@@ -220,6 +221,45 @@ class ComingSoon {
 			'wp-module-coming-soon',
 			NFD_COMING_SOON_DIR . '/languages'
 		);
+	}
+
+	/**
+	 * Enqueue the portal app scripts.
+	 */
+	public function add_portal_app_scripts() {
+		$asset_file = NFD_COMING_SOON_BUILD_DIR . '/sitePreviewPortal/bundle.asset.php';
+		$build_dir  = NFD_COMING_SOON_BUILD_URL . 'sitePreviewPortal/';
+
+		if ( is_readable( $asset_file ) ) {
+
+			$asset = include_once $asset_file;
+
+			\wp_register_script(
+				'nfd-coming-soon-portal',
+				$build_dir . '/bundle.js',
+				array_merge( $asset['dependencies'], array() ),
+				$asset['version'],
+				true
+			);
+			\wp_register_style(
+				'nfd-coming-soon-portal-style',
+				$build_dir . 'style-sitePreviewPortal.css',
+				null, // still dependant on plugin styles but they are loaded on the plugin page
+				$asset['version']
+			);
+
+			ComingSoon::load_js_translations(
+				'nfd-coming-soon-portal',
+				'wp-module-coming-soon',
+				NFD_COMING_SOON_DIR . '/languages'
+			);
+
+			$screen = \get_current_screen();
+			if ( isset( $screen->id ) && false !== strpos( $screen->id, $this->container->plugin()->id ) ) {
+				\wp_enqueue_script( 'nfd-coming-soon-portal' );
+				\wp_enqueue_style( 'nfd-coming-soon-portal-style' );
+			}
+		}
 	}
 
 	/**
