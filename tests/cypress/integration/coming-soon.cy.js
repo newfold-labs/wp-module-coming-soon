@@ -64,13 +64,18 @@ describe( 'Coming Soon', { testIsolation: true }, () => {
 		cy.get( appClass + '-home .nfd-app-section-content' )
 			.first()
 			.scrollIntoView()
-			.contains( 'h1', 'Ready to go live?' )
+			.contains( 'h2', 'Your website' )
 			.should( 'be.visible' );
 
 		cy.get( appClass + '-home .nfd-app-section-content' )
-			.contains( 'a.nfd-button', 'iew your s' )
+			.contains( 'a.nfd-button', 'View' )
 			.first()
 			.should( 'exist' );
+
+		cy.get( appClass + '-home .nfd-app-section-content' )
+				.contains( 'a.nfd-button', 'Edit' )
+				.first()
+				.should( 'exist' );
 
 		cy.get( appClass + '-home .nfd-app-section-content' )
 			.first()
