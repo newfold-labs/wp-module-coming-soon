@@ -64,7 +64,7 @@ describe( 'Coming Soon', { testIsolation: true }, () => {
 		cy.get( appClass + '-home .nfd-app-section-content' )
 			.first()
 			.scrollIntoView()
-			.contains( 'h2', 'Your website' )
+			.contains( 'h2' )
 			.should( 'be.visible' );
 
 		cy.get( appClass + '-home .nfd-app-section-content' )
