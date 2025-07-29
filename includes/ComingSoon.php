@@ -247,7 +247,7 @@ class ComingSoon {
 				$asset['version']
 			);
 
-			ComingSoon::load_js_translations(
+			self::load_js_translations(
 				'nfd-coming-soon-portal',
 				'wp-module-coming-soon',
 				NFD_COMING_SOON_DIR . '/languages'
@@ -261,12 +261,12 @@ class ComingSoon {
 				// Get coming soon site data
 				$comingsoon_portal_data = array(
 					'isComingSoon' => isComingSoonActive(),
-					'viewUrl' => home_url(),
-					'editUrl' => get_admin_url( 
+					'viewUrl'      => home_url(),
+					'editUrl'      => get_admin_url(
 						null,
 						wp_is_block_theme() ? 'site-editor.php?canvas=edit' : 'customize.php'
 					),
-					'previewUrl' => home_url() . '/?preview=coming_soon',
+					'previewUrl'   => home_url() . '/?preview=coming_soon',
 				);
 
 				\wp_localize_script(
