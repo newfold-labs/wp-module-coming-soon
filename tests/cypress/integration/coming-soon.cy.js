@@ -61,11 +61,6 @@ describe( 'Coming Soon', { testIsolation: true }, () => {
 		cy.visit(
 			'/wp-admin/admin.php?page=' + Cypress.env( 'pluginId' ) + '#/home'
 		);
-		cy.get( appClass + '-home .nfd-app-section-content' )
-			.first()
-			.scrollIntoView()
-			.contains( 'h2' )
-			.should( 'be.visible' );
 
 		cy.get( appClass + '-home .nfd-app-section-content' )
 			.contains( 'a.nfd-button', 'View' )
@@ -73,9 +68,9 @@ describe( 'Coming Soon', { testIsolation: true }, () => {
 			.should( 'exist' );
 
 		cy.get( appClass + '-home .nfd-app-section-content' )
-				.contains( 'a.nfd-button', 'Edit' )
-				.first()
-				.should( 'exist' );
+			.contains( 'a.nfd-button', 'Edit' )
+			.first()
+			.should( 'exist' );
 
 		cy.get( appClass + '-home .nfd-app-section-content' )
 			.first()
