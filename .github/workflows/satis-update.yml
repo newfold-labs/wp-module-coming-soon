@@ -29,14 +29,6 @@ jobs:
           [[ "$taggedVersion" == "$moduleVersion" ]] || exit 1
           [[ "$taggedVersion" == "$packageVersion" ]] || exit 1
 
-      - name: Validate build directory
-        if: ${{ (github.repository == 'newfold-labs/wp-module-coming-soon') && (github.event.release.prerelease == false) }}
-        run: |
-          if [[ ! -d "build/${{ env.VERSION }}" ]]; then
-            echo "Build directory for version ${{ env.VERSION }} does not exist."
-            exit 1
-          fi
-
       - name: Set Package
         id: package
         env:

@@ -32,19 +32,25 @@ export const SitePreview = ({ isComingSoonEnabled, viewUrl, previewUrl }) => {
 				></iframe>
 			</div>
 			<div
-				id="iframe-preview-detail"
 				className="nfd-flex nfd-justify-between nfd-items-center nfd-p-1 nfd-px-6 nfd-bg-gray-200 nfd-border-t nfd-border-[#dbd1d1] nfd-z-10"
+				id="iframe-preview-detail"
 			>
 				<span className="iframe-preview-domain nfd-font-semibold">
 					{ viewUrl }
 				</span>
 				{ isComingSoonEnabled ? (
-					<span className="iframe-preview-status status-coming-soon nfd-flex nfd-flex-row nfd-items-center nfd-gap-2 nfd-font-semibold">
+					<span 
+						className="iframe-preview-status status-coming-soon nfd-flex nfd-flex-row nfd-items-center nfd-gap-2 nfd-font-semibold"
+						data-cy="iframe-preview-status-coming-soon"
+					>
 						<ExclamationTriangleIcon />
 						{ __( 'Not Live', 'wp-module-coming-soon' ) }
 					</span>
 				) : (
-					<span className="iframe-preview-status status-live nfd-flex nfd-flex-row nfd-items-center nfd-gap-2 nfd-font-semibold">
+					<span 
+						className="iframe-preview-status status-live nfd-flex nfd-flex-row nfd-items-center nfd-gap-2 nfd-font-semibold"
+						data-cy="iframe-preview-status-live"
+					>
 						<CheckCircleIcon />
 						{ __( 'Live', 'wp-module-coming-soon' ) }
 					</span>
