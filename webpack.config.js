@@ -1,14 +1,19 @@
 const path = require( 'path' );
 const { merge } = require( 'webpack-merge' );
 const wpScriptsConfig = require( '@wordpress/scripts/config/webpack.config' );
-const version = require( './package.json' ).version; // never require full config!
 
-const nfdComingSoonWebpackConfig = {
-	output: {
-		path: path.resolve( process.cwd(), `build/${ version }` ),
-		library: [ 'newfold', 'ComingSoon', '[name]' ],
-		libraryTarget: 'window',
-	},
-};
+const apps = [ 'sitePreviewPortal', 'prePublishWarning' ];
 
-module.exports = merge( wpScriptsConfig, nfdComingSoonWebpackConfig );
+module.exports = apps.map( ( app ) =>
+	merge( wpScriptsConfig, {
+		entry: {
+			[ app ]: path.resolve( __dirname, `./src/${ app }/index.js` ),
+		},
+		output: {
+			path: path.resolve( __dirname, `./build/${ app }` ),
+			filename: 'bundle.js',
+			library: [ 'newfold', 'ComingSoon', '[name]' ],
+			libraryTarget: 'window',
+		},
+	} )
+);

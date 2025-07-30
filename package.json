@@ -1,5 +1,5 @@
 {
-  "version": "1.6.3",
+  "version": "2.0.0",
   "description": "Coming Soon",
   "license": "GPL-2.0-or-later",
   "private": true,
@@ -8,7 +8,7 @@
     "email": "varaprasad.maruboina@newfold.com"
   },
   "scripts": {
-    "build": "wp-scripts build ./src/coming-soon.js",
+    "build": "wp-scripts build",
     "clean": "rm -rf ./assets/build && rm -rf ./assets/styles && rm -rf ./build",
     "clean:node_modules": "rm -rf node_modules",
     "lint:js": "wp-scripts lint-js ./src",
@@ -16,14 +16,15 @@
     "format": "wp-scripts format ./src",
     "json-server": "json-server --watch api.dev.json --port 3003",
     "post-set-version": "rm -rf ./build",
-    "start": "wp-scripts start ./src/coming-soon.js",
-    "start:local": "concurrently \"wp-scripts start ./src/coming-soon.js\" \"npm run json-server\""
+    "start": "wp-scripts start",
+    "start:local": "concurrently \"wp-scripts start\" \"npm run json-server\""
   },
   "engines": {
     "node": ">=22.11.0",
     "npm": ">=10.9.0"
   },
   "devDependencies": {
+    "@tailwindcss/forms": "^0.5.10",
     "@wordpress/eslint-plugin": "^17.13.0",
     "@wordpress/prettier-config": "^3.15.0",
     "@wordpress/scripts": "^30.8.1",
@@ -45,6 +46,8 @@
   },
   "dependencies": {
     "@wordpress/icons": "^10.15.1",
+    "@heroicons/react": "^2.2.0",
+    "@newfold/ui-component-library": "^1.3.1",
     "classnames": "^2.5.1",
     "compare-versions": "^6.1.1",
     "lodash": "^4.17.21",

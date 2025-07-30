@@ -20,27 +20,27 @@ final class PrePublishModal {
 	 * Register assets.
 	 */
 	public static function register_assets() {
-		$asset_file = NFD_COMING_SOON_BUILD_DIR . '/coming-soon.asset.php';
+		$asset_file = NFD_COMING_SOON_BUILD_DIR . '/prePublishWarning/bundle.asset.php';
 
 		if ( is_readable( $asset_file ) ) {
 
 			$asset = include_once $asset_file;
 
 			\wp_register_script(
-				'nfd-coming-soon',
-				NFD_COMING_SOON_BUILD_URL . '/coming-soon.js',
+				'nfd-coming-soon-pre-publish-warning',
+				NFD_COMING_SOON_BUILD_URL . '/prePublishWarning/bundle.js',
 				array_merge( $asset['dependencies'], array() ),
 				$asset['version'],
 				true
 			);
 
 			ComingSoon::load_js_translations(
-				'nfd-coming-soon',
+				'nfd-coming-soon-pre-publish-warning',
 				'wp-module-coming-soon',
 				NFD_COMING_SOON_DIR . '/languages'
 			);
 
-			\wp_enqueue_script( 'nfd-coming-soon' );
+			\wp_enqueue_script( 'nfd-coming-soon-pre-publish-warning' );
 		}
 	}
 }

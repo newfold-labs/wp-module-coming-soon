@@ -61,14 +61,14 @@ describe( 'Coming Soon', { testIsolation: true }, () => {
 		cy.visit(
 			'/wp-admin/admin.php?page=' + Cypress.env( 'pluginId' ) + '#/home'
 		);
-		cy.get( appClass + '-home .nfd-app-section-content' )
-			.first()
-			.scrollIntoView()
-			.contains( 'h1', 'Ready to go live?' )
-			.should( 'be.visible' );
 
 		cy.get( appClass + '-home .nfd-app-section-content' )
-			.contains( 'a.nfd-button', 'iew your s' )
+			.contains( 'a.nfd-button', 'View' )
+			.first()
+			.should( 'exist' );
+
+		cy.get( appClass + '-home .nfd-app-section-content' )
+			.contains( 'a.nfd-button', 'Edit' )
 			.first()
 			.should( 'exist' );
 

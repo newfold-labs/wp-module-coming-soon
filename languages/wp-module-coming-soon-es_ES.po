@@ -30,6 +30,7 @@ msgid "Coming soon"
 msgstr "Próximamente"
 
 #: includes/AdminBarSiteStatusBadge.php:43
+#: build/sitePreviewPortal/bundle.js:1
 #: static/js/coming-soon.js:131
 #: static/js/coming-soon.js:146
 msgid "Live"
@@ -43,51 +44,51 @@ msgstr "No puede acceder al recurso."
 msgid "Coming Soon module service provider error."
 msgstr "Error del proveedor de servicios del módulo 'Próximamente'."
 
-#: includes/ComingSoon.php:50
+#: includes/ComingSoon.php:49
 msgid "Your site has Coming Soon mode active."
 msgstr "Tu sitio tiene el modo 'Próximamente' activado."
 
-#: includes/ComingSoon.php:51
+#: includes/ComingSoon.php:50
 msgid "Coming Soon!"
 msgstr "¡Próximamente!"
 
-#: includes/ComingSoon.php:58
+#: includes/ComingSoon.php:57
 msgid "Thank you, please check your email to confirm your subscription."
 msgstr "Gracias, por favor revisa tu correo electrónico para confirmar tu suscripción."
 
-#: includes/ComingSoon.php:59
+#: includes/ComingSoon.php:58
 msgid "Your email address is already subscribed to this website.<br>Stay tuned to your inbox for our updates or try a different email address."
 msgstr "Tu dirección de correo electrónico ya está suscrita a este sitio web.<br>Revisa tu bandeja de entrada para nuestras actualizaciones o prueba con otra dirección."
 
-#: includes/ComingSoon.php:60
+#: includes/ComingSoon.php:59
 msgid "There was an error with your submission and you were not subscribed.<br>Please try again with a valid email address."
 msgstr "Hubo un error con tu registro y no pudimos suscribirte.<br>Por favor, inténtalo de nuevo con una dirección de correo válida."
 
-#: includes/ComingSoon.php:61
+#: includes/ComingSoon.php:60
 msgid "Enter your email address"
 msgstr "Introduce tu dirección de correo electrónico"
 
-#: includes/ComingSoon.php:62
+#: includes/ComingSoon.php:61
 msgid "Subscribe"
 msgstr "Suscribirse"
 
-#: includes/ComingSoon.php:311
+#: includes/ComingSoon.php:367
 msgid "Gotcha!"
 msgstr "¡Entendido!"
 
-#: includes/ComingSoon.php:316
+#: includes/ComingSoon.php:372
 msgid "Please provide a valid email address"
 msgstr "Por favor, proporciona una dirección de correo válida"
 
-#: includes/ComingSoon.php:326
+#: includes/ComingSoon.php:382
 msgid "Jetpack encountered an error with the subscription"
 msgstr "Jetpack encontró un error con la suscripción"
 
-#: includes/ComingSoon.php:348
+#: includes/ComingSoon.php:404
 msgid "There was an error with the subscription"
 msgstr "Hubo un error con la suscripción"
 
-#: includes/ComingSoon.php:353
+#: includes/ComingSoon.php:409
 msgid "Subscription successful"
 msgstr "Suscripción exitosa"
 
@@ -99,27 +100,27 @@ msgstr "Vista previa del sitio: este sitio NO está publicado. Solo los administ
 msgid "Admin Login"
 msgstr "Iniciar sesión como administrador"
 
-#: build/1.6.3/coming-soon.js:1
+#: build/prePublishWarning/bundle.js:1
 msgid "Ready to launch your Site?"
 msgstr "¿Estás listo para lanzar tu sitio?"
 
-#: build/1.6.3/coming-soon.js:1
+#: build/prePublishWarning/bundle.js:1
 msgid "Pages and posts you publish will not be visible to the public until you launch your site."
 msgstr "Las páginas y publicaciones que publiques no serán visibles para el público hasta que lances tu sitio."
 
-#: build/1.6.3/coming-soon.js:1
+#: build/prePublishWarning/bundle.js:1
 msgid "Publish & Launch Site"
 msgstr "Publicar y lanzar sitio"
 
-#: build/1.6.3/coming-soon.js:1
+#: build/prePublishWarning/bundle.js:1
 msgid "Publish Without Launching"
 msgstr "Publicar sin lanzar"
 
-#: includes/ComingSoon.php:26
+#: includes/ComingSoon.php:25
 msgid "A new website is on the way!"
 msgstr ""
 
-#: includes/ComingSoon.php:57
+#: includes/ComingSoon.php:56
 msgid "Signup to be the first to know when we launch."
 msgstr ""
 
@@ -130,4 +131,44 @@ msgstr ""
 #: includes/template/index.php:102
 #: includes/template/index.php:106
 msgid "Login to WordPress"
+msgstr ""
+
+#: build/sitePreviewPortal/bundle.js:1
+msgid "Site Preview"
+msgstr ""
+
+#: build/sitePreviewPortal/bundle.js:1
+msgid "Not Live"
+msgstr ""
+
+#: build/sitePreviewPortal/bundle.js:1
+msgid "Your website is currently displaying a \"Coming Soon\" page."
+msgstr ""
+
+#: build/sitePreviewPortal/bundle.js:1
+msgid "Your website is live to the world!"
+msgstr ""
+
+#: build/sitePreviewPortal/bundle.js:1
+msgid "View"
+msgstr ""
+
+#: build/sitePreviewPortal/bundle.js:1
+msgid "Edit"
+msgstr ""
+
+#: build/sitePreviewPortal/bundle.js:1
+msgid "Ready to publish?"
+msgstr ""
+
+#: build/sitePreviewPortal/bundle.js:1
+msgid "Launch Site"
+msgstr ""
+
+#: build/sitePreviewPortal/bundle.js:1
+msgid "Not ready to share it?"
+msgstr ""
+
+#: build/sitePreviewPortal/bundle.js:1
+msgid "Enable Coming Soon"
 msgstr ""
