@@ -49,7 +49,7 @@ export const ComingSoon = () => {
 						<Button
 							as="a"
 							data-cy="nfd-view-site"
-							href={ viewUrl }
+							href={ window.NewfoldRuntime?.linkTracker?.addUtmParams( viewUrl ) || viewUrl }
 							target="_blank"
 							variant="secondary"
 						>
@@ -59,7 +59,7 @@ export const ComingSoon = () => {
 						<Button
 							as="a"
 							data-cy="nfd-edit-site"
-							href={ editUrl }
+							href={  window.NewfoldRuntime?.linkTracker?.addUtmParams( editUrl ) || editUrl }
 							variant="secondary"
 						>
 							<PencilIcon />
