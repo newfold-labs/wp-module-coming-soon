@@ -30,8 +30,10 @@ msgid "Coming soon"
 msgstr "Binnenkort beschikbaar"
 
 #: includes/AdminBarSiteStatusBadge.php:43
+#: build/sitePreviewPortal/bundle.js:224
 #: static/js/coming-soon.js:131
 #: static/js/coming-soon.js:146
+#: build/sitePreviewPortal/bundle.js:200
 msgid "Live"
 msgstr "Zichtbaar"
 
@@ -43,68 +45,51 @@ msgstr "U hebt geen toegang tot de bron."
 msgid "Coming Soon module service provider error."
 msgstr "Binnenkort komt er een fout in de serviceprovider."
 
-#: includes/ComingSoon.php:26
+#: includes/ComingSoon.php:49
 msgid "Your site has Coming Soon mode active."
 msgstr "De site is binnenkort actief."
 
-#: includes/ComingSoon.php:27
-#: includes/ComingSoon.php:30
+#: includes/ComingSoon.php:50
 msgid "Coming Soon!"
 msgstr "Binnenkort beschikbaar!"
 
-#: includes/ComingSoon.php:31
-msgid "A New WordPress Site!"
-msgstr "Een nieuwe WordPress-site!"
-
-#: includes/ComingSoon.php:33
-msgid "Be the first to know when we launch, enter your email address and we will let you know when we go live and any future website updates we have."
-msgstr "Wees de eerste om te weten wanneer we starten, Voer je e-mailadres in en we laten je weten wanneer we live gaan en eventuele toekomstige website-updates die we hebben."
-
-#: includes/ComingSoon.php:34
+#: includes/ComingSoon.php:57
 msgid "Thank you, please check your email to confirm your subscription."
 msgstr "Bedankt, controleer je e-mail om je abonnement te bevestigen."
 
-#: includes/ComingSoon.php:35
-msgid "Your email address is already subscribed to this website. Stay tuned to your inbox for our updates or try a different email address."
-msgstr "Uw e-mailadres is al geabonneerd op deze website. Blijf op de hoogte van uw inbox voor onze updates of probeer een ander e-mailadres."
+#: includes/ComingSoon.php:58
+msgid "Your email address is already subscribed to this website.<br>Stay tuned to your inbox for our updates or try a different email address."
+msgstr "Uw e-mailadres is al geabonneerd op deze website.<br>Blijf op de hoogte van uw inbox voor onze updates of probeer een ander e-mailadres."
 
-#: includes/ComingSoon.php:36
-msgid "There was an error with your submission and you were not subscribed. Please try again with a valid email address."
-msgstr "Er is een fout opgetreden bij het indienen van uw aanmelding. Probeer het opnieuw met een geldig e-mailadres."
+#: includes/ComingSoon.php:59
+msgid "There was an error with your submission and you were not subscribed.<br>Please try again with a valid email address."
+msgstr "Er is een fout opgetreden bij het indienen van uw aanmelding.<br>Probeer het opnieuw met een geldig e-mailadres."
 
-#: includes/ComingSoon.php:37
-msgid "Email"
-msgstr "E-mailadres"
-
-#: includes/ComingSoon.php:38
+#: includes/ComingSoon.php:60
 msgid "Enter your email address"
 msgstr "Voer uw e-mailadres in"
 
-#: includes/ComingSoon.php:39
+#: includes/ComingSoon.php:61
 msgid "Subscribe"
 msgstr "Abonneren"
 
-#: includes/ComingSoon.php:40
-msgid "Is this your website? Log in to WordPress to launch your site."
-msgstr "Is dit uw website? Log in bij WordPress om uw site te starten."
-
-#: includes/ComingSoon.php:289
+#: includes/ComingSoon.php:367
 msgid "Gotcha!"
 msgstr "Gotcha!"
 
-#: includes/ComingSoon.php:294
+#: includes/ComingSoon.php:372
 msgid "Please provide a valid email address"
 msgstr "Geef een geldig e-mailadres op"
 
-#: includes/ComingSoon.php:304
+#: includes/ComingSoon.php:382
 msgid "Jetpack encountered an error with the subscription"
 msgstr "Jetpack ondervond een fout met het abonnement"
 
-#: includes/ComingSoon.php:326
+#: includes/ComingSoon.php:404
 msgid "There was an error with the subscription"
 msgstr "Er is een fout opgetreden met het abonnement"
 
-#: includes/ComingSoon.php:331
+#: includes/ComingSoon.php:409
 msgid "Subscription successful"
 msgstr "Abonnement succesvol"
 
@@ -112,22 +97,91 @@ msgstr "Abonnement succesvol"
 msgid "Site Preview - This site is NOT LIVE, only admins can see this view."
 msgstr "Voorbeeld van de site - Deze site is NIET LIVE, alleen admins kunnen deze weergave zien."
 
-#: includes/template/index.php:34
+#: includes/template/index.php:126
 msgid "Admin Login"
 msgstr "Inloggen voor beheerder"
 
-#: build/1.5.0/coming-soon.js:1
+#: build/prePublishWarning/bundle.js:1
 msgid "Ready to launch your Site?"
 msgstr "Klaar om uw site te starten?"
 
-#: build/1.5.0/coming-soon.js:1
+#: build/prePublishWarning/bundle.js:1
 msgid "Pages and posts you publish will not be visible to the public until you launch your site."
 msgstr "Pagina's en berichten die u publiceert zullen niet zichtbaar zijn voor het publiek totdat u uw site opstart."
 
-#: build/1.5.0/coming-soon.js:1
+#: build/prePublishWarning/bundle.js:1
 msgid "Publish & Launch Site"
 msgstr "Publiceer & start site"
 
-#: build/1.5.0/coming-soon.js:1
+#: build/prePublishWarning/bundle.js:1
 msgid "Publish Without Launching"
 msgstr "Publiceren zonder starten"
+
+#: includes/ComingSoon.php:25
+msgid "A new website is on the way!"
+msgstr ""
+
+#: includes/ComingSoon.php:56
+msgid "Signup to be the first to know when we launch."
+msgstr ""
+
+#: includes/template/index.php:100
+msgid "Is this your website?"
+msgstr ""
+
+#: includes/template/index.php:102
+#: includes/template/index.php:106
+msgid "Login to WordPress"
+msgstr ""
+
+#: build/sitePreviewPortal/bundle.js:197
+#: build/sitePreviewPortal/bundle.js:209
+#: build/sitePreviewPortal/bundle.js:161
+#: build/sitePreviewPortal/bundle.js:176
+msgid "Site Preview"
+msgstr ""
+
+#: build/sitePreviewPortal/bundle.js:220
+#: build/sitePreviewPortal/bundle.js:192
+msgid "Not Live"
+msgstr ""
+
+#: build/sitePreviewPortal/bundle.js:62
+#: build/sitePreviewPortal/bundle.js:45
+msgid "Your website is currently displaying a \"Coming Soon\" page."
+msgstr ""
+
+#: build/sitePreviewPortal/bundle.js:62
+#: build/sitePreviewPortal/bundle.js:43
+msgid "Your website is live to the world!"
+msgstr ""
+
+#: build/sitePreviewPortal/bundle.js:71
+#: build/sitePreviewPortal/bundle.js:57
+msgid "View"
+msgstr ""
+
+#: build/sitePreviewPortal/bundle.js:77
+#: build/sitePreviewPortal/bundle.js:66
+msgid "Edit"
+msgstr ""
+
+#: build/sitePreviewPortal/bundle.js:95
+#: build/sitePreviewPortal/bundle.js:90
+msgid "Ready to publish?"
+msgstr ""
+
+#: build/sitePreviewPortal/bundle.js:97
+#: build/sitePreviewPortal/bundle.js:94
+msgid "Launch Site"
+msgstr ""
+
+#: build/sitePreviewPortal/bundle.js:85
+#: build/sitePreviewPortal/bundle.js:76
+msgid "Not ready to share it?"
+msgstr ""
+
+#: build/sitePreviewPortal/bundle.js:87
+#: build/sitePreviewPortal/bundle.js:80
+msgid "Enable Coming Soon"
+msgstr ""
