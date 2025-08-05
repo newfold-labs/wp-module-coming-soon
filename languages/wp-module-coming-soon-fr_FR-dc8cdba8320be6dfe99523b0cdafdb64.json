@@ -1,48 +1,48 @@
 {
-    "translation-revision-date": "2025-02-19 17:00",
-    "generator": "WP-CLI\/2.11.0",
-    "source": "build\/sitePreviewPortal\/bundle.js",
-    "domain": "messages",
-    "locale_data": {
-        "messages": {
-            "": {
-                "domain": "messages",
-                "lang": "fr_FR",
-                "plural-forms": "nplurals=2; plural=(n > 1);"
-            },
-            "Live": [
-                "En direct"
-            ],
-            "Site Preview": [
-                ""
-            ],
-            "Not Live": [
-                ""
-            ],
-            "Your website is currently displaying a \"Coming Soon\" page.": [
-                ""
-            ],
-            "Your website is live to the world!": [
-                ""
-            ],
-            "View": [
-                ""
-            ],
-            "Edit": [
-                ""
-            ],
-            "Ready to publish?": [
-                ""
-            ],
-            "Launch Site": [
-                ""
-            ],
-            "Not ready to share it?": [
-                ""
-            ],
-            "Enable Coming Soon": [
-                ""
-            ]
-        }
+  "translation-revision-date": "2025-02-19 17:00",
+  "generator": "WP-CLI/2.11.0",
+  "source": "build/sitePreviewPortal/bundle.js",
+  "domain": "messages",
+  "locale_data": {
+    "messages": {
+      "": {
+        "domain": "messages",
+        "lang": "fr_FR",
+        "plural-forms": "nplurals=2; plural=(n > 1);"
+      },
+      "Live": [
+        "En direct"
+      ],
+      "Site Preview": [
+        "Aperçu du site"
+      ],
+      "Not Live": [
+        "Pas en direct"
+      ],
+      "Your website is currently displaying a \"Coming Soon\" page.": [
+        "Votre site web affiche actuellement une page « Bientôt disponible »."
+      ],
+      "Your website is live to the world!": [
+        "Votre site web est en direct pour le monde entier !"
+      ],
+      "View": [
+        "Vue"
+      ],
+      "Edit": [
+        "Éditer"
+      ],
+      "Ready to publish?": [
+        "Prêt à publier ?"
+      ],
+      "Launch Site": [
+        "Ensemble de lancement"
+      ],
+      "Not ready to share it?": [
+        "Vous n’êtes pas prêt à le partager ?"
+      ],
+      "Enable Coming Soon": [
+        "Activer Bientôt disponible"
+      ]
     }
+  }
 }

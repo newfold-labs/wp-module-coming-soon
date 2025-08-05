@@ -1,39 +1,37 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: newfold-labswp-module-staging\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-13T09:55:55+00:00\n"
+"PO-Revision-Date: 2025-02-19 17:00\n"
 "Last-Translator: \n"
 "Language-Team: Italian\n"
+"Language: it_IT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-02-13T09:55:55+00:00\n"
-"PO-Revision-Date: 2025-02-19 17:00\n"
-"Language: it_IT\n"
-"X-Generator: WP-CLI 2.11.0\n"
-"X-Domain: wp-module-coming-soon\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Crowdin-Project: newfold-labswp-module-staging\n"
-"X-Crowdin-Project-ID: 764889\n"
-"X-Crowdin-Language: it\n"
 "X-Crowdin-File: wp-module-coming-soon.pot\n"
 "X-Crowdin-File-ID: 54\n"
+"X-Crowdin-Language: it\n"
+"X-Crowdin-Project: newfold-labswp-module-staging\n"
+"X-Crowdin-Project-ID: 764889\n"
+"X-Domain: wp-module-coming-soon\n"
+"X-Generator: WP-CLI 2.11.0\n"
 
 #: bootstrap.php:48
 msgid "Coming Soon"
 msgstr "In Arrivo"
 
-#: includes/AdminBarSiteStatusBadge.php:42
-#: static/js/coming-soon.js:127
+#: includes/AdminBarSiteStatusBadge.php:42 static/js/coming-soon.js:127
 #: static/js/coming-soon.js:142
 msgid "Coming soon"
 msgstr "In arrivo"
 
 #: includes/AdminBarSiteStatusBadge.php:43
-#: build/sitePreviewPortal/bundle.js:224
-#: static/js/coming-soon.js:131
-#: static/js/coming-soon.js:146
-#: build/sitePreviewPortal/bundle.js:200
+#: build/sitePreviewPortal/bundle.js:224 static/js/coming-soon.js:131
+#: static/js/coming-soon.js:146 build/sitePreviewPortal/bundle.js:200
 msgid "Live"
 msgstr "Live"
 
@@ -58,12 +56,21 @@ msgid "Thank you, please check your email to confirm your subscription."
 msgstr "Grazie, controlla la tua email per confermare l'iscrizione."
 
 #: includes/ComingSoon.php:58
-msgid "Your email address is already subscribed to this website.<br>Stay tuned to your inbox for our updates or try a different email address."
-msgstr "Il tuo indirizzo email è già iscritto a questo sito.<br>Resta sintonizzato alla tua casella di posta per i nostri aggiornamenti o prova un indirizzo email diverso."
+msgid ""
+"Your email address is already subscribed to this website.<br>Stay tuned to "
+"your inbox for our updates or try a different email address."
+msgstr ""
+"Il tuo indirizzo email è già iscritto a questo sito.<br>Resta sintonizzato "
+"alla tua casella di posta per i nostri aggiornamenti o prova un indirizzo "
+"email diverso."
 
 #: includes/ComingSoon.php:59
-msgid "There was an error with your submission and you were not subscribed.<br>Please try again with a valid email address."
-msgstr "Si è verificato un errore con la tua richiesta e non sei stato iscritto.<br>Riprova con un indirizzo email valido."
+msgid ""
+"There was an error with your submission and you were not "
+"subscribed.<br>Please try again with a valid email address."
+msgstr ""
+"Si è verificato un errore con la tua richiesta e non sei stato "
+"iscritto.<br>Riprova con un indirizzo email valido."
 
 #: includes/ComingSoon.php:60
 msgid "Enter your email address"
@@ -95,7 +102,9 @@ msgstr "Abbonamento riuscito"
 
 #: includes/SitePreviewWarning.php:27
 msgid "Site Preview - This site is NOT LIVE, only admins can see this view."
-msgstr "Anteprima del sito - Questo sito NON è VIVO, solo gli amministratori possono vedere questa vista."
+msgstr ""
+"Anteprima del sito - Questo sito NON è VIVO, solo gli amministratori possono"
+" vedere questa vista."
 
 #: includes/template/index.php:126
 msgid "Admin Login"
@@ -106,8 +115,12 @@ msgid "Ready to launch your Site?"
 msgstr "Sei pronto a lanciare il tuo Sito?"
 
 #: build/prePublishWarning/bundle.js:1
-msgid "Pages and posts you publish will not be visible to the public until you launch your site."
-msgstr "Le pagine e i post pubblicati non saranno visibili al pubblico fino al lancio del sito."
+msgid ""
+"Pages and posts you publish will not be visible to the public until you "
+"launch your site."
+msgstr ""
+"Le pagine e i post pubblicati non saranno visibili al pubblico fino al "
+"lancio del sito."
 
 #: build/prePublishWarning/bundle.js:1
 msgid "Publish & Launch Site"
@@ -119,69 +132,57 @@ msgstr "Pubblica Senza Avvio"
 
 #: includes/ComingSoon.php:25
 msgid "A new website is on the way!"
-msgstr ""
+msgstr "Un nuovo sito web è in arrivo!"
 
 #: includes/ComingSoon.php:56
 msgid "Signup to be the first to know when we launch."
-msgstr ""
+msgstr "Iscriviti per essere il primo a sapere quando lanceremo."
 
 #: includes/template/index.php:100
 msgid "Is this your website?"
-msgstr ""
+msgstr "È il tuo sito web?"
 
-#: includes/template/index.php:102
-#: includes/template/index.php:106
+#: includes/template/index.php:102 includes/template/index.php:106
 msgid "Login to WordPress"
-msgstr ""
+msgstr "Accedi a WordPress"
 
-#: build/sitePreviewPortal/bundle.js:197
-#: build/sitePreviewPortal/bundle.js:209
-#: build/sitePreviewPortal/bundle.js:161
-#: build/sitePreviewPortal/bundle.js:176
+#: build/sitePreviewPortal/bundle.js:197 build/sitePreviewPortal/bundle.js:209
+#: build/sitePreviewPortal/bundle.js:161 build/sitePreviewPortal/bundle.js:176
 msgid "Site Preview"
-msgstr ""
+msgstr "Anteprima del sito"
 
-#: build/sitePreviewPortal/bundle.js:220
-#: build/sitePreviewPortal/bundle.js:192
+#: build/sitePreviewPortal/bundle.js:220 build/sitePreviewPortal/bundle.js:192
 msgid "Not Live"
-msgstr ""
+msgstr "Non in diretta"
 
-#: build/sitePreviewPortal/bundle.js:62
-#: build/sitePreviewPortal/bundle.js:45
+#: build/sitePreviewPortal/bundle.js:62 build/sitePreviewPortal/bundle.js:45
 msgid "Your website is currently displaying a \"Coming Soon\" page."
-msgstr ""
+msgstr "Al momento il tuo sito web mostra una pagina \"Prossimamente\"."
 
-#: build/sitePreviewPortal/bundle.js:62
-#: build/sitePreviewPortal/bundle.js:43
+#: build/sitePreviewPortal/bundle.js:62 build/sitePreviewPortal/bundle.js:43
 msgid "Your website is live to the world!"
-msgstr ""
+msgstr "Il tuo sito web è disponibile in tutto il mondo!"
 
-#: build/sitePreviewPortal/bundle.js:71
-#: build/sitePreviewPortal/bundle.js:57
+#: build/sitePreviewPortal/bundle.js:71 build/sitePreviewPortal/bundle.js:57
 msgid "View"
-msgstr ""
+msgstr "Vista"
 
-#: build/sitePreviewPortal/bundle.js:77
-#: build/sitePreviewPortal/bundle.js:66
+#: build/sitePreviewPortal/bundle.js:77 build/sitePreviewPortal/bundle.js:66
 msgid "Edit"
-msgstr ""
+msgstr "Redigere"
 
-#: build/sitePreviewPortal/bundle.js:95
-#: build/sitePreviewPortal/bundle.js:90
+#: build/sitePreviewPortal/bundle.js:95 build/sitePreviewPortal/bundle.js:90
 msgid "Ready to publish?"
-msgstr ""
+msgstr "Pronto a pubblicare?"
 
-#: build/sitePreviewPortal/bundle.js:97
-#: build/sitePreviewPortal/bundle.js:94
+#: build/sitePreviewPortal/bundle.js:97 build/sitePreviewPortal/bundle.js:94
 msgid "Launch Site"
-msgstr ""
+msgstr "Sito di lancio"
 
-#: build/sitePreviewPortal/bundle.js:85
-#: build/sitePreviewPortal/bundle.js:76
+#: build/sitePreviewPortal/bundle.js:85 build/sitePreviewPortal/bundle.js:76
 msgid "Not ready to share it?"
-msgstr ""
+msgstr "Non sei pronto a condividerlo?"
 
-#: build/sitePreviewPortal/bundle.js:87
-#: build/sitePreviewPortal/bundle.js:80
+#: build/sitePreviewPortal/bundle.js:87 build/sitePreviewPortal/bundle.js:80
 msgid "Enable Coming Soon"
-msgstr ""
+msgstr "Abilita in arrivo"
