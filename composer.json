@@ -2,19 +2,6 @@
   "name": "newfold-labs/wp-module-coming-soon",
   "description": "Coming Soon module for WordPress sites.",
   "license": "GPL-2.0-or-later",
-  "repositories": {
-    "outlandishideas/wpackagist": {
-      "type": "composer",
-      "url": "https://wpackagist.org"
-    },
-    "0": {
-      "type": "composer",
-      "url": "https://newfold-labs.github.io/satis/",
-      "only": [
-        "newfold-labs/*"
-      ]
-    }
-  },
   "authors": [
     {
       "name": "Evan Mullins",
@@ -28,6 +15,33 @@
     "files": [
       "bootstrap.php"
     ]
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true,
+      "composer/installers": true,
+      "johnpbloch/wordpress-core-installer": true
+    },
+    "platform": {
+      "php": "7.3"
+    }
+  },
+  "repositories": {
+    "outlandishideas/wpackagist": {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    },
+    "0": {
+      "type": "composer",
+      "url": "https://newfold-labs.github.io/satis/",
+      "only": [
+        "newfold-labs/*"
+      ]
+    }
+  },
+  "require": {
+    "newfold-labs/wp-module-data": "^2.6.8",
+    "wp-forge/wp-upgrade-handler": "^1.0"
   },
   "require-dev": {
     "newfold-labs/wp-php-standards": "^1.2.4",
@@ -45,6 +59,14 @@
       "@i18n-po",
       "@i18n-php",
       "@i18n-json"
+    ],
+    "i18n-ci-pre": [
+      "@i18n-pot",
+      "@i18n-po"
+    ],
+    "i18n-ci-post": [
+      "@i18n-json",
+      "@i18n-php"
     ],
     "i18n-json": "find ./languages -name \"*.json\" -exec rm {} \\; && vendor/bin/wp i18n make-json ./languages --no-purge --pretty-print",
     "i18n-mo": "vendor/bin/wp i18n make-mo ./languages",
@@ -65,22 +87,16 @@
   },
   "scripts-descriptions": {
     "fix": "Automatically fix coding standards issues where possible.",
+    "i18n": "Generate translation files.",
+    "i18n-ci-pre": "Generate translation files for CI pre-commit.",
+    "i18n-ci-post": "Generate translation files for CI post-commit.",
+    "i18n-json": "Generate JSON translation files.",
+    "i18n-mo": "Generate MO translation files.",
+    "i18n-php": "Generate PHP translation files.",
+    "i18n-po": "Generate PO translation files.",
+    "i18n-pot": "Generate POT translation file.",
     "lint": "Check files against coding standards.",
     "test": "Run tests.",
     "test-coverage": "Run tests with coverage, merge coverage and create HTML report."
-  },
-  "config": {
-    "allow-plugins": {
-      "dealerdirect/phpcodesniffer-composer-installer": true,
-      "composer/installers": true,
-      "johnpbloch/wordpress-core-installer": true
-    },
-    "platform": {
-      "php": "7.3"
-    }
-  },
-  "require": {
-    "newfold-labs/wp-module-data": "^2.6.8",
-    "wp-forge/wp-upgrade-handler": "^1.0"
   }
 }
