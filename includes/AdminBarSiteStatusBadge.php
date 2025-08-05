@@ -64,7 +64,7 @@ class AdminBarSiteStatusBadge {
 			$site_status_menu = array(
 				'id'     => 'nfd-site-visibility-badge',
 				'parent' => 'root-default',
-				'href'   => admin_url( 'admin.php?page=' . $this->container->plugin()->id . '&nfd-target=coming-soon-section#/settings' ),
+				'href'   => apply_filters( 'nfd_build_url', admin_url( 'admin.php?page=' . $this->container->plugin()->id . '&nfd-target=coming-soon-section#/settings' ) ),
 				'title'  => $title,
 				'meta'   => array(
 					'class' => 'nfd-site-status-badge-' . $class,
