@@ -30,10 +30,9 @@ msgid "Coming soon"
 msgstr "In arrivo"
 
 #: includes/AdminBarSiteStatusBadge.php:43
-#: build/sitePreviewPortal/bundle.js:224
+#: build/sitePreviewPortal/bundle.js:1
 #: static/js/coming-soon.js:131
 #: static/js/coming-soon.js:146
-#: build/sitePreviewPortal/bundle.js:200
 msgid "Live"
 msgstr "Live"
 
@@ -134,54 +133,42 @@ msgstr "È il tuo sito web?"
 msgid "Login to WordPress"
 msgstr "Accedi a WordPress"
 
-#: build/sitePreviewPortal/bundle.js:197
-#: build/sitePreviewPortal/bundle.js:209
-#: build/sitePreviewPortal/bundle.js:161
-#: build/sitePreviewPortal/bundle.js:176
+#: build/sitePreviewPortal/bundle.js:1
 msgid "Site Preview"
 msgstr "Anteprima del sito"
 
-#: build/sitePreviewPortal/bundle.js:220
-#: build/sitePreviewPortal/bundle.js:192
+#: build/sitePreviewPortal/bundle.js:1
 msgid "Not Live"
 msgstr "Non in diretta"
 
-#: build/sitePreviewPortal/bundle.js:62
-#: build/sitePreviewPortal/bundle.js:45
+#: build/sitePreviewPortal/bundle.js:1
 msgid "Your website is currently displaying a \"Coming Soon\" page."
 msgstr "Al momento il tuo sito web mostra una pagina \"Prossimamente\"."
 
-#: build/sitePreviewPortal/bundle.js:62
-#: build/sitePreviewPortal/bundle.js:43
+#: build/sitePreviewPortal/bundle.js:1
 msgid "Your website is live to the world!"
 msgstr "Il tuo sito web è disponibile in tutto il mondo!"
 
-#: build/sitePreviewPortal/bundle.js:71
-#: build/sitePreviewPortal/bundle.js:57
+#: build/sitePreviewPortal/bundle.js:1
 msgid "View"
 msgstr "Vista"
 
-#: build/sitePreviewPortal/bundle.js:77
-#: build/sitePreviewPortal/bundle.js:66
+#: build/sitePreviewPortal/bundle.js:1
 msgid "Edit"
 msgstr "Redigere"
 
-#: build/sitePreviewPortal/bundle.js:95
-#: build/sitePreviewPortal/bundle.js:90
+#: build/sitePreviewPortal/bundle.js:1
 msgid "Ready to publish?"
 msgstr "Pronto a pubblicare?"
 
-#: build/sitePreviewPortal/bundle.js:97
-#: build/sitePreviewPortal/bundle.js:94
+#: build/sitePreviewPortal/bundle.js:1
 msgid "Launch Site"
 msgstr "Sito di lancio"
 
-#: build/sitePreviewPortal/bundle.js:85
-#: build/sitePreviewPortal/bundle.js:76
+#: build/sitePreviewPortal/bundle.js:1
 msgid "Not ready to share it?"
 msgstr "Non sei pronto a condividerlo?"
 
-#: build/sitePreviewPortal/bundle.js:87
-#: build/sitePreviewPortal/bundle.js:80
+#: build/sitePreviewPortal/bundle.js:1
 msgid "Enable Coming Soon"
 msgstr "Abilita in arrivo"
