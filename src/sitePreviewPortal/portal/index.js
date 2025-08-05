@@ -3,7 +3,6 @@ import { ComingSoon } from '../comingSoon';
 
 export const ComingSoonPortalApp = () => {
 	const [ container, setContainer ] = useState( null );
-	console.log('comingSoonPortalApp component');
 
 	useEffect( () => {
 		const registry = window.NFDPortalRegistry;
