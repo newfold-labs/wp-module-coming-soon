@@ -77,7 +77,7 @@ $email_icon        = '<svg data-slot="icon" fill="none" stroke-width="1.5" strok
 				"@type": "WebSite",
 				"url": "<?php echo esc_url( site_url() ); ?>",
 				"name": "<?php echo esc_html( $args['template_page_title'] ); ?>",
-				"description": "<?php echo esc_html( $args['template_page_p'] ); ?>"
+				"description": "<?php echo esc_html( $args['template_p'] ); ?>"
 			}
 		</script>
 
