@@ -35,7 +35,7 @@ describe( 'Coming Soon with WooCommerce', { testIsolation: true }, () => {
 		cy.visit(
 			'/wp-admin/admin.php?page=' +
 				Cypress.env( 'pluginId' ) +
-				'#/settings'
+				'#/settings/settings'
 		);
 		// force refresh
 		cy.reload( true );
@@ -62,7 +62,7 @@ describe( 'Coming Soon with WooCommerce', { testIsolation: true }, () => {
 		cy.visit(
 			'/wp-admin/admin.php?page=' +
 				Cypress.env( 'pluginId' ) +
-				'#/settings'
+				'#/settings/settings'
 		);
 
 		// Deactivate coming soon - Launch Site
@@ -91,7 +91,7 @@ describe( 'Coming Soon with WooCommerce', { testIsolation: true }, () => {
 		cy.visit(
 			'/wp-admin/admin.php?page=' +
 				Cypress.env( 'pluginId' ) +
-				'#/settings'
+				'#/settings/settings'
 		);
 
 		cy.visit( '/' );
