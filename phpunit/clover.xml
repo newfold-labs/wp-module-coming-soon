@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1757530639">
-  <project timestamp="1757530639">
+<coverage generated="1759153938">
+  <project timestamp="1759153938">
     <file name="/home/runner/work/wp-module-coming-soon/wp-module-coming-soon/includes/API/ComingSoon.php">
       <class name="NewfoldLabs\WP\Module\ComingSoon\API\ComingSoon" namespace="global">
         <metrics complexity="10" methods="7" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="52" coveredstatements="0" elements="59" coveredelements="0"/>
