@@ -28,7 +28,7 @@ export const ComingSoonPortalApp = () => {
 		if ( current ) {
 			updateContainer( current );
 		}
-	}, [ container ] );
+	}, [] );
 
 	if ( ! container ) {
 		return null;

@@ -26,7 +26,7 @@ describe( 'Coming Soon', { testIsolation: true }, () => {
 		cy.visit(
 			'/wp-admin/admin.php?page=' +
 				Cypress.env( 'pluginId' ) +
-				'#/settings'
+				'#/settings/settings'
 		);
 		cy.reload();
 
@@ -57,7 +57,9 @@ describe( 'Coming Soon', { testIsolation: true }, () => {
 			.should( 'be.visible' );
 	} );
 
-	it( 'Has Coming Soon Section on Home', () => {
+	// This test is skipped because the portal has been removed from the home page.
+	// We can remove this test if we dont end up bringing the portal back.
+	it.skip( 'Has Coming Soon Section on Home', () => {
 		cy.visit(
 			'/wp-admin/admin.php?page=' + Cypress.env( 'pluginId' ) + '#/home'
 		);
@@ -90,7 +92,7 @@ describe( 'Coming Soon', { testIsolation: true }, () => {
 		cy.visit(
 			'/wp-admin/admin.php?page=' +
 				Cypress.env( 'pluginId' ) +
-				'#/settings'
+				'#/settings/settings'
 		);
 		// Deactivate coming soon - Launch Site
 		cy.get( '[data-id="coming-soon-toggle"]' ).click();
@@ -162,7 +164,7 @@ describe( 'Coming Soon', { testIsolation: true }, () => {
 		cy.visit(
 			'/wp-admin/admin.php?page=' +
 				Cypress.env( 'pluginId' ) +
-				'#/settings'
+				'#/settings/settings'
 		);
 		cy.get( '[data-id="coming-soon-toggle"]' )
 			.should( 'have.attr', 'aria-checked' )
@@ -193,7 +195,7 @@ describe( 'Coming Soon', { testIsolation: true }, () => {
 		cy.visit(
 			'/wp-admin/admin.php?page=' +
 				Cypress.env( 'pluginId' ) +
-				'#/settings'
+				'#/settings/settings'
 		);
 
 		cy.get( '[data-id="coming-soon-toggle"]' )
