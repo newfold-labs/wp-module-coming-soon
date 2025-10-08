@@ -26,7 +26,7 @@ export const ComingSoon = () => {
 	return (
 		<div className="coming-soon-fill nfd-app-section-content">
 			<div 
-				className="nfd-coming-soon-content md:nfd-flex-row-reverse"
+				className="nfd-coming-soon-content md:nfd-flex-row-reverse nfd-items-center"
 				data-cy="nfd-coming-soon-content"
 				data-coming-soon={ isComingSoonEnabled ? 'true' : 'false' }
 			>
