@@ -17,6 +17,8 @@ jobs:
   setup:
     name: Setup
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     outputs:
       branch: ${{ steps.extract_branch.outputs.branch }}
     steps:
@@ -29,6 +31,8 @@ jobs:
   bluehost:
     name: Bluehost Build and Test Cypress
     needs: setup
+    permissions:
+      contents: read
     uses: newfold-labs/workflows/.github/workflows/module-plugin-test-playwright.yml@main
     with:
       module-repo: ${{ github.repository }}
