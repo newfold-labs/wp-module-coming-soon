@@ -1,43 +1,28 @@
 /**
- * Coming Soon Module Test Helpers
- * 
- * Specific utilities for testing the coming soon module functionality.
- * Includes WordPress CLI operations, coming soon state management, and UI interactions.
+ * Coming Soon Module Test Helpers for Playwright
  */
+import { expect } from '@playwright/test';
+import { join, dirname } from 'path';
+import { fileURLToPath, pathToFileURL } from 'url';
 
-const { expect } = require('@playwright/test');
-const { execSync } = require('child_process');
+// ES module equivalent of __dirname
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
-/**
- * WordPress CLI helper for coming soon module
- * 
- * @param {string} cmd - WP-CLI command to execute
- * @param {Object} options - Command options
- * @returns {string} Command output
- */
-function wpCli(cmd, options = {}) {
-  const defaultOptions = {
-    timeout: 30000,
-    failOnNonZeroExit: true,
-    log: true,
-  };
-  
-  const finalOptions = { ...defaultOptions, ...options };
-  
-  try {
-    const result = execSync(`npx wp-env run cli wp ${cmd}`, { 
-      encoding: 'utf-8',
-      stdio: finalOptions.failOnNonZeroExit ? 'pipe' : 'inherit',
-      timeout: finalOptions.timeout
-    });
-    return result.trim();
-  } catch (error) {
-    if (finalOptions.failOnNonZeroExit) {
-      throw new Error(`WP-CLI command failed: ${cmd}\n${error.message}`);
-    }
-    return '';
-  }
-}
+// Resolve plugin directory from PLUGIN_DIR env var (set by playwright.config.mjs) or process.cwd()
+const pluginDir = process.env.PLUGIN_DIR || process.cwd();
+
+// Build path to plugin helpers (.mjs extension for ES module compatibility)
+const finalHelpersPath = join(pluginDir, 'tests/playwright/helpers/index.mjs');
+
+// Import plugin helpers using file:// URL
+const helpersUrl = pathToFileURL(finalHelpersPath).href;
+const pluginHelpers = await import(helpersUrl);
+
+// Destructure plugin helpers
+let { auth, wordpress, newfold, a11y, utils } = pluginHelpers;
+const { fancyLog } = utils;
+const { setCapability } = newfold;
 
 /**
  * Remove WooCommerce plugin
@@ -46,12 +31,12 @@ function wpCli(cmd, options = {}) {
  */
 async function removeWooCommerce(page) {
   try {
-    wpCli('plugin uninstall woocommerce', {
-      timeout: 40000,
+    await wordpress.wpCli('plugin uninstall woocommerce', {
+      timeout: 15000,
       failOnNonZeroExit: false,
     });
   } catch (error) {
-    console.warn('Failed to remove WooCommerce:', error.message);
+    fancyLog('Failed to remove WooCommerce:' + error.message, 55, 'yellow');
   }
 }
 
@@ -62,30 +47,28 @@ async function removeWooCommerce(page) {
  */
 async function installWooCommerce(page) {
   try {
-    wpCli('plugin install woocommerce --activate', {
-      timeout: 40000,
+    await wordpress.wpCli('plugin install woocommerce --activate', {
+      timeout: 15000,
     });
   } catch (error) {
-    console.warn('Failed to install WooCommerce:', error.message);
+    fancyLog('Failed to install WooCommerce:' + error.message, 55, 'yellow');
   }
 }
 
 /**
  * Uninstall WooCommerce and extensions
- * 
- * @param {import('@playwright/test').Page} page - Playwright page object
  */
-async function uninstallWooCommerceAndExtensions(page) {
+async function uninstallWooCommerceAndExtensions() {
   try {
-    wpCli(
+    await wordpress.wpCli(
       'plugin uninstall woocommerce yith-stripe-payments-for-woocommerce-extended yith-paypal-payments-for-woocommerce-extended --deactivate',
       {
-        timeout: 60000,
+        timeout: 20000,
         failOnNonZeroExit: false,
       }
     );
   } catch (error) {
-    console.warn('Failed to uninstall WooCommerce extensions:', error.message);
+    fancyLog('Failed to uninstall WooCommerce extensions:' + error.message, 55, 'yellow');
   }
 }
 
@@ -98,11 +81,11 @@ async function uninstallWooCommerceAndExtensions(page) {
  */
 async function setComingSoonOption(page, enabled, optionName = 'nfd_coming_soon') {
   try {
-    wpCli(`option update ${optionName} ${enabled}`, {
+    await wordpress.setOption(`${optionName} ${enabled}`, {
       failOnNonZeroExit: false,
     });
   } catch (error) {
-    console.warn(`Failed to set ${optionName}:`, error.message);
+    fancyLog(`Failed to set ${optionName}:` + error.message, 55, 'yellow');
   }
 }
 
@@ -388,8 +371,14 @@ function getAppClass() {
   return `.${appId}`;
 }
 
-module.exports = {
-  wpCli,
+export {
+  // Plugin helpers (re-exported for convenience)
+  auth,
+  wordpress,
+  newfold,
+  a11y,
+  utils,
+  // Coming Soon helpers
   removeWooCommerce,
   installWooCommerce,
   uninstallWooCommerceAndExtensions,

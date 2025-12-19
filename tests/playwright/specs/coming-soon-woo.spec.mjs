@@ -1,57 +1,67 @@
-const { test, expect } = require('@playwright/test');
-const path = require('path');
+import { test, expect } from '@playwright/test';
+import {
+  auth,
+  getAppClass,
+  installWooCommerce,
+  setComingSoonOption,
+  navigateToWpAdmin,
+  navigateToSettings,
+  navigateToFrontend,
+  verifyWooCommerceComingSoonActive,
+  verifyWooCommerceComingSoonInactive,
+  toggleComingSoon,
+  verifySitePreviewWarningHidden,
+  uninstallWooCommerceAndExtensions,
+} from '../helpers';
 
 // Use environment variable to resolve plugin helpers
-const pluginDir = process.env.PLUGIN_DIR || path.resolve(__dirname, '../../../../../../');
-const { auth } = require(path.join(pluginDir, 'tests/playwright/helpers'));
-const comingSoon = require('../helpers');
+const pluginId = process.env.PLUGIN_ID || 'bluehost';
 
 test.describe('Coming Soon with WooCommerce', () => {
   test.describe.configure({ timeout: 60000 });
-  const pluginId = process.env.PLUGIN_ID || 'bluehost';
 
   test.beforeEach(async ({ page }) => {
     // Login to WordPress
     await auth.loginToWordPress(page);
 
     // Activate WooCommerce
-    await comingSoon.installWooCommerce(page);
+    await installWooCommerce(page);
 
     // Set coming soon options
-    await comingSoon.setComingSoonOption(page, true, 'mm_coming_soon');
-    await comingSoon.setComingSoonOption(page, true, 'nfd_coming_soon');
+    await setComingSoonOption(page, true, 'mm_coming_soon');
+    await setComingSoonOption(page, true, 'nfd_coming_soon');
 
     // Navigate to WordPress admin
-    await comingSoon.navigateToWpAdmin(page);
+    await navigateToWpAdmin(page);
   });
 
   test.afterAll(async () => {
-    // Uninstall WooCommerce and extensions - we can't use page in afterAll
-    // await comingSoon.uninstallWooCommerceAndExtensions(page);
+    // Uninstall WooCommerce and extensions
+    await uninstallWooCommerceAndExtensions();
   });
 
   test("Replace our admin bar site status badge with WooCommerce's when active", async ({ page }) => {
     // Visit settings page
-    await comingSoon.navigateToSettings(page, pluginId);
+    await navigateToSettings(page, pluginId);
     // Force refresh
     await page.reload();
 
     // Verify WooCommerce coming soon is active
-    await comingSoon.verifyWooCommerceComingSoonActive(page);
+    await verifyWooCommerceComingSoonActive(page);
   });
 
   test('Our plugin settings should toggle WooCommerce admin bar badge', async ({ page }) => {
     // Visit settings page
-    await comingSoon.navigateToSettings(page, pluginId);
+    await navigateToSettings(page, pluginId);
 
     // Deactivate coming soon - Launch Site
-    await comingSoon.toggleComingSoon(page);
+    await toggleComingSoon(page);
 
     // WooCommerce badge should now be live
-    await comingSoon.verifyWooCommerceComingSoonInactive(page);
+    await verifyWooCommerceComingSoonInactive(page);
 
     // Re-enable coming soon mode
-    await comingSoon.toggleComingSoon(page);
+    await toggleComingSoon(page);
 
     // WooCommerce badge should now be coming soon
     const comingSoonBadge = page.locator('#wp-toolbar .woocommerce-site-status-badge-coming-soon a.ab-item');
@@ -61,12 +71,12 @@ test.describe('Coming Soon with WooCommerce', () => {
 
   test('Hide our site preview notice when WooCommerce is active', async ({ page }) => {
     // Visit settings page
-    await comingSoon.navigateToSettings(page, pluginId);
+    await navigateToSettings(page, pluginId);
 
     // Visit frontend
-    await comingSoon.navigateToFrontend(page);
+    await navigateToFrontend(page);
     
     // Verify site preview warning is hidden
-    await comingSoon.verifySitePreviewWarningHidden(page);
+    await verifySitePreviewWarningHidden(page);
   });
 });
