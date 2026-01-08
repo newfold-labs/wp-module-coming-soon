@@ -41,7 +41,7 @@
     "postcss-safe-important": "^2.0.1",
     "prettier": "^3.7.4",
     "prettier-plugin-tailwindcss": "^0.5.14",
-    "tailwindcss": "^3.4.17",
+    "tailwindcss": "^4.1.18",
     "webpack-merge": "^5.10.0"
   },
   "dependencies": {
