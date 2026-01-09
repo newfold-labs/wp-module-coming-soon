@@ -58,17 +58,17 @@ async function installWooCommerce(page) {
 /**
  * Uninstall WooCommerce and extensions
  */
-async function uninstallWooCommerceAndExtensions() {
+async function uninstallWooCommerce() {
   try {
     await wordpress.wpCli(
-      'plugin uninstall woocommerce yith-stripe-payments-for-woocommerce-extended yith-paypal-payments-for-woocommerce-extended --deactivate',
+      'plugin uninstall woocommerce --deactivate',
       {
         timeout: 20000,
         failOnNonZeroExit: false,
       }
     );
   } catch (error) {
-    fancyLog('Failed to uninstall WooCommerce extensions:' + error.message, 55, 'yellow');
+    fancyLog('Failed to uninstall WooCommerce:' + error.message, 55, 'yellow');
   }
 }
 
@@ -199,14 +199,53 @@ function getNotifications(page) {
 }
 
 /**
- * Toggle coming soon state
+ * Enable coming soon mode via dashboard widget
+ * Navigates to dashboard and clicks the enable button if coming soon is currently disabled
  * 
  * @param {import('@playwright/test').Page} page - Playwright page object
  */
-async function toggleComingSoon(page) {
-  const toggle = getComingSoonToggle(page);
-  await toggle.click();
-  await page.waitForTimeout(2000);
+async function enableComingSoon(page) {
+  await page.goto('/wp-admin/index.php');
+  await page.waitForLoadState('networkidle');
+  
+  const enableButton = page.locator('[data-test-id="nfd-coming-soon-enable"]');
+  const disableButton = page.locator('[data-test-id="nfd-coming-soon-disable"]');
+  
+  // Wait for either button to be visible (widget loaded)
+  await expect(enableButton.or(disableButton)).toBeVisible({ timeout: 10000 });
+  
+  // If enable button is visible, coming soon is currently disabled - click to enable
+  if (await enableButton.isVisible()) {
+    await enableButton.click();
+    await page.waitForLoadState('networkidle');
+    // Wait for disable button to appear (confirms state change)
+    await expect(disableButton).toBeVisible({ timeout: 10000 });
+  }
+}
+
+/**
+ * Disable coming soon mode via dashboard widget
+ * Navigates to dashboard and clicks the disable button if coming soon is currently enabled
+ * 
+ * @param {import('@playwright/test').Page} page - Playwright page object
+ */
+async function disableComingSoon(page) {
+  await page.goto('/wp-admin/index.php');
+  await page.waitForLoadState('networkidle');
+  
+  const enableButton = page.locator('[data-test-id="nfd-coming-soon-enable"]');
+  const disableButton = page.locator('[data-test-id="nfd-coming-soon-disable"]');
+  
+  // Wait for either button to be visible (widget loaded)
+  await expect(enableButton.or(disableButton)).toBeVisible({ timeout: 10000 });
+  
+  // If disable button is visible, coming soon is currently enabled - click to disable
+  if (await disableButton.isVisible()) {
+    await disableButton.click();
+    await page.waitForLoadState('networkidle');
+    // Wait for enable button to appear (confirms state change)
+    await expect(enableButton).toBeVisible({ timeout: 10000 });
+  }
 }
 
 /**
@@ -381,7 +420,7 @@ export {
   // Coming Soon helpers
   removeWooCommerce,
   installWooCommerce,
-  uninstallWooCommerceAndExtensions,
+  uninstallWooCommerce,
   setComingSoonOption,
   navigateToSettings,
   navigateToHome,
@@ -394,7 +433,8 @@ export {
   getSitePreviewWarning,
   getAdminNotice,
   getNotifications,
-  toggleComingSoon,
+  enableComingSoon,
+  disableComingSoon,
   verifyComingSoonActive,
   verifyComingSoonInactive,
   verifyWooCommerceComingSoonActive,

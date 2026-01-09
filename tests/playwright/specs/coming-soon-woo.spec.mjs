@@ -1,7 +1,6 @@
 import { test, expect } from '@playwright/test';
 import {
   auth,
-  getAppClass,
   installWooCommerce,
   setComingSoonOption,
   navigateToWpAdmin,
@@ -9,9 +8,10 @@ import {
   navigateToFrontend,
   verifyWooCommerceComingSoonActive,
   verifyWooCommerceComingSoonInactive,
-  toggleComingSoon,
+  enableComingSoon,
+  disableComingSoon,
   verifySitePreviewWarningHidden,
-  uninstallWooCommerceAndExtensions,
+  uninstallWooCommerce,
 } from '../helpers';
 
 // Use environment variable to resolve plugin helpers
@@ -37,7 +37,7 @@ test.describe('Coming Soon with WooCommerce', () => {
 
   test.afterAll(async () => {
     // Uninstall WooCommerce and extensions
-    await uninstallWooCommerceAndExtensions();
+    await uninstallWooCommerce();
   });
 
   test("Replace our admin bar site status badge with WooCommerce's when active", async ({ page }) => {
@@ -51,19 +51,16 @@ test.describe('Coming Soon with WooCommerce', () => {
   });
 
   test('Our plugin settings should toggle WooCommerce admin bar badge', async ({ page }) => {
-    // Visit settings page
-    await navigateToSettings(page, pluginId);
+    // Disable coming soon via dashboard widget
+    await disableComingSoon(page);
 
-    // Deactivate coming soon - Launch Site
-    await toggleComingSoon(page);
-
-    // WooCommerce badge should now be live
+    // WooCommerce badge should now show "Live"
     await verifyWooCommerceComingSoonInactive(page);
 
-    // Re-enable coming soon mode
-    await toggleComingSoon(page);
+    // Re-enable coming soon via dashboard widget
+    await enableComingSoon(page);
 
-    // WooCommerce badge should now be coming soon
+    // WooCommerce badge should now show "Coming soon"
     const comingSoonBadge = page.locator('#wp-toolbar .woocommerce-site-status-badge-coming-soon a.ab-item');
     await expect(comingSoonBadge).toBeVisible();
     await expect(comingSoonBadge).toContainText('Coming soon');
