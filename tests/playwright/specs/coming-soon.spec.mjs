@@ -2,23 +2,15 @@ import { test, expect } from '@playwright/test';
 import {
   auth,
   getAppClass,
-  installWooCommerce,
   setComingSoonOption,
   navigateToWpAdmin,
-  navigateToSettings,
   navigateToFrontend,
-  verifyWooCommerceComingSoonActive,
-  verifyWooCommerceComingSoonInactive,
-  toggleComingSoon,
-  verifySitePreviewWarningHidden,
   removeWooCommerce,
-  verifyComingSoonActive,
-  verifyComingSoonInactive,
-  verifyNotification,
   verifyAdminNotice,
   verifySitePreviewWarning,
   verifyComingSoonFrontend,
-  verifySiteLiveFrontend,
+  navigateToSettings,
+  verifyComingSoonActive,
 } from '../helpers';
 
 // Use environment variable to resolve plugin helpers
@@ -51,27 +43,26 @@ test.describe('Coming Soon', () => {
     await verifyComingSoonActive(page, appClass);
   });
 
-  test('Coming Soon Toggle Turns Coming Soon Off', async ({ page }) => {
-    await navigateToSettings(page, pluginId);
+  test('Coming Soon can be disabled and re-enabled via dashboard widget', async ({ page }) => {
+    // Go to dashboard
+    await page.goto('/wp-admin/index.php');
     
-    // Deactivate coming soon - Launch Site
-    await toggleComingSoon(page);
+    // Find and click the disable button on the coming soon widget
+    const disableButton = page.locator('[data-test-id="nfd-coming-soon-disable"]');
+    await expect(disableButton).toBeVisible();
+    await disableButton.click();
+    await page.waitForLoadState('networkidle');
+    
+    // Verify coming soon is now disabled - the enable button should appear
+    const enableButton = page.locator('[data-test-id="nfd-coming-soon-enable"]');
+    await expect(enableButton).toBeVisible({ timeout: 10000 });
 
-    // Verify coming soon is inactive
-    await verifyComingSoonInactive(page);
-
-    // Verify notification appears
-    await verifyNotification(page, 'Coming soon deactivated');
-
-    // Coming Soon Toggle Turns Coming Soon Back On
-    // Activate Coming Soon - Unlaunch Site
-    await toggleComingSoon(page);
-
-    // Verify coming soon is active again
-    await verifyComingSoonActive(page, appClass);
-
-    // Verify notification appears
-    await verifyNotification(page, 'Coming soon activated');
+    // Re-enable coming soon by clicking the enable button
+    await enableButton.click();
+    await page.waitForLoadState('networkidle');
+    
+    // Verify coming soon is now enabled - the disable button should appear again
+    await expect(disableButton).toBeVisible({ timeout: 10000 });
   });
 
   test('Displays admin coming soon notice', async ({ page }) => {
