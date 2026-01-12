@@ -30,7 +30,7 @@
     "@wordpress/scripts": "^31.2.0",
     "autoprefixer": "^10.4.23",
     "concurrently": "^9.2.1",
-    "cssnano": "^6.1.2",
+    "cssnano": "^7.1.2",
     "esbuild": "^0.27.2",
     "eslint": "^9.39.2",
     "eslint-plugin-prettier": "^5.5.4",
