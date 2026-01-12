@@ -45,7 +45,7 @@
     "webpack-merge": "^6.0.1"
   },
   "dependencies": {
-    "@wordpress/icons": "^10.15.1",
+    "@wordpress/icons": "^11.4.0",
     "@heroicons/react": "^2.2.0",
     "@newfold/ui-component-library": "^2.1.1",
     "classnames": "^2.5.1",
