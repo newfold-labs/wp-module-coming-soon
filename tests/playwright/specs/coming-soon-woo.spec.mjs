@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import {
   auth,
+  newfold,
   installWooCommerce,
   setComingSoonOption,
   navigateToWpAdmin,
@@ -17,30 +18,50 @@ import {
 // Use environment variable to resolve plugin helpers
 const pluginId = process.env.PLUGIN_ID || 'bluehost';
 
+// Cache WooCommerce support check (set in beforeAll, used in tests)
+let wooSupported;
+let wooSkipMessage;
+
 test.describe('Coming Soon with WooCommerce', () => {
   test.describe.configure({ timeout: 60000 });
+
+  // Check WooCommerce support once before all tests
+  test.beforeAll(async () => {
+    wooSupported = await newfold.supportsWoo();
+    if (!wooSupported) {
+      wooSkipMessage = await newfold.getSkipMessage('woocommerce');
+    }
+  });
 
   test.beforeEach(async ({ page }) => {
     // Login to WordPress
     await auth.loginToWordPress(page);
 
-    // Activate WooCommerce
-    await installWooCommerce(page);
+    // Only install WooCommerce if environment supports it
+    if (wooSupported) {
+      // Activate WooCommerce
+      await installWooCommerce(page);
 
-    // Set coming soon options
-    await setComingSoonOption(page, true, 'mm_coming_soon');
-    await setComingSoonOption(page, true, 'nfd_coming_soon');
+      // Set coming soon options
+      await setComingSoonOption(page, true, 'mm_coming_soon');
+      await setComingSoonOption(page, true, 'nfd_coming_soon');
 
-    // Navigate to WordPress admin
-    await navigateToWpAdmin(page);
+      // Navigate to WordPress admin
+      await navigateToWpAdmin(page);
+    }
   });
 
   test.afterAll(async () => {
-    // Uninstall WooCommerce and extensions
-    await uninstallWooCommerce();
+    // Only uninstall if we installed it
+    if (wooSupported) {
+      await uninstallWooCommerce();
+    }
   });
 
   test("Replace our admin bar site status badge with WooCommerce's when active", async ({ page }) => {
+    // Skip if WooCommerce is not supported in this environment
+    test.skip(!wooSupported, wooSkipMessage);
+
     // Visit settings page
     await navigateToSettings(page, pluginId);
     // Force refresh
@@ -51,6 +72,9 @@ test.describe('Coming Soon with WooCommerce', () => {
   });
 
   test('Our plugin settings should toggle WooCommerce admin bar badge', async ({ page }) => {
+    // Skip if WooCommerce is not supported in this environment
+    test.skip(!wooSupported, wooSkipMessage);
+
     // Disable coming soon via dashboard widget
     await disableComingSoon(page);
 
@@ -67,6 +91,9 @@ test.describe('Coming Soon with WooCommerce', () => {
   });
 
   test('Hide our site preview notice when WooCommerce is active', async ({ page }) => {
+    // Skip if WooCommerce is not supported in this environment
+    test.skip(!wooSupported, wooSkipMessage);
+
     // Visit settings page
     await navigateToSettings(page, pluginId);
 
