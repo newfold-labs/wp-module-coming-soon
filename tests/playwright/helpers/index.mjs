@@ -81,9 +81,9 @@ async function uninstallWooCommerce() {
  */
 async function setComingSoonOption(page, enabled, optionName = 'nfd_coming_soon') {
   try {
-    await wordpress.setOption(`${optionName} ${enabled}`, {
-      failOnNonZeroExit: false,
-    });
+    // Convert boolean to WordPress option format (1/0)
+    const value = enabled ? '1' : '0';
+    await wordpress.setOption(optionName, value);
   } catch (error) {
     fancyLog(`Failed to set ${optionName}:` + error.message, 55, 'yellow');
   }
