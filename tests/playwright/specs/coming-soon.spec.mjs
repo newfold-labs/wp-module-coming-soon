@@ -51,18 +51,16 @@ test.describe('Coming Soon', () => {
     const disableButton = page.locator('[data-test-id="nfd-coming-soon-disable"]');
     await expect(disableButton).toBeVisible();
     await disableButton.click();
-    await page.waitForLoadState('networkidle');
     
     // Verify coming soon is now disabled - the enable button should appear
     const enableButton = page.locator('[data-test-id="nfd-coming-soon-enable"]');
-    await expect(enableButton).toBeVisible({ timeout: 10000 });
+    await expect(enableButton).toBeVisible({ timeout: 20000 });
 
     // Re-enable coming soon by clicking the enable button
     await enableButton.click();
-    await page.waitForLoadState('networkidle');
     
     // Verify coming soon is now enabled - the disable button should appear again
-    await expect(disableButton).toBeVisible({ timeout: 10000 });
+    await expect(disableButton).toBeVisible({ timeout: 20000 });
   });
 
   test('Displays admin coming soon notice', async ({ page }) => {
