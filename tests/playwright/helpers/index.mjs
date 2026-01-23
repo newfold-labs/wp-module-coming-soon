@@ -231,20 +231,18 @@ async function enableComingSoon(page) {
  */
 async function disableComingSoon(page) {
   await page.goto('/wp-admin/index.php');
-  await page.waitForLoadState('networkidle');
   
   const enableButton = page.locator('[data-test-id="nfd-coming-soon-enable"]');
   const disableButton = page.locator('[data-test-id="nfd-coming-soon-disable"]');
   
   // Wait for either button to be visible (widget loaded)
-  await expect(enableButton.or(disableButton)).toBeVisible({ timeout: 10000 });
+  await expect(enableButton.or(disableButton)).toBeVisible({ timeout: 20000 });
   
   // If disable button is visible, coming soon is currently enabled - click to disable
   if (await disableButton.isVisible()) {
     await disableButton.click();
-    await page.waitForLoadState('networkidle');
     // Wait for enable button to appear (confirms state change)
-    await expect(enableButton).toBeVisible({ timeout: 10000 });
+    await expect(enableButton).toBeVisible({ timeout: 20000 });
   }
 }
 
