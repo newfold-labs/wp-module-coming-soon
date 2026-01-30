@@ -1,8 +1,9 @@
-
 #node_modules
 /node_modules
 /node_modules/tests/_output
 /tests/_support/_generated
+/tests/_output
 /wordpress
 /wp-content
-vendor
+/vendor
+.env.testing
