@@ -15,12 +15,17 @@ use function NewfoldLabs\WP\Module\ComingSoon\optionExists;
  */
 class FunctionsWPUnitTest extends \lucatume\WPBrowser\TestCase\WPTestCase {
 
+	/**
+	 * Clean up options after each test.
+	 */
 	public function tearDown(): void {
 		delete_option( 'nfd_coming_soon' );
 		parent::tearDown();
 	}
 
 	/**
+	 * Test that optionExists returns false when option is not set.
+	 *
 	 * @covers \NewfoldLabs\WP\Module\ComingSoon\optionExists
 	 */
 	public function test_option_exists_returns_false_when_option_not_set() {
@@ -28,6 +33,8 @@ class FunctionsWPUnitTest extends \lucatume\WPBrowser\TestCase\WPTestCase {
 	}
 
 	/**
+	 * Test that optionExists returns true when option is set.
+	 *
 	 * @covers \NewfoldLabs\WP\Module\ComingSoon\optionExists
 	 */
 	public function test_option_exists_returns_true_when_option_set() {
@@ -37,6 +44,8 @@ class FunctionsWPUnitTest extends \lucatume\WPBrowser\TestCase\WPTestCase {
 	}
 
 	/**
+	 * Test that optionExists returns true when option is empty string.
+	 *
 	 * @covers \NewfoldLabs\WP\Module\ComingSoon\optionExists
 	 */
 	public function test_option_exists_returns_true_when_option_empty_string() {
@@ -46,6 +55,8 @@ class FunctionsWPUnitTest extends \lucatume\WPBrowser\TestCase\WPTestCase {
 	}
 
 	/**
+	 * Test that isComingSoonActive returns false when coming soon is disabled.
+	 *
 	 * @covers \NewfoldLabs\WP\Module\ComingSoon\isComingSoonActive
 	 */
 	public function test_is_coming_soon_active_false_when_disabled() {
@@ -54,6 +65,8 @@ class FunctionsWPUnitTest extends \lucatume\WPBrowser\TestCase\WPTestCase {
 	}
 
 	/**
+	 * Test that isComingSoonActive returns true when coming soon is enabled.
+	 *
 	 * @covers \NewfoldLabs\WP\Module\ComingSoon\isComingSoonActive
 	 */
 	public function test_is_coming_soon_active_true_when_enabled() {
@@ -62,6 +75,8 @@ class FunctionsWPUnitTest extends \lucatume\WPBrowser\TestCase\WPTestCase {
 	}
 
 	/**
+	 * Test that isWoocommerceActive returns false when WooCommerce is not loaded.
+	 *
 	 * @covers \NewfoldLabs\WP\Module\ComingSoon\isWoocommerceActive
 	 */
 	public function test_is_woocommerce_active_false_when_woocommerce_not_loaded() {

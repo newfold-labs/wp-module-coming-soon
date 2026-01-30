@@ -9,12 +9,17 @@ namespace NewfoldLabs\WP\Module\ComingSoon;
  */
 class SitePreviewWarningWPUnitTest extends \lucatume\WPBrowser\TestCase\WPTestCase {
 
+	/**
+	 * Clean up options after each test.
+	 */
 	public function tearDown(): void {
 		delete_option( 'nfd_coming_soon' );
 		parent::tearDown();
 	}
 
 	/**
+	 * Test that site_preview_warning outputs the expected markup.
+	 *
 	 * @covers ::site_preview_warning
 	 */
 	public function test_site_preview_warning_outputs_expected_markup() {
