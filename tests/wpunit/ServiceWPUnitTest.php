@@ -74,7 +74,7 @@ class ServiceWPUnitTest extends \lucatume\WPBrowser\TestCase\WPTestCase {
 		$this->assertIsInt( $as_int, 'lastChanged as int should be integer' );
 		$this->assertNotEmpty( $as_int, 'lastChanged should be set after enable' );
 		$this->assertIsString( $as_date, 'lastChanged as date should be string' );
-		$this->assertRegExp( '/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/', $as_date, 'lastChanged date should be Y-m-d H:i:s' );
+		$this->assertMatchesRegularExpression( '/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/', $as_date, 'lastChanged date should be Y-m-d H:i:s' );
 	}
 
 	/**
@@ -168,6 +168,6 @@ class ServiceWPUnitTest extends \lucatume\WPBrowser\TestCase\WPTestCase {
 		$this->service->enable();
 		$result = $this->service->get_last_changed_timestamp( true );
 		$this->assertIsString( $result );
-		$this->assertRegExp( '/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/', $result );
+		$this->assertMatchesRegularExpression( '/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/', $result );
 	}
 }
