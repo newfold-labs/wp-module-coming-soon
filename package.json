@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.11",
-    "@wordpress/eslint-plugin": "^24.0.0",
+    "@wordpress/eslint-plugin": "^24.1.0",
     "@wordpress/prettier-config": "^4.37.0",
     "@wordpress/scripts": "^31.4.0",
     "autoprefixer": "^10.4.23",
