@@ -25,10 +25,10 @@
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.11",
-    "@wordpress/eslint-plugin": "^24.0.0",
+    "@wordpress/eslint-plugin": "^24.1.0",
     "@wordpress/prettier-config": "^4.37.0",
-    "@wordpress/scripts": "^31.3.0",
-    "autoprefixer": "^10.4.23",
+    "@wordpress/scripts": "^31.4.0",
+    "autoprefixer": "^10.4.24",
     "concurrently": "^9.2.1",
     "cssnano": "^7.1.2",
     "esbuild": "^0.27.2",
@@ -45,7 +45,7 @@
     "webpack-merge": "^6.0.1"
   },
   "dependencies": {
-    "@wordpress/icons": "^11.5.0",
+    "@wordpress/icons": "^11.6.0",
     "@heroicons/react": "^2.2.0",
     "@newfold/ui-component-library": "^2.1.1",
     "classnames": "^2.5.1",
@@ -53,6 +53,6 @@
     "lodash": "^4.17.23",
     "react-intersection-observer": "^10.0.2",
     "react-masonry-css": "^1.0.16",
-    "swr": "^2.3.8"
+    "swr": "^2.4.0"
   }
 }
