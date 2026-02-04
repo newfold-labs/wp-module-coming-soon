@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1766171104">
-  <project timestamp="1766171104">
+<coverage generated="1770220701">
+  <project timestamp="1770220701">
     <file name="/home/runner/work/wp-module-coming-soon/wp-module-coming-soon/includes/API/ComingSoon.php">
       <class name="NewfoldLabs\WP\Module\ComingSoon\API\ComingSoon" namespace="global">
         <metrics complexity="10" methods="7" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="52" coveredstatements="0" elements="59" coveredelements="0"/>
@@ -425,40 +425,40 @@
     </file>
     <file name="/home/runner/work/wp-module-coming-soon/wp-module-coming-soon/includes/Service.php">
       <class name="NewfoldLabs\WP\Module\ComingSoon\Service" namespace="global">
-        <metrics complexity="9" methods="5" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="0" elements="19" coveredelements="0"/>
+        <metrics complexity="9" methods="5" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="13" elements="19" coveredelements="17"/>
       </class>
-      <line num="19" type="method" name="enable" visibility="public" complexity="2" crap="6" count="0"/>
-      <line num="20" type="stmt" count="0"/>
-      <line num="22" type="stmt" count="0"/>
-      <line num="23" type="stmt" count="0"/>
-      <line num="32" type="method" name="disable" visibility="public" complexity="2" crap="6" count="0"/>
-      <line num="33" type="stmt" count="0"/>
-      <line num="35" type="stmt" count="0"/>
-      <line num="36" type="stmt" count="0"/>
-      <line num="45" type="method" name="is_enabled" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="46" type="stmt" count="0"/>
+      <line num="19" type="method" name="enable" visibility="public" complexity="2" crap="2" count="4"/>
+      <line num="20" type="stmt" count="4"/>
+      <line num="22" type="stmt" count="4"/>
+      <line num="23" type="stmt" count="3"/>
+      <line num="32" type="method" name="disable" visibility="public" complexity="2" crap="2" count="4"/>
+      <line num="33" type="stmt" count="4"/>
+      <line num="35" type="stmt" count="4"/>
+      <line num="36" type="stmt" count="3"/>
+      <line num="45" type="method" name="is_enabled" visibility="public" complexity="1" crap="1" count="7"/>
+      <line num="46" type="stmt" count="7"/>
       <line num="54" type="method" name="last_changed_timestamp" visibility="private" complexity="1" crap="2" count="0"/>
       <line num="55" type="stmt" count="0"/>
-      <line num="63" type="method" name="get_last_changed_timestamp" visibility="public" complexity="3" crap="12" count="0"/>
-      <line num="64" type="stmt" count="0"/>
-      <line num="66" type="stmt" count="0"/>
-      <line num="67" type="stmt" count="0"/>
-      <line num="71" type="stmt" count="0"/>
-      <line num="72" type="stmt" count="0"/>
-      <line num="75" type="stmt" count="0"/>
-      <metrics loc="77" ncloc="43" classes="1" methods="5" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="0" elements="19" coveredelements="0"/>
+      <line num="63" type="method" name="get_last_changed_timestamp" visibility="public" complexity="3" crap="3" count="5"/>
+      <line num="64" type="stmt" count="5"/>
+      <line num="66" type="stmt" count="5"/>
+      <line num="67" type="stmt" count="1"/>
+      <line num="71" type="stmt" count="4"/>
+      <line num="72" type="stmt" count="2"/>
+      <line num="75" type="stmt" count="3"/>
+      <metrics loc="77" ncloc="43" classes="1" methods="5" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="13" elements="19" coveredelements="17"/>
     </file>
     <file name="/home/runner/work/wp-module-coming-soon/wp-module-coming-soon/includes/SitePreviewWarning.php">
       <class name="NewfoldLabs\WP\Module\ComingSoon\SitePreviewWarning" namespace="global">
-        <metrics complexity="4" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="0" elements="6" coveredelements="0"/>
+        <metrics complexity="4" methods="2" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="1" elements="6" coveredelements="2"/>
       </class>
       <line num="14" type="method" name="__construct" visibility="public" complexity="3" crap="12" count="0"/>
       <line num="16" type="stmt" count="0"/>
       <line num="17" type="stmt" count="0"/>
       <line num="20" type="stmt" count="0"/>
-      <line num="26" type="method" name="site_preview_warning" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="27" type="stmt" count="0"/>
-      <metrics loc="30" ncloc="18" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="0" elements="6" coveredelements="0"/>
+      <line num="26" type="method" name="site_preview_warning" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="27" type="stmt" count="1"/>
+      <metrics loc="30" ncloc="18" classes="1" methods="2" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="1" elements="6" coveredelements="2"/>
     </file>
     <file name="/home/runner/work/wp-module-coming-soon/wp-module-coming-soon/includes/WooCommerceOptionsSync.php">
       <class name="NewfoldLabs\WP\Module\ComingSoon\WooCommerceOptionsSync" namespace="global">
@@ -516,11 +516,11 @@
       <metrics loc="153" ncloc="101" classes="1" methods="8" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="41" coveredstatements="0" elements="49" coveredelements="0"/>
     </file>
     <file name="/home/runner/work/wp-module-coming-soon/wp-module-coming-soon/includes/functions.php">
-      <line num="9" type="stmt" count="0"/>
-      <line num="16" type="stmt" count="0"/>
-      <line num="25" type="stmt" count="0"/>
-      <line num="26" type="stmt" count="0"/>
-      <metrics loc="28" ncloc="17" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="0" elements="4" coveredelements="0"/>
+      <line num="9" type="stmt" count="2"/>
+      <line num="16" type="stmt" count="1"/>
+      <line num="25" type="stmt" count="3"/>
+      <line num="26" type="stmt" count="3"/>
+      <metrics loc="28" ncloc="17" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="4" coveredelements="4"/>
     </file>
     <file name="/home/runner/work/wp-module-coming-soon/wp-module-coming-soon/includes/template/index.php">
       <line num="2" type="stmt" count="0"/>
@@ -671,6 +671,6 @@
       <line num="189" type="stmt" count="0"/>
       <metrics loc="190" ncloc="177" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="146" coveredstatements="0" elements="146" coveredelements="0"/>
     </file>
-    <metrics files="9" loc="1341" ncloc="981" classes="7" methods="49" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="573" coveredstatements="0" elements="622" coveredelements="0"/>
+    <metrics files="9" loc="1341" ncloc="981" classes="7" methods="49" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="573" coveredstatements="18" elements="622" coveredelements="23"/>
   </project>
 </coverage>
