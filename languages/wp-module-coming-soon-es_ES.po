@@ -1,16 +1,15 @@
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: newfold-labswp-module-staging\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-13T09:55:55+00:00\n"
-"PO-Revision-Date: 2025-02-19 17:00\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
-"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-02-13T09:55:55+00:00\n"
+"PO-Revision-Date: 2025-02-19 17:00\n"
+"Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-File: wp-module-coming-soon.pot\n"
 "X-Crowdin-File-ID: 54\n"
@@ -24,13 +23,16 @@ msgstr ""
 msgid "Coming Soon"
 msgstr "Próximamente"
 
-#: includes/AdminBarSiteStatusBadge.php:42 static/js/coming-soon.js:127
+#: includes/AdminBarSiteStatusBadge.php:42
+#: static/js/coming-soon.js:127
 #: static/js/coming-soon.js:142
 msgid "Coming soon"
 msgstr "Próximamente"
 
-#: includes/AdminBarSiteStatusBadge.php:43 build/sitePreviewPortal/bundle.js:1
-#: static/js/coming-soon.js:131 static/js/coming-soon.js:146
+#: includes/AdminBarSiteStatusBadge.php:43
+#: build/sitePreviewPortal/bundle.js:1
+#: static/js/coming-soon.js:131
+#: static/js/coming-soon.js:146
 msgid "Live"
 msgstr "En vivo"
 
@@ -52,26 +54,15 @@ msgstr "¡Próximamente!"
 
 #: includes/ComingSoon.php:57
 msgid "Thank you, please check your email to confirm your subscription."
-msgstr ""
-"Gracias, por favor revisa tu correo electrónico para confirmar tu "
-"suscripción."
+msgstr "Gracias, por favor revisa tu correo electrónico para confirmar tu suscripción."
 
 #: includes/ComingSoon.php:58
-msgid ""
-"Your email address is already subscribed to this website.<br>Stay tuned to "
-"your inbox for our updates or try a different email address."
-msgstr ""
-"Tu dirección de correo electrónico ya está suscrita a este sitio "
-"web.<br>Revisa tu bandeja de entrada para nuestras actualizaciones o prueba "
-"con otra dirección."
+msgid "Your email address is already subscribed to this website.<br>Stay tuned to your inbox for our updates or try a different email address."
+msgstr "Tu dirección de correo electrónico ya está suscrita a este sitio web.<br>Revisa tu bandeja de entrada para nuestras actualizaciones o prueba con otra dirección."
 
 #: includes/ComingSoon.php:59
-msgid ""
-"There was an error with your submission and you were not "
-"subscribed.<br>Please try again with a valid email address."
-msgstr ""
-"Hubo un error con tu registro y no pudimos suscribirte.<br>Por favor, "
-"inténtalo de nuevo con una dirección de correo válida."
+msgid "There was an error with your submission and you were not subscribed.<br>Please try again with a valid email address."
+msgstr "Hubo un error con tu registro y no pudimos suscribirte.<br>Por favor, inténtalo de nuevo con una dirección de correo válida."
 
 #: includes/ComingSoon.php:60
 msgid "Enter your email address"
@@ -103,9 +94,7 @@ msgstr "Suscripción exitosa"
 
 #: includes/SitePreviewWarning.php:27
 msgid "Site Preview - This site is NOT LIVE, only admins can see this view."
-msgstr ""
-"Vista previa del sitio: este sitio NO está publicado. Solo los "
-"administradores pueden ver esta vista."
+msgstr "Vista previa del sitio: este sitio NO está publicado. Solo los administradores pueden ver esta vista."
 
 #: includes/template/index.php:126
 msgid "Admin Login"
@@ -116,12 +105,8 @@ msgid "Ready to launch your Site?"
 msgstr "¿Estás listo para lanzar tu sitio?"
 
 #: build/prePublishWarning/bundle.js:1
-msgid ""
-"Pages and posts you publish will not be visible to the public until you "
-"launch your site."
-msgstr ""
-"Las páginas y publicaciones que publiques no serán visibles para el público "
-"hasta que lances tu sitio."
+msgid "Pages and posts you publish will not be visible to the public until you launch your site."
+msgstr "Las páginas y publicaciones que publiques no serán visibles para el público hasta que lances tu sitio."
 
 #: build/prePublishWarning/bundle.js:1
 msgid "Publish & Launch Site"
@@ -143,7 +128,8 @@ msgstr "Regístrese para ser el primero en saber cuándo lanzamos."
 msgid "Is this your website?"
 msgstr "¿Es este tu sitio web?"
 
-#: includes/template/index.php:102 includes/template/index.php:106
+#: includes/template/index.php:102
+#: includes/template/index.php:106
 msgid "Login to WordPress"
 msgstr "Iniciar sesión en WordPress"
 
