@@ -40,7 +40,7 @@
     }
   },
   "require": {
-    "newfold-labs/wp-module-data": "^2.9.2",
+    "newfold-labs/wp-module-data": "^2.9.3",
     "wp-forge/wp-upgrade-handler": "^1.0"
   },
   "require-dev": {
