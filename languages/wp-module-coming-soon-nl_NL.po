@@ -1,15 +1,16 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: newfold-labswp-module-staging\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-13T09:55:55+00:00\n"
+"PO-Revision-Date: 2025-02-19 17:00\n"
 "Last-Translator: \n"
 "Language-Team: Dutch\n"
+"Language: nl_NL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-02-13T09:55:55+00:00\n"
-"PO-Revision-Date: 2025-02-19 17:00\n"
-"Language: nl_NL\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-File: wp-module-coming-soon.pot\n"
 "X-Crowdin-File-ID: 54\n"
@@ -23,16 +24,13 @@ msgstr ""
 msgid "Coming Soon"
 msgstr "Binnenkort beschikbaar"
 
-#: includes/AdminBarSiteStatusBadge.php:42
-#: static/js/coming-soon.js:127
+#: includes/AdminBarSiteStatusBadge.php:42 static/js/coming-soon.js:127
 #: static/js/coming-soon.js:142
 msgid "Coming soon"
 msgstr "Binnenkort beschikbaar"
 
-#: includes/AdminBarSiteStatusBadge.php:43
-#: build/sitePreviewPortal/bundle.js:1
-#: static/js/coming-soon.js:131
-#: static/js/coming-soon.js:146
+#: includes/AdminBarSiteStatusBadge.php:43 build/sitePreviewPortal/bundle.js:1
+#: static/js/coming-soon.js:131 static/js/coming-soon.js:146
 msgid "Live"
 msgstr "Zichtbaar"
 
@@ -57,12 +55,20 @@ msgid "Thank you, please check your email to confirm your subscription."
 msgstr "Bedankt, controleer je e-mail om je abonnement te bevestigen."
 
 #: includes/ComingSoon.php:58
-msgid "Your email address is already subscribed to this website.<br>Stay tuned to your inbox for our updates or try a different email address."
-msgstr "Uw e-mailadres is al geabonneerd op deze website.<br>Blijf op de hoogte van uw inbox voor onze updates of probeer een ander e-mailadres."
+msgid ""
+"Your email address is already subscribed to this website.<br>Stay tuned to "
+"your inbox for our updates or try a different email address."
+msgstr ""
+"Uw e-mailadres is al geabonneerd op deze website.<br>Blijf op de hoogte van "
+"uw inbox voor onze updates of probeer een ander e-mailadres."
 
 #: includes/ComingSoon.php:59
-msgid "There was an error with your submission and you were not subscribed.<br>Please try again with a valid email address."
-msgstr "Er is een fout opgetreden bij het indienen van uw aanmelding.<br>Probeer het opnieuw met een geldig e-mailadres."
+msgid ""
+"There was an error with your submission and you were not "
+"subscribed.<br>Please try again with a valid email address."
+msgstr ""
+"Er is een fout opgetreden bij het indienen van uw aanmelding.<br>Probeer het"
+" opnieuw met een geldig e-mailadres."
 
 #: includes/ComingSoon.php:60
 msgid "Enter your email address"
@@ -94,7 +100,9 @@ msgstr "Abonnement succesvol"
 
 #: includes/SitePreviewWarning.php:27
 msgid "Site Preview - This site is NOT LIVE, only admins can see this view."
-msgstr "Voorbeeld van de site - Deze site is NIET LIVE, alleen admins kunnen deze weergave zien."
+msgstr ""
+"Voorbeeld van de site - Deze site is NIET LIVE, alleen admins kunnen deze "
+"weergave zien."
 
 #: includes/template/index.php:126
 msgid "Admin Login"
@@ -105,8 +113,12 @@ msgid "Ready to launch your Site?"
 msgstr "Klaar om uw site te starten?"
 
 #: build/prePublishWarning/bundle.js:1
-msgid "Pages and posts you publish will not be visible to the public until you launch your site."
-msgstr "Pagina's en berichten die u publiceert zullen niet zichtbaar zijn voor het publiek totdat u uw site opstart."
+msgid ""
+"Pages and posts you publish will not be visible to the public until you "
+"launch your site."
+msgstr ""
+"Pagina's en berichten die u publiceert zullen niet zichtbaar zijn voor het "
+"publiek totdat u uw site opstart."
 
 #: build/prePublishWarning/bundle.js:1
 msgid "Publish & Launch Site"
@@ -128,8 +140,7 @@ msgstr "Meld je aan om als eerste op de hoogte te zijn wanneer we lanceren."
 msgid "Is this your website?"
 msgstr "Is dit uw website?"
 
-#: includes/template/index.php:102
-#: includes/template/index.php:106
+#: includes/template/index.php:102 includes/template/index.php:106
 msgid "Login to WordPress"
 msgstr "Inloggen op WordPress"
 
@@ -143,7 +154,9 @@ msgstr "Niet live"
 
 #: build/sitePreviewPortal/bundle.js:1
 msgid "Your website is currently displaying a \"Coming Soon\" page."
-msgstr "Op uw website wordt momenteel een pagina 'Binnenkort beschikbaar' weergegeven."
+msgstr ""
+"Op uw website wordt momenteel een pagina 'Binnenkort beschikbaar' "
+"weergegeven."
 
 #: build/sitePreviewPortal/bundle.js:1
 msgid "Your website is live to the world!"
