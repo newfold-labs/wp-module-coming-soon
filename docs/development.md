@@ -1,3 +1,10 @@
+---
+name: wp-module-coming-soon
+title: Development
+description: Lint, test, and workflow.
+updated: 2025-03-18
+---
+
 # Development
 
 ## Linting

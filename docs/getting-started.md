@@ -1,3 +1,10 @@
+---
+name: wp-module-coming-soon
+title: Getting started
+description: Prerequisites, install, and run.
+updated: 2025-03-18
+---
+
 # Getting started
 
 ## Prerequisites

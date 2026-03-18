@@ -1,3 +1,10 @@
+---
+name: wp-module-coming-soon
+title: Overview
+description: What the module does and who maintains it.
+updated: 2025-03-18
+---
+
 # Overview
 
 ## What the module does
