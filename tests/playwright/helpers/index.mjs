@@ -216,6 +216,9 @@ async function enableComingSoon(page) {
   // If enable button is visible, coming soon is currently disabled - click to enable
   if (await enableButton.isVisible()) {
     await enableButton.click();
+    // Widget JS calls `window.location.reload()` after the API resolves; wait for load
+    // before asserting so slower runners do not race the reload.
+    await page.waitForLoadState( 'load' );
     // Wait for disable button to appear (confirms state change)
     await expect(disableButton).toBeVisible({ timeout: 20000 });
   }
@@ -239,6 +242,7 @@ async function disableComingSoon(page) {
   // If disable button is visible, coming soon is currently enabled - click to disable
   if (await disableButton.isVisible()) {
     await disableButton.click();
+    await page.waitForLoadState( 'load' );
     // Wait for enable button to appear (confirms state change)
     await expect(enableButton).toBeVisible({ timeout: 20000 });
   }
