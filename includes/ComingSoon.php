@@ -258,15 +258,18 @@ class ComingSoon {
 				\wp_enqueue_script( 'nfd-coming-soon-portal' );
 				\wp_enqueue_style( 'nfd-coming-soon-portal-style' );
 
-				// Get coming soon site data
-				$comingsoon_portal_data = array(
-					'isComingSoon' => isComingSoonActive(),
-					'viewUrl'      => home_url(),
-					'editUrl'      => get_admin_url(
-						null,
-						wp_is_block_theme() ? 'site-editor.php?canvas=edit' : 'customize.php'
-					),
-					'previewUrl'   => home_url() . '/?preview=coming_soon',
+				// Allow host plugins to alter portal data before wp_localize_script().
+				$comingsoon_portal_data = \apply_filters(
+					'newfold/coming-soon/filter/portal_data',
+					array(
+						'isComingSoon' => isComingSoonActive(),
+						'viewUrl'      => home_url(),
+						'editUrl'      => get_admin_url(
+							null,
+							wp_is_block_theme() ? 'site-editor.php?canvas=edit' : 'customize.php'
+						),
+						'previewUrl'   => home_url() . '/?preview=coming_soon',
+					)
 				);
 
 				\wp_localize_script(
