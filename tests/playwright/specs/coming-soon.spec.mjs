@@ -27,10 +27,10 @@ test.describe('Coming Soon', () => {
   test.beforeEach(async ({ page }) => {
     // Login to WordPress
     await auth.loginToWordPress(page);
-    
+
     // Set coming soon option to true to start with
     await setComingSoonOption(page, true);
-    
+
     // Navigate to WordPress admin
     await navigateToWpAdmin(page);
   });
@@ -46,7 +46,7 @@ test.describe('Coming Soon', () => {
   test('Coming Soon can be disabled and re-enabled via dashboard widget', async ({ page }) => {
     // Go to dashboard
     await page.goto('/wp-admin/index.php');
-    
+
     // Find and click the disable button on the coming soon widget
     let disableButton = page.locator('[data-test-id="nfd-coming-soon-disable"]');
     await expect(disableButton).toBeVisible();
