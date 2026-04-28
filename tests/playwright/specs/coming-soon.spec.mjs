@@ -48,17 +48,19 @@ test.describe('Coming Soon', () => {
     await page.goto('/wp-admin/index.php');
     
     // Find and click the disable button on the coming soon widget
-    const disableButton = page.locator('[data-test-id="nfd-coming-soon-disable"]');
+    let disableButton = page.locator('[data-test-id="nfd-coming-soon-disable"]');
     await expect(disableButton).toBeVisible();
     await disableButton.click();
-    
+
     // Verify coming soon is now disabled - the enable button should appear
     const enableButton = page.locator('[data-test-id="nfd-coming-soon-enable"]');
     await expect(enableButton).toBeVisible({ timeout: 20000 });
 
     // Re-enable coming soon by clicking the enable button
     await enableButton.click();
-    
+    // Re-find the disable button after the page has reloaded
+    disableButton = page.locator('[data-test-id="nfd-coming-soon-disable"]');
+
     // Verify coming soon is now enabled - the disable button should appear again
     await expect(disableButton).toBeVisible({ timeout: 20000 });
   });
