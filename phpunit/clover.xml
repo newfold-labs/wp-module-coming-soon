@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1777273860">
-  <project timestamp="1777273860">
+<coverage generated="1777414131">
+  <project timestamp="1777414131">
     <file name="/home/runner/work/wp-module-coming-soon/wp-module-coming-soon/includes/API/ComingSoon.php">
       <class name="NewfoldLabs\WP\Module\ComingSoon\API\ComingSoon" namespace="global">
         <metrics complexity="10" methods="7" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="52" coveredstatements="0" elements="59" coveredelements="0"/>
@@ -142,7 +142,7 @@
     </file>
     <file name="/home/runner/work/wp-module-coming-soon/wp-module-coming-soon/includes/ComingSoon.php">
       <class name="NewfoldLabs\WP\Module\ComingSoon\ComingSoon" namespace="global">
-        <metrics complexity="54" methods="20" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="231" coveredstatements="0" elements="251" coveredelements="0"/>
+        <metrics complexity="54" methods="20" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="234" coveredstatements="0" elements="254" coveredelements="0"/>
       </class>
       <line num="19" type="method" name="__construct" visibility="public" complexity="9" crap="90" count="0"/>
       <line num="20" type="stmt" count="0"/>
@@ -283,119 +283,122 @@
       <line num="268" type="stmt" count="0"/>
       <line num="269" type="stmt" count="0"/>
       <line num="270" type="stmt" count="0"/>
+      <line num="271" type="stmt" count="0"/>
       <line num="272" type="stmt" count="0"/>
       <line num="273" type="stmt" count="0"/>
-      <line num="274" type="stmt" count="0"/>
       <line num="275" type="stmt" count="0"/>
       <line num="276" type="stmt" count="0"/>
-      <line num="284" type="method" name="rest_api_init" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="285" type="stmt" count="0"/>
-      <line num="294" type="method" name="handle_onboarding_completed" visibility="public" complexity="2" crap="6" count="0"/>
-      <line num="295" type="stmt" count="0"/>
-      <line num="297" type="stmt" count="0"/>
+      <line num="277" type="stmt" count="0"/>
+      <line num="278" type="stmt" count="0"/>
+      <line num="279" type="stmt" count="0"/>
+      <line num="287" type="method" name="rest_api_init" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="288" type="stmt" count="0"/>
+      <line num="297" type="method" name="handle_onboarding_completed" visibility="public" complexity="2" crap="6" count="0"/>
       <line num="298" type="stmt" count="0"/>
-      <line num="299" type="stmt" count="0"/>
-      <line num="306" type="method" name="notice_display" visibility="public" complexity="4" crap="20" count="0"/>
-      <line num="308" type="stmt" count="0"/>
-      <line num="310" type="stmt" count="0"/>
-      <line num="312" type="stmt" count="0"/>
+      <line num="300" type="stmt" count="0"/>
+      <line num="301" type="stmt" count="0"/>
+      <line num="302" type="stmt" count="0"/>
+      <line num="309" type="method" name="notice_display" visibility="public" complexity="4" crap="20" count="0"/>
+      <line num="311" type="stmt" count="0"/>
       <line num="313" type="stmt" count="0"/>
       <line num="315" type="stmt" count="0"/>
       <line num="316" type="stmt" count="0"/>
-      <line num="317" type="stmt" count="0"/>
       <line num="318" type="stmt" count="0"/>
       <line num="319" type="stmt" count="0"/>
+      <line num="320" type="stmt" count="0"/>
+      <line num="321" type="stmt" count="0"/>
       <line num="322" type="stmt" count="0"/>
-      <line num="323" type="stmt" count="0"/>
-      <line num="324" type="stmt" count="0"/>
+      <line num="325" type="stmt" count="0"/>
+      <line num="326" type="stmt" count="0"/>
       <line num="327" type="stmt" count="0"/>
-      <line num="328" type="stmt" count="0"/>
-      <line num="337" type="method" name="maybe_load_template" visibility="public" complexity="5" crap="30" count="0"/>
-      <line num="338" type="stmt" count="0"/>
-      <line num="339" type="stmt" count="0"/>
-      <line num="340" type="stmt" count="0"/>
+      <line num="330" type="stmt" count="0"/>
+      <line num="331" type="stmt" count="0"/>
+      <line num="340" type="method" name="maybe_load_template" visibility="public" complexity="5" crap="30" count="0"/>
       <line num="341" type="stmt" count="0"/>
-      <line num="351" type="method" name="coming_soon_content" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="352" type="stmt" count="0"/>
-      <line num="353" type="stmt" count="0"/>
-      <line num="359" type="method" name="coming_soon_subscribe" visibility="public" complexity="7" crap="56" count="0"/>
-      <line num="361" type="stmt" count="0"/>
-      <line num="362" type="stmt" count="0"/>
-      <line num="363" type="stmt" count="0"/>
+      <line num="342" type="stmt" count="0"/>
+      <line num="343" type="stmt" count="0"/>
+      <line num="344" type="stmt" count="0"/>
+      <line num="354" type="method" name="coming_soon_content" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="355" type="stmt" count="0"/>
+      <line num="356" type="stmt" count="0"/>
+      <line num="362" type="method" name="coming_soon_subscribe" visibility="public" complexity="7" crap="56" count="0"/>
+      <line num="364" type="stmt" count="0"/>
       <line num="365" type="stmt" count="0"/>
-      <line num="367" type="stmt" count="0"/>
+      <line num="366" type="stmt" count="0"/>
       <line num="368" type="stmt" count="0"/>
       <line num="370" type="stmt" count="0"/>
-      <line num="372" type="stmt" count="0"/>
+      <line num="371" type="stmt" count="0"/>
       <line num="373" type="stmt" count="0"/>
-      <line num="378" type="stmt" count="0"/>
+      <line num="375" type="stmt" count="0"/>
+      <line num="376" type="stmt" count="0"/>
       <line num="381" type="stmt" count="0"/>
-      <line num="382" type="stmt" count="0"/>
-      <line num="383" type="stmt" count="0"/>
       <line num="384" type="stmt" count="0"/>
       <line num="385" type="stmt" count="0"/>
-      <line num="389" type="stmt" count="0"/>
-      <line num="390" type="stmt" count="0"/>
-      <line num="391" type="stmt" count="0"/>
+      <line num="386" type="stmt" count="0"/>
+      <line num="387" type="stmt" count="0"/>
+      <line num="388" type="stmt" count="0"/>
       <line num="392" type="stmt" count="0"/>
+      <line num="393" type="stmt" count="0"/>
       <line num="394" type="stmt" count="0"/>
       <line num="395" type="stmt" count="0"/>
-      <line num="396" type="stmt" count="0"/>
       <line num="397" type="stmt" count="0"/>
+      <line num="398" type="stmt" count="0"/>
       <line num="399" type="stmt" count="0"/>
-      <line num="401" type="stmt" count="0"/>
+      <line num="400" type="stmt" count="0"/>
       <line num="402" type="stmt" count="0"/>
       <line num="404" type="stmt" count="0"/>
       <line num="405" type="stmt" count="0"/>
-      <line num="409" type="stmt" count="0"/>
-      <line num="410" type="stmt" count="0"/>
-      <line num="414" type="stmt" count="0"/>
-      <line num="415" type="stmt" count="0"/>
-      <line num="421" type="method" name="coming_soon_prevent_emails" visibility="public" complexity="2" crap="6" count="0"/>
-      <line num="423" type="stmt" count="0"/>
-      <line num="424" type="stmt" count="0"/>
-      <line num="425" type="stmt" count="0"/>
+      <line num="407" type="stmt" count="0"/>
+      <line num="408" type="stmt" count="0"/>
+      <line num="412" type="stmt" count="0"/>
+      <line num="413" type="stmt" count="0"/>
+      <line num="417" type="stmt" count="0"/>
+      <line num="418" type="stmt" count="0"/>
+      <line num="424" type="method" name="coming_soon_prevent_emails" visibility="public" complexity="2" crap="6" count="0"/>
       <line num="426" type="stmt" count="0"/>
       <line num="427" type="stmt" count="0"/>
-      <line num="437" type="method" name="coming_soon_prevent_emails_return_array" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="439" type="stmt" count="0"/>
-      <line num="440" type="stmt" count="0"/>
-      <line num="441" type="stmt" count="0"/>
-      <line num="453" type="method" name="filter_jetpack_is_under_construction" visibility="public" complexity="2" crap="6" count="0"/>
-      <line num="454" type="stmt" count="0"/>
-      <line num="455" type="stmt" count="0"/>
+      <line num="428" type="stmt" count="0"/>
+      <line num="429" type="stmt" count="0"/>
+      <line num="430" type="stmt" count="0"/>
+      <line num="440" type="method" name="coming_soon_prevent_emails_return_array" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="442" type="stmt" count="0"/>
+      <line num="443" type="stmt" count="0"/>
+      <line num="444" type="stmt" count="0"/>
+      <line num="456" type="method" name="filter_jetpack_is_under_construction" visibility="public" complexity="2" crap="6" count="0"/>
+      <line num="457" type="stmt" count="0"/>
       <line num="458" type="stmt" count="0"/>
-      <line num="466" type="method" name="load_text_domain" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="468" type="stmt" count="0"/>
-      <line num="469" type="stmt" count="0"/>
-      <line num="470" type="stmt" count="0"/>
+      <line num="461" type="stmt" count="0"/>
+      <line num="469" type="method" name="load_text_domain" visibility="public" complexity="1" crap="2" count="0"/>
       <line num="471" type="stmt" count="0"/>
       <line num="472" type="stmt" count="0"/>
-      <line num="485" type="method" name="load_js_translations" visibility="public" complexity="3" crap="12" count="0"/>
-      <line num="486" type="stmt" count="0"/>
-      <line num="487" type="stmt" count="0"/>
-      <line num="488" type="stmt" count="0"/>
+      <line num="473" type="stmt" count="0"/>
+      <line num="474" type="stmt" count="0"/>
+      <line num="475" type="stmt" count="0"/>
+      <line num="488" type="method" name="load_js_translations" visibility="public" complexity="3" crap="12" count="0"/>
       <line num="489" type="stmt" count="0"/>
+      <line num="490" type="stmt" count="0"/>
       <line num="491" type="stmt" count="0"/>
       <line num="492" type="stmt" count="0"/>
+      <line num="494" type="stmt" count="0"/>
       <line num="495" type="stmt" count="0"/>
-      <line num="497" type="stmt" count="0"/>
       <line num="498" type="stmt" count="0"/>
+      <line num="500" type="stmt" count="0"/>
       <line num="501" type="stmt" count="0"/>
-      <line num="502" type="stmt" count="0"/>
-      <line num="503" type="stmt" count="0"/>
       <line num="504" type="stmt" count="0"/>
+      <line num="505" type="stmt" count="0"/>
       <line num="506" type="stmt" count="0"/>
       <line num="507" type="stmt" count="0"/>
-      <line num="508" type="stmt" count="0"/>
       <line num="509" type="stmt" count="0"/>
       <line num="510" type="stmt" count="0"/>
+      <line num="511" type="stmt" count="0"/>
       <line num="512" type="stmt" count="0"/>
       <line num="513" type="stmt" count="0"/>
-      <line num="514" type="stmt" count="0"/>
       <line num="515" type="stmt" count="0"/>
       <line num="516" type="stmt" count="0"/>
-      <metrics loc="519" ncloc="385" classes="1" methods="20" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="231" coveredstatements="0" elements="251" coveredelements="0"/>
+      <line num="517" type="stmt" count="0"/>
+      <line num="518" type="stmt" count="0"/>
+      <line num="519" type="stmt" count="0"/>
+      <metrics loc="522" ncloc="388" classes="1" methods="20" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="234" coveredstatements="0" elements="254" coveredelements="0"/>
     </file>
     <file name="/home/runner/work/wp-module-coming-soon/wp-module-coming-soon/includes/PrePublishModal.php">
       <class name="NewfoldLabs\WP\Module\ComingSoon\PrePublishModal" namespace="global">
@@ -671,6 +674,6 @@
       <line num="189" type="stmt" count="0"/>
       <metrics loc="190" ncloc="177" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="146" coveredstatements="0" elements="146" coveredelements="0"/>
     </file>
-    <metrics files="9" loc="1341" ncloc="981" classes="7" methods="49" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="573" coveredstatements="18" elements="622" coveredelements="23"/>
+    <metrics files="9" loc="1344" ncloc="984" classes="7" methods="49" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="576" coveredstatements="18" elements="625" coveredelements="23"/>
   </project>
 </coverage>
