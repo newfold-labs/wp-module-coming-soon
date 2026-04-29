@@ -27,10 +27,10 @@ test.describe('Coming Soon', () => {
   test.beforeEach(async ({ page }) => {
     // Login to WordPress
     await auth.loginToWordPress(page);
-    
+
     // Set coming soon option to true to start with
     await setComingSoonOption(page, true);
-    
+
     // Navigate to WordPress admin
     await navigateToWpAdmin(page);
   });
@@ -46,12 +46,11 @@ test.describe('Coming Soon', () => {
   test('Coming Soon can be disabled and re-enabled via dashboard widget', async ({ page }) => {
     // Go to dashboard
     await page.goto('/wp-admin/index.php');
-    
+
     // Find and click the disable button on the coming soon widget
-    const disableButton = page.locator('[data-test-id="nfd-coming-soon-disable"]');
+    let disableButton = page.locator('[data-test-id="nfd-coming-soon-disable"]');
     await expect(disableButton).toBeVisible();
     await disableButton.click();
-    await page.waitForLoadState( 'load' );
 
     // Verify coming soon is now disabled - the enable button should appear
     const enableButton = page.locator('[data-test-id="nfd-coming-soon-enable"]');
@@ -59,7 +58,8 @@ test.describe('Coming Soon', () => {
 
     // Re-enable coming soon by clicking the enable button
     await enableButton.click();
-    await page.waitForLoadState( 'load' );
+    // Re-find the disable button after the page has reloaded
+    disableButton = page.locator('[data-test-id="nfd-coming-soon-disable"]');
 
     // Verify coming soon is now enabled - the disable button should appear again
     await expect(disableButton).toBeVisible({ timeout: 20000 });
