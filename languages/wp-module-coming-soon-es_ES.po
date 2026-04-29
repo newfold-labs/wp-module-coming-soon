@@ -8,7 +8,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2025-02-13T09:55:55+00:00\n"
-"PO-Revision-Date: 2025-02-19 17:00\n"
+"PO-Revision-Date: 2026-04-29T13:19:37+00:00\n"
 "Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-File: wp-module-coming-soon.pot\n"
@@ -44,6 +44,10 @@ msgstr "No puede acceder al recurso."
 msgid "Coming Soon module service provider error."
 msgstr "Error del proveedor de servicios del módulo 'Próximamente'."
 
+#: includes/ComingSoon.php:25
+msgid "A new website is on the way!"
+msgstr "¡Un nuevo sitio web está en camino!"
+
 #: includes/ComingSoon.php:49
 msgid "Your site has Coming Soon mode active."
 msgstr "Tu sitio tiene el modo 'Próximamente' activado."
@@ -51,6 +55,10 @@ msgstr "Tu sitio tiene el modo 'Próximamente' activado."
 #: includes/ComingSoon.php:50
 msgid "Coming Soon!"
 msgstr "¡Próximamente!"
+
+#: includes/ComingSoon.php:56
+msgid "Signup to be the first to know when we launch."
+msgstr "Regístrese para ser el primero en saber cuándo lanzamos."
 
 #: includes/ComingSoon.php:57
 msgid "Thank you, please check your email to confirm your subscription."
@@ -72,29 +80,38 @@ msgstr "Introduce tu dirección de correo electrónico"
 msgid "Subscribe"
 msgstr "Suscribirse"
 
-#: includes/ComingSoon.php:367
+#: includes/ComingSoon.php:370
 msgid "Gotcha!"
 msgstr "¡Entendido!"
 
-#: includes/ComingSoon.php:372
+#: includes/ComingSoon.php:375
 msgid "Please provide a valid email address"
 msgstr "Por favor, proporciona una dirección de correo válida"
 
-#: includes/ComingSoon.php:382
+#: includes/ComingSoon.php:385
 msgid "Jetpack encountered an error with the subscription"
 msgstr "Jetpack encontró un error con la suscripción"
 
-#: includes/ComingSoon.php:404
+#: includes/ComingSoon.php:407
 msgid "There was an error with the subscription"
 msgstr "Hubo un error con la suscripción"
 
-#: includes/ComingSoon.php:409
+#: includes/ComingSoon.php:412
 msgid "Subscription successful"
 msgstr "Suscripción exitosa"
 
 #: includes/SitePreviewWarning.php:27
 msgid "Site Preview - This site is NOT LIVE, only admins can see this view."
 msgstr "Vista previa del sitio: este sitio NO está publicado. Solo los administradores pueden ver esta vista."
+
+#: includes/template/index.php:100
+msgid "Is this your website?"
+msgstr "¿Es este tu sitio web?"
+
+#: includes/template/index.php:102
+#: includes/template/index.php:106
+msgid "Login to WordPress"
+msgstr "Iniciar sesión en WordPress"
 
 #: includes/template/index.php:126
 msgid "Admin Login"
@@ -115,23 +132,6 @@ msgstr "Publicar y lanzar sitio"
 #: build/prePublishWarning/bundle.js:1
 msgid "Publish Without Launching"
 msgstr "Publicar sin lanzar"
-
-#: includes/ComingSoon.php:25
-msgid "A new website is on the way!"
-msgstr "¡Un nuevo sitio web está en camino!"
-
-#: includes/ComingSoon.php:56
-msgid "Signup to be the first to know when we launch."
-msgstr "Regístrese para ser el primero en saber cuándo lanzamos."
-
-#: includes/template/index.php:100
-msgid "Is this your website?"
-msgstr "¿Es este tu sitio web?"
-
-#: includes/template/index.php:102
-#: includes/template/index.php:106
-msgid "Login to WordPress"
-msgstr "Iniciar sesión en WordPress"
 
 #: build/sitePreviewPortal/bundle.js:1
 msgid "Site Preview"

@@ -8,7 +8,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2025-02-13T09:55:55+00:00\n"
-"PO-Revision-Date: 2025-02-19 17:00\n"
+"PO-Revision-Date: 2026-04-29T13:19:37+00:00\n"
 "Language: nl_NL\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-File: wp-module-coming-soon.pot\n"
@@ -44,6 +44,10 @@ msgstr "U hebt geen toegang tot de bron."
 msgid "Coming Soon module service provider error."
 msgstr "Binnenkort komt er een fout in de serviceprovider."
 
+#: includes/ComingSoon.php:25
+msgid "A new website is on the way!"
+msgstr "Een nieuwe website is onderweg!"
+
 #: includes/ComingSoon.php:49
 msgid "Your site has Coming Soon mode active."
 msgstr "De site is binnenkort actief."
@@ -51,6 +55,10 @@ msgstr "De site is binnenkort actief."
 #: includes/ComingSoon.php:50
 msgid "Coming Soon!"
 msgstr "Binnenkort beschikbaar!"
+
+#: includes/ComingSoon.php:56
+msgid "Signup to be the first to know when we launch."
+msgstr "Meld je aan om als eerste op de hoogte te zijn wanneer we lanceren."
 
 #: includes/ComingSoon.php:57
 msgid "Thank you, please check your email to confirm your subscription."
@@ -72,29 +80,38 @@ msgstr "Voer uw e-mailadres in"
 msgid "Subscribe"
 msgstr "Abonneren"
 
-#: includes/ComingSoon.php:367
+#: includes/ComingSoon.php:370
 msgid "Gotcha!"
 msgstr "Gotcha!"
 
-#: includes/ComingSoon.php:372
+#: includes/ComingSoon.php:375
 msgid "Please provide a valid email address"
 msgstr "Geef een geldig e-mailadres op"
 
-#: includes/ComingSoon.php:382
+#: includes/ComingSoon.php:385
 msgid "Jetpack encountered an error with the subscription"
 msgstr "Jetpack ondervond een fout met het abonnement"
 
-#: includes/ComingSoon.php:404
+#: includes/ComingSoon.php:407
 msgid "There was an error with the subscription"
 msgstr "Er is een fout opgetreden met het abonnement"
 
-#: includes/ComingSoon.php:409
+#: includes/ComingSoon.php:412
 msgid "Subscription successful"
 msgstr "Abonnement succesvol"
 
 #: includes/SitePreviewWarning.php:27
 msgid "Site Preview - This site is NOT LIVE, only admins can see this view."
 msgstr "Voorbeeld van de site - Deze site is NIET LIVE, alleen admins kunnen deze weergave zien."
+
+#: includes/template/index.php:100
+msgid "Is this your website?"
+msgstr "Is dit uw website?"
+
+#: includes/template/index.php:102
+#: includes/template/index.php:106
+msgid "Login to WordPress"
+msgstr "Inloggen op WordPress"
 
 #: includes/template/index.php:126
 msgid "Admin Login"
@@ -115,23 +132,6 @@ msgstr "Publiceer & start site"
 #: build/prePublishWarning/bundle.js:1
 msgid "Publish Without Launching"
 msgstr "Publiceren zonder starten"
-
-#: includes/ComingSoon.php:25
-msgid "A new website is on the way!"
-msgstr "Een nieuwe website is onderweg!"
-
-#: includes/ComingSoon.php:56
-msgid "Signup to be the first to know when we launch."
-msgstr "Meld je aan om als eerste op de hoogte te zijn wanneer we lanceren."
-
-#: includes/template/index.php:100
-msgid "Is this your website?"
-msgstr "Is dit uw website?"
-
-#: includes/template/index.php:102
-#: includes/template/index.php:106
-msgid "Login to WordPress"
-msgstr "Inloggen op WordPress"
 
 #: build/sitePreviewPortal/bundle.js:1
 msgid "Site Preview"
