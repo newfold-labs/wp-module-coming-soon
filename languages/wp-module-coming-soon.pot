@@ -73,23 +73,23 @@ msgstr ""
 msgid "Subscribe"
 msgstr ""
 
-#: includes/ComingSoon.php:367
+#: includes/ComingSoon.php:370
 msgid "Gotcha!"
 msgstr ""
 
-#: includes/ComingSoon.php:372
+#: includes/ComingSoon.php:375
 msgid "Please provide a valid email address"
 msgstr ""
 
-#: includes/ComingSoon.php:382
+#: includes/ComingSoon.php:385
 msgid "Jetpack encountered an error with the subscription"
 msgstr ""
 
-#: includes/ComingSoon.php:404
+#: includes/ComingSoon.php:407
 msgid "There was an error with the subscription"
 msgstr ""
 
-#: includes/ComingSoon.php:409
+#: includes/ComingSoon.php:412
 msgid "Subscription successful"
 msgstr ""
 

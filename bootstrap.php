@@ -17,7 +17,7 @@ if ( defined( 'NFD_COMING_SOON_MODULE_VERSION' ) ) {
 	return;
 }
 
-define( 'NFD_COMING_SOON_MODULE_VERSION', '2.2.7' );
+define( 'NFD_COMING_SOON_MODULE_VERSION', '2.2.8' );
 
 require __DIR__ . '/includes/functions.php';
 
