@@ -32,7 +32,7 @@
     "concurrently": "^9.2.1",
     "cssnano": "^7.1.8",
     "esbuild": "^0.28.0",
-    "eslint": "^10.2.0",
+    "eslint": "^10.3.0",
     "eslint-plugin-prettier": "^5.5.5",
     "json-server": "^0.17.4",
     "postcss": "^8.5.12",
