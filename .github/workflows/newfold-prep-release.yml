@@ -26,6 +26,7 @@ jobs:
       contents: write      # Required for the reusable workflow to push branches/commits during release prep.
       pull-requests: write # Required for the reusable workflow to open/update pull requests.
     uses: newfold-labs/workflows/.github/workflows/reusable-module-prep-release.yml@main
+    timeout-minutes: 30
     with:
       module-repo: ${{ github.repository }}
       module-branch: 'main'
