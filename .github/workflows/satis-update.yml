@@ -16,6 +16,7 @@ jobs:
   webhook:
     name: Send Webhook
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     permissions:
       contents: read # Required to clone the repo.
     steps:

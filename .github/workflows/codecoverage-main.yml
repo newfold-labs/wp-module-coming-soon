@@ -20,6 +20,7 @@ permissions: {}
 jobs:
   get-repo-name:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     permissions: {}
     outputs:
       repository-name: ${{ steps.repo-name.outputs.name }}
@@ -36,6 +37,7 @@ jobs:
       contents: write      # Required by reusable codecoverage workflow (e.g., Pages/docs artifacts).
       pull-requests: write # Required by reusable codecoverage workflow for PR feedback.
     uses: newfold-labs/workflows/.github/workflows/reusable-codecoverage.yml@main
+    timeout-minutes: 30
     with:
       php-versions: '["7.4", "8.0", "8.1", "8.2", "8.3", "8.4"]'
       coverage-php-version: '7.4'
