@@ -27,7 +27,7 @@
     "@tailwindcss/forms": "^0.5.11",
     "@wordpress/eslint-plugin": "^25.1.0",
     "@wordpress/prettier-config": "^4.44.0",
-    "@wordpress/scripts": "^32.1.0",
+    "@wordpress/scripts": "^32.2.0",
     "autoprefixer": "^10.5.0",
     "concurrently": "^9.2.1",
     "cssnano": "^8.0.1",
