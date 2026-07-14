@@ -16,6 +16,11 @@ import {
 // Use environment variable to resolve plugin helpers
 const pluginId = process.env.PLUGIN_ID || 'bluehost';
 
+// Runs before 02-coming-soon-woo.spec.mjs (enforced by the numeric filename
+// prefix): this suite needs WooCommerce absent, and the WooCommerce suite
+// intentionally leaves WooCommerce installed afterward rather than
+// deactivating it, since deactivating WooCommerce in the shared brand-plugin
+// test environment fatals other bundled plugins that assume it stays active.
 test.describe('Coming Soon', () => {
   const appClass = getAppClass();
 

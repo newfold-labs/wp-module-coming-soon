@@ -31,7 +31,10 @@ const { setCapability } = newfold;
  */
 async function removeWooCommerce(page) {
   try {
-    await wordpress.wpCli('plugin uninstall woocommerce', {
+    // --deactivate: `wp plugin uninstall` refuses to remove an active plugin
+    // otherwise, so this is a no-op (logged, not thrown) if WooCommerce was
+    // left active by a previous local run.
+    await wordpress.wpCli('plugin uninstall woocommerce --deactivate', {
       timeout: 15000,
       failOnNonZeroExit: false,
     });
