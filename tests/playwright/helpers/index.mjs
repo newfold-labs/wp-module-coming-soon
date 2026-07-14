@@ -59,23 +59,6 @@ async function installWooCommerce(page) {
 }
 
 /**
- * Uninstall WooCommerce and extensions
- */
-async function uninstallWooCommerce() {
-  try {
-    await wordpress.wpCli(
-      'plugin uninstall woocommerce --deactivate',
-      {
-        timeout: 20000,
-        failOnNonZeroExit: false,
-      }
-    );
-  } catch (error) {
-    fancyLog('Failed to uninstall WooCommerce:' + error.message, 55, 'yellow');
-  }
-}
-
-/**
  * Set coming soon option
  * 
  * @param {import('@playwright/test').Page} page - Playwright page object
@@ -423,7 +406,6 @@ export {
   // Coming Soon helpers
   removeWooCommerce,
   installWooCommerce,
-  uninstallWooCommerce,
   setComingSoonOption,
   navigateToSettings,
   navigateToHome,
