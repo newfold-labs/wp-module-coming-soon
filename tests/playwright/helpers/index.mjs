@@ -31,7 +31,10 @@ const { setCapability } = newfold;
  */
 async function removeWooCommerce(page) {
   try {
-    await wordpress.wpCli('plugin uninstall woocommerce', {
+    // --deactivate: `wp plugin uninstall` refuses to remove an active plugin
+    // otherwise, so this is a no-op (logged, not thrown) if WooCommerce was
+    // left active by a previous local run.
+    await wordpress.wpCli('plugin uninstall woocommerce --deactivate', {
       timeout: 15000,
       failOnNonZeroExit: false,
     });
@@ -52,23 +55,6 @@ async function installWooCommerce(page) {
     });
   } catch (error) {
     fancyLog('Failed to install WooCommerce:' + error.message, 55, 'yellow');
-  }
-}
-
-/**
- * Uninstall WooCommerce and extensions
- */
-async function uninstallWooCommerce() {
-  try {
-    await wordpress.wpCli(
-      'plugin uninstall woocommerce --deactivate',
-      {
-        timeout: 20000,
-        failOnNonZeroExit: false,
-      }
-    );
-  } catch (error) {
-    fancyLog('Failed to uninstall WooCommerce:' + error.message, 55, 'yellow');
   }
 }
 
@@ -420,7 +406,6 @@ export {
   // Coming Soon helpers
   removeWooCommerce,
   installWooCommerce,
-  uninstallWooCommerce,
   setComingSoonOption,
   navigateToSettings,
   navigateToHome,

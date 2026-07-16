@@ -12,7 +12,6 @@ import {
   enableComingSoon,
   disableComingSoon,
   verifySitePreviewWarningHidden,
-  uninstallWooCommerce,
 } from '../helpers';
 
 // Use environment variable to resolve plugin helpers
@@ -51,12 +50,11 @@ test.describe('Coming Soon with WooCommerce', () => {
     }
   });
 
-  test.afterAll(async () => {
-    // Only uninstall if we installed it
-    if (wooSupported) {
-      await uninstallWooCommerce();
-    }
-  });
+  // Intentionally no afterAll teardown: this is the last coming-soon suite to
+  // run (see numeric filename prefix), and deactivating/uninstalling
+  // WooCommerce here fatals other plugins in the shared brand-plugin test
+  // environment that assume WooCommerce stays active once installed, which
+  // in turn breaks wp-login.php for every test that runs afterward.
 
   test("Replace our admin bar site status badge with WooCommerce's when active", async ({ page }) => {
     // Skip if WooCommerce is not supported in this environment
