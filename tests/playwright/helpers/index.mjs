@@ -20,17 +20,17 @@ const helpersUrl = pathToFileURL(finalHelpersPath).href;
 const pluginHelpers = await import(helpersUrl);
 
 // Destructure plugin helpers
-let { auth, wordpress, newfold, a11y, utils, woocommerce } = pluginHelpers;
+let { auth, wordpress, newfold, a11y, utils } = pluginHelpers;
 const { fancyLog } = utils;
 const { setCapability } = newfold;
 
 /**
  * Install/uninstall helpers for WooCommerce (shared, defined at the plugin level in
- * tests/playwright/helpers/woocommerce.mjs so every module reuses the same implementation,
+ * tests/playwright/helpers/newfold.mjs so every module reuses the same implementation,
  * which also deactivates known WooCommerce-dependent companion plugins on uninstall).
  * `removeWooCommerce` is kept as an alias of `uninstallWooCommerce` for existing callers.
  */
-const { installWooCommerce, uninstallWooCommerce } = woocommerce;
+const { installWooCommerce, uninstallWooCommerce } = newfold;
 const removeWooCommerce = uninstallWooCommerce;
 
 /**
