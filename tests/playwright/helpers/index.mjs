@@ -25,38 +25,13 @@ const { fancyLog } = utils;
 const { setCapability } = newfold;
 
 /**
- * Remove WooCommerce plugin
- * 
- * @param {import('@playwright/test').Page} page - Playwright page object
+ * Install/uninstall helpers for WooCommerce (shared, defined at the plugin level in
+ * tests/playwright/helpers/newfold.mjs so every module reuses the same implementation,
+ * which also deactivates known WooCommerce-dependent companion plugins on uninstall).
+ * `removeWooCommerce` is kept as an alias of `uninstallWooCommerce` for existing callers.
  */
-async function removeWooCommerce(page) {
-  try {
-    // --deactivate: `wp plugin uninstall` refuses to remove an active plugin
-    // otherwise, so this is a no-op (logged, not thrown) if WooCommerce was
-    // left active by a previous local run.
-    await wordpress.wpCli('plugin uninstall woocommerce --deactivate', {
-      timeout: 15000,
-      failOnNonZeroExit: false,
-    });
-  } catch (error) {
-    fancyLog('Failed to remove WooCommerce:' + error.message, 55, 'yellow');
-  }
-}
-
-/**
- * Install and activate WooCommerce plugin
- * 
- * @param {import('@playwright/test').Page} page - Playwright page object
- */
-async function installWooCommerce(page) {
-  try {
-    await wordpress.wpCli('plugin install woocommerce --activate', {
-      timeout: 15000,
-    });
-  } catch (error) {
-    fancyLog('Failed to install WooCommerce:' + error.message, 55, 'yellow');
-  }
-}
+const { installWooCommerce, uninstallWooCommerce } = newfold;
+const removeWooCommerce = uninstallWooCommerce;
 
 /**
  * Set coming soon option
