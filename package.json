@@ -28,7 +28,7 @@
     "@wordpress/eslint-plugin": "^25.3.0",
     "@wordpress/prettier-config": "^4.50.0",
     "@wordpress/scripts": "^34.0.0",
-    "autoprefixer": "^10.5.0",
+    "autoprefixer": "^10.5.4",
     "concurrently": "^10.0.4",
     "cssnano": "^8.0.1",
     "esbuild": "^0.28.1",
