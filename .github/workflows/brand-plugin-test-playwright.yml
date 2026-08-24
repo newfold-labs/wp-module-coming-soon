@@ -29,7 +29,7 @@ jobs:
         id: extract_branch
 
   bluehost:
-    name: Bluehost Build and Test Cypress
+    name: Bluehost Build and Test Playwright
     needs: setup
     permissions:
       contents: read
