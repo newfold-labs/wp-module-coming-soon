@@ -26,11 +26,11 @@ jobs:
 
       - name: Extract branch name
         shell: bash
-        run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+        run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> "$GITHUB_OUTPUT"
         id: extract_branch
 
   bluehost:
-    name: Bluehost Build and Test Cypress
+    name: Bluehost Build and Test Playwright
     needs: setup
     permissions:
       contents: read # Required for the reusable workflow to clone this private module repository.

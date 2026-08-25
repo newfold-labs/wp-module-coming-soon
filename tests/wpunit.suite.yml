@@ -14,7 +14,7 @@ modules:
             domain: "%TEST_SITE_WP_DOMAIN%"
             adminEmail: "%TEST_SITE_ADMIN_EMAIL%|admin@example.com"
             title: "Coming Soon Module Test"
-            plugins: []
-            activatePlugins: []
+            plugins: [ ]
+            activatePlugins: [ ]
             WP_HTTP_BLOCK_EXTERNAL: true
 bootstrap: _bootstrap.php

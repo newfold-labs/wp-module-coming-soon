@@ -1,4 +1,4 @@
-name: Lint
+name: PHP Lint
 on:
   push:
     branches:
@@ -6,7 +6,7 @@ on:
     paths:
       - '**.php'
   pull_request:
-    types: [opened, edited, reopened, ready_for_review]
+    types: [ opened, edited, reopened, ready_for_review ]
     paths:
       - '**.php'
   workflow_dispatch:
@@ -20,51 +20,13 @@ concurrency:
 permissions: {}
 
 jobs:
-  phpcs:
-    name: Run PHP Code Sniffer
-    runs-on: ubuntu-latest
+  php-lint:
+    name: PHP Lint
     timeout-minutes: 30
     permissions:
       contents: read # Required to clone the repo.
-    steps:
-
-      - name: Checkout
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-
-      # User PHP 7.4 here for compatibility with the WordPress codesniffer rules.
-      - name: Setup PHP
-        uses: shivammathur/setup-php@accd6127cb78bee3e8082180cb391013d204ef9f # v2.37.0
-        with:
-          php-version: '7.4'
-          coverage: none
-          tools: composer, cs2pr
-
-      - uses: technote-space/get-diff-action@f27caffdd0fb9b13f4fc191c016bb4e0632844af # v6.1.2
-        with:
-          SUFFIX_FILTER: .php
-
-      - name: Get Composer cache directory
-        id: composer-cache
-        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
-        if: "!! env.GIT_DIFF"
-
-      - name: Cache Composer vendor directory
-        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
-        with:
-          path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-composer-
-        if: "!! env.GIT_DIFF"
-
-      - name: Validate composer.json and composer.lock
-        run: composer validate
-        if: "!! env.GIT_DIFF"
-
-      - name: Install dependencies
-        run: composer install --no-progress --optimize-autoloader --prefer-dist
-        if: "!! env.GIT_DIFF"
-
-      - name: Detecting PHP Code Standards Violations
-        run: vendor/bin/phpcs --standard=phpcs.xml -s ${{ env.GIT_DIFF }}
-        if: "!! env.GIT_DIFF"
+    uses: newfold-labs/workflows/.github/workflows/reusable-php-lint.yml@b650944ae6f4366237bc230a00dd3e18d99b2655
+    with:
+      php-version: '8.1'
+      pr-base-sha: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.sha || '' }}
+      pr-head-sha: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || '' }}

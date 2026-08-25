@@ -22,14 +22,14 @@ jobs:
     steps:
 
       - name: Checkout
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Validate version number
         if: ${{ (github.repository == 'newfold-labs/wp-module-coming-soon') && (github.event.release.prerelease == false) }}
         run: |
           taggedVersion=${{ env.VERSION }}
-          moduleVersion=`grep "define( 'NFD_COMING_SOON_MODULE_VERSION'," bootstrap.php | grep -Eo "[0-9\.]*"`
-          packageVersion=`grep '"version"' package.json | grep -Eo "[0-9\.]*"`
+          moduleVersion=$(grep "define( 'NFD_COMING_SOON_MODULE_VERSION'," bootstrap.php | grep -Eo "[0-9\.]*")
+          packageVersion=$(grep '"version"' package.json | grep -Eo "[0-9\.]*")
           echo "Tagged version: $taggedVersion"
           echo "Module version: $moduleVersion"
           echo "Package version: $packageVersion"
@@ -40,11 +40,11 @@ jobs:
         id: package
         env:
           REPO: ${{ github.repository }}
-        run: echo "PACKAGE=${REPO##*/}" >> $GITHUB_OUTPUT
+        run: echo "PACKAGE=${REPO##*/}" >> "$GITHUB_OUTPUT"
 
       - name: Set Version
         id: tag
-        run: echo "VERSION=${GITHUB_REF##*/}" >> $GITHUB_OUTPUT
+        run: echo "VERSION=${GITHUB_REF##*/}" >> "$GITHUB_OUTPUT"
 
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@28959ce8df70de7be546dd1250a005dd32156697 # v4.0.1

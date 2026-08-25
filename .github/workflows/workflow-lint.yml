@@ -1,0 +1,19 @@
+name: Workflow Lint
+on:
+  pull_request:
+    types: [ opened, reopened, ready_for_review, synchronize ]
+    branches:
+      - main
+    paths:
+      - '.github/workflows/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  security-events: write
+  actions: read
+
+jobs:
+  lint:
+    name: Lint Workflows
+    uses: newfold-labs/workflows/.github/workflows/reusable-workflow-lint.yml@b650944ae6f4366237bc230a00dd3e18d99b2655
