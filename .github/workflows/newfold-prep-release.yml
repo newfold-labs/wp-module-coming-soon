@@ -12,6 +12,7 @@ on:
           - 'major'
         default: 'patch'
         required: true
+
 # Disable permissions for all available scopes by default.
 # Any needed permissions should be configured at the job level.
 permissions: {}
@@ -22,9 +23,10 @@ jobs:
   prep-release:
     name: Prepare Release
     permissions:
-      contents: write
-      pull-requests: write
+      contents: write      # Required for the reusable workflow to push branches/commits during release prep.
+      pull-requests: write # Required for the reusable workflow to open/update pull requests.
     uses: newfold-labs/workflows/.github/workflows/reusable-module-prep-release.yml@main
+    timeout-minutes: 30
     with:
       module-repo: ${{ github.repository }}
       module-branch: 'main'
