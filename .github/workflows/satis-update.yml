@@ -8,10 +8,17 @@ on:
 env:
   VERSION: ${GITHUB_REF#refs/tags/*}
 
+# Disable permissions for all available scopes by default.
+# Any needed permissions should be configured at the job level.
+permissions: {}
+
 jobs:
   webhook:
     name: Send Webhook
     runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read # Required to clone the repo.
     steps:
 
       - name: Checkout
