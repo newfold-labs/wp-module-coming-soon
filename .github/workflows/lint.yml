@@ -22,7 +22,6 @@ permissions: {}
 jobs:
   php-lint:
     name: PHP Lint
-    timeout-minutes: 30
     permissions:
       contents: read # Required to clone the repo.
     uses: newfold-labs/workflows/.github/workflows/reusable-php-lint.yml@b650944ae6f4366237bc230a00dd3e18d99b2655
