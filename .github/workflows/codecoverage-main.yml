@@ -29,7 +29,7 @@ jobs:
         id: repo-name
         # Extract just the repository name (e.g., "wp-module-coming-soon") from the full repository path
         # (e.g., "newfold-labs/wp-module-coming-soon") by splitting on '/' and taking the second field.
-        run: echo "name=$(echo ${{ github.repository }} | cut -d'/' -f2)" >> $GITHUB_OUTPUT
+        run: echo "name=$(echo ${{ github.repository }} | cut -d'/' -f2)" >> "$GITHUB_OUTPUT"
 
   codecoverage:
     needs: get-repo-name
