@@ -13,12 +13,15 @@ on:
       - main
   workflow_dispatch:
 
-permissions:
-  contents: read
+# Disable permissions for all available scopes by default.
+# Any needed permissions should be configured at the job level.
+permissions: {}
 
 jobs:
   get-repo-name:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions: {}
     outputs:
       repository-name: ${{ steps.repo-name.outputs.name }}
     steps:
@@ -26,13 +29,13 @@ jobs:
         id: repo-name
         # Extract just the repository name (e.g., "wp-module-coming-soon") from the full repository path
         # (e.g., "newfold-labs/wp-module-coming-soon") by splitting on '/' and taking the second field.
-        run: echo "name=$(echo ${{ github.repository }} | cut -d'/' -f2)" >> $GITHUB_OUTPUT
+        run: echo "name=$(echo ${{ github.repository }} | cut -d'/' -f2)" >> "$GITHUB_OUTPUT"
 
   codecoverage:
     needs: get-repo-name
     permissions:
-      contents: write
-      pull-requests: write
+      contents: write      # Required by reusable codecoverage workflow (e.g., Pages/docs artifacts).
+      pull-requests: write # Required by reusable codecoverage workflow for PR feedback.
     uses: newfold-labs/workflows/.github/workflows/reusable-codecoverage.yml@main
     with:
       php-versions: '["7.4", "8.0", "8.1", "8.2", "8.3", "8.4"]'
